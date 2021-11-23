@@ -20,8 +20,8 @@
   <link href="Content/css/sb-admin-2.min.css" rel="stylesheet"/>
   <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
 </head>
-<body>
-    <body id="page-top">
+
+ <body id="page-top">
 
     <form id="form1" runat="server">
 
@@ -32,7 +32,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
         <!--  <i class="fas fa-laugh-wink"></i> -->
         </div>
@@ -64,7 +64,7 @@
       </li>
           <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Receiving</span></a>
       </li>
@@ -85,7 +85,7 @@
 
          <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-table"></i>
           <span>Report</span></a>
       </li>
@@ -117,7 +117,7 @@
 
           <!-- Topbar Search -->
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -136,7 +136,7 @@
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -209,7 +209,7 @@
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="<img src="Images/beth.png" alt=""/>
+                    <img class="rounded-circle" src="Images/beth.png" alt="" />
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
@@ -217,7 +217,8 @@
                     <div class="small text-gray-500">Betty Adnew</div>
                   </div>
                 </a>
-              
+             </div>
+                </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -357,8 +358,8 @@
   <!-- Page level custom scripts -->
   <script src="Content/js/demo/chart-bar-demo.js"></script>
   <script src="Content/js/demo/chart-pie-demo.js"></script>
-
-    </form>
+      </div>
+  </form>
 
 </body>
 </html>

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Labtracker
-{
-
-
-    public partial class UploadSample
-    {
-
+namespace Labtracker {
+    
+    
+    public partial class UploadSample {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// FileUpload1 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
+        
         /// <summary>
         /// GridView2 control.
         /// </summary>

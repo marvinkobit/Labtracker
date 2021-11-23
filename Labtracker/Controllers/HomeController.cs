@@ -27,9 +27,9 @@ namespace Labtracker.Controllers
             {
                 dt = (DataTable)Session["tmpdata"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
+                throw;
             }
 
             //}
