@@ -1,7 +1,5 @@
 ﻿using ExcelDataReader;
 using Labtracker.Models;
-//using Microsoft.AspNet.Identity;
-//using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,14 +13,11 @@ using System.Web.Security;
 
 namespace Labtracker.Controllers
 {
-    public class HomeController : Controller
+    public class ProgressExcelController : Controller
     {
         public ActionResult Index()
         {
             DataTable dt = new DataTable();
-
-            //if ((String)Session["tmpdata"] != null)
-            //{
             try
             {
                 dt = (DataTable)Session["tmpdata"];
@@ -32,16 +27,9 @@ namespace Labtracker.Controllers
                 throw;
             }
 
-            //}
-
-
             return View(dt);
         }
 
-        //private IAuthenticationManager AuthenticationManager  //Sign out method
-        //{
-        //    get { return HttpContext.GetOwinContext().Authentication; }
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -92,8 +80,6 @@ namespace Labtracker.Controllers
 
                         string ret = "";
 
-
-
                         for (int i = 0; i < dt_.Columns.Count; i++)
                         {
                             dt.Columns.Add(dt_.Rows[0][i].ToString());
@@ -117,10 +103,10 @@ namespace Labtracker.Controllers
                             using (var context = new SampleContext())
 
                             {
-                                Sample sam = new Sample() { SampleID= int.Parse(row[0].ToString()), PatientId=row[1].ToString(), CardNo = row[2].ToString(), Volume = row[3].ToString(), Quality = row[4].ToString(), FromCountry = row[5].ToString(), FromRegion = row[6].ToString(), Zone = row[7].ToString(), Woreda = row[8].ToString(), HealthFacility = row[9].ToString(), CollectionDate = DateTime.Today, RecivedDate = DateTime.Today, LabTech = row[12].ToString(), FilePath = upload.FileName };
-                                context.Samples.Add(sam);
-                                context.SaveChanges();
-                           
+
+                                //Sample sam = new Sample() { SampleID = int.Parse(row[0].ToString()), PatientId = row[1].ToString(), CardNo = row[2].ToString(), Volume = row[3].ToString(), Quality = row[4].ToString(), FromCountry = row[5].ToString(), FromRegion = row[6].ToString(), Zone = row[7].ToString(), Woreda = row[8].ToString(), HealthFacility = row[9].ToString(), CollectionDate = DateTime.Today, RecivedDate = DateTime.Today, LabTech = row[12].ToString(), FilePath = upload.FileName, CategoryID = 1, ProjectID = 1 };
+                                //context.Samples.Add(sam);
+                                //context.SaveChanges();
 
                             }
 
@@ -136,8 +122,6 @@ namespace Labtracker.Controllers
                     DataSet result = new DataSet();//reader.AsDataSet();
                     result.Tables.Add(dt);
                     string minutes_ID = "";
-
-
 
                     reader.Close();
                     reader.Dispose();

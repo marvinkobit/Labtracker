@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Sample Excel Page";
 }
 
 @model System.Data.DataTable
@@ -47,10 +47,10 @@
                         });
                     </script>
 
-                    @using (Html.BeginForm("Index", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Index", "SampleExcel", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         <div class="info2">
-                            <h2>TBGEN EXCEL FILE Upload</h2>
+                            <h2>TBGEN Excel Sample File Upload</h2>
                             @Html.AntiForgeryToken()
 
                             <div class="form-group" name="Fichier1">
