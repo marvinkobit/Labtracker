@@ -15,7 +15,7 @@
                             $(".input-file").before(
                                 function () {
                                     if (!$(this).prev().hasClass('input-ghost')) {
-                                        var element = $("<input type='file' id='dataFile' name='upload' class='input-ghost' style='visibility:hidden; height:0'>");
+                                        var element = $("<input type='file' id='dataFile' name='upload' class='input-ghost' style='visibility:visible; height:20;'>");
                                         element.attr("name", $(this).attr("name"));
                                         element.change(function () {
                                             element.next(element).find('input').val((element.val()).split('\\').pop());
@@ -58,9 +58,9 @@
                                 <div class="form-group">
                                     <div class="input-group input-file">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-default btn-choose" type="button">Choose</button>
+                                            @*<button class="btn btn-default btn-choose" type="button">Choose</button>*@
                                         </span>
-                                        <input type="text" class="form-control" placeholder='Choose a file...' />
+                                        @*<input type="text" class="form-control" placeholder='Choose a file...' />*@
 
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" value="Import from Excel" class="btn btn-default" style="background-color:chartreuse" />
+                                <input type="submit" value="Import from Excel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
                                 @*<button class="btn btn-default" style="background-color:Highlight" >Save</button>*@
                             </div>
 

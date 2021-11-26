@@ -62,47 +62,56 @@
                             
                             <asp:ListItem selected hidden>Choose Result Type</asp:ListItem>
                               
-                            <asp:ListItem value="1" data-group="1">Smear</asp:ListItem>
+                            <asp:ListItem value="1" data-group="1">Primary Smear</asp:ListItem>
                             <asp:ListItem value="2" data-group="2">LJ</asp:ListItem>
-                            <asp:ListItem value="3" data-group="2">MIJT</asp:ListItem>
+                            <asp:ListItem value="3" data-group="3">MIJT</asp:ListItem>
                             <asp:ListItem value="4" data-group="4">RD9</asp:ListItem>
                             <asp:ListItem value="5" data-group="5">DNA Extraction</asp:ListItem>
                             <asp:ListItem value="6" data-group="6">Spoligo</asp:ListItem>
-                            <asp:ListItem value="7" data-group="7">Drug Resistance</asp:ListItem>
+                            <asp:ListItem value="7" data-group="7">DST</asp:ListItem>
+                          <asp:ListItem value="8" data-group="8">Culture Smear</asp:ListItem>
+                          <asp:ListItem value="9" data-group="9">Heat Killed</asp:ListItem>
+                      
 
                         </asp:DropDownList>
                    </div>
                         <br />
 
            <div ID="DRESVAL" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" >
-                     <asp:DropDownList ID="DDLRESVAL"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type" AutoPostBack = "true"   >
+                     <asp:DropDownList ID="DDLRESVAL"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type"   >
                             
                             <asp:ListItem selected hidden>Choose Result</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">Pos</asp:ListItem>  
-                            <asp:ListItem Value="1" data-group="1">Neg</asp:ListItem>
+                            <asp:ListItem Value="1" data-group="1">1+</asp:ListItem>
+                            <asp:ListItem Value="1" data-group="1">2+</asp:ListItem>
+                            <asp:ListItem Value="1" data-group="1">3+</asp:ListItem>
+                            <asp:ListItem Value="1" data-group="1">Scanty</asp:ListItem>
+                    
                             <asp:ListItem Value="2" data-group="2">Growth</asp:ListItem>
                             <asp:ListItem Value="2" data-group="2">NoGrowth</asp:ListItem>
                             <asp:ListItem Value="2" data-group="2">Contaminated</asp:ListItem>
                             <asp:ListItem Value="2" data-group="2">Not Done</asp:ListItem>
+
+                             <asp:ListItem Value="3" data-group="3">Growth</asp:ListItem>
+                            <asp:ListItem Value="3" data-group="3">NoGrowth</asp:ListItem>
+                            <asp:ListItem Value="3" data-group="3">Contaminated</asp:ListItem>
+                            <asp:ListItem Value="3" data-group="3">Not Done</asp:ListItem>
+
                             <asp:ListItem Value="4" data-group="4">MTBC</asp:ListItem>
                             <asp:ListItem Value="4" data-group="4">NTM</asp:ListItem>
+
                             <asp:ListItem Value="5" data-group="5">Good for library Prep</asp:ListItem>
                             <asp:ListItem Value="5" data-group="5">Failed-Repeat Extraction</asp:ListItem>
                             <asp:ListItem Value="5" data-group="5">Failed-Discard</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 1</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 2</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 3</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 4</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 5</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 6</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 7</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 8</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Linage 9</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="7">STM</asp:ListItem>   
-                            <asp:ListItem Value="7" data-group="7">INH</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="7">RIF</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="7">EMB</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="7">PZA</asp:ListItem>
+
+                             <asp:ListItem Value="7" data-group="7">First Line</asp:ListItem>  
+                            <asp:ListItem Value="7" data-group="7">Second Line</asp:ListItem>
+                            
+                          <asp:ListItem Value="8" data-group="8">Pos</asp:ListItem>  
+                            <asp:ListItem Value="8" data-group="8">Neg</asp:ListItem>
+
+                          <asp:ListItem Value="9" data-group="9">Yes</asp:ListItem>  
+                            <asp:ListItem Value="9" data-group="9">No</asp:ListItem>
+                         
                                 
                               
 
@@ -124,19 +133,42 @@
                   
               <div id=rescol2 class="col-sm-6 " >
                   
-                  <div id="SMDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
+                  <div id="DSTDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
                       <asp:Label>Please enter details here</asp:Label>
 
-                    <asp:DropDownList ID="ddlSmeardetail" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="primary smear" DataTextField="" runat="server">
-                        <asp:ListItem Selected hidden>Select primary smear result</asp:ListItem>
-                        <asp:ListItem>1+</asp:ListItem>
-                        <asp:ListItem>2+</asp:ListItem>
-                        <asp:ListItem>3+</asp:ListItem>
-                        <asp:ListItem>Scanty</asp:ListItem>
-                        </asp:DropDownList>
-                    <!--<asp:TextBox ID="txtCountry" class="form-control form-control-user" placeholder="Country" runat="server"></asp:TextBox> -->
-                    
+                      <div class="col-sm-6 col-lg-12">
+                        <asp:DropDownList ID="ddlDSTdetail1" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                            <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
+                           <asp:ListItem Value="1">STM</asp:ListItem>   
+                            <asp:ListItem Value="2">INH</asp:ListItem>
+                            <asp:ListItem Value="3">RIF</asp:ListItem>
+                            <asp:ListItem Value="4">EMB</asp:ListItem>
+                            <asp:ListItem Value="5">PZA</asp:ListItem>
+                         </asp:DropDownList>
+                       </div>
+                      <asp:Label>Please enter details here</asp:Label>
+
+                      <div class="col-sm-6 col-lg-12">
+                        <asp:DropDownList ID="ddlDSTdetail2" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                            <asp:ListItem selected hidden>Select DST result</asp:ListItem>
+                            <asp:ListItem Value="1">R</asp:ListItem>
+                            <asp:ListItem Value="2">S</asp:ListItem>
+                          
+                         </asp:DropDownList>
+                       </div>
+                    <!--<asp:TextBox ID="txtCountry" class="form-control form-control-user" placeholder="Country" runat="server"></asp:TextBox> -->     
                   </div>
+
+                  <div id="SpoDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
+                      <asp:Label>Please enter Spoligo details here</asp:Label>
+
+                    <div class="col-sm-6 col-lg-12">
+                    <asp:TextBox ID="txtSpold" class="form-control " placeholder="SIT Number" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvspold" runat="server" Text="* Spoligo detail required." ControlToValidate="txtSpold" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                     </div>
+                  </div>
+
+
                   <div id="EXDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
                       <asp:Label>Please enter extraction details here</asp:Label>
 
@@ -236,18 +268,49 @@
         }
 
         function ToggleVisible() {
-            var smdiv = document.getElementById('SMDetail');
+           
             var exdiv = document.getElementById('EXDetail');
+            var spodiv = document.getElementById('SpoDetail');
+            var dstdiv = document.getElementById('DSTDetail');
+            var comsel = document.getElementById('DRESVAL');
             var ddlval = $("#DDLResType").find(":selected").val();
+            var ddval2 = $("#").find(":selected").val();
 
-            if (ddlval == "1") {
-                smdiv.style.display = "block";
-                exdiv.style.display = "none";                
+            switch (ddlval) {
+                case "5":
+                    exdiv.style.display = "block";
+                    spodiv.style.display = "none";
+                    dstdiv.style.display = "none";
+                    break;
+            
+                case "6":
+                    spodiv.style.display = "block";
+                    comsel.style.display = "none";
+                    exdiv.style.display = "none";
+                    dstdiv.style.display = "none";
+                    break;
+                case "7":
+                    dstdiv.style.display = "block";
+                    spodiv.style.display = "none";
+                    exdiv.style.display = "none";
+                    break;
+
+                default:     
+                    comsel.style.display = "block";
+                    exdiv.style.display = "none";
+                    spodiv.style.display = "none";
+                    dstdiv.style.display = "none";
             }
-            else if (ddlval == "5") {
-                smdiv.style.display = "none";
-                exdiv.style.display = "block";
-            }
+
+            //if (ddlval == "1") {
+            //    smdiv.style.display = "block";
+            //    exdiv.style.display = "none";                
+            //}
+           
+            //else if (ddlval == "5") {
+            //    smdiv.style.display = "none";
+            //    exdiv.style.display = "block";
+            //}
            
         }
 

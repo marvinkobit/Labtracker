@@ -1,15 +1,10 @@
 ﻿using ExcelDataReader;
 using Labtracker.Models;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace Labtracker.Controllers
 {
@@ -114,7 +109,7 @@ namespace Labtracker.Controllers
                     }
                     catch (Exception ex)
                     {
-                        ModelState.AddModelError("File", "Unable to Upload file!");
+                        ModelState.AddModelError("File", "Unable to Upload file!        Info: Data Validation Error, Invalid data entry.");
                         return View();
                     }
 
@@ -136,7 +131,7 @@ namespace Labtracker.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("File", "Please Upload Your file");
+                    ModelState.AddModelError("File", "Please Choose Your file to Upload");
                 }
             }
             return View();
