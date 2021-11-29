@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="report.aspx.cs" Inherits="Labtracker.report" %>
 
+<%@ Register assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +14,7 @@
 
   <title>TBGEN Lab Monitor - Sample Receiving </title>
 
+  <script lang="javaScript" type="text/javascript" src="crystalreportviewers13/js/crviewer/crv.js"></script> 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
@@ -268,31 +271,7 @@
 
           <!-- Content Row -->
 
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-               
-                  <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                      <EditRowStyle BackColor="#999999" />
-                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                  </asp:GridView>
-               
-              </div>
-            </div>
-
-           
-          </div>
+          
 
           <!-- Content Row -->
           <div class="row">
@@ -310,13 +289,63 @@
                 <br />
                 Date From <asp:TextBox  Type="date" ID="TextBox2" runat="server"></asp:TextBox>
                 Date To <asp:TextBox  Type="date" ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Generate" />
+                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Generate" OnClick="Button1_Click" />
             
           </div>
 
-
-              <asp:GridView ID="GridView2" runat="server"></asp:GridView>
+              
+             <%-- <asp:GridView ID="GridView2" runat="server"></asp:GridView>--%>
         </div>
+            
+            <div>
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportSource1" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" />
+                  <CR:CrystalReportSource ID="CrystalReportSource1" runat="server">
+                      <Report FileName="CrystalReport1.rpt">
+                      </Report>
+                  </CR:CrystalReportSource>
+             </div>
+
+            <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+
+                   
+              <div class="card shadow mb-4">
+               
+                  <%--<asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>--%>
+
+
+
+
+
+
+               
+               
+
+
+
+
+
+
+               
+              </div>
+            </div>
+
+           
+          </div>
         <!-- /.container-fluid -->
 
       </div>
