@@ -15,15 +15,15 @@ namespace Labtracker
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(Server.MapPath("CrystalReport1.rpt"));
-            CrystalReportViewer1.ReportSource = cryRpt;
+          
         }
 
        
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load(Server.MapPath("CrystalReport1.rpt"));
+            CrystalReportViewer1.ReportSource = cryRpt;
 
         }
     }

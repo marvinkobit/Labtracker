@@ -285,10 +285,10 @@
                     <asp:ListItem>Progress</asp:ListItem>
                     <asp:ListItem>General</asp:ListItem>
                 </asp:DropDownList>
-                <br />
-                <br />
-                Date From <asp:TextBox  Type="date" ID="TextBox2" runat="server"></asp:TextBox>
-                Date To <asp:TextBox  Type="date" ID="TextBox1" runat="server"></asp:TextBox>
+               <%-- <br />
+                <br />--%>
+               <%-- Date From <asp:TextBox  Type="date" ID="TextBox2" runat="server"></asp:TextBox>
+                Date To <asp:TextBox  Type="date" ID="TextBox1" runat="server"></asp:TextBox>--%>
                 <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Generate" OnClick="Button1_Click" />
             
           </div>
