@@ -298,7 +298,7 @@
         </div>
             
             <div>
-                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportSource1" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" />
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportSource1" HasRefreshButton="True" ToolbarImagesFolderUrl="" BestToFitPage="False" ToolPanelWidth="200px" Width="1104px" />
                   <CR:CrystalReportSource ID="CrystalReportSource1" runat="server">
                       <Report FileName="CrystalReport1.rpt">
                       </Report>
