@@ -317,6 +317,7 @@
             switch (ddlval) {
                 case "5":
                     exdiv.style.display = "block";
+                    comsel.style.display = "block";
                     spodiv.style.display = "none";
                     dstdiv.style.display = "none";
                     grodiv.style.display = "none";
@@ -331,12 +332,14 @@
                     break;
                 case "7":
                     dstdiv.style.display = "block";
+                    comsel.style.display = "block";
                     spodiv.style.display = "none";
                     exdiv.style.display = "none";
                     grodiv.style.display = "none";
                     break;
                 case "10":
                     grodiv.style.display = "block";
+                    comsel.style.display = "block";
                     exdiv.style.display = "none";
                     spodiv.style.display = "none";
                     dstdiv.style.display = "none";
