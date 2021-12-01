@@ -103,6 +103,22 @@ namespace Labtracker {
                 return this.DataDefinition.ParameterFields[1];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Country {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_LabTech {
+            get {
+                return this.DataDefinition.ParameterFields[3];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
