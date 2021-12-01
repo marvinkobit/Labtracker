@@ -64,13 +64,15 @@
                               
                             <asp:ListItem value="1" data-group="1">Primary Smear</asp:ListItem>
                             <asp:ListItem value="2" data-group="2">LJ</asp:ListItem>
-                            <asp:ListItem value="3" data-group="3">MIJT</asp:ListItem>
+                            <asp:ListItem value="3" data-group="3">MGIT</asp:ListItem>
                             <asp:ListItem value="4" data-group="4">RD9</asp:ListItem>
                             <asp:ListItem value="5" data-group="5">DNA Extraction</asp:ListItem>
                             <asp:ListItem value="6" data-group="6">Spoligo</asp:ListItem>
                             <asp:ListItem value="7" data-group="7">DST</asp:ListItem>
                           <asp:ListItem value="8" data-group="8">Culture Smear</asp:ListItem>
-                          <asp:ListItem value="9" data-group="9">Heat Killed</asp:ListItem>
+                          <asp:ListItem value="9" data-group="9">Heat Killed</asp:ListItem> 
+                         <asp:ListItem value="10" data-group="10">Growth Detection</asp:ListItem>
+
                       
 
                         </asp:DropDownList>
@@ -112,7 +114,15 @@
                           <asp:ListItem Value="9" data-group="9">Yes</asp:ListItem>  
                             <asp:ListItem Value="9" data-group="9">No</asp:ListItem>
                          
-                                
+                            <asp:ListItem Value="10" data-group="10">Week 1</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 2</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 3</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 4</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 5</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 6</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 7</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Week 8</asp:ListItem>
+                        
                               
 
                         </asp:DropDownList>
@@ -133,6 +143,28 @@
                   
               <div id=rescol2 class="col-sm-6 " >
                   
+
+                  <div id="GrowthDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
+                      <asp:Label>Please enter details here</asp:Label>
+
+                      <div class="col-sm-6 col-lg-12">
+                        <asp:DropDownList ID="ddlGrowthdetail" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                            <asp:ListItem Selected hidden>Primary media</asp:ListItem>
+                           <asp:ListItem Value="1">LJ-1</asp:ListItem>   
+                            <asp:ListItem Value="2">LJ-2</asp:ListItem>
+                            <asp:ListItem Value="3">LJ-P</asp:ListItem>
+                            <asp:ListItem Value="4">MGIT</asp:ListItem>
+                
+                         </asp:DropDownList>
+                       </div>
+                      <asp:Label>Please enter details here</asp:Label>
+
+                      <div class="col-sm-6 col-lg-12">
+                    <asp:TextBox ID="txtGrowth" class="form-control " placeholder="Input" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvgrowth" runat="server" Text="* detail required." ControlToValidate="txtGrowth" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                     </div>
+                       
+                  </div>
                   <div id="DSTDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
                       <asp:Label>Please enter details here</asp:Label>
 
@@ -278,6 +310,7 @@
             var spodiv = document.getElementById('SpoDetail');
             var dstdiv = document.getElementById('DSTDetail');
             var comsel = document.getElementById('DRESVAL');
+            var grodiv = document.getElementById('GrowthDetail')
             var ddlval = $("#DDLResType").find(":selected").val();
             //var ddval2 = $("#").find(":selected").val();
 
@@ -286,6 +319,7 @@
                     exdiv.style.display = "block";
                     spodiv.style.display = "none";
                     dstdiv.style.display = "none";
+                    grodiv.style.display = "none";
                     break;
             
                 case "6":
@@ -293,11 +327,19 @@
                     comsel.style.display = "none";
                     exdiv.style.display = "none";
                     dstdiv.style.display = "none";
+                    grodiv.style.display = "none";
                     break;
                 case "7":
                     dstdiv.style.display = "block";
                     spodiv.style.display = "none";
                     exdiv.style.display = "none";
+                    grodiv.style.display = "none";
+                    break;
+                case "10":
+                    grodiv.style.display = "block";
+                    exdiv.style.display = "none";
+                    spodiv.style.display = "none";
+                    dstdiv.style.display = "none";
                     break;
 
                 default:     
@@ -305,6 +347,7 @@
                     exdiv.style.display = "none";
                     spodiv.style.display = "none";
                     dstdiv.style.display = "none";
+                    grodiv.style.display = "none";
             }
 
             //if (ddlval == "1") {
