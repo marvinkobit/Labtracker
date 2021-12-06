@@ -131,7 +131,7 @@
 
          <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="report.aspx">
           <i class="fas fa-fw fa-table"></i>
           <span>Report</span></a>
       </li>
@@ -311,7 +311,7 @@
                 <i class="fas fa-download fa-sm text-white-50"></i> Add New Sample</a>
               <a href="SampleExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>
-               <a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+               <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                          </div>
 

@@ -309,7 +309,7 @@
                 <i class="fas fa-download fa-sm text-white-50"></i> Update progress</a>
               <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>
-               <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+               <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                          </div>
 

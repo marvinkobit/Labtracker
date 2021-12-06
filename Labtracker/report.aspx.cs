@@ -21,9 +21,22 @@ namespace Labtracker
        
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(Server.MapPath("CrystalReport1.rpt"));
-            CrystalReportViewer1.ReportSource = cryRpt;
+            switch (DropDownList1.Text)
+            {
+                case "Sample Recieving":
+                    ReportDocument cryRpt = new ReportDocument();
+                    cryRpt.Load(Server.MapPath("CrystalReport1.rpt"));
+                    CrystalReportViewer1.ReportSource = cryRpt;
+                    break;
+                case "Progress":
+                    ReportDocument cryRpt2 = new ReportDocument();
+                    cryRpt2.Load(Server.MapPath("CrystalReport2.rpt"));
+                    CrystalReportViewer1.ReportSource = cryRpt2;
+                    break;
+
+            }
+            //ListItem idlbl = (ListItem)e.Item.FindControl("");
+           
 
         }
     }
