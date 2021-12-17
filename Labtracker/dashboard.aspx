@@ -2,10 +2,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="dashboard.aspx.cs"  Inherits="Labtracker.dashboard" %>
 
 
-
 <asp:Content runat="server" ContentPlaceHolderID="MainContentDS" Visible="true">
 
-   
       
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -236,6 +234,15 @@
             </div>
           </div>
 
+           <!-- Map Content Row -->
+           <div class="row">
+                <div id="mapid"  style="width: 600px; height: 400px;"></div>
+                <script type="text/javascript">
+                    var map = L.map('mapid').setView([51.505, -0.09], 13);
+                </script>
+           </div>
+
+
           <!-- Content Row -->
           <div class="row">
 
@@ -263,5 +270,7 @@
 
 
        
-            </asp:Content>
+            </div>
+</div>
+</asp:Content>
   
