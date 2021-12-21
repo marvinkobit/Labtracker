@@ -4,6 +4,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContentDS" Visible="true">
 
+        
       
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -236,11 +237,42 @@
 
            <!-- Map Content Row -->
            <div class="row">
-                <div id="mapid"  style="width: 600px; height: 400px;"></div>
-                <script type="text/javascript">
-                    var map = L.map('mapid').setView([51.505, -0.09], 13);
-                </script>
-           </div>
+               <div class="col-lg-12 mb-4">
+                    <div id="mapid" style="width:600px; height:400px;"></div>
+                    <script type="text/javascript">
+
+                        var mymap = L.map('mapid').setView([9.058702156392139,38.759765625
+                      ], 5);
+
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> | <a href="https://tbgen.ahri.gov.et" target="_blank">TBGEN, AHRI</a> mapdata'
+                        }).addTo(mymap);
+                       
+                        var marker = L.marker([8.98556789946321,38.71186137199402]).addTo(mymap);
+                        marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)!</b><br>Sequenced 20 samples").openPopup();
+
+                        var marker = L.marker([8.54385 ,39.27445]).addTo(mymap);
+                        marker.bindPopup("<b>Adama Hospital!</b><br>Samples: 10").openPopup();
+
+                        var marker = L.marker([7.20721 , 38.61220]).addTo(mymap);
+                        marker.bindPopup("<b>Shashemene Hospital!</b><br>Samples: 10").openPopup();
+
+                        var marker = L.marker([6.85448 , 37.76073]).addTo(mymap);
+                        marker.bindPopup("<b>Wolaita Sodo Hospital!</b><br>Samples: 10").openPopup();
+
+                       
+                        var marker = L.marker([8.24229 , 34.58165]).addTo(mymap);
+                        marker.bindPopup("<b>Gambella General Hospital!</b><br>Samples: 10").openPopup();
+
+                        var marker = L.marker([6.02797 , 37.55298]).addTo(mymap);
+                        marker.bindPopup("<b>ArbaMinch Hospital!</b><br>Samples: 10").openPopup();
+
+                        var marker = L.marker([6.75001 , 38.39411]).addTo(mymap);
+                        marker.bindPopup("<b>Yirgalem General Hospital!</b><br>Samples: 10").openPopup();
+
+
+                    </script>
+           
 
 
           <!-- Content Row -->
@@ -270,7 +302,9 @@
 
 
        
-            </div>
-</div>
-</asp:Content>
+        
   
+
+</div>
+        </div>
+</asp:Content>
