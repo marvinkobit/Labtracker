@@ -3,6 +3,7 @@ using Labtracker.Models;
 using System;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -98,7 +99,12 @@ namespace Labtracker.Controllers
                             using (var context = new SampleContext())
 
                             {
-                                Sample sam = new Sample() { SampleID= int.Parse(row[0].ToString()), PatientId=row[1].ToString(), CardNo = row[2].ToString(), Volume = row[3].ToString(), Quality = row[4].ToString(), FromCountry = row[5].ToString(), FromRegion = row[6].ToString(), Zone = row[7].ToString(), Woreda = row[8].ToString(), HealthFacility = row[9].ToString(), CollectionDate = DateTime.ParseExact(row[10].ToString(), "d/M/yyyy", null), RecivedDate = DateTime.ParseExact(row[11].ToString(), "d/M/yyyy", null), LabTech = row[12].ToString(), FilePath = upload.FileName, CategoryID= 1, ProjectID = 1 };
+                                var CardNo_ = row[1] ?? "NA";
+                                var Volume_ = row[2] ?? "NA";
+                                var Quality_ = row[3] ?? "NA";
+                                Console.WriteLine(CardNo_);
+                                var SampleID_ = context.Samples.Count();
+                                Sample sam = new Sample() { SampleID= int.Parse(SampleID_.ToString()) ,PatientId=row[0].ToString(), CardNo = CardNo_.ToString(), Volume = Volume_.ToString(), Quality = Quality_.ToString(), FromCountry = row[4].ToString(), FromRegion = row[5].ToString(), Zone = row[6].ToString(), Woreda = row[7].ToString(), HealthFacility = row[8].ToString(), CollectionDate = DateTime.ParseExact(row[9].ToString(), "d/M/yyyy", null), RecivedDate = DateTime.ParseExact(row[10].ToString(), "d/M/yyyy", null), LabTech = row[11].ToString(), FilePath = upload.FileName, CategoryID= 1, ProjectID = 1 };
                                 context.Samples.Add(sam);
                                 context.SaveChanges();
                            
@@ -109,7 +115,7 @@ namespace Labtracker.Controllers
                     }
                     catch (Exception ex)
                     {
-                        ModelState.AddModelError("File", "Unable to Upload file!        Info: Data Validation Error, Invalid data entry.");
+                        ModelState.AddModelError("File", ex.ToString()+ "Unable to Upload file!        Info: Data Validation Error, Invalid data entry.");
                         return View();
                     }
 
