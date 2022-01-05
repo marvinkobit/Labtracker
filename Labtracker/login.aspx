@@ -44,12 +44,15 @@
                   </div>
 
                   <form class="user" runat="server">
+                      <asp:Literal runat="server"  id="StatusText"/>
                       
                                       <div class="form-group">
-                      <input  type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                           <asp:TextBox  class="form-control form-control-user" runat="server" ID="UserName" TextMode="Email" placeholder="Email Address"/>
+                      <%--<input  type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">--%>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                         <asp:TextBox  class="form-control form-control-user" runat="server" ID="Password" TextMode="Password" placeholder="Password"/>
+                      <%--<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">--%>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -60,7 +63,7 @@
                       <asp:Button ID="btnLogin" class="btn btn-primary btn-user btn-block" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     
                     <hr>
-                    <a href="dashboard.aspx" class="btn btn-google btn-user btn-block">
+                    <a href="" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>
                     <a href="" class="btn btn-facebook btn-user btn-block">
