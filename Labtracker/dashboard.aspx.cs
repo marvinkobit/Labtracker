@@ -68,24 +68,25 @@ namespace Labtracker
 
         }
 
-       /* protected Sample GetSample()
-        {
-            Sample model = new Sample();
-            IValueProvider provider = new FormValueProvider(ModelBindingExecutionContext);
-            if (TryUpdateModel<Sample>(model, provider))
-            {
-                return model;
-            }
-            else
-            {
-                throw new FormatException("Could not model bind");
-            }
-        }
-        protected void BindSample(Sample tsample)
-        {
-            lblTotalSample.Text = tsample.SampleID.ToString();
-            
-        }*/
-       
+        /* protected Sample GetSample()
+         {
+             Sample model = new Sample();
+             IValueProvider provider = new FormValueProvider(ModelBindingExecutionContext);
+             if (TryUpdateModel<Sample>(model, provider))
+             {
+                 return model;
+             }
+             else
+             {
+                 throw new FormatException("Could not model bind");
+             }
+         }
+         protected void BindSample(Sample tsample)
+         {
+             lblTotalSample.Text = tsample.SampleID.ToString();
+
+         }*/
+     
+
     }
 }

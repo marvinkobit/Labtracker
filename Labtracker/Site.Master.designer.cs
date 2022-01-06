@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Labtracker {
-    
-    
-    public partial class SiteMaster {
-        
+namespace Labtracker
+{
+
+
+    public partial class SiteMaster
+    {
+
         /// <summary>
         /// settinglink control.
         /// </summary>
@@ -20,7 +22,16 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink settinglink;
-        
+
+        /// <summary>
+        /// UsernameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal UsernameText;
+
         /// <summary>
         /// MainContentDS control.
         /// </summary>
@@ -29,5 +40,14 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentDS;
+
+        /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

@@ -67,18 +67,18 @@ head>
                    
                   Register Account
                 </a>--%>
-                <hr>
+                <%--<hr>
                 <a href="" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
                 </a>
                 <a href="" class="btn btn-facebook btn-user btn-block">
                   <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
+                </a>--%>
               </form>
               <hr>
-              <div class="text-center">
+            <%--  <div class="text-center">
                 <a class="small" href="forgot-password.aspx">Forgot Password?</a>
-              </div>
+              </div>--%>
               <div class="text-center">
                 <a class="small" href="login.aspx">Already have an account? Login!</a>
               </div>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace Labtracker
 {
@@ -15,6 +16,7 @@ namespace Labtracker
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            UsernameText.Text = User.Identity.GetUserName();
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
@@ -43,6 +45,13 @@ namespace Labtracker
             //ListItem idlbl = (ListItem)e.Item.FindControl("");
            
 
+        }
+
+        protected void SignOut(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/login.aspx");
         }
     }
 }

@@ -253,12 +253,12 @@
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="<img src="Images/beth.png" alt=""/>
+                    <img class="rounded-circle" src="<img src="" alt=""/>
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! would you please update PACS?.</div>
-                    <div class="small text-gray-500">Betty Adnew</div>
+                    <div class="text-truncate">Hi there! would you please update your Browser?.</div>
+                    <div class="small text-gray-500">User</div>
                   </div>
                 </a>
               
@@ -268,8 +268,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Betty Adnew</span>
-                <img class="img-profile rounded-circle" src="Images/beth.png"/>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><asp:Literal runat="server"  id="UsernameText"/></span>
+                <img class="img-profile rounded-circle" src="Images/user-profile.png"/>
                 
               </a>
               <!-- Dropdown - User Information -->
@@ -399,7 +399,7 @@
       <!--  <div class="modal-body">Select "Logout" if you are sure to leave the page.</div>-->
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.aspx">Logout</a>
+         <asp:Button ID="btnLogout" class="btn btn-primary" runat="server" Text="Logout" OnClick="SignOut" />
         </div>
       </div>
     </div>
