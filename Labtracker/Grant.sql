@@ -8,5 +8,5 @@ GO
 CREATE USER [LabtrackerUser] 
   FOR LOGIN [IIS APPPOOL\DefaultAppPool]
 GO
-EXEC sp_addrolemember 'db_owner', 'Betty'
+EXEC sp_addrolemember 'db_owner', 'LabtrackerUser'
 GO

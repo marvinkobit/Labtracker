@@ -26,12 +26,12 @@ namespace Labtracker
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Initialize the sample database.
-            Database.SetInitializer(new SampleDatabaseInitializer());
+            //Database.SetInitializer(new SampleDatabaseInitializer());
 
 
             SampleContext c = new SampleContext();
-            c.Database.Initialize(true);
-            c.Database.CreateIfNotExists();
+            //c.Database.Initialize(true);
+            //c.Database.CreateIfNotExists();
 
 
             // Create the custom role and user.
