@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Labtracker.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContentDS">
-    <h2><%: Title %>.</h2>
+   <%-- <h2><%: Title %>.</h2>--%>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>

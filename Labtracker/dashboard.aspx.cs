@@ -18,6 +18,12 @@ namespace Labtracker
        // SqlCommand com;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/login.aspx");
+              
+
+            }
             /* SqlConnection con = new SqlConnection(strConnString);
              con.Open();
              str = "select SampleID from Samples";
