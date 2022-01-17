@@ -55,7 +55,8 @@ namespace Labtracker
             else
             {
                 //lblTotalSample.Text = Session["totalcount"].ToString();
-                lblTotalSample.Text = Session["Tsample"].ToString();
+                try { lblTotalSample.Text = Session["Tsample"].ToString(); } catch { }
+                
 
             }
 

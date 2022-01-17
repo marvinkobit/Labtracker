@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" checked>
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
@@ -75,7 +75,7 @@
                     <a class="small" href="forgot-password.aspx">Forgot Password?</a>
                   </div>--%>
                   <div class="text-center">
-                    <a class="small" href="register.aspx">Create an Account!</a>
+                   <%-- <a class="small" href="register.aspx">Create an Account!</a>--%>
                   </div>
                 </div>
               </div>

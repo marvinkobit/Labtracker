@@ -62,6 +62,16 @@ head>
                    <%-- <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">--%>
                   </div>
                 </div>
+                  <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        Role:
+                    <asp:DropDownList ID="ddlRole" class="form-control" ToolTip="Roles" DataTextField="Role" runat="server">
+                        <asp:ListItem Selected="True">LabUser</asp:ListItem>
+                        <asp:ListItem>Admin</asp:ListItem>
+                       
+
+                        </asp:DropDownList>
+                  </div>
                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn  btn-primary btn-user btn-block" />
                 <%--<a href="login.aspx" class="btn btn-primary btn-user btn-block">
                    
