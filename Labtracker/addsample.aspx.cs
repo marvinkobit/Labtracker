@@ -31,7 +31,7 @@ namespace Labtracker
         {
             AddSamples samples = new AddSamples();
             
-            bool addSuccess = samples.AddSample(txtSId.Text,txtPId.Text, txtCNo.Text, txtVol.Text, txtQly.Text,ddlCountry.SelectedValue.ToString(), txtRegion.Text, txtZone.Text, txtWoreda.Text, txtHealthF.Text, Convert.ToDateTime(txtDateColl.Text), Convert.ToDateTime(txtDateRec.Text), txtLabTech.Text, txtFilepath.Text,1,1);
+            bool addSuccess = samples.AddSample(txtSId.Text,txtPId.Text, txtCNo.Text, txtVol.Text, txtQly.Text,ddlCountry.SelectedValue.ToString(), ddlRegion.SelectedValue.ToString(), ddlZone.SelectedValue.ToString(), ddlWoreda.SelectedValue.ToString(), ddlHealthF.SelectedValue.ToString(), Convert.ToDateTime(txtDateColl.Text), Convert.ToDateTime(txtDateRec.Text), txtLabTech.Text, txtFilepath.Text,1,1);
 
             if (addSuccess)
             {

@@ -176,11 +176,7 @@
                             <asp:ListItem Value="3">RIF</asp:ListItem>
                             <asp:ListItem Value="4">EMB</asp:ListItem>
                             <asp:ListItem Value="5">PZA</asp:ListItem>
-                            <asp:ListItem Value="6">STM</asp:ListItem>   
-                            <asp:ListItem Value="7">INH</asp:ListItem>
-                            <asp:ListItem Value="8">RIF</asp:ListItem>
-                            <asp:ListItem Value="9">EMB</asp:ListItem>
-                            <asp:ListItem Value="10">PZA</asp:ListItem>
+                           
                          </asp:DropDownList>
                        </div>
                       <asp:Label>Please enter details here</asp:Label>
