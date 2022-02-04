@@ -134,7 +134,7 @@
                     </div>
               <br />
                      <div class="col-sm-6 col-lg-12">
-                    <asp:TextBox ID="txtLabTechPr" class="form-control " placeholder="Lab Technician" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLabTechPr" class="form-control " placeholder="Initial(Performed By)" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvLabTechPr" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTechPr" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
 

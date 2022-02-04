@@ -43,16 +43,16 @@
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
                 
-
-                      <asp:TextBox ID="txtProject" class="form-control"  placeholder="Project" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvProject" runat="server" Text="* Project name required." ControlToValidate="txtProject" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                      <asp:Label>Project</asp:Label>
+                      <asp:TextBox ID="txtProject" class="form-control"  placeholder="TBGEN" runat="server"></asp:TextBox>
+               <%--   <asp:RequiredFieldValidator ID="rfvProject" runat="server" Text="* Project name required." ControlToValidate="txtProject" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
 
 
 
                   </div>
                     <br />
                     <div class="col-sm-6 mb-3 mb-sm-0">
-
+                        <asp:Label>Country</asp:Label>
                     <asp:DropDownList ID="ddlCountry" class="form-control" ToolTip="Country" DataTextField="" runat="server">
                         <asp:ListItem Selected="True">Ethiopia</asp:ListItem>
                         <asp:ListItem>Eritrea</asp:ListItem>
@@ -63,28 +63,33 @@
                     
                   </div>
                      <div class="col-sm-6 mb-3 mb-sm-0">
+                         <asp:Label>Patient Identification</asp:Label>
                              <asp:TextBox ID="txtPId" class="form-control " placeholder="Patient Id" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvPId" runat="server" Text="* Patient Id required." ControlToValidate="txtPId" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   
                    </div>
                     <br />
                     <div class="col-sm-6 mb-3 mb-sm-0">
+                        <asp:Label>Card Number</asp:Label>
                     <asp:TextBox ID="txtCNo" class="form-control " placeholder="Card No" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Text="* Card no required." ControlToValidate="txtCNo" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
 
                    <div class="col-sm-6 mb-3 mb-sm-0">
-                    <asp:TextBox ID="txtVol" class="form-control " placeholder="Sample Volume" runat="server"></asp:TextBox>
+                       <asp:Label>Sample Volume</asp:Label>
+                    <asp:TextBox ID="txtVol" class="form-control " placeholder="Volume" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvVol" runat="server" Text="* Volume required." ControlToValidate="txtVol" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
 
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                    <asp:TextBox ID="txtQly" class="form-control " placeholder="Sample Quality" runat="server"></asp:TextBox>
+                        <asp:Label>Sample Quality</asp:Label>
+                    <asp:TextBox ID="txtQly" class="form-control " placeholder="Quality Number" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvQly" runat="server" Text="* Quality required." ControlToValidate="txtQly" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
 
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <%--<asp:TextBox ID="txtRegion" class="form-control " placeholder="Region" runat="server"></asp:TextBox>--%>
+                      <asp:Label>Region</asp:Label>
                        <asp:DropDownList ID="ddlRegion" class="form-control" ToolTip="Region" DataTextField="Choose Region"  AutoPostBack = "true" runat="server" onchange="ToogleZoneval(); return false;">
                      <%--   <asp:ListItem selected hidden>Choose Zone</asp:ListItem>--%>
                            <asp:ListItem selected hidden>Choose Region</asp:ListItem>
@@ -104,6 +109,7 @@
                   </div>
                     <div class="col-sm-6">
                     <%--<asp:TextBox ID="txtZone" class="form-control " placeholder="Zone" runat="server"></asp:TextBox>--%>
+                        <asp:Label>Zone</asp:Label>
                         <asp:DropDownList ID="ddlZone"  class="form-control" runat="server" ToolTip="Choose ZONE"   >
                             
                             <asp:ListItem selected hidden>Choose Zone</asp:ListItem>
@@ -139,8 +145,63 @@
                             <asp:ListItem Value="3" data-group="3">South Wello</asp:ListItem>
                             <asp:ListItem Value="3" data-group="3">Waghemira</asp:ListItem>
                             <asp:ListItem Value="3" data-group="3">West Gojjam</asp:ListItem>
-                        
-                         
+
+
+                            <asp:ListItem Value="4" data-group="4">Asossa</asp:ListItem>
+                            <asp:ListItem Value="4" data-group="4">Kemashi</asp:ListItem>
+                            <asp:ListItem Value="4" data-group="4">Mao Komo Special Wereda</asp:ListItem>
+                            <asp:ListItem Value="4" data-group="4">Metekel</asp:ListItem>
+                            <asp:ListItem Value="4" data-group="4">Pawe Special Wereda</asp:ListItem>
+                            
+                            <asp:ListItem Value="5" data-group="5">Dire Dawa</asp:ListItem>
+
+                            <asp:ListItem Value="6" data-group="6">Agnewak</asp:ListItem>
+                            <asp:ListItem Value="6" data-group="6">Nuwer</asp:ListItem>
+                            <asp:ListItem Value="6" data-group="6">Mezhenger</asp:ListItem>
+                            <asp:ListItem Value="6" data-group="6">Etang Special Wereda</asp:ListItem>
+                            
+                            <asp:ListItem Value="7" data-group="7">Harari</asp:ListItem>
+
+
+                            <asp:ListItem Value="8" data-group="8">Arsi</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Bale</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Borana</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Buno Bedele</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">East Hararghe</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">East Shewa</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">East Welega</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Finfinne Zuria Special Zone</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Guji</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Horo Guduru Welega</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Illubabor</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Jimma</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">North Shewa</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Southwest Shewa</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">West Arsi</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">West Guji</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">West Haraghe</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">West Shewa</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">West Welega</asp:ListItem>
+                            
+                            <asp:ListItem Value="9" data-group="9">Amaro Special Woreda</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Gamo Gofa</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Gedeo</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Gurage</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Hadiya</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Halaba</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Keffa</asp:ListItem>
+                            
+                              <asp:ListItem Value="9" data-group="9">Kembata Tembaro</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Konso</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Konta Special Woreda</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Sheka</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Sidama</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Silte</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">South Omo</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">West Omo</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="9">Wolayita</asp:ListItem>
+                          
+               
                             <asp:ListItem Value="10" data-group="10">Afder</asp:ListItem>
                             <asp:ListItem Value="10" data-group="10">Liben</asp:ListItem>
                             <asp:ListItem Value="10" data-group="10">Shinile</asp:ListItem>
@@ -150,15 +211,13 @@
                             <asp:ListItem Value="10" data-group="10">Korahe</asp:ListItem>
                             <asp:ListItem Value="10" data-group="10">Fik</asp:ListItem>
                             <asp:ListItem Value="10" data-group="10">Gode</asp:ListItem>
-                        
-                     
-
                         </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvZone" runat="server" Text="* Zone required." ControlToValidate="ddlZone" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
 
                     <div class="col-sm-6 mb-3 mb-sm-0">
                    <%-- <asp:TextBox ID="txtWoreda" class="form-control" placeholder="Woreda" runat="server"></asp:TextBox>--%>
+                        <asp:Label>Woreda</asp:Label>
                         <asp:DropDownList ID="ddlWoreda" class="form-control" ToolTip="Region" DataTextField="Choose Region"  AutoPostBack = "true" runat="server" onchange="ToogleHealthFval(); return false;">
                             <asp:ListItem selected hidden>Choose Woreda</asp:ListItem>
                             <asp:ListItem value="1" data-group="1">Adama</asp:ListItem>
@@ -175,50 +234,58 @@
                              <asp:ListItem Value="12" data-group="12">Hosaina</asp:ListItem>
                              <asp:ListItem Value="13" data-group="13">Shashemene</asp:ListItem>
                              <asp:ListItem Value="14" data-group="14">Sodo</asp:ListItem>
+                            <asp:ListItem Value="15" data-group="15">Woreda 3</asp:ListItem>
+                             <asp:ListItem Value="16" data-group="16">Mikiland</asp:ListItem>
+                             <asp:ListItem Value="17" data-group="17">Keraniyo</asp:ListItem>
+                             <asp:ListItem Value="18" data-group="18">Yekatit</asp:ListItem>
+                             <asp:ListItem Value="19" data-group="19">Addis Ketema</asp:ListItem>
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
                   <div class="col-sm-6">
                     <%--<asp:TextBox ID="txtHealthF" class="form-control " placeholder="Health Facility" runat="server"></asp:TextBox>--%>
+                      <asp:Label>Health Facility(Site)</asp:Label>
                       <asp:DropDownList ID="ddlHealthF" class="form-control" ToolTip="Health Facility" DataTextField="Choose Site"  AutoPostBack = "true" runat="server">
                             <asp:ListItem selected hidden>Choose Health Facility</asp:ListItem>
                             <asp:ListItem value="1" data-group="1">Adama Hospital</asp:ListItem>
-                            <asp:ListItem  value="2" data-group="2">Addis Alem Hospital</asp:ListItem>
-                            <asp:ListItem  value="3" data-group="3">Ambo Hospital</asp:ListItem>
-                            <asp:ListItem  value="4" data-group="4">Arba Minch GH</asp:ListItem>
-                            <asp:ListItem value="5" data-group="5" >Dilla Hospital</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Gambela General Hospital</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="7" >Gode Hospital</asp:ListItem>
-                            <asp:ListItem Value="8" data-group="8">Halaba Primary Hospital</asp:ListItem>
-                            <asp:ListItem Value="9" data-group="9">Hawasa CS Hl</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Hosaina Hospital</asp:ListItem>
-                            <asp:ListItem Value="11" data-group="11">Mikiland HC</asp:ListItem>
-                             <asp:ListItem Value="12" data-group="12">Shashamane Hospital</asp:ListItem>
-                           <asp:ListItem Value="13" data-group="13">Sodo Hospital</asp:ListItem>
-                           <asp:ListItem Value="14" data-group="14">Tulubolo Hospital</asp:ListItem>
-                           <asp:ListItem Value="15" data-group="15">Wolayita Sodo Tertiary Hospital</asp:ListItem>
-                           <asp:ListItem Value="16" data-group="16">Woreda-3 Health Center</asp:ListItem>
-                           <asp:ListItem Value="17" data-group="17">Yekatit 12 Hospital</asp:ListItem>
-                           <asp:ListItem Value="18" data-group="18">Yirgalem General Hospital</asp:ListItem>
+                            <asp:ListItem  value="4" data-group="4">Addis Alem Hospital</asp:ListItem>
+                            <asp:ListItem  value="2" data-group="2">Ambo Hospital</asp:ListItem>
+                            <asp:ListItem  value="3" data-group="3">Arba Minch General Hospital</asp:ListItem>
+                            <asp:ListItem value="7" data-group="7" >Dilla Hospital</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="8">Gambela General Hospital</asp:ListItem>
+                            <asp:ListItem Value="9" data-group="9" >Gode Hospital</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="10">Halaba Primary Hospital</asp:ListItem>
+                            <asp:ListItem Value="11" data-group="11">Hawasa CS Hl</asp:ListItem>
+                            <asp:ListItem Value="12" data-group="12">Hosaina Hospital</asp:ListItem>
+                            <asp:ListItem Value="16" data-group="16">Mikiland Health Center</asp:ListItem>
+                            <asp:ListItem Value="13" data-group="13">Shashamane Hospital</asp:ListItem>
+                           <asp:ListItem Value="14" data-group="14">Sodo Hospital</asp:ListItem>
+                           <asp:ListItem Value="5" data-group="5">Tulubolo Hospital</asp:ListItem>
+                           <asp:ListItem Value="14" data-group="14">Wolayita Sodo Tertiary Hospital</asp:ListItem>
+                           <asp:ListItem Value="15" data-group="15">Woreda 3 Health Center</asp:ListItem>
+                           <asp:ListItem Value="18" data-group="18">Yekatit 12 Hospital</asp:ListItem>
+                           <asp:ListItem Value="6" data-group="6">Yirgalem General Hospital</asp:ListItem>
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvHF" runat="server" Text="* Health Facility required." ControlToValidate="ddlHealthF" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                     <div class="col-sm-6">
-
+                        <asp:Label>Collection Date</asp:Label>
                     <asp:TextBox ID="txtDateColl" class="form-control " TextMode="Date" ToolTip="Date sample was collected" placeholder="Date Collected" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDC" runat="server" Text="* Collection date required." ControlToValidate="txtDateColl" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
                     <div class="col-sm-6">
+                        <asp:Label>Recived Date</asp:Label>
                     <asp:TextBox ID="txtDateRec" class="form-control " TextMode="Date" ToolTip="Date sample was recived" placeholder="Date Recieved" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvDR" runat="server" Text="* Reciving date required." ControlToValidate="txtDateRec" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
 
                      <div class="col-sm-6">
+                         <asp:Label>Performed By</asp:Label>
                     <asp:TextBox ID="txtLabTech" class="form-control " placeholder="Initial" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvLabTech" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTech" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                     <div class="col-sm-6">
-                   <asp:TextBox ID="txtFilepath" class="form-control " placeholder="File Path" runat="server"></asp:TextBox>
+<%--                   <asp:TextBox ID="txtFilepath" class="form-control " placeholder="File Path" runat="server"></asp:TextBox>--%>
                   </div>
 
                 </div>
@@ -262,18 +329,18 @@
             $("#ddlZone").html($variable);
             var val = $("#ddlRegion").find(":selected").val();
             $("#ddlZone option").show();
-            $("#ddlZone option[value!=" + val + "]").hide();
+            $("#ddlZone option[data-group!=" + val + "]").hide();
 
         }
 
         function ToogleHealthFval() {
             // var divResval = document.getElementById('#DRESVAL');
             // divResval.style.display = "block";
-            $variable = $("#ddHealthF").html();
+            $variable = $("#ddlHealthF").html();
             $("#ddlHealthF").html($variable);
             var val = $("#ddlWoreda").find(":selected").val();
             $("#ddlHealthF option").show();
-            $("#ddlHealthF option[value!=" + val + "]").hide();
+            $("#ddlHealthF option[data-group!=" + val + "]").hide();
 
         }
 
