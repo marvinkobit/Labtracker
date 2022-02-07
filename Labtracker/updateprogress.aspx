@@ -134,7 +134,7 @@
                     </div>
               <br />
                      <div class="col-sm-6 col-lg-12">
-                    <asp:TextBox ID="txtLabTechPr" class="form-control " placeholder="Lab Technician" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLabTechPr" class="form-control " placeholder="Initial(Performed By)" runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvLabTechPr" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTechPr" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
 
@@ -176,11 +176,7 @@
                             <asp:ListItem Value="3">RIF</asp:ListItem>
                             <asp:ListItem Value="4">EMB</asp:ListItem>
                             <asp:ListItem Value="5">PZA</asp:ListItem>
-                            <asp:ListItem Value="6">STM</asp:ListItem>   
-                            <asp:ListItem Value="7">INH</asp:ListItem>
-                            <asp:ListItem Value="8">RIF</asp:ListItem>
-                            <asp:ListItem Value="9">EMB</asp:ListItem>
-                            <asp:ListItem Value="10">PZA</asp:ListItem>
+                           
                          </asp:DropDownList>
                        </div>
                       <asp:Label>Please enter details here</asp:Label>
