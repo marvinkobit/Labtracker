@@ -203,7 +203,7 @@
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
+                      <div class="dropdown-header">Dropdown  :</div>
                       <a class="dropdown-item" href="#">Action</a>
                       <a class="dropdown-item" href="#">Another action</a>
                       <div class="dropdown-divider"></div>
@@ -249,26 +249,26 @@
                         }).addTo(mymap);
                        
                         var marker = L.marker([8.98556789946321,38.71186137199402]).addTo(mymap);
-                        marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)!</b><br>Sequenced 20 samples").openPopup();
+                        marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)!</b><br>Sequenced 0 samples").openPopup();
 
                         var marker = L.marker([8.54385 ,39.27445]).addTo(mymap);
-                        marker.bindPopup("<b>Adama Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>Adama Hospital!</b><br>Samples: 0").openPopup();
 
                         var marker = L.marker([7.20721 , 38.61220]).addTo(mymap);
-                        marker.bindPopup("<b>Shashemene Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>Shashemene Hospital!</b><br>Samples: 0").openPopup();
 
                         var marker = L.marker([6.85448 , 37.76073]).addTo(mymap);
-                        marker.bindPopup("<b>Wolaita Sodo Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>Wolaita Sodo Hospital!</b><br>Samples: 0").openPopup();
 
                        
                         var marker = L.marker([8.24229 , 34.58165]).addTo(mymap);
-                        marker.bindPopup("<b>Gambella General Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>Gambella General Hospital!</b><br>Samples: 0").openPopup();
 
                         var marker = L.marker([6.02797 , 37.55298]).addTo(mymap);
-                        marker.bindPopup("<b>ArbaMinch Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>ArbaMinch Hospital!</b><br>Samples: 0").openPopup();
 
                         var marker = L.marker([6.75001 , 38.39411]).addTo(mymap);
-                        marker.bindPopup("<b>Yirgalem General Hospital!</b><br>Samples: 10").openPopup();
+                        marker.bindPopup("<b>Yirgalem General Hospital!</b><br>Samples: 0").openPopup();
 
 
                     </script>

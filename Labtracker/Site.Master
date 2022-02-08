@@ -324,7 +324,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="/register">
+                  <a class="dropdown-item" href="register.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register
                 </a>
