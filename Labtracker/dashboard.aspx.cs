@@ -21,7 +21,7 @@ namespace Labtracker
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
-              
+
 
             }
             /* SqlConnection con = new SqlConnection(strConnString);
@@ -50,6 +50,7 @@ namespace Labtracker
                 using (SampleContext _db = new SampleContext())
                 {
                     lblTotalSample.Text = _db.Samples.Count().ToString();
+
                 }
             }
             else

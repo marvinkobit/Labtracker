@@ -214,7 +214,7 @@
                   </div>
                   <div class="font-weight-bold">
                     <div class="text-truncate">Hi there! would you please update PACS?.</div>
-                    <div class="small text-gray-500">Betty Adnew</div>
+                    <div class="small text-gray-500">username</div>
                   </div>
                 </a>
              </div>
@@ -225,7 +225,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Betty Adnew</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">username</span>
                 <img class="img-profile rounded-circle" src="Images/beth.png"/>
                 
               </a>
