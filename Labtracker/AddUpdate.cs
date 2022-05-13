@@ -13,19 +13,19 @@ namespace Labtracker
 
 
 
-        public bool AddUpdate(int ProId, DateTime rd9date, DateTime smeardate, DateTime ljdate, DateTime mijtdate,
+        /*public bool AddUpdate(int ProId, DateTime rd9date, DateTime smeardate, DateTime ljdate, DateTime mijtdate,
                               DateTime dat1date, DateTime dat2date, string SaId, int ResisId, string stmr, string inhr,
                               string rifr, string embr, string pzar, int ResuId, string rd9res, string smrres,
                               string ljres, string mijtres, string res1res, string res2res, int StatId,
                               string namestat, string descstat)
         {
-            var tbgsamupdates = new Sample();
+            //var tbgsamupdates = new Sample();
             var tbgresupdates = new Result();
             var tbgprocessupdates = new Process();
             var tbgstatusupdates = new Status();
             var tbgresistupdates = new Resistance();
 
-            tbgsamupdates.SampleID = Convert.ToInt32(SaId);
+            //tbgsamupdates.SampleID = Convert.ToInt32(SaId);
 
             tbgresupdates.ResultID = ResuId;
             tbgresupdates.LJ_res = ljres;
@@ -66,6 +66,42 @@ namespace Labtracker
             // Success.
             return true;
         }
-    
-}
+*/
+        //ResultsUpdate
+        public bool AddUpdate(string SaId, string ResuId,
+                              string ljres)
+        {
+            //var tbgsamupdates = new Sample();
+            var tbgresupdates = new Result();
+            //var tbgprocessupdates = new Process();
+         /*   var tbgstatusupdates = new Status();
+            var tbgresistupdates = new Resistance();*/
+
+            tbgresupdates.SampleID = Convert.ToInt32(SaId);
+            tbgresupdates.ResultID = Convert.ToInt32(ResuId);
+            tbgresupdates.LJ_res = ljres;
+            //tbgresupdates.RD9_res = ljres;
+            //tbgresupdates.MIJT_res = ljres;
+            //tbgresupdates.Smear_res = ljres;
+            //tbgresupdates.res1 = ljres;
+            //tbgresupdates.res2 = ljres;
+
+            // tbgprocessupdates.SampleID = Convert.ToInt32(SaId);
+            //tbgprocessupdates.ProcessID = ProId;
+            //tbgprocessupdates.LJ_date = Convert.ToDateTime(ljdate);
+
+            using (SampleContext _db = new SampleContext())
+            {
+                // Add sample to DB.
+                _db.Results.Add(tbgresupdates);
+                //_db.Processes.Add(tbgprocessupdates);
+          /*      _db.Resistances.Add(tbgresistupdates);
+                _db.Statuses.Add(tbgstatusupdates);*/
+                _db.SaveChanges();
+            }
+            // Success.
+            return true;
+        }
+
+    }
 }

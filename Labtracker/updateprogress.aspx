@@ -10,7 +10,7 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>TBGEN Lab Monitor  - Register</title>
+  <title>TBGEN Lab Monitor</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,7 +46,8 @@
                   <div class=" row col-sm-6 mb-3 mb-sm-0">
                     <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Sample Id">
 
-                    </asp:TextBox><asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> 
+                    </asp:TextBox>
+                     <%-- <asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> --%>
                   </div>
           <br/>
             <!--  
@@ -57,8 +58,8 @@
                     
                 <div class="form-group row " >
                     <div id="rescol1" class=" col-sm-6"  >
-                    <div ID="DRESTYPE" class="col-sm-12 mb-3 mb-sm-0 col-lg-12">
-                     <asp:DropDownList ID="DDLResType"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type" AutoPostBack = "true" onchange="ToogleResval(); ToggleVisible(); return false;"  >
+                    <div class="col-sm-12 mb-3 mb-sm-0 col-lg-12">
+                     <asp:DropDownList ID="DDLResType"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type" AutoPostBack = "true" onchange="ToggleVisible(); return false;"  >
                             
                             <asp:ListItem selected hidden>Choose Result Type</asp:ListItem>
                               
@@ -76,11 +77,12 @@
                       
 
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="* Processing date required." ControlToValidate="DDLResType" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
                         <br />
 
-           <div ID="DRESVAL" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" >
-                     <asp:DropDownList ID="DDLRESVAL"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type"   >
+           <div class="col-sm-6 mb-3 mb-sm-0 col-lg-12" >
+                     <asp:DropDownList ID="DDLRESVAL"  class="form-control" runat="server" ToolTip="Choose Result"  >
                             
                             <asp:ListItem selected hidden>Choose Result</asp:ListItem>
                             <asp:ListItem Value="1" data-group="1">1+</asp:ListItem>
@@ -126,6 +128,7 @@
                               
 
                         </asp:DropDownList>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="* Processing date required." ControlToValidate="DDLRESVAL" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
                         <br />
               <div class="col-sm-6 col-lg-12">
@@ -141,7 +144,7 @@
                     <br />
                         </div>
                   
-              <div id=rescol2 class="col-sm-6 " >
+              <div id="rescol2" class="col-sm-6 " >
                   
 
                   <div id="GrowthDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
@@ -235,12 +238,12 @@
               
           </ContentTemplate>
        </asp:UpdatePanel>
-               <!-- <asp:Button href="sample-reciving.aspx" id="btnUpdate" class="btn btn-primary btn-user btn-block" Text="Save"  runat="server" OnClick="btnUpdate_Click" />
-                 -->
+              
                  <div class="row">
-               <asp:Button ID="btnSaveup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Save"  /> 
+               <asp:Button ID="btnSaveup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Update" OnClick="btnSaveup_Click" /> 
                <asp:Button ID="btnCancelup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Cancel" OnClientClick="this.form.reset();return false;"  /> 
                </div>
+                    <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
                 <hr>
                   </form>
                 </div>
@@ -289,16 +292,16 @@
           }
         }*/
 
-        function ToogleResval() {
-           // var divResval = document.getElementById('#DRESVAL');
-           // divResval.style.display = "block";
-            $variable = $("#DDLRESVAL").html();
-            $("#DDLRESVAL").html($variable);
-            var val = $("#DDLResType").find(":selected").val();
-            $("#DDLRESVAL option").show();
-            $("#DDLRESVAL option[value!=" + val + "]").hide();
+        //function ToogleResval() {
+        //   // var divResval = document.getElementById('#DRESVAL');
+        //   // divResval.style.display = "block";
+        //    $variable = $("#DDLRESVAL").html();
+        //    $("#DDLRESVAL").html($variable);
+        //    var val = $("#DDLResType").find(":selected").val();
+        //    $("#DDLRESVAL option").show();
+        //    $("#DDLRESVAL option[value!=" + val + "]").hide();
 
-        }
+        //}
 
         function ToggleVisible() {
            
@@ -309,6 +312,11 @@
             var grodiv = document.getElementById('GrowthDetail')
             var ddlval = $("#DDLResType").find(":selected").val();
             //var ddval2 = $("#").find(":selected").val();
+            $variable = $("#DDLRESVAL").html();
+            $("#DDLRESVAL").html($variable);
+            //var val = $("#DDLResType").find(":selected").val();
+            $("#DDLRESVAL option").show();
+            $("#DDLRESVAL option[value!=" + ddlval + "]").hide();
 
             switch (ddlval) {
                 case "5":

@@ -49,15 +49,6 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtSampleIdUpdate;
         
         /// <summary>
-        /// btnGo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGo;
-        
-        /// <summary>
         /// DDLResType control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.DropDownList DDLResType;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// DDLRESVAL control.
         /// </summary>
         /// <remarks>
@@ -74,6 +74,15 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLRESVAL;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtDateProcess control.
@@ -274,15 +283,6 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Label StatusLabel;
         
         /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// btnSaveup control.
         /// </summary>
         /// <remarks>
@@ -299,5 +299,14 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelup;
+        
+        /// <summary>
+        /// asSavelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label asSavelbl;
     }
 }

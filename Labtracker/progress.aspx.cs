@@ -22,6 +22,15 @@ namespace Labtracker
             }
 
         }
+        protected void gvResult_DataBound(object sender, EventArgs e)
+        {
+            if (gvResult.Rows.Count > 0)
+            {
+                string totsample = gvResult.Rows[gvResult.Rows.Count - 1].Cells[1].Text.ToString();
+                Session["Tsample"] = totsample;
+
+            }
+        }
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

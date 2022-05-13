@@ -9,7 +9,7 @@ namespace Labtracker.Models
     public class Result
     {
         [ScaffoldColumn(false)]
-        public int ResultID { get; set; }
+        public int? ResultID { get; set; }
 
         [Display(Name = "Rd9Res")]
         public string RD9_res { get; set; }

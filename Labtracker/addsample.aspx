@@ -92,7 +92,7 @@
                       <asp:Label>Region</asp:Label>
                        <asp:DropDownList ID="ddlRegion" class="form-control" ToolTip="Region" DataTextField="Choose Region"  AutoPostBack = "true" runat="server" onchange="ToogleZoneval(); return false;">
                      <%--   <asp:ListItem selected hidden>Choose Zone</asp:ListItem>--%>
-                           <asp:ListItem selected hidden>Choose Region</asp:ListItem>
+                        <asp:ListItem selected hidden>Choose Region</asp:ListItem>
                         <asp:ListItem value="1" data-group="1">Addis Ababa</asp:ListItem>
                         <asp:ListItem  value="2" data-group="2">Afar</asp:ListItem>
                         <asp:ListItem  value="3" data-group="3">Amhara</asp:ListItem>
@@ -301,7 +301,7 @@
                <asp:Button ID="btnCancelas"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Cancel" OnClientClick="this.form.reset();return false;"  /> 
                </div>
                    <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
-                  <hr>
+                  <hr/>
                   </form>
                 </div>
               </div>
