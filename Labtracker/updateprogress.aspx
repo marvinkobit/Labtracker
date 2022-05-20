@@ -44,9 +44,10 @@
       <asp:UpdatePanel ID="UPUpdateRes" runat="server"> 
           <ContentTemplate>
                   <div class=" row col-sm-6 mb-3 mb-sm-0">
-                    <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Sample Id">
+                    <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Patient Id">
 
                     </asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfvtxtID" runat="server" Text="*Result type required." ControlToValidate="txtSampleIdUpdate" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                      <%-- <asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> --%>
                   </div>
           <br/>

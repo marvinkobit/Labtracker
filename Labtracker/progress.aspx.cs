@@ -35,8 +35,8 @@ namespace Labtracker
         {
             if (gvResult.Rows.Count > 0)
             {
-                string totsample = gvDstResult.Rows[gvDstResult.Rows.Count - 1].Cells[1].Text.ToString();
-                Session["Tsample"] = totsample;
+                //string totsample2 = gvDstResult.Rows[gvDstResult.Rows.Count - 1].Cells[1].Text.ToString();
+                //Session["Tsample2"] = totsample2;
 
             }
         }
@@ -45,8 +45,8 @@ namespace Labtracker
         {
             if (gvGrowthResult.Rows.Count > 0)
             {
-                string totsample = gvGrowthResult.Rows[gvGrowthResult.Rows.Count - 1].Cells[1].Text.ToString();
-                Session["Tsample"] = totsample;
+                //string totsample3 = gvGrowthResult.Rows[gvGrowthResult.Rows.Count - 1].Cells[1].Text.ToString();
+                //Session["Tsample3"] = totsample3;
 
             }
         }

@@ -49,6 +49,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtSampleIdUpdate;
         
         /// <summary>
+        /// rfvtxtID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtID;
+        
+        /// <summary>
         /// DDLResType control.
         /// </summary>
         /// <remarks>

@@ -50,7 +50,8 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Culture Positive</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><asp:Label  runat="server" ID="lblCulturePositive"  Text=""></asp:Label></div>
+
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-culture fa-2x text-gray-300"></i>
@@ -69,7 +70,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Contaminated</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><asp:Label  runat="server" ID="lblContaminated"  Text=""></asp:Label></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-contamination fa-2x text-gray-300"></i>
@@ -218,16 +219,16 @@
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Ethiopia
+                       <i class="fas fa-circle text-primary"></i></i> <asp:Label  runat="server" ID="lblethiopiasam"  Text=" "/> - Ethiopia
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Eritrea
+                      <i class="fas fa-circle text-success"></i> <asp:Label  runat="server" ID="lblEritreasam"  Text=" "/> - Eritrea
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Cameron
+                      <i class="fas fa-circle text-info"></i> <asp:Label  runat="server" ID="lblCameroonsam"  Text=" "/> - Cameron
                     </span>
                         <span class="mr-2">
-                      <i class="fas fa-circle text-secondary"></i> Sudan
+                      <i class="fas fa-circle text-secondary"></i> <asp:Label  runat="server" ID="lblSudansam"  Text=" "/> - Sudan
                     </span>
                   </div>
                 </div>
@@ -287,13 +288,13 @@
                   <h6 class="m-0 font-weight-bold text-primary">Progress</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Sample Collection <span class="float-right">20%</span></h4>
+                  <h4 class="small font-weight-bold">Sample Collection <span class="float-right"><asp:Label  runat="server" ID="lblsamplecoltar"  Text=""/>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold"> Isolate Storage<span class="float-right">10%</span></h4>
+                  <h4 class="small font-weight-bold"> Isolate Storage<span class="float-right"><asp:Label  runat="server" ID="lblisolatetar"  Text=""/>%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                  
                 </div>

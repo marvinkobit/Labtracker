@@ -35,11 +35,8 @@ namespace Labtracker.Models
         [Display(Name = "labinitial")]
         public string Labinitial { get; set; }
 
-        public int? SampleID { get; set; }
-        public virtual Sample Sample
-        {
-            get; set;
-        }
+        public string PatientId { get; set; }
+       
         // public virtual ICollection<Sample> Samples { get; set; }
     }
 }

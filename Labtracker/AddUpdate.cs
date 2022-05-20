@@ -71,20 +71,22 @@ namespace Labtracker
         public bool AddUpdate(string SaId, string ResuId,
                               string resultant,string restype,DateTime dateProcess,string labinitial)
         {
-            //var tbgsamupdates = new Sample();
+            
             var tbgresupdates = new Result();
             var tbgprocessupdates = new Process();
-            var tbgdstupdates = new Dst();
+            
 
             /*   var tbgstatusupdates = new Status();
                var tbgresistupdates = new Resistance();*/
-            tbgprocessupdates.SampleID = Convert.ToInt32(SaId);
-            tbgresupdates.SampleID = Convert.ToInt32(SaId);
-            tbgresupdates.ResultID = Convert.ToInt32(ResuId);
+            tbgprocessupdates.PatientId = SaId;
+            tbgresupdates.PatientId = SaId;
             tbgresupdates.Labinitial = labinitial;
-            tbgprocessupdates.ProcessID = Convert.ToInt32(SaId);
 
-            
+            //tbgresupdates.ResultID = Convert.ToInt32(ResuId);
+
+            //tbgprocessupdates.ProcessID = Convert.ToInt32(SaId);
+
+
             switch (restype)
             {
                 case "Primary Smear":
@@ -120,19 +122,12 @@ namespace Labtracker
                     break;
             }
            
-           
-            //tbgresupdates.res1 = ljres;
-            //tbgresupdates.res2 = ljres;
-
-            // tbgprocessupdates.SampleID = Convert.ToInt32(SaId);
-            //tbgprocessupdates.ProcessID = ProId;
-            //tbgprocessupdates.LJ_date = Convert.ToDateTime(ljdate);
 
             using (SampleContext _db = new SampleContext())
             {
 
-                try
-                {
+                //try
+                //{
                     // Add sample to DB.
                     _db.Results.Add(tbgresupdates);
                     _db.Processes.Add(tbgprocessupdates);
@@ -140,11 +135,11 @@ namespace Labtracker
                     /*      _db.Resistances.Add(tbgresistupdates);
                           _db.Statuses.Add(tbgstatusupdates);*/
                     _db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
+                //}
+                //catch (Exception e)
+                //{
+                //    return false;
+                //}
                
             }
             // Success.
@@ -158,7 +153,7 @@ namespace Labtracker
            
             var tbgdstupdates = new Dst();
 
-            tbgdstupdates.SampleID = Convert.ToInt32(SaId);
+            tbgdstupdates.PatientId = SaId;
 
             //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
             tbgdstupdates.Initial = labinitial;
@@ -195,7 +190,7 @@ namespace Labtracker
 
             var tbggrowthupdates = new Growth();
 
-            tbggrowthupdates.SampleID = Convert.ToInt32(SaId);
+            tbggrowthupdates.PatientId = SaId;
 
             //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
             tbggrowthupdates.Initial = labinitial;

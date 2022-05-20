@@ -32,11 +32,8 @@ namespace Labtracker.Models
         [Display(Name = "HeatKill_date")]
         public Nullable<DateTime> HeatKill_date { get; set; }
 
-        public int? SampleID { get; set; }
-        public virtual Sample Sample
-        {
-            get; set;
-        }
+        public string PatientId { get; set; }
+       
         //public virtual ICollection<Sample> Samples { get; set; }
     }
 }
