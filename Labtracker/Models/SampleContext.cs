@@ -19,5 +19,7 @@ namespace Labtracker.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Sample> Samples { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Dst> Dsts { get; set; }
+        public DbSet<Growth> Growths { get; set; }
     }
 }

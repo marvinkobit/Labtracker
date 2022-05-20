@@ -27,6 +27,7 @@ namespace Labtracker
 
             // Initialize the sample database.
             //Database.SetInitializer(new SampleDatabaseInitializer());
+            Database.SetInitializer<SampleContext>(null);
 
 
             SampleContext c = new SampleContext();

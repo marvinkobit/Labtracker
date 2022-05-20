@@ -31,6 +31,25 @@ namespace Labtracker
 
             }
         }
+        protected void gvDstResult_DataBound(object sender, EventArgs e)
+        {
+            if (gvResult.Rows.Count > 0)
+            {
+                string totsample = gvDstResult.Rows[gvDstResult.Rows.Count - 1].Cells[1].Text.ToString();
+                Session["Tsample"] = totsample;
+
+            }
+        }
+
+        protected void gvGrowthResult_DataBound(object sender, EventArgs e)
+        {
+            if (gvGrowthResult.Rows.Count > 0)
+            {
+                string totsample = gvGrowthResult.Rows[gvGrowthResult.Rows.Count - 1].Cells[1].Text.ToString();
+                Session["Tsample"] = totsample;
+
+            }
+        }
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

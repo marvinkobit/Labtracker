@@ -69,20 +69,58 @@ namespace Labtracker
 */
         //ResultsUpdate
         public bool AddUpdate(string SaId, string ResuId,
-                              string ljres)
+                              string resultant,string restype,DateTime dateProcess,string labinitial)
         {
             //var tbgsamupdates = new Sample();
             var tbgresupdates = new Result();
-            //var tbgprocessupdates = new Process();
-         /*   var tbgstatusupdates = new Status();
-            var tbgresistupdates = new Resistance();*/
+            var tbgprocessupdates = new Process();
+            var tbgdstupdates = new Dst();
 
+            /*   var tbgstatusupdates = new Status();
+               var tbgresistupdates = new Resistance();*/
+            tbgprocessupdates.SampleID = Convert.ToInt32(SaId);
             tbgresupdates.SampleID = Convert.ToInt32(SaId);
             tbgresupdates.ResultID = Convert.ToInt32(ResuId);
-            tbgresupdates.LJ_res = ljres;
-            //tbgresupdates.RD9_res = ljres;
-            //tbgresupdates.MIJT_res = ljres;
-            //tbgresupdates.Smear_res = ljres;
+            tbgresupdates.Labinitial = labinitial;
+            tbgprocessupdates.ProcessID = Convert.ToInt32(SaId);
+
+            
+            switch (restype)
+            {
+                case "Primary Smear":
+                    tbgresupdates.Smear_res = resultant;
+                    tbgprocessupdates.Smear_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "LJ":
+                    tbgresupdates.LJ_res = resultant;
+                    tbgprocessupdates.LJ_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "MGIT":
+                    tbgresupdates.MIJT_res = resultant;
+                    tbgprocessupdates.MIJT_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "RD9":
+                    tbgresupdates.RD9_res = resultant;
+                    tbgprocessupdates.RD9_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "Heat Killed":
+                    tbgresupdates.HeatKilled_res = resultant;
+                    tbgprocessupdates.HeatKill_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "Culture Smear":
+                    tbgresupdates.CultureSmear_res = resultant;
+                    tbgprocessupdates.CultureSmear_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "Spoligo":
+                    tbgresupdates.Spoligo_res = resultant;
+                    tbgprocessupdates.Spoligo_date = Convert.ToDateTime(dateProcess);
+                    break;
+              
+                default:
+                    break;
+            }
+           
+           
             //tbgresupdates.res1 = ljres;
             //tbgresupdates.res2 = ljres;
 
@@ -92,16 +130,101 @@ namespace Labtracker
 
             using (SampleContext _db = new SampleContext())
             {
-                // Add sample to DB.
-                _db.Results.Add(tbgresupdates);
-                //_db.Processes.Add(tbgprocessupdates);
-          /*      _db.Resistances.Add(tbgresistupdates);
-                _db.Statuses.Add(tbgstatusupdates);*/
-                _db.SaveChanges();
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.Results.Add(tbgresupdates);
+                    _db.Processes.Add(tbgprocessupdates);
+
+                    /*      _db.Resistances.Add(tbgresistupdates);
+                          _db.Statuses.Add(tbgstatusupdates);*/
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+               
             }
             // Success.
             return true;
         }
+
+
+        //Overload for DST
+        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime dater)
+        {
+           
+            var tbgdstupdates = new Dst();
+
+            tbgdstupdates.SampleID = Convert.ToInt32(SaId);
+
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+            tbgdstupdates.Initial = labinitial;
+            tbgdstupdates.DrugLine = drugline;
+            tbgdstupdates.Drug = drug;
+            tbgdstupdates.Sensitivity = sensetive;
+            tbgdstupdates.Dater = Convert.ToDateTime(dater);
+              
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.Dsts.Add(tbgdstupdates);
+               
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+            // Success.
+            return true;
+        }
+
+
+        //Overload for GrowthDetection 
+        public bool AddUpdate(DateTime dater, string SaId, string week, string primarymedia, string input, string labinitial)
+        {
+
+            var tbggrowthupdates = new Growth();
+
+            tbggrowthupdates.SampleID = Convert.ToInt32(SaId);
+
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+            tbggrowthupdates.Initial = labinitial;
+            tbggrowthupdates.Week = week;
+            tbggrowthupdates.dat1 = primarymedia;
+            tbggrowthupdates.dat2 = input;
+            tbggrowthupdates.Dater = Convert.ToDateTime(dater);
+
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.Growths.Add(tbggrowthupdates);
+
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+            // Success.
+            return true;
+        }
+
 
     }
 }

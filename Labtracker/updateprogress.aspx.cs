@@ -34,38 +34,58 @@ namespace Labtracker
         protected void btnSaveup_Click(object sender, EventArgs e)
         {
             
-            AddUpdates updates = new AddUpdates ();
-            bool addSuccessres = false;
-            string selectedres = DDLResType.SelectedItem.ToString();
-            string selectedvalue = DDLRESVAL.SelectedItem.ToString();
+                AddUpdates updates = new AddUpdates();
+                bool addSuccessres = false;
+                string selectedres = DDLResType.SelectedItem.ToString();
+                string selectedvalue = DDLRESVAL.SelectedItem.ToString();
+                string dateshit = txtDateProcess.Text;
+                string labinitial = txtLabTechPr.Text;
+                DateTime datesh = Convert.ToDateTime(dateshit);
+
             switch (selectedres)
             {
-                case "Primary Smear":
-                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue);
+                case "Spoligo":
+                    string spoligo_res = txtSpold.Text;
+                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, spoligo_res, selectedres, datesh, labinitial);
                     break;
-                case "LJ":
+                case "DST":
+                    string drug = ddlDSTdetail1.SelectedItem.ToString();
+                    string drugline = selectedvalue;
+                    string sens = ddlDSTdetail2.SelectedItem.ToString();
+                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, sens, drug, drugline, labinitial,datesh);
                     break;
-                case "MGIT":
+                case "Growth Detection":
+                    string week = selectedvalue;
+                    string primarymedia = ddlGrowthdetail.SelectedItem.ToString();
+                    string input = txtGrowth.Text;
+                    addSuccessres = updates.AddUpdate(datesh,txtSampleIdUpdate.Text,week,primarymedia,input,labinitial);
                     break;
-                default:
-                    //addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, DDLRESVAL.SelectedItem.ToString());
-                    break;
-            }
-            
 
-            if (addSuccessres)
-            {
-                //samplecount +=1;
-                // Reload the page.
-                //Session["totalcount"] = Convert.ToInt32(txtSId.Text)+1;
-                //string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                Response.Redirect("progress.aspx");
-               
+                default:
+                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, Convert.ToDateTime(txtDateProcess.Text), labinitial);
+                    break;
             }
-            else
-            {
-                 asSavelbl.Text = String.Format("Unable to add new Update to database. {0}",selectedvalue);
-            }
+
+
+                         
+                
+                
+         
+
+                if (addSuccessres)
+                {
+                    //samplecount +=1;
+                    // Reload the page.
+                    //Session["totalcount"] = Convert.ToInt32(txtSId.Text)+1;
+                    //string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                    Response.Redirect("progress.aspx");
+
+                }
+                else
+                {
+                    asSavelbl.Text = String.Format("Unable to add new Update to database. {0}{1}{2}", selectedvalue,dateshit,datesh);
+                }
+          
 
         }
 

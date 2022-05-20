@@ -11,23 +11,26 @@ namespace Labtracker.Models
         [ScaffoldColumn(false)]
         public int ProcessID { get; set; }
 
-        [Display(Name = "Rd9Date")]
-        public DateTime RD9_date { get; set; }
+        [Display(Name = "RD9_date")]
+        public Nullable<DateTime> RD9_date { get; set; }
 
-        [Display(Name = "SmearDate")]
-        public DateTime Smear_date { get; set; }
+        [Display(Name = "Smear_date")]
+        public Nullable<DateTime> Smear_date { get; set; }
 
-        [Display(Name = "LJDate")]
-        public DateTime LJ_date { get; set; }
+        [Display(Name = "LJ_date")]
+        public Nullable<DateTime> LJ_date { get; set; }
 
-        [Display(Name = "MIJTDate")]
-        public DateTime MIJT_date { get; set; }
+        [Display(Name = "MIJT_date")]
+        public Nullable<DateTime> MIJT_date { get; set; }
 
-        [Display(Name = "dat1")]
-        public DateTime dat1 { get; set; }
+        [Display(Name = "Spoligo_date")]
+        public Nullable<DateTime> Spoligo_date { get; set; }
 
-        [Display(Name = "dat2")]
-        public DateTime dat2 { get; set; }
+        [Display(Name = "CultureSmear_date")]
+        public Nullable<DateTime> CultureSmear_date { get; set; }
+
+        [Display(Name = "HeatKill_date")]
+        public Nullable<DateTime> HeatKill_date { get; set; }
 
         public int? SampleID { get; set; }
         public virtual Sample Sample
