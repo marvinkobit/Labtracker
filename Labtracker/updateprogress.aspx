@@ -99,6 +99,7 @@
 
                             <asp:ListItem Value="13" data-group="4">MTBC</asp:ListItem>
                             <asp:ListItem Value="14" data-group="4">NTM</asp:ListItem>
+                         <asp:ListItem Value="14" data-group="4">MBOV</asp:ListItem>
 
                             <asp:ListItem Value="15" data-group="5">Good for library Prep</asp:ListItem>
                             <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
