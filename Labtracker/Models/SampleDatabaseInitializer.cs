@@ -41,8 +41,8 @@ namespace Labtracker.Models
                     Smear_date = DateTime.Parse("Sep 1, 2019"),
                     LJ_date=DateTime.Parse("Sep 1, 2019"),
                     MIJT_date=DateTime.Parse("Sep 1, 2019"),
-                    dat1=DateTime.Parse("Sep 1, 2019"),
-                    dat2=DateTime.Parse("Sep 1, 2019")
+                    Spoligo_date=DateTime.Parse("Sep 1, 2019"),
+                    CultureSmear_date=DateTime.Parse("Sep 1, 2019")
                 },
                 new Process
                 {
@@ -51,8 +51,8 @@ namespace Labtracker.Models
                     Smear_date = DateTime.Parse("Sep 1, 2019"),
                     LJ_date=DateTime.Parse("Sep 1, 2019"),
                     MIJT_date=DateTime.Parse("Sep 1, 2019"),
-                    dat1=DateTime.Parse("Sep 1, 2019"),
-                    dat2=DateTime.Parse("Sep 1, 2019")
+                    Spoligo_date=DateTime.Parse("Sep 1, 2019"),
+                    CultureSmear_date=DateTime.Parse("Sep 1, 2019")
                 },
 
             };
@@ -99,8 +99,9 @@ namespace Labtracker.Models
                     Smear_res = "positive",
                     LJ_res="positive",
                     MIJT_res="positive",
-                    res1="",
-                    res2=""
+                    HeatKilled_res="",
+                    CultureSmear_res=""
+                   
                 },
                 new Result
                 {
@@ -109,8 +110,8 @@ namespace Labtracker.Models
                     Smear_res = "positive",
                     LJ_res="positive",
                     MIJT_res="positive",
-                    res1="",
-                    res2=""
+                    HeatKilled_res="",
+                    CultureSmear_res=""
                 },
 
             };

@@ -311,8 +311,8 @@
             <h1 class="h3 mb-0 text-gray-800">Progress and Result </h1>
             <a href="updateprogress.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i> Update progress</a>
-              <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
-                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>
+             <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
                <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                          </div>
@@ -326,8 +326,24 @@
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
-               
-                  <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+               <br />
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="Smear_res" HeaderText="Primary Smear" SortExpression="Smear_res" />
+                          <asp:BoundField DataField="RD9_res" HeaderText="RD9" SortExpression="RD9_res" />
+                    
+                          <asp:BoundField DataField="LJ_res" HeaderText="LJ" SortExpression="LJ_res" />
+                          <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
+                          <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
+                          <asp:BoundField DataField="CultureSmear_res" HeaderText="Culture Smear" SortExpression="CultureSmear_res" />
+                            <asp:BoundField DataField="Spoligo_res" HeaderText="Spoligo" SortExpression="Spoligo_res" />
+                           <asp:BoundField DataField="LabInitial" HeaderText="Initial" SortExpression="LabInitial" />
+                        
+                         
+                      </Columns>
                       <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                       <EditRowStyle BackColor="#999999" />
                       <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -341,6 +357,8 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[LabInitial] FROM Results"></asp:SqlDataSource>
+               
               </div>
             </div>
 
@@ -348,6 +366,90 @@
           </div>
 
           <!-- Content Row -->
+             <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+               <br />
+                   <asp:GridView ID="gvDstResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="DrugLine" HeaderText="Line" SortExpression="DrugLine" />
+                          <asp:BoundField DataField="Drug" HeaderText="Drug" SortExpression="Drug" />
+                    
+                          <asp:BoundField DataField="Sensitivity" HeaderText="Susceptbility" SortExpression="Sensitivity" />
+                          <asp:BoundField DataField="Dater" HeaderText="Date" SortExpression="Dater" />
+                          <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                         
+                        
+                         
+                      </Columns>
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>
+               
+                  <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,Initial FROM Dsts"></asp:SqlDataSource>
+               
+              </div>
+            </div>
+
+           
+          </div>
+
+             <!-- Content Row -->
+             <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+               <br />
+                   <asp:GridView ID="gvGrowthResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource3" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvGrowthResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="GrowthID" HeaderText="GrowthID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="Week" HeaderText="Week" SortExpression="Week" />
+                          <asp:BoundField DataField="dat1" HeaderText="Primary Media" SortExpression="Primary Media" />
+                    
+                          <asp:BoundField DataField="dat2" HeaderText="Detail" SortExpression="Detail" />
+                          <asp:BoundField DataField="Dater" HeaderText="Date" SortExpression="Dater" />
+                          <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                         
+                        
+                         
+                      </Columns>
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>
+               
+                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT GrowthID,PatientId,Week,dat1,dat2,Dater,Initial FROM Growths"></asp:SqlDataSource>
+               
+              </div>
+            </div>
+
+           
+          </div>
           <div class="row">
               Filter your search here 
             <!-- Content Column -->

@@ -90,10 +90,6 @@ namespace Labtracker
                 IQueryable query = _db.Samples;
                 return query;
             }
-        
-
-        
-
         protected void ClearTextBoxes(Control p1)
         {
             foreach (Control ctrl in p1.Controls)

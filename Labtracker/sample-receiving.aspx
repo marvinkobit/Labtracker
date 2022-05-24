@@ -212,7 +212,7 @@
                   </div>
                   <div>
                     <div class="small text-gray-500">September 12, 2019</div>
-                    <span class="font-weight-bold">New samples (batch 5) has been recived!</span>
+                    <span class="font-weight-bold">New samples (batch 5) has been recieved!</span>
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">

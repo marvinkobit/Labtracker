@@ -40,7 +40,8 @@ namespace Labtracker
                 catch (Exception e)
                 {
 
-                    throw e;
+                    //throw e;
+                    return false;
                 }
             }
             // Success.

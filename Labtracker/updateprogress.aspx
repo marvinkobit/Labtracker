@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="updateprogress.aspx.cs" Inherits="Labtracker.updateprogress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="updateprogress.aspx.cs" Inherits="Labtracker.updateprogress"%>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>TBGEN Lab Monitor  - Register</title>
+  <title>TBGEN Lab Monitor</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,9 +44,11 @@
       <asp:UpdatePanel ID="UPUpdateRes" runat="server"> 
           <ContentTemplate>
                   <div class=" row col-sm-6 mb-3 mb-sm-0">
-                    <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Sample Id">
+                    <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Patient Id">
 
-                    </asp:TextBox><asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> 
+                    </asp:TextBox>
+                      <asp:RequiredFieldValidator ID="rfvtxtID" runat="server" Text="*Result type required." ControlToValidate="txtSampleIdUpdate" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                     <%-- <asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> --%>
                   </div>
           <br/>
             <!--  
@@ -57,11 +59,10 @@
                     
                 <div class="form-group row " >
                     <div id="rescol1" class=" col-sm-6"  >
-                    <div ID="DRESTYPE" class="col-sm-12 mb-3 mb-sm-0 col-lg-12">
-                     <asp:DropDownList ID="DDLResType"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type" AutoPostBack = "true" onchange="ToogleResval(); ToggleVisible(); return false;"  >
-                            
+                    <div class="col-sm-12 mb-3 mb-sm-0 col-lg-12">
+                     <asp:DropDownList ID="DDLResType"  class="form-control" runat="server" ToolTip="Choose Result Type"  AutoPostBack="true" onchange="ToggleVisible();ToogleResval(); return false;"  >
+            
                             <asp:ListItem selected hidden>Choose Result Type</asp:ListItem>
-                              
                             <asp:ListItem value="1" data-group="1">Primary Smear</asp:ListItem>
                             <asp:ListItem value="2" data-group="2">LJ</asp:ListItem>
                             <asp:ListItem value="3" data-group="3">MGIT</asp:ListItem>
@@ -72,60 +73,57 @@
                           <asp:ListItem value="8" data-group="8">Culture Smear</asp:ListItem>
                           <asp:ListItem value="9" data-group="9">Heat Killed</asp:ListItem> 
                          <asp:ListItem value="10" data-group="10">Growth Detection</asp:ListItem>
-
-                      
-
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*Result type required." ControlToValidate="DDLResType" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
                         <br />
 
            <div ID="DRESVAL" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" >
-                     <asp:DropDownList ID="DDLRESVAL"  class="form-control form-control-user" runat="server" ToolTip="Choose Result Type"   >
+                     <asp:DropDownList ID="DDLRESVAL"  class="form-control" runat="server" ToolTip="Choose Result" onchange="ToogleDstval(); return false;" >
                             
                             <asp:ListItem selected hidden>Choose Result</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">1+</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">2+</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">3+</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">Scanty</asp:ListItem>
+                            <asp:ListItem value="1" data-group="1">1+</asp:ListItem>
+                            <asp:ListItem Value="2" data-group="1">2+</asp:ListItem>
+                            <asp:ListItem value="3" data-group="1">3+</asp:ListItem>
+                            <asp:ListItem value="4" data-group="1">Scanty</asp:ListItem>
                     
-                            <asp:ListItem Value="2" data-group="2">Growth</asp:ListItem>
-                            <asp:ListItem Value="2" data-group="2">NoGrowth</asp:ListItem>
-                            <asp:ListItem Value="2" data-group="2">Contaminated</asp:ListItem>
-                            <asp:ListItem Value="2" data-group="2">Not Done</asp:ListItem>
+                            <asp:ListItem value="5" data-group="2">Growth</asp:ListItem>
+                            <asp:ListItem value="6" data-group="2">NoGrowth</asp:ListItem>
+                            <asp:ListItem value="7" data-group="2">Contaminated</asp:ListItem>
+                            <asp:ListItem value="8" data-group="2">Not Done</asp:ListItem>
 
-                             <asp:ListItem Value="3" data-group="3">Growth</asp:ListItem>
-                            <asp:ListItem Value="3" data-group="3">NoGrowth</asp:ListItem>
-                            <asp:ListItem Value="3" data-group="3">Contaminated</asp:ListItem>
-                            <asp:ListItem Value="3" data-group="3">Not Done</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="3">Growth</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="3">NoGrowth</asp:ListItem>
+                            <asp:ListItem Value="11" data-group="3">Contaminated</asp:ListItem>
+                            <asp:ListItem Value="12" data-group="3">Not Done</asp:ListItem>
 
-                            <asp:ListItem Value="4" data-group="4">MTBC</asp:ListItem>
-                            <asp:ListItem Value="4" data-group="4">NTM</asp:ListItem>
+                            <asp:ListItem Value="13" data-group="4">MTBC</asp:ListItem>
+                            <asp:ListItem Value="14" data-group="4">NTM</asp:ListItem>
+                         <asp:ListItem Value="14" data-group="4">MBOV</asp:ListItem>
 
-                            <asp:ListItem Value="5" data-group="5">Good for library Prep</asp:ListItem>
-                            <asp:ListItem Value="5" data-group="5">Failed-Repeat Extraction</asp:ListItem>
-                            <asp:ListItem Value="5" data-group="5">Failed-Discard</asp:ListItem>
+                            <asp:ListItem Value="15" data-group="5">Good for library Prep</asp:ListItem>
+                            <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
+                            <asp:ListItem Value="17" data-group="5">Failed-Discard</asp:ListItem>
 
-                             <asp:ListItem Value="7" data-group="7">First Line</asp:ListItem>  
-                            <asp:ListItem Value="7" data-group="7">Second Line</asp:ListItem>
-                            
-                          <asp:ListItem Value="8" data-group="8">Pos</asp:ListItem>  
-                            <asp:ListItem Value="8" data-group="8">Neg</asp:ListItem>
-
-                          <asp:ListItem Value="9" data-group="9">Yes</asp:ListItem>  
-                            <asp:ListItem Value="9" data-group="9">No</asp:ListItem>
+                             <asp:ListItem Value="18" data-group="7">First Line</asp:ListItem>  
+                            <asp:ListItem Value="19" data-group="7">Second Line</asp:ListItem>  
                          
-                            <asp:ListItem Value="10" data-group="10">Week 1</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 2</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 3</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 4</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 5</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 6</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 7</asp:ListItem>
-                            <asp:ListItem Value="10" data-group="10">Week 8</asp:ListItem>
-                        
-                              
+                          <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>  
+                            <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
 
+                          <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>  
+                            <asp:ListItem Value="23" data-group="9">No</asp:ListItem>     
+
+                            <asp:ListItem Value="24" data-group="10">Week 1</asp:ListItem>
+                            <asp:ListItem Value="25" data-group="10">Week 2</asp:ListItem>
+                            <asp:ListItem Value="26" data-group="10">Week 3</asp:ListItem>
+                            <asp:ListItem Value="27" data-group="10">Week 4</asp:ListItem>
+                            <asp:ListItem Value="28" data-group="10">Week 5</asp:ListItem>
+                            <asp:ListItem Value="29" data-group="10">Week 6</asp:ListItem>
+                            <asp:ListItem Value="30" data-group="10">Week 7</asp:ListItem>
+                            <asp:ListItem Value="31" data-group="10">Week 8</asp:ListItem>
                         </asp:DropDownList>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="* Result required." ControlToValidate="DDLRESVAL" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
                         <br />
               <div class="col-sm-6 col-lg-12">
@@ -141,7 +139,7 @@
                     <br />
                         </div>
                   
-              <div id=rescol2 class="col-sm-6 " >
+              <div id="rescol2" class="col-sm-6 " >
                   
 
                   <div id="GrowthDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
@@ -150,11 +148,10 @@
                       <div class="col-sm-6 col-lg-12">
                         <asp:DropDownList ID="ddlGrowthdetail" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
                             <asp:ListItem Selected hidden>Primary media</asp:ListItem>
-                           <asp:ListItem Value="1">LJ-1</asp:ListItem>   
+                            <asp:ListItem Value="1">LJ-1</asp:ListItem>   
                             <asp:ListItem Value="2">LJ-2</asp:ListItem>
                             <asp:ListItem Value="3">LJ-P</asp:ListItem>
                             <asp:ListItem Value="4">MGIT</asp:ListItem>
-                
                          </asp:DropDownList>
                        </div>
                       <asp:Label>Please enter details here</asp:Label>
@@ -171,12 +168,24 @@
                       <div class="col-sm-6 col-lg-12">
                         <asp:DropDownList ID="ddlDSTdetail1" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
                             <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
-                           <asp:ListItem Value="1">STM</asp:ListItem>   
-                            <asp:ListItem Value="2">INH</asp:ListItem>
-                            <asp:ListItem Value="3">RIF</asp:ListItem>
-                            <asp:ListItem Value="4">EMB</asp:ListItem>
-                            <asp:ListItem Value="5">PZA</asp:ListItem>
-                           
+                           <asp:ListItem Value="1" data-group="18">STM</asp:ListItem>   
+                            <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
+                            <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
+                            <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
+                            <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
+                            <asp:ListItem Value="6" data-group="19">OFX</asp:ListItem>
+                            <asp:ListItem Value="7" data-group="19">LEV</asp:ListItem>
+                            <asp:ListItem Value="8" data-group="19">MOX</asp:ListItem>
+                            <asp:ListItem Value="9" data-group="19">CIP</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="19">KAN</asp:ListItem>
+                            <asp:ListItem Value="11" data-group="19">AMK</asp:ListItem>
+                            <asp:ListItem Value="12" data-group="19">CAP</asp:ListItem>
+                            <asp:ListItem Value="13" data-group="19">ETH</asp:ListItem>
+                            <asp:ListItem Value="14" data-group="19">PTH</asp:ListItem>
+                            <asp:ListItem Value="15" data-group="19">CS</asp:ListItem>
+                            <asp:ListItem Value="16" data-group="19">PAS</asp:ListItem>
+                            
+
                          </asp:DropDownList>
                        </div>
                       <asp:Label>Please enter details here</asp:Label>
@@ -235,12 +244,12 @@
               
           </ContentTemplate>
        </asp:UpdatePanel>
-               <!-- <asp:Button href="sample-reciving.aspx" id="btnUpdate" class="btn btn-primary btn-user btn-block" Text="Save"  runat="server" OnClick="btnUpdate_Click" />
-                 -->
+              
                  <div class="row">
-               <asp:Button ID="btnSaveup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Save"  /> 
+               <asp:Button ID="btnSaveup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Update" OnClick="btnSaveup_Click" /> 
                <asp:Button ID="btnCancelup"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Cancel" OnClientClick="this.form.reset();return false;"  /> 
                </div>
+                    <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
                 <hr>
                   </form>
                 </div>
@@ -288,7 +297,16 @@
               //div.style.display = "none";
           }
         }*/
+        function ToogleDstval() {
+            // var divResval = document.getElementById('#DRESVAL');
+            // divResval.style.display = "block";
+            $variable = $("#ddlDSTdetail1").html();
+            $("#ddlDSTdetail1").html($variable);
+            var val = $("#DDLRESVAL").find(":selected").val();
+            $("#ddlDSTdetail1 option").show();
+            $("#ddlDSTdetail1 option[data-group!=" + val + "]").hide();
 
+        }
         function ToogleResval() {
            // var divResval = document.getElementById('#DRESVAL');
            // divResval.style.display = "block";
@@ -296,7 +314,7 @@
             $("#DDLRESVAL").html($variable);
             var val = $("#DDLResType").find(":selected").val();
             $("#DDLRESVAL option").show();
-            $("#DDLRESVAL option[value!=" + val + "]").hide();
+            $("#DDLRESVAL option[data-group!=" + val + "]").hide();
 
         }
 
@@ -307,8 +325,12 @@
             var dstdiv = document.getElementById('DSTDetail');
             var comsel = document.getElementById('DRESVAL');
             var grodiv = document.getElementById('GrowthDetail')
-            var ddlval = $("#DDLResType").find(":selected").val();
+            
             //var ddval2 = $("#").find(":selected").val();
+            
+            //var val = $("#DDLResType").find(":selected").val();
+            var ddlval = $("#DDLResType").find(":selected").val();
+          
 
             switch (ddlval) {
                 case "5":
@@ -348,6 +370,8 @@
                     dstdiv.style.display = "none";
                     grodiv.style.display = "none";
             }
+
+          
 
             //if (ddlval == "1") {
             //    smdiv.style.display = "block";

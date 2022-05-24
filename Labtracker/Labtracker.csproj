@@ -2073,6 +2073,7 @@
     <Content Include="setting.aspx" />
     <Content Include="Site.Master" />
     <Content Include="updateprogress.aspx" />
+    <Content Include="updateresult.aspx" />
     <Content Include="UploadSample.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -2284,6 +2285,8 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDbInitializer.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Dst.cs" />
+    <Compile Include="Models\Growth.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Process.cs" />
     <Compile Include="Models\Project.cs" />
@@ -2364,6 +2367,13 @@
     </Compile>
     <Compile Include="updateprogress.aspx.designer.cs">
       <DependentUpon>updateprogress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateresult.aspx.cs">
+      <DependentUpon>updateresult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateresult.aspx.designer.cs">
+      <DependentUpon>updateresult.aspx</DependentUpon>
     </Compile>
     <Compile Include="UploadSample.aspx.cs">
       <DependentUpon>UploadSample.aspx</DependentUpon>

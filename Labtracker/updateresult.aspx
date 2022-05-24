@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addsample.aspx.cs" Inherits="Labtracker.addsample" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="updateresult.aspx.cs" Inherits="Labtracker.updateresult" %>
 
 <!DOCTYPE html>
 
@@ -50,6 +50,12 @@
 
 
                   </div>
+                     <div class=" row col-sm-6 mb-3 mb-sm-0">
+                    <asp:TextBox type="Text" class="form-control form-control-user col-sm-6" runat="server" ID="txtSampleIdUpdate" placeholder="Sample Id">
+
+                    </asp:TextBox>
+                     <%-- <asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> --%>
+                  </div>
                     <br />
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <asp:Label>Country</asp:Label>
@@ -93,17 +99,16 @@
                        <asp:DropDownList ID="ddlRegion" class="form-control" ToolTip="Region" DataTextField="Choose Region"  AutoPostBack = "true" runat="server" onchange="ToogleZoneval(); return false;">
                      <%--   <asp:ListItem selected hidden>Choose Zone</asp:ListItem>--%>
                         <asp:ListItem selected hidden>Choose Region</asp:ListItem>
-                        <asp:ListItem value="1" data-group="1">Addis Ababa</asp:ListItem>
-                        <asp:ListItem  value="2" data-group="2">Afar</asp:ListItem>
-                        <asp:ListItem  value="3" data-group="3">Amhara</asp:ListItem>
-                        <asp:ListItem  value="4" data-group="4">Benishangul Gumuz</asp:ListItem>
-                        <asp:ListItem value="5" data-group="5" >Dire Dawa</asp:ListItem>
-                        <asp:ListItem Value="6" data-group="6">Gambella</asp:ListItem>
-                        <asp:ListItem Value="7" data-group="7" >Harari</asp:ListItem>
-                        <asp:ListItem Value="8" data-group="8">Oromia</asp:ListItem>
-                        <asp:ListItem Value="9" data-group="9">SNNP</asp:ListItem>
-                        <asp:ListItem Value="10" data-group="10">Somali</asp:ListItem>
-                        <asp:ListItem Value="11" data-group="11">Tigray</asp:ListItem>
+                            <asp:ListItem value="1" data-group="1">Primary Smear</asp:ListItem>
+                            <asp:ListItem value="2" data-group="2">LJ</asp:ListItem>
+                            <asp:ListItem value="3" data-group="3">MGIT</asp:ListItem>
+                            <asp:ListItem value="4" data-group="4">RD9</asp:ListItem>
+                            <asp:ListItem value="5" data-group="5">DNA Extraction</asp:ListItem>
+                            <asp:ListItem value="6" data-group="6">Spoligo</asp:ListItem>
+                            <asp:ListItem value="7" data-group="7">DST</asp:ListItem>
+                            <asp:ListItem value="8" data-group="8">Culture Smear</asp:ListItem>
+                            <asp:ListItem value="9" data-group="9">Heat Killed</asp:ListItem> 
+                          <asp:ListItem value="10" data-group="10">Growth Detection</asp:ListItem>
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvRegion" runat="server" Text="* Region required." ControlToValidate="ddlRegion" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
@@ -113,104 +118,47 @@
                         <asp:DropDownList ID="ddlZone"  class="form-control" runat="server" ToolTip="Choose ZONE"   >
                             
                             <asp:ListItem selected hidden>Choose Zone</asp:ListItem>
-                            <asp:ListItem Value="1" data-group="1">Addis Ketema</asp:ListItem>
-                            <asp:ListItem Value="2" data-group="1">Akaky Kaliti</asp:ListItem>
-                            <asp:ListItem Value="3" data-group="1">Arada</asp:ListItem>
-                            <asp:ListItem Value="4" data-group="1">Bole</asp:ListItem>
-                            <asp:ListItem Value="5" data-group="1">Gullele</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="1">Bole</asp:ListItem>
-                            <asp:ListItem Value="7" data-group="1">Kirkos</asp:ListItem>
-                            <asp:ListItem Value="8" data-group="1">Kolfe Keranio</asp:ListItem>
-                             <asp:ListItem Value="9" data-group="1">Nifas Silk-Lafto</asp:ListItem>
-                             <asp:ListItem Value="10" data-group="1">Lideta</asp:ListItem>
-                             <asp:ListItem Value="11" data-group="1">Yeka</asp:ListItem>
+                            <asp:ListItem value="1" data-group="1">1p</asp:ListItem>
+                            <asp:ListItem Value="2" data-group="1">2p</asp:ListItem>
+                            <asp:ListItem value="3" data-group="1">3p</asp:ListItem>
+                            <asp:ListItem value="4" data-group="1">Scanty</asp:ListItem>
                     
-                           
+                            <asp:ListItem value="5" data-group="2">Growth</asp:ListItem>
+                            <asp:ListItem value="6" data-group="2">NoGrowth</asp:ListItem>
+                            <asp:ListItem value="7" data-group="2">Contaminated</asp:ListItem>
+                            <asp:ListItem value="8" data-group="2">Not Done</asp:ListItem>
 
-                             <asp:ListItem Value="12" data-group="2">Zone 1</asp:ListItem>
-                            <asp:ListItem Value="13" data-group="2">Zone 2</asp:ListItem>
-                            <asp:ListItem Value="14" data-group="2">Zone 3</asp:ListItem>
-                            <asp:ListItem Value="15" data-group="2">Zone 4</asp:ListItem>
-                            <asp:ListItem Value="16" data-group="2">Zone 5</asp:ListItem>
+                             <asp:ListItem Value="9" data-group="3">Growth</asp:ListItem>
+                            <asp:ListItem Value="10" data-group="3">NoGrowth</asp:ListItem>
+                            <asp:ListItem Value="11" data-group="3">Contaminated</asp:ListItem>
+                            <asp:ListItem Value="12" data-group="3">Not Done</asp:ListItem>
 
-                            <asp:ListItem Value="17" data-group="3">Argoba Special Zone</asp:ListItem>                
-                            <asp:ListItem Value="18" data-group="3">Awi</asp:ListItem>
-                            <asp:ListItem Value="19" data-group="3">Bahir Dar</asp:ListItem>
-                            <asp:ListItem Value="20" data-group="3">East Gojjam</asp:ListItem>
-                            <asp:ListItem Value="21" data-group="3">North Gondar</asp:ListItem>
-                            <asp:ListItem Value="22" data-group="3">North Shewa</asp:ListItem>
-                            <asp:ListItem Value="23" data-group="3">North Wello</asp:ListItem>
-                            <asp:ListItem Value="24" data-group="3">Oromiya Zone</asp:ListItem>
-                            <asp:ListItem Value="25" data-group="3">South Gondar</asp:ListItem>
-                            <asp:ListItem Value="26" data-group="3">South Wello</asp:ListItem>
-                            <asp:ListItem Value="27" data-group="3">Waghemira</asp:ListItem>
-                            <asp:ListItem Value="28" data-group="3">West Gojjam</asp:ListItem>
+                            <asp:ListItem Value="13" data-group="4">MTBC</asp:ListItem>
+                            <asp:ListItem Value="14" data-group="4">NTM</asp:ListItem>
 
+                            <asp:ListItem Value="15" data-group="5">Good for library Prep</asp:ListItem>
+                            <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
+                            <asp:ListItem Value="17" data-group="5">Failed-Discard</asp:ListItem>
 
-                            <asp:ListItem Value="29" data-group="4">Asossa</asp:ListItem>
-                            <asp:ListItem Value="30" data-group="4">Kemashi</asp:ListItem>
-                            <asp:ListItem Value="31" data-group="4">Mao Komo Special Wereda</asp:ListItem>
-                            <asp:ListItem Value="32" data-group="4">Metekel</asp:ListItem>
-                            <asp:ListItem Value="33" data-group="4">Pawe Special Wereda</asp:ListItem>
-                            
-                            <asp:ListItem Value="34" data-group="5">Dire Dawa</asp:ListItem>
+                             <asp:ListItem Value="18" data-group="7">First Line</asp:ListItem>  
+                            <asp:ListItem Value="19" data-group="7">Second Line</asp:ListItem>  
+                         
+                          <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>  
+                            <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
 
-                            <asp:ListItem Value="35" data-group="6">Agnewak</asp:ListItem>
-                            <asp:ListItem Value="36" data-group="6">Nuwer</asp:ListItem>
-                            <asp:ListItem Value="37" data-group="6">Mezhenger</asp:ListItem>
-                            <asp:ListItem Value="38" data-group="6">Etang Special Wereda</asp:ListItem>
-                            
-                            <asp:ListItem Value="39" data-group="7">Harari</asp:ListItem>
+                          <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>  
+                            <asp:ListItem Value="23" data-group="9">No</asp:ListItem>     
+
+                            <asp:ListItem Value="24" data-group="10">Week 1</asp:ListItem>
+                            <asp:ListItem Value="25" data-group="10">Week 2</asp:ListItem>
+                            <asp:ListItem Value="26" data-group="10">Week 3</asp:ListItem>
+                            <asp:ListItem Value="27" data-group="10">Week 4</asp:ListItem>
+                            <asp:ListItem Value="28" data-group="10">Week 5</asp:ListItem>
+                            <asp:ListItem Value="29" data-group="10">Week 6</asp:ListItem>
+                            <asp:ListItem Value="30" data-group="10">Week 7</asp:ListItem>
+                            <asp:ListItem Value="31" data-group="10">Week 8</asp:ListItem>
 
 
-                            <asp:ListItem Value="40" data-group="8">Arsi</asp:ListItem>
-                            <asp:ListItem Value="41" data-group="8">Bale</asp:ListItem>
-                            <asp:ListItem Value="42" data-group="8">Borana</asp:ListItem>
-                            <asp:ListItem Value="43" data-group="8">Buno Bedele</asp:ListItem>
-                            <asp:ListItem Value="44" data-group="8">East Hararghe</asp:ListItem>
-                            <asp:ListItem Value="45" data-group="8">East Shewa</asp:ListItem>
-                            <asp:ListItem Value="46" data-group="8">East Welega</asp:ListItem>
-                            <asp:ListItem Value="47" data-group="8">Finfinne Zuria Special Zone</asp:ListItem>
-                            <asp:ListItem Value="48" data-group="8">Guji</asp:ListItem>
-                            <asp:ListItem Value="49" data-group="8">Horo Guduru Welega</asp:ListItem>
-                            <asp:ListItem Value="50" data-group="8">Illubabor</asp:ListItem>
-                            <asp:ListItem Value="51" data-group="8">Jimma</asp:ListItem>
-                            <asp:ListItem Value="52" data-group="8">North Shewa</asp:ListItem>
-                            <asp:ListItem Value="53" data-group="8">Southwest Shewa</asp:ListItem>
-                            <asp:ListItem Value="54" data-group="8">West Arsi</asp:ListItem>
-                            <asp:ListItem Value="55" data-group="8">West Guji</asp:ListItem>
-                            <asp:ListItem Value="56" data-group="8">West Haraghe</asp:ListItem>
-                            <asp:ListItem Value="57" data-group="8">West Shewa</asp:ListItem>
-                            <asp:ListItem Value="58" data-group="8">West Welega</asp:ListItem>
-                            
-                            <asp:ListItem Value="59" data-group="9">Amaro Special Woreda</asp:ListItem>
-                             <asp:ListItem Value="60" data-group="9">Gamo Gofa</asp:ListItem>
-                             <asp:ListItem Value="61" data-group="9">Gedeo</asp:ListItem>
-                             <asp:ListItem Value="62" data-group="9">Gurage</asp:ListItem>
-                             <asp:ListItem Value="63" data-group="9">Hadiya</asp:ListItem>
-                             <asp:ListItem Value="64" data-group="9">Halaba</asp:ListItem>
-                             <asp:ListItem Value="65" data-group="9">Keffa</asp:ListItem>
-                            
-                              <asp:ListItem Value="66" data-group="9">Kembata Tembaro</asp:ListItem>
-                             <asp:ListItem Value="67" data-group="9">Konso</asp:ListItem>
-                             <asp:ListItem Value="68" data-group="9">Konta Special Woreda</asp:ListItem>
-                             <asp:ListItem Value="69" data-group="9">Sheka</asp:ListItem>
-                             <asp:ListItem Value="70" data-group="9">Sidama</asp:ListItem>
-                             <asp:ListItem Value="71" data-group="9">Silte</asp:ListItem>
-                             <asp:ListItem Value="72" data-group="9">South Omo</asp:ListItem>
-                             <asp:ListItem Value="73" data-group="9">West Omo</asp:ListItem>
-                             <asp:ListItem Value="74" data-group="9">Wolayita</asp:ListItem>
-                          
-               
-                            <asp:ListItem Value="75" data-group="10">Afder</asp:ListItem>
-                            <asp:ListItem Value="76" data-group="10">Liben</asp:ListItem>
-                            <asp:ListItem Value="77" data-group="10">Shinile</asp:ListItem>
-                            <asp:ListItem Value="78" data-group="10">Jijiga</asp:ListItem>
-                            <asp:ListItem Value="79" data-group="10">Degehabur</asp:ListItem>
-                            <asp:ListItem Value="80" data-group="10">Warder</asp:ListItem>
-                            <asp:ListItem Value="81" data-group="10">Korahe</asp:ListItem>
-                            <asp:ListItem Value="82" data-group="10">Fik</asp:ListItem>
-                            <asp:ListItem Value="83" data-group="10">Gode</asp:ListItem>
                         </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvZone" runat="server" Text="* Zone required." ControlToValidate="ddlZone" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
@@ -235,11 +183,10 @@
                              <asp:ListItem Value="13" data-group="13">Shashemene</asp:ListItem>
                              <asp:ListItem Value="14" data-group="14">Sodo</asp:ListItem>
                             <asp:ListItem Value="15" data-group="15">Woreda 3</asp:ListItem>
-                             <asp:ListItem Value="16" data-group="16">Wereda 13</asp:ListItem>
-                             <asp:ListItem Value="17" data-group="17">Woreda 8</asp:ListItem>
-                             <asp:ListItem Value="18" data-group="18">Woreda 6</asp:ListItem>
+                             <asp:ListItem Value="16" data-group="16">Mikiland</asp:ListItem>
+                             <asp:ListItem Value="17" data-group="17">Keraniyo</asp:ListItem>
+                             <asp:ListItem Value="18" data-group="18">Yekatit</asp:ListItem>
                              <asp:ListItem Value="19" data-group="19">Addis Ketema</asp:ListItem>
-
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
@@ -264,10 +211,6 @@
                            <asp:ListItem Value="5" data-group="5">Tulubolo Hospital</asp:ListItem>
                            <asp:ListItem Value="14" data-group="14">Wolayita Sodo Tertiary Hospital</asp:ListItem>
                            <asp:ListItem Value="15" data-group="15">Woreda 3 Health Center</asp:ListItem>
-
-                          <asp:ListItem Value="15" data-group="15">Addis Ketema Health Center</asp:ListItem>
-                           <asp:ListItem Value="17" data-group="17">Keraniyo Health Center</asp:ListItem>
-
                            <asp:ListItem Value="18" data-group="18">Yekatit 12 Hospital</asp:ListItem>
                            <asp:ListItem Value="6" data-group="6">Yirgalem General Hospital</asp:ListItem>
                         </asp:DropDownList>
@@ -352,3 +295,4 @@
     </script>
 </body>
 </html>
+
