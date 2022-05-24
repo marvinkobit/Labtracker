@@ -40,6 +40,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Label lblContaminated;
         
         /// <summary>
+        /// lblNoGrowth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoGrowth;
+        
+        /// <summary>
         /// lblethiopiasam control.
         /// </summary>
         /// <remarks>

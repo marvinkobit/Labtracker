@@ -105,7 +105,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No growth</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><asp:Label  runat="server" ID="lblNoGrowth"  Text=""></asp:Label></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-isolate fa-2x text-gray-300"></i>
@@ -288,7 +288,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Progress</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Sample Collection <span class="float-right"><asp:Label  runat="server" ID="lblsamplecoltar"  Text=""/>%</span></h4>
+                  <h4 class="small font-weight-bold">Sample Collection Target: 500  <span class="float-right"><asp:Label  runat="server" ID="lblsamplecoltar"  Text=""/>%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>

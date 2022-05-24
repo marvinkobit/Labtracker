@@ -235,10 +235,11 @@
                              <asp:ListItem Value="13" data-group="13">Shashemene</asp:ListItem>
                              <asp:ListItem Value="14" data-group="14">Sodo</asp:ListItem>
                             <asp:ListItem Value="15" data-group="15">Woreda 3</asp:ListItem>
-                             <asp:ListItem Value="16" data-group="16">Mikiland</asp:ListItem>
-                             <asp:ListItem Value="17" data-group="17">Keraniyo</asp:ListItem>
-                             <asp:ListItem Value="18" data-group="18">Yekatit</asp:ListItem>
+                             <asp:ListItem Value="16" data-group="16">Wereda 13</asp:ListItem>
+                             <asp:ListItem Value="17" data-group="17">Woreda 8</asp:ListItem>
+                             <asp:ListItem Value="18" data-group="18">Woreda 6</asp:ListItem>
                              <asp:ListItem Value="19" data-group="19">Addis Ketema</asp:ListItem>
+
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
@@ -263,6 +264,10 @@
                            <asp:ListItem Value="5" data-group="5">Tulubolo Hospital</asp:ListItem>
                            <asp:ListItem Value="14" data-group="14">Wolayita Sodo Tertiary Hospital</asp:ListItem>
                            <asp:ListItem Value="15" data-group="15">Woreda 3 Health Center</asp:ListItem>
+
+                          <asp:ListItem Value="15" data-group="15">Addis Ketema Health Center</asp:ListItem>
+                           <asp:ListItem Value="17" data-group="17">Keraniyo Health Center</asp:ListItem>
+
                            <asp:ListItem Value="18" data-group="18">Yekatit 12 Hospital</asp:ListItem>
                            <asp:ListItem Value="6" data-group="6">Yirgalem General Hospital</asp:ListItem>
                         </asp:DropDownList>

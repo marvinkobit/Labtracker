@@ -57,7 +57,8 @@ namespace Labtracker
 
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
-                string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'"; 
+                string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'";
+                string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='NoGrowth'";
                 string sql2 = "SELECT COUNT(CultureSmear_res) FROM Results WHERE CultureSmear_res='Pos'";
                 string sql3 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Ethiopia'";
                 string sql4 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Eritrea'";
@@ -69,6 +70,7 @@ namespace Labtracker
                 SqlCommand cmd4 = new SqlCommand(sql4, conn);
                 SqlCommand cmd5 = new SqlCommand(sql5, conn);
                 SqlCommand cmd6 = new SqlCommand(sql6, conn);
+                SqlCommand cmd7 = new SqlCommand(sql7, conn);
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();               
@@ -105,6 +107,12 @@ namespace Labtracker
                 SqlDataReader reader6 = cmd6.ExecuteReader();
                 reader6.Read();
                 lblSudansam.Text = reader6[0].ToString();
+                conn.Close();
+
+                conn.Open();
+                SqlDataReader reader7 = cmd7.ExecuteReader();
+                reader7.Read();
+                lblNoGrowth.Text = reader7[0].ToString();
                 conn.Close();
 
 
