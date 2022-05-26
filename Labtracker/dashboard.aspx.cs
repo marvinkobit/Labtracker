@@ -14,8 +14,12 @@ namespace Labtracker
     public partial class dashboard : System.Web.UI.Page
     {
         //string strConnString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-       // string str;
-       // SqlCommand com;
+        // string str;
+        // SqlCommand com;
+        public string[] FromServer= new string[2];
+        public string[] Countries = new string[4];
+        public int[] CountriesP = new int[4];
+        public string[] Regions = new string[6];
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.Identity.IsAuthenticated)
@@ -40,8 +44,8 @@ namespace Labtracker
 
             //lblTotalSample.Text = tsam.SampleID.ToString();
 
-
-
+           
+           
             if (!Page.IsPostBack)
             {
                 /* Sample s = new Sample();
@@ -50,8 +54,13 @@ namespace Labtracker
                 using (SampleContext _db = new SampleContext())
                 {
                     lblTotalSample.Text = _db.Samples.Count().ToString();
-                    lblsamplecoltar.Text = Convert.ToString(Convert.ToInt32(_db.Samples.Count().ToString()) / 5);  //target of sample collecton 500
-                    lblisolatetar.Text = Convert.ToString(Convert.ToInt32(_db.Samples.Count().ToString()) / 5);
+                    string sampleColTarget = Convert.ToString(Convert.ToInt32(_db.Samples.Count().ToString()) / 5);
+                    lblsamplecoltar.Text = sampleColTarget;  //target of sample collecton 500
+                    lblisolatetar.Text = sampleColTarget;
+                    progressBar1.Attributes.Add("Style", String.Format("width: {0}%", sampleColTarget));
+                    progressBar2.Attributes.Add("Style", String.Format("width: {0}%", sampleColTarget));
+
+                    FromServer[0] = "5";
 
                 }
 
@@ -64,6 +73,14 @@ namespace Labtracker
                 string sql4 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Eritrea'";
                 string sql5 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Cameroon'";
                 string sql6 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Sudan'";
+
+                string sql8 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='oromia'";
+                string sql9 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='south nation'";
+                string sql10 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='gambella'";
+                string sql11= "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='addis ababa'";
+                string sql12 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='amhara'";
+                string sql13 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='somali'";
+
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlCommand cmd2 = new SqlCommand(sql2, conn);
                 SqlCommand cmd3 = new SqlCommand(sql3, conn);
@@ -71,6 +88,13 @@ namespace Labtracker
                 SqlCommand cmd5 = new SqlCommand(sql5, conn);
                 SqlCommand cmd6 = new SqlCommand(sql6, conn);
                 SqlCommand cmd7 = new SqlCommand(sql7, conn);
+
+                SqlCommand cmd8 = new SqlCommand(sql8, conn);
+                SqlCommand cmd9 = new SqlCommand(sql9, conn);
+                SqlCommand cmd10 = new SqlCommand(sql10, conn);
+                SqlCommand cmd11= new SqlCommand(sql11, conn);
+                SqlCommand cmd12 = new SqlCommand(sql12, conn);
+                SqlCommand cmd13 = new SqlCommand(sql13, conn);
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();               
@@ -87,26 +111,30 @@ namespace Labtracker
                 conn.Open();
                 SqlDataReader reader3 = cmd3.ExecuteReader();
                 reader3.Read();
-                lblethiopiasam.Text = reader3[0].ToString();
+                Countries[0] = reader3[0].ToString();
+                lblethiopiasam.Text = Countries[0];
                 conn.Close();
 
                 conn.Open();
                 SqlDataReader reader4 = cmd4.ExecuteReader();
                 reader4.Read();
-                lblEritreasam.Text = reader4[0].ToString();
+                Countries[1] = reader4[0].ToString();
+                lblEritreasam.Text = Countries[1];
                 conn.Close();
 
 
                 conn.Open();
                 SqlDataReader reader5 = cmd5.ExecuteReader();
                 reader5.Read();
-                lblCameroonsam.Text = reader5[0].ToString();
+                Countries[2] = reader5[0].ToString();
+                lblCameroonsam.Text = Countries[2];
                 conn.Close();
 
                 conn.Open();
                 SqlDataReader reader6 = cmd6.ExecuteReader();
                 reader6.Read();
-                lblSudansam.Text = reader6[0].ToString();
+                Countries[3] = reader6[0].ToString();
+                lblSudansam.Text = Countries[3];
                 conn.Close();
 
                 conn.Open();
@@ -115,6 +143,55 @@ namespace Labtracker
                 lblNoGrowth.Text = reader7[0].ToString();
                 conn.Close();
 
+
+                conn.Open();
+                SqlDataReader reader8 = cmd8.ExecuteReader();
+                reader8.Read();
+                Regions[0] = reader8[0].ToString();
+                conn.Close();
+
+
+                conn.Open();
+                SqlDataReader reader9 = cmd9.ExecuteReader();
+                reader9.Read();
+                Regions[1] = reader9[0].ToString();
+                conn.Close();
+
+                conn.Open();
+                SqlDataReader reader10 = cmd10.ExecuteReader();
+                reader10.Read();
+                Regions[2] = reader10[0].ToString();
+                conn.Close();
+
+                conn.Open();
+                SqlDataReader reader11 = cmd11.ExecuteReader();
+                reader11.Read();
+                Regions[3] = reader11[0].ToString();
+                conn.Close();
+
+                conn.Open();
+                SqlDataReader reader12 = cmd12.ExecuteReader();
+                reader12.Read();
+                Regions[4] = reader12[0].ToString();
+                conn.Close();
+
+                conn.Open();
+                SqlDataReader reader13 = cmd13.ExecuteReader();
+                reader13.Read();
+                Regions[5] = reader13[0].ToString();
+                conn.Close();
+
+
+                //calculate percentages
+                int totalsamnum=0;
+                for (int i = 0; i < 4; i++)
+                {
+                    totalsamnum += Convert.ToInt32(Countries[i]);
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    CountriesP[i] = (Convert.ToInt32(Countries[i])*100)/totalsamnum;
+                }
 
 
             }
