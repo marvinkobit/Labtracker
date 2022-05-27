@@ -40,7 +40,7 @@ namespace Labtracker
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
-                authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = false }, userIdentity);
+                authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = true }, userIdentity);
                 Response.Redirect("~/dashboard.aspx");
             }
             else
