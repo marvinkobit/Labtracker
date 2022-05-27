@@ -428,36 +428,45 @@
                <div class="col-lg-12 mb-4">
                     <div id="mapid" style="width:600px; height:400px;"></div>
                     <script type="text/javascript">
-                       
+
+
+                        var adama = '<%=Sites[0]%>';
+                        var shashe = '<%=Sites[1]%>';
+                        var wolay = '<%=Sites[2]%>';
+                        var gambe = '<%=Sites[3]%>';
+                        var yirga = '<%=Sites[4]%>';
+                        var arba = '<%=Sites[5]%>';
+
                         
                         var mymap = L.map('mapid').setView([9.058702156392139,38.759765625
                       ], 5);
 
-                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                             attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> | <a href="https://tbgen.ahri.gov.et" target="_blank">TBGEN, AHRI</a> mapdata'
                         }).addTo(mymap);
                        
                         var marker = L.marker([8.98556789946321,38.71186137199402]).addTo(mymap);
-                        marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)!</b><br>Sequenced 0 samples").openPopup();
+                        marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)</b><br>Sequenced 0 samples").openPopup();
 
-                        var marker = L.marker([8.54385 ,39.27445]).addTo(mymap);
-                        marker.bindPopup("<b>Adama Hospital!</b><br>Samples: 0").openPopup();
+                        
+                        var marker = L.marker([8.54385, 39.27445]).addTo(mymap);
+                        marker.bindPopup("<b>Adama Hospital</b><br>Samples: " + adama).openPopup();
 
-                        var marker = L.marker([7.20721 , 38.61220]).addTo(mymap);
-                        marker.bindPopup("<b>Shashemene Hospital!</b><br>Samples: 0").openPopup();
+                        var marker = L.marker([7.20721, 38.61220]).addTo(mymap);
+                        marker.bindPopup("<b>Shashemene Hospital</b><br>Samples: " + shashe).openPopup();
 
-                        var marker = L.marker([6.85448 , 37.76073]).addTo(mymap);
-                        marker.bindPopup("<b>Wolaita Sodo Hospital!</b><br>Samples: 0").openPopup();
+                        var marker = L.marker([6.85448, 37.76073]).addTo(mymap);
+                        marker.bindPopup("<b>Wolaita Sodo Hospital</b><br>Samples: " + wolay).openPopup();
 
                        
-                        var marker = L.marker([8.24229 , 34.58165]).addTo(mymap);
-                        marker.bindPopup("<b>Gambella General Hospital!</b><br>Samples: 0").openPopup();
+                        var marker = L.marker([8.24229, 34.58165]).addTo(mymap);
+                        marker.bindPopup("<b>Gambella General Hospital</b><br>Samples: " + gambe).openPopup();
 
-                        var marker = L.marker([6.02797 , 37.55298]).addTo(mymap);
-                        marker.bindPopup("<b>ArbaMinch Hospital!</b><br>Samples: 0").openPopup();
+                        var marker = L.marker([6.02797, 37.55298]).addTo(mymap);
+                        marker.bindPopup("<b>ArbaMinch Hospital</b><br>Samples: 0" + arba).openPopup();
 
-                        var marker = L.marker([6.75001 , 38.39411]).addTo(mymap);
-                        marker.bindPopup("<b>Yirgalem General Hospital!</b><br>Samples: 0").openPopup();
+                        var marker = L.marker([6.75001, 38.39411]).addTo(mymap);
+                        marker.bindPopup("<b>Yirgalem General Hospital</b><br>Samples: " + yirga).openPopup();
 
 
                     </script>
@@ -471,7 +480,7 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Progress Target: 500</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Progress Target: 900</h6>
                 </div>
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Sample Collection<span class="float-right"><asp:Label  runat="server" ID="lblsamplecoltar"  Text=""/>%</span></h4>
