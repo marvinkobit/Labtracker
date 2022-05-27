@@ -20,7 +20,7 @@ namespace Labtracker
         public string[] Countries = new string[4];
         public int[] CountriesP = new int[4];
         public string[] Regions = new string[6];
-        public string[] Sites = new string[6];
+        public string[] Sites = new string[20];
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -93,6 +93,20 @@ namespace Labtracker
                     string sql17 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='gambela general hospital'"; 
                     string sql18 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='yirgalem general hospital'";
                     string sql19 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='arbaminch general hospital'";
+                    string sql20 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='gode hospital'";
+                    string sql21 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='sodo hospital'";
+                    string sql22 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='hawasa cs hospital'";
+                    string sql23 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='halaba primary hospital'";
+                    string sql24 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='hosaina hospital'";
+                    string sql25 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='dilla hospital'";
+                    string sql26 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='ambo hospital'";
+                    string sql27 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='tulubolo hospital'";
+                    string sql28 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='addis alem hospital'";
+                    string sql29 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='yekatit 12 hospital'";
+                    string sql30 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='addis ketema health center'";
+                    string sql31 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='woreda 3 health center'";
+                    string sql32 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='mikiland health center'";
+                    string sql33 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='keraniyo health center'";
 
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -289,7 +303,171 @@ namespace Labtracker
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             reader.Read();
-                            Sites[0] = reader[0].ToString();
+                            Sites[3] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql18, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[4] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql19, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[5] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql20, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[6] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql21, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[7] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql22, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[8] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql23, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[9] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql24, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[10] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql25, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[11] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql26, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[12] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql27, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[13] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql28, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[14] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql29, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[15] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql30, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[16] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql31, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[17] = reader[0].ToString();
+
+                        }
+
+                    }
+                    using (SqlCommand cmd = new SqlCommand(sql32, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[18] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql33, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Sites[19] = reader[0].ToString();
 
                         }
 
