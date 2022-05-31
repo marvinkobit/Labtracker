@@ -243,17 +243,22 @@
                   var add = '<%=Regions[3]%>';
                   var amh = '<%=Regions[4]%>';
                   var som = '<%=Regions[5]%>';
+                  var ben = '<%=Regions[6]%>';
+                  var tig = '<%=Regions[7]%>';
+                  var afr = '<%=Regions[8]%>';
+                  var har = '<%=Regions[9]%>';
+
                   var ctx = document.getElementById("myBarChart");
                   var myBarChart = new Chart(ctx, {
                       type: 'bar',
                       data: {
-                          labels: ["Oromia", "SNNP", "Gambella", "Addis Ababa", "Amhara","Somali"],
+                          labels: ["Oromia", "SNNP", "Gambella", "Addis Ababa", "Amhara","Somali","Benishangul","Tigray","Afar","Harari"],
                           datasets: [{
                               label: "Sample Collected",
                               backgroundColor: "#4e73df",
                               hoverBackgroundColor: "#2e59d9",
                               borderColor: "#4e73df",
-                              data: [oro, snn, gam, add, amh, som],
+                              data: [oro, snn, gam, add, amh, som, ben, tig, afr, har],
                           }],
                       },
                       options: {
@@ -276,15 +281,15 @@
                                       drawBorder: false
                                   },
                                   ticks: {
-                                      maxTicksLimit: 6
+                                      maxTicksLimit: 10
                                   },
                                   maxBarThickness: 25,
                               }],
                               yAxes: [{
                                   ticks: {
                                       min: 0,
-                                      max: 100,
-                                      maxTicksLimit: 5,
+                                      max: 350,
+                                      maxTicksLimit: 10,
                                       padding: 10,
                                       // Include a number sign in the ticks
                                       callback: function (value, index, values) {

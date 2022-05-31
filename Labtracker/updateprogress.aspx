@@ -86,6 +86,8 @@
                             <asp:ListItem Value="2" data-group="1">2+</asp:ListItem>
                             <asp:ListItem value="3" data-group="1">3+</asp:ListItem>
                             <asp:ListItem value="4" data-group="1">Scanty</asp:ListItem>
+                            <asp:ListItem value="4" data-group="1">Pos</asp:ListItem>
+                            <asp:ListItem value="4" data-group="1">Neg</asp:ListItem>
                     
                             <asp:ListItem value="5" data-group="2">Growth</asp:ListItem>
                             <asp:ListItem value="6" data-group="2">NoGrowth</asp:ListItem>
