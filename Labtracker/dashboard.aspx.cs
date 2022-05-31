@@ -19,7 +19,7 @@ namespace Labtracker
         public string[] FromServer= new string[2];
         public string[] Countries = new string[4];
         public int[] CountriesP = new int[4];
-        public string[] Regions = new string[6];
+        public string[] Regions = new string[10];
         public string[] Sites = new string[20];
 
         protected void Page_Load(object sender, EventArgs e)
@@ -86,6 +86,12 @@ namespace Labtracker
                     string sql11 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='addis ababa'";
                     string sql12 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='amhara'";
                     string sql13 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='somali'";
+                    string sql34 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='benishangul'";
+                    string sql35 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='tigray'";
+                    string sql36 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='afar'";
+                    string sql37 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='harari'";
+
+
 
                     string sql14 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='adama hospital'";
                     string sql15 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='shashamene hospital'";
@@ -107,6 +113,7 @@ namespace Labtracker
                     string sql31 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='woreda 3 health center'";
                     string sql32 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='mikiland health center'";
                     string sql33 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='keraniyo health center'";
+
 
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -260,6 +267,50 @@ namespace Labtracker
                         {
                             reader.Read();
                             Regions[5] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql34, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Regions[6] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql35, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Regions[7] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql36, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Regions[8] = reader[0].ToString();
+
+                        }
+
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql37, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            Regions[9] = reader[0].ToString();
 
                         }
 
