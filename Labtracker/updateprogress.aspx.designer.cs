@@ -139,22 +139,13 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.DropDownList ddlGrowthdetail;
         
         /// <summary>
-        /// txtGrowth control.
+        /// ddlGrowth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGrowth;
-        
-        /// <summary>
-        /// rfvgrowth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvgrowth;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGrowth;
         
         /// <summary>
         /// ddlDSTdetail1 control.
