@@ -57,7 +57,7 @@ namespace Labtracker
                 case "Growth Detection":
                     string week = selectedvalue;
                     string primarymedia = ddlGrowthdetail.SelectedItem.ToString();
-                    string input = txtGrowth.Text;
+                    string input = ddlGrowth.SelectedItem.ToString();
                     addSuccessres = updates.AddUpdate(datesh,txtSampleIdUpdate.Text,week,primarymedia,input,labinitial);
                     break;
 

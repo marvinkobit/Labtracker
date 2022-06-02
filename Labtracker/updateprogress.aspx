@@ -86,8 +86,8 @@
                             <asp:ListItem Value="2" data-group="1">2+</asp:ListItem>
                             <asp:ListItem value="3" data-group="1">3+</asp:ListItem>
                             <asp:ListItem value="4" data-group="1">Scanty</asp:ListItem>
-                            <asp:ListItem value="4" data-group="1">Pos</asp:ListItem>
-                            <asp:ListItem value="4" data-group="1">Neg</asp:ListItem>
+                            <asp:ListItem value="5" data-group="1">Pos</asp:ListItem>
+                            <asp:ListItem value="6" data-group="1">Neg</asp:ListItem>
                     
                             <asp:ListItem value="5" data-group="2">Growth</asp:ListItem>
                             <asp:ListItem value="6" data-group="2">NoGrowth</asp:ListItem>
@@ -145,11 +145,11 @@
                   
 
                   <div id="GrowthDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display:none">
-                      <asp:Label>Please enter details here</asp:Label>
+                      <asp:Label>Please enter Primary media here</asp:Label>
 
                       <div class="col-sm-6 col-lg-12">
                         <asp:DropDownList ID="ddlGrowthdetail" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
-                            <asp:ListItem Selected hidden>Primary media</asp:ListItem>
+                            <asp:ListItem Selected hidden>Primary Media</asp:ListItem>
                             <asp:ListItem Value="1">LJ-1</asp:ListItem>   
                             <asp:ListItem Value="2">LJ-2</asp:ListItem>
                             <asp:ListItem Value="3">LJ-P</asp:ListItem>
@@ -159,8 +159,16 @@
                       <asp:Label>Please enter details here</asp:Label>
 
                       <div class="col-sm-6 col-lg-12">
-                    <asp:TextBox ID="txtGrowth" class="form-control " placeholder="Input" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvgrowth" runat="server" Text="* detail required." ControlToValidate="txtGrowth" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:DropDownList  ID="ddlGrowth" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="" DataTextField="" runat="server">
+                       
+                            <asp:ListItem Selected hidden>details</asp:ListItem>
+                            <asp:ListItem Value="1">O</asp:ListItem>   
+                            <asp:ListItem Value="2">P</asp:ListItem>
+                            <asp:ListItem Value="3">C</asp:ListItem>
+
+                    </asp:DropDownList>
+                    <%--<asp:TextBox ID="txtGrowth" class="form-control " placeholder="Input" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvgrowth" runat="server" Text="* detail required." ControlToValidate="txtGrowth" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                      </div>
                        
                   </div>

@@ -532,7 +532,14 @@ namespace Labtracker
                     }
                     for (int i = 0; i < 4; i++)
                     {
-                        CountriesP[i] = (Convert.ToInt32(Countries[i]) * 100) / totalsamnum;
+                        if (totalsamnum == 0)
+                        {
+                            CountriesP[i] = 0;
+                        }
+                        else
+                        {
+                            CountriesP[i] = (Convert.ToInt32(Countries[i]) * 100) / totalsamnum;
+                        }
                     }
                 }
 
