@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,11 @@ namespace Labtracker
 {
     public partial class sample_receiving : System.Web.UI.Page
     {
+
+        SqlDataSource dataSource= null;
+        bool isFilter = false;
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -21,7 +27,12 @@ namespace Labtracker
 
 
             }
-            //gvSample.DataBind();
+            if (!IsPostBack)
+            {
+              
+                Session["isFilter"] = false;
+                gvSample.DataSourceID = "SqlDataSource1";
+            }
         }
 
         protected void gvSample_DataBound(object sender, EventArgs e)
@@ -34,30 +45,78 @@ namespace Labtracker
             }
         }
 
-       
+
 
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            var valueTocomp = ddlCOlVal.SelectedValue;
-            var comp = ddlCompare.SelectedValue;
+          
+            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
+            var comp = ddlCompare.SelectedItem.ToString();
             var val = txtCompVal.Text;
+            string searchQuery="";
+            if (comp.Equals("equals"))
+            {
+              searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0}='{1}'", valueTocomp, val);
+            }
+            else
+            {
+               searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
 
-            if (valueTocomp.Equals("SampleID"))
+            dataSource = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds"] = dataSource;
+
+             
+            gvSample.DataSourceID = null;
+            //gvSample.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvSample.DataSource = dataSource;
+            gvSample.AllowSorting = true;
+            gvSample.AllowPaging= true;
+            gvSample.DataBind();
+            
+            Session["isFilter"] = true;
+          
+
+
+            /*if (valueTocomp.Equals("PatientId"))
                 {
-                var valueTocompi = Convert.ToInt32( ddlCOlVal.SelectedValue);
+                //var valueTocompi = Convert.ToInt32( ddlCOlVal.SelectedValue);
                 
-                var vali = Convert.ToInt32(txtCompVal.Text);
+               // var vali = Convert.ToInt32(txtCompVal.Text);
                 if(comp.Equals("equals"))
                 {
-                    if (gvSample.Rows.Count > 0)
-                    {
-                       /* gvSample.DataSource = SqlDataSource1;
-                        gvSample.DataBind();*/
-
-
-                    }
+                    
                 }
+            }*/
+        }
+
+        protected void gvSample_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvSample.AllowSorting = true;
+            gvSample.AllowPaging = true;
+            gvSample.PageIndex = e.NewPageIndex;
+            isFilter = (bool)Session["isFilter"];
+            if (isFilter)
+            {
+                gvSample.DataSourceID = null;
+                gvSample.DataSource = (SqlDataSource) Session["ds"];
+            } 
+            
+            gvSample.DataBind();
+        }
+
+        protected void gvSample_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            isFilter = (bool)Session["isFilter"];
+            if (isFilter)
+            {
+                gvSample.DataSourceID = null;
+                var data = (SqlDataSource)Session["ds"];
+                data.SortParameterName = e.SortExpression;
+                gvSample.DataSource = dataSource;
             }
+            
+            gvSample.DataBind();
         }
 
         protected void SignOut(object sender, EventArgs e)

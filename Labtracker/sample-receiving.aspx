@@ -329,10 +329,10 @@
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4">
                <br />
-                  <asp:GridView ID="gvSample" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvSample_DataBound" >
+                  <asp:GridView ID="gvSample"  runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
-                          <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />
+                         <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
                           <asp:BoundField DataField="CardNo" HeaderText="CardNo" SortExpression="CardNo" />
                           <asp:BoundField DataField="Volume" HeaderText="Volume" SortExpression="Volume" />
@@ -358,7 +358,7 @@
                   </asp:GridView>
                
                   <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples]"></asp:SqlDataSource>
-               
+                  
               </div>
             </div>
 
@@ -370,15 +370,12 @@
               Filter your search here 
             <!-- Content Column -->
             <div class="col-lg-12 mb-4">
-               
-            
                 <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="155px" DataSourceID="SqlDataSource2" DataTextField="column_name" DataValueField="column_name">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Samples'"></asp:SqlDataSource>
                 <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
                     <asp:ListItem>equals</asp:ListItem>
-                    <asp:ListItem>less or equal</asp:ListItem>
-                    <asp:ListItem>greater or equal</asp:ListItem>
+                    <asp:ListItem>starts with</asp:ListItem>
                 </asp:DropDownList>
                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                 <asp:Button ID="btnFilter" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
