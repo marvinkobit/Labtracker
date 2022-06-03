@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Labtracker
-{
-
-
-    public partial class sample_receiving
-    {
-
+namespace Labtracker {
+    
+    
+    public partial class sample_receiving {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// UsernameText control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal UsernameText;
-
+        
         /// <summary>
         /// gvSample control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSample;
-
+        
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
+        
         /// <summary>
         /// ddlCOlVal control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCOlVal;
-
+        
         /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-
+        
         /// <summary>
         /// ddlCompare control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCompare;
-
+        
         /// <summary>
         /// txtCompVal control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCompVal;
-
+        
         /// <summary>
         /// btnFilter control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace Labtracker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFilter;
-
+        
         /// <summary>
         /// btnLogout control.
         /// </summary>
