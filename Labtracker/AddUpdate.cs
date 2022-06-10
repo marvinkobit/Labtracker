@@ -70,9 +70,9 @@ namespace Labtracker
             return true;
         }
 */
-        //ResultsUpdate
+        //ResultsUpdate (string,string,string,string,DateTime,string)
         public bool AddUpdate(string SaId, string ResuId,
-                              string resultant,string restype,DateTime dateProcess,string labinitial)
+                              string resultant,string restype, DateTime? dateProcess,string labinitial)
         {
             
             var tbgresupdates = new Result();
@@ -258,8 +258,8 @@ namespace Labtracker
         }
 
 
-        //Overload for DST
-        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime dater)
+        //Overload for DST (string, string, string, string, string, DateTime)
+        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater)
         {
            
             var tbgdstupdates = new Dst();
@@ -296,8 +296,8 @@ namespace Labtracker
         }
 
 
-        //Overload for GrowthDetection 
-        public bool AddUpdate(DateTime dater, string SaId, string week, string primarymedia, string input, string labinitial)
+        //Overload for GrowthDetection (string, string, string ,string ,string, string, string, string )
+        public bool AddUpdate(string dater,string repDate, string SaId, string week, string primarymedia, string input, string labinitial, string remark)
         {
 
             var tbggrowthupdates = new Growth();
@@ -309,7 +309,9 @@ namespace Labtracker
             tbggrowthupdates.Week = week;
             tbggrowthupdates.dat1 = primarymedia;
             tbggrowthupdates.dat2 = input;
-            tbggrowthupdates.Dater = Convert.ToDateTime(dater);
+            tbggrowthupdates.Dater = string.IsNullOrEmpty(dater)? (DateTime?)null : Convert.ToDateTime(dater);
+            tbggrowthupdates.ReportDate = string.IsNullOrEmpty(repDate) ? (DateTime?)null : Convert.ToDateTime(repDate);
+            tbggrowthupdates.Remark = remark;
 
 
             using (SampleContext _db = new SampleContext())
@@ -331,6 +333,46 @@ namespace Labtracker
             // Success.
             return true;
         }
+
+
+        //Overload for DnaExtraction
+        public bool AddUpdater(DateTime? dater, string PaId, string purity, string ndConc, string qubConc,string remark , string labInitial)
+        {
+            var tbgdnaextractupdates = new Dnaextract();
+
+            tbgdnaextractupdates.PatientId = PaId;
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+            tbgdnaextractupdates.Initial = labInitial;
+            tbgdnaextractupdates.Purity = Convert.ToDecimal(purity);
+            tbgdnaextractupdates.NDConc = Convert.ToDecimal(ndConc);
+            tbgdnaextractupdates.QubitConc = Convert.ToDecimal(qubConc);
+
+
+            tbgdnaextractupdates.ExtractDate = Convert.ToDateTime(dater);
+            tbgdnaextractupdates.Remark = remark;
+
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.Dnaextracts.Add(tbgdnaextractupdates);
+
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+            // Success.
+            return true;
+        }
+
+
 
 
     }

@@ -420,10 +420,9 @@
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="GrowthID" HeaderText="GrowthID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
-                           <asp:BoundField DataField="Week" HeaderText="Week" SortExpression="Week" />
+                          <asp:BoundField DataField="Week" HeaderText="Week" SortExpression="Week" />
                           <asp:BoundField DataField="dat1" HeaderText="Primary Media" SortExpression="Primary Media" />
-                    
-                          <asp:BoundField DataField="dat2" HeaderText="Detail" SortExpression="Detail" />
+                          <asp:BoundField DataField="dat2" HeaderText="Detail" SortExpression="Result" />
                           <asp:BoundField DataField="Dater" HeaderText="Date" SortExpression="Dater" />
                           <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
                          

@@ -40,7 +40,8 @@ namespace Labtracker
                 string selectedvalue = DDLRESVAL.SelectedItem.ToString();
                 string dateshit = txtDateProcess.Text;
                 string labinitial = txtLabTechPr.Text;
-                DateTime datesh = Convert.ToDateTime(dateshit);
+                string remarks = txtRemarks.Text;
+                DateTime? datesh = string.IsNullOrEmpty(dateshit) ? (DateTime?)null :  Convert.ToDateTime(dateshit);
 
             switch (selectedres)
             {
@@ -52,25 +53,50 @@ namespace Labtracker
                     string drug = ddlDSTdetail1.SelectedItem.ToString();
                     string drugline = selectedvalue;
                     string sens = ddlDSTdetail2.SelectedItem.ToString();
-                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, sens, drug, drugline, labinitial,datesh);
+                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, sens, drug, drugline, labinitial.ToUpper(), datesh);
                     break;
                 case "Growth Detection":
                     string week = selectedvalue;
                     string primarymedia = ddlGrowthdetail.SelectedItem.ToString();
                     string input = ddlGrowth.SelectedItem.ToString();
-                    addSuccessres = updates.AddUpdate(datesh,txtSampleIdUpdate.Text,week,primarymedia,input,labinitial);
+                    string dateRep = txtRepDate.Text;
+                    //DateTime dateRepo = Convert.ToDateTime(dateRep);
+                    addSuccessres = updates.AddUpdate(dateshit, dateRep, txtSampleIdUpdate.Text, week, primarymedia, input, labinitial.ToUpper(), remarks);
+                    break;
+                case "Growth Detection Weekly":
+                    string primaryMedia = ddlGrowthMedia.SelectedItem.ToString();
+                    string daterip = txtReportDate.Text;
+                    //DateTime dateReport = Convert.ToDateTime(daterip);
+                    string[] weekly = new String[8];
+                    weekly[0] = ddlWeek1.SelectedItem.ToString();
+                    weekly[1] = ddlWeek2.SelectedItem.ToString();
+                    weekly[2] = ddlWeek3.SelectedItem.ToString();
+                    weekly[3] = ddlWeek4.SelectedItem.ToString();
+                    weekly[4] = ddlWeek5.SelectedItem.ToString();
+                    weekly[5] = ddlWeek6.SelectedItem.ToString();
+                    weekly[6] = ddlWeek7.SelectedItem.ToString();
+                    weekly[7] = ddlWeek8.SelectedItem.ToString();
+
+                    for (int i=0;i<8;i++)
+                    {
+                        addSuccessres = updates.AddUpdate(dateshit, daterip, txtSampleIdUpdate.Text, (i+1).ToString(), primaryMedia, weekly[i].Equals("details")? null:weekly[i], labinitial.ToUpper(), remarks);
+                    }
+                    break;
+                case "DNA Extraction":
+                    string qubit = txtQUcon.Text;
+                    string nd = txtNDcon.Text;
+                    string purity = txtPurity.Text;
+                    addSuccessres = updates.AddUpdater(datesh, txtSampleIdUpdate.Text, purity, nd, qubit, remarks, labinitial.ToUpper());
                     break;
 
+
                 default:
-                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, Convert.ToDateTime(txtDateProcess.Text), labinitial);
+                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, Convert.ToDateTime(txtDateProcess.Text), labinitial.ToUpper());
                     break;
             }
 
 
-                         
-                
-                
-         
+ 
 
                 if (addSuccessres)
                 {

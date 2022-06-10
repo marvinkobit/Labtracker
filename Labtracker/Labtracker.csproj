@@ -2285,9 +2285,12 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDbInitializer.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Dnaextract.cs" />
     <Compile Include="Models\Dst.cs" />
     <Compile Include="Models\Growth.cs" />
+    <Compile Include="Models\HeatKill.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LibraryPrep.cs" />
     <Compile Include="Models\Process.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Resistance.cs" />

@@ -21,5 +21,10 @@ namespace Labtracker.Models
         public DbSet<Project> Projects { get; set; }
         public DbSet<Dst> Dsts { get; set; }
         public DbSet<Growth> Growths { get; set; }
+        public DbSet<Dnaextract> Dnaextracts { get; set; }
+        public DbSet<LibraryPrep> LibraryPreps { get; set; }
+        public DbSet<HeatKill> HeatKills { get; set; }
+
+
     }
 }
