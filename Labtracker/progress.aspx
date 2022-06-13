@@ -14,7 +14,7 @@
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+ <%-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>--%>
 
   <!-- Custom styles for this template-->
   <link href="Content/css/sb-admin-2.min.css" rel="stylesheet"/>
@@ -338,7 +338,9 @@
                           <asp:BoundField DataField="LJ_res" HeaderText="LJ" SortExpression="LJ_res" />
                           <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
                           <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
-                          <asp:BoundField DataField="CultureSmear_res" HeaderText="Culture Smear" SortExpression="CultureSmear_res" />
+                          <asp:BoundField DataField="BHI" HeaderText="BHI" SortExpression="BHI" />
+                          <asp:BoundField DataField="CultureSmear_res" HeaderText="Media/Culture Smear" SortExpression="CultureSmear_res" />
+                          <asp:BoundField DataField="FinalCultureResult" HeaderText="FinalCultureResult" SortExpression="FinalCultureResult" />
                             <asp:BoundField DataField="Spoligo_res" HeaderText="Spoligo" SortExpression="Spoligo_res" />
                            <asp:BoundField DataField="LabInitial" HeaderText="Initial" SortExpression="LabInitial" />
                         
@@ -357,7 +359,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[LabInitial] FROM Results"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial] FROM Results"></asp:SqlDataSource>
                
               </div>
             </div>

@@ -228,7 +228,40 @@ namespace Labtracker
                     //tbgresupdates.Spoligo_res = resultant;
                     //tbgprocessupdates.Spoligo_date = Convert.ToDateTime(dateProcess);
                     break;
-              
+                case "Final Culture Result":
+                    SqlConnection SQLConn8 = new SqlConnection(connStr);
+                    SqlCommand command8 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET FinalCultureResult=@FinalCultureResult,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn8);
+                    command8.Parameters.Add("@FinalCultureResult", SqlDbType.NVarChar).Value = resultant;
+                    command8.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    command8.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    SQLConn8.Open();
+                    command8.ExecuteNonQuery();
+                    SQLConn8.Close();
+
+                    SQLConn8.Open();
+                    SqlCommand commandd8 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET FinalCultureResult_date=@FinalCultureResult_date,PatientId=@patient WHERE PatientId=@patient", SQLConn8);
+                    commandd8.Parameters.Add("@FinalCultureResult_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd8.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd8.ExecuteNonQuery();
+                    SQLConn8.Close();
+                    break;
+                case "BHI":
+                    SqlConnection SQLConn9 = new SqlConnection(connStr);
+                    SqlCommand command9 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET BHI=@BHI,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn9);
+                    command9.Parameters.Add("@BHI", SqlDbType.NVarChar).Value = resultant;
+                    command9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    command9.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    SQLConn9.Open();
+                    command9.ExecuteNonQuery();
+                    SQLConn9.Close();
+
+                    SQLConn9.Open();
+                    SqlCommand commandd9 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET BHI_date=@BHI_date,PatientId=@patient WHERE PatientId=@patient", SQLConn9);
+                    commandd9.Parameters.Add("@BHI_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd9.ExecuteNonQuery();
+                    SQLConn9.Close();
+                    break;
                 default:
                     break;
             }
@@ -372,6 +405,42 @@ namespace Labtracker
             return true;
         }
 
+        //Heatkilling
+        public (bool,string) HeatKilling(string PaId, string primaryMedia, string dateHeatKill, string dateTransfer, string initialTransfer, string initialRecieved , string remark)
+        {
+            var tbgheatkillupdates = new HeatKill();
+
+            tbgheatkillupdates.PatientId = PaId;
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+
+            tbgheatkillupdates.MediaType = primaryMedia;
+            tbgheatkillupdates.InitialRecieved = initialRecieved;
+            tbgheatkillupdates.InitialTransfer = initialTransfer;
+
+            tbgheatkillupdates.DateHeatKill = string.IsNullOrEmpty(dateHeatKill) ? (DateTime?)null : Convert.ToDateTime(dateHeatKill);
+            tbgheatkillupdates.DateTransfer = string.IsNullOrEmpty(dateTransfer) ? (DateTime?)null : Convert.ToDateTime(dateTransfer);
+            tbgheatkillupdates.Remark = remark;
+
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.HeatKills.Add(tbgheatkillupdates);
+
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return (false,e.ToString());
+                }
+
+            }
+            // Success.
+            return (true,"Perfecto");
+        }
 
 
 

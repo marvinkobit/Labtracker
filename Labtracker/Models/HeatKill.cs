@@ -8,6 +8,7 @@ namespace Labtracker.Models
 {
     public class HeatKill
     {
+        [Key]
         [ScaffoldColumn(false)]
         public int? HeatKillId { get; set; }
 

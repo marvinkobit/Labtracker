@@ -139,6 +139,24 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtRemarks;
         
         /// <summary>
+        /// txtDateTransfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateTransfer;
+        
+        /// <summary>
+        /// txtInitialRecievedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInitialRecievedBy;
+        
+        /// <summary>
         /// ddlGrowthdetail control.
         /// </summary>
         /// <remarks>

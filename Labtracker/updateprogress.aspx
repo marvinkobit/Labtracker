@@ -14,7 +14,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> --%>
 
     <!-- Custom styles for this template-->
     <link href="Content/css/sb-admin-2.min.css" rel="stylesheet">
@@ -69,8 +69,13 @@
                                                         <asp:ListItem Value="7" data-group="7">DST</asp:ListItem>
                                                         <asp:ListItem Value="8" data-group="8">Culture Smear</asp:ListItem>
                                                         <asp:ListItem Value="9" data-group="9">Heat Killed</asp:ListItem>
+                                                        <asp:ListItem Value="14" data-group="14">Heat Killing</asp:ListItem>
                                                         <asp:ListItem Value="10" data-group="10">Growth Detection</asp:ListItem>
                                                         <asp:ListItem Value="11" data-group="11">Growth Detection Weekly</asp:ListItem>
+                                                        <asp:ListItem Value="12" data-group="12">Final Culture Result</asp:ListItem>
+                                                        <asp:ListItem Value="13" data-group="13">BHI</asp:ListItem>
+                                                         
+
                                                     </asp:DropDownList>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*Result type required." ControlToValidate="DDLResType" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 </div>
@@ -87,13 +92,13 @@
                                                         <asp:ListItem Value="5" data-group="1">Pos</asp:ListItem>
                                                         <asp:ListItem Value="6" data-group="1">Neg</asp:ListItem>
 
-                                                        <asp:ListItem Value="5" data-group="2">Growth</asp:ListItem>
-                                                        <asp:ListItem Value="6" data-group="2">NoGrowth</asp:ListItem>
+                                                        <asp:ListItem Value="5" data-group="2">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="6" data-group="2">Neg</asp:ListItem>
                                                         <asp:ListItem Value="7" data-group="2">Contaminated</asp:ListItem>
                                                         <asp:ListItem Value="8" data-group="2">Not Done</asp:ListItem>
 
-                                                        <asp:ListItem Value="9" data-group="3">Growth</asp:ListItem>
-                                                        <asp:ListItem Value="10" data-group="3">NoGrowth</asp:ListItem>
+                                                        <asp:ListItem Value="9" data-group="3">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="10" data-group="3">Neg</asp:ListItem>
                                                         <asp:ListItem Value="11" data-group="3">Contaminated</asp:ListItem>
                                                         <asp:ListItem Value="12" data-group="3">Not Done</asp:ListItem>
 
@@ -123,6 +128,15 @@
                                                         <asp:ListItem Value="30" data-group="10">Week 7</asp:ListItem>
                                                         <asp:ListItem Value="31" data-group="10">Week 8</asp:ListItem>
 
+                                                         <asp:ListItem Value="32" data-group="12">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="33" data-group="12">Neg</asp:ListItem>
+
+                                                        <asp:ListItem Value="34" data-group="13">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="35" data-group="13">Neg</asp:ListItem>
+
+                                                        <asp:ListItem Value="36" data-group="14">LJ</asp:ListItem>
+                                                        <asp:ListItem Value="37" data-group="14">7H9</asp:ListItem>
+
 
 
                                                     </asp:DropDownList>
@@ -149,7 +163,19 @@
 
                                             <div id="rescol2" class="col-sm-6 ">
 
-
+                                                 <div id="HeatKillingDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
+                                                    
+                                                      <br /> <br />  <br />  <br />
+                                                      <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Date of Transfer</asp:Label>
+                                                           <br />
+                                                        <asp:TextBox ID="txtDateTransfer" class="form-control " TextMode="Date" ToolTip="Date sample result was Report" placeholder="Report Date" runat="server"></asp:TextBox>
+                                                    </div>
+                                                      <br />
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:TextBox ID="txtInitialRecievedBy" class="form-control " placeholder="Initial(Recieved By)" runat="server"></asp:TextBox>
+                                                    </div>
+                                                </div>
                                                 <div id="GrowthDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
                                                     <asp:Label>Please enter Primary media here</asp:Label>
 
@@ -444,6 +470,8 @@
                 var comsel = document.getElementById('DRESVAL');
                 var grodiv = document.getElementById('GrowthDetail');
                 var weekgrodiv = document.getElementById('weeklyGrowthDetail');
+                var heatkilldiv = document.getElementById('HeatKillingDetail');
+                
 
                 //var ddval2 = $("#").find(":selected").val();
 
@@ -459,6 +487,7 @@
                         dstdiv.style.display = "none";
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
                         break;
 
                     case "6":
@@ -468,6 +497,7 @@
                         dstdiv.style.display = "none";
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
                         break;
                     case "7":
                         dstdiv.style.display = "block";
@@ -476,6 +506,7 @@
                         exdiv.style.display = "none";
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
                         break;
                     case "10":
                         grodiv.style.display = "block";
@@ -484,10 +515,21 @@
                         spodiv.style.display = "none";
                         dstdiv.style.display = "none";
                         weekgrodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
                         break;
                     case "11":
                         weekgrodiv.style.display = "block";
                         comsel.style.display = "none";
+                        exdiv.style.display = "none";
+                        spodiv.style.display = "none";
+                        dstdiv.style.display = "none";
+                        grodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
+                        break;
+                    case "14":
+                        heatkilldiv.style.display = "block";
+                        weekgrodiv.style.display = "none";
+                        comsel.style.display = "block";
                         exdiv.style.display = "none";
                         spodiv.style.display = "none";
                         dstdiv.style.display = "none";
@@ -502,6 +544,7 @@
                         dstdiv.style.display = "none";
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
+                        heatkilldiv.style.display = "none";
                 }
 
 
