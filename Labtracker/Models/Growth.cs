@@ -23,9 +23,16 @@ namespace Labtracker.Models
         [Display(Name = "Dater")]
         public Nullable<DateTime> Dater { get; set; }
 
+        [Display(Name = "Report Date")]
+        public Nullable<DateTime> ReportDate { get; set; }
+
         [Display(Name = "Initial")]
         public string Initial { get; set; }
 
+        [Display(Name = "Remark")]
+        public string Remark { get; set; }
+
+        [Required]
         public string PatientId { get; set; }
         
         // public virtual ICollection<Sample> Samples { get; set; }

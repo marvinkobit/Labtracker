@@ -70,9 +70,9 @@ namespace Labtracker
             return true;
         }
 */
-        //ResultsUpdate
+        //ResultsUpdate (string,string,string,string,DateTime,string)
         public bool AddUpdate(string SaId, string ResuId,
-                              string resultant,string restype,DateTime dateProcess,string labinitial)
+                              string resultant,string restype, DateTime? dateProcess,string labinitial)
         {
             
             var tbgresupdates = new Result();
@@ -228,7 +228,40 @@ namespace Labtracker
                     //tbgresupdates.Spoligo_res = resultant;
                     //tbgprocessupdates.Spoligo_date = Convert.ToDateTime(dateProcess);
                     break;
-              
+                case "Final Culture Result":
+                    SqlConnection SQLConn8 = new SqlConnection(connStr);
+                    SqlCommand command8 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET FinalCultureResult=@FinalCultureResult,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn8);
+                    command8.Parameters.Add("@FinalCultureResult", SqlDbType.NVarChar).Value = resultant;
+                    command8.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    command8.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    SQLConn8.Open();
+                    command8.ExecuteNonQuery();
+                    SQLConn8.Close();
+
+                    SQLConn8.Open();
+                    SqlCommand commandd8 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET FinalCultureResult_date=@FinalCultureResult_date,PatientId=@patient WHERE PatientId=@patient", SQLConn8);
+                    commandd8.Parameters.Add("@FinalCultureResult_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd8.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd8.ExecuteNonQuery();
+                    SQLConn8.Close();
+                    break;
+                case "BHI":
+                    SqlConnection SQLConn9 = new SqlConnection(connStr);
+                    SqlCommand command9 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET BHI=@BHI,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn9);
+                    command9.Parameters.Add("@BHI", SqlDbType.NVarChar).Value = resultant;
+                    command9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    command9.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    SQLConn9.Open();
+                    command9.ExecuteNonQuery();
+                    SQLConn9.Close();
+
+                    SQLConn9.Open();
+                    SqlCommand commandd9 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET BHI_date=@BHI_date,PatientId=@patient WHERE PatientId=@patient", SQLConn9);
+                    commandd9.Parameters.Add("@BHI_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd9.ExecuteNonQuery();
+                    SQLConn9.Close();
+                    break;
                 default:
                     break;
             }
@@ -258,8 +291,8 @@ namespace Labtracker
         }
 
 
-        //Overload for DST
-        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime dater)
+        //Overload for DST (string, string, string, string, string, DateTime)
+        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater)
         {
            
             var tbgdstupdates = new Dst();
@@ -296,8 +329,8 @@ namespace Labtracker
         }
 
 
-        //Overload for GrowthDetection 
-        public bool AddUpdate(DateTime dater, string SaId, string week, string primarymedia, string input, string labinitial)
+        //Overload for GrowthDetection (string, string, string ,string ,string, string, string, string )
+        public bool AddUpdate(string dater,string repDate, string SaId, string week, string primarymedia, string input, string labinitial, string remark)
         {
 
             var tbggrowthupdates = new Growth();
@@ -309,7 +342,9 @@ namespace Labtracker
             tbggrowthupdates.Week = week;
             tbggrowthupdates.dat1 = primarymedia;
             tbggrowthupdates.dat2 = input;
-            tbggrowthupdates.Dater = Convert.ToDateTime(dater);
+            tbggrowthupdates.Dater = string.IsNullOrEmpty(dater)? (DateTime?)null : Convert.ToDateTime(dater);
+            tbggrowthupdates.ReportDate = string.IsNullOrEmpty(repDate) ? (DateTime?)null : Convert.ToDateTime(repDate);
+            tbggrowthupdates.Remark = remark;
 
 
             using (SampleContext _db = new SampleContext())
@@ -331,6 +366,82 @@ namespace Labtracker
             // Success.
             return true;
         }
+
+
+        //Overload for DnaExtraction
+        public bool AddUpdater(DateTime? dater, string PaId, string purity, string ndConc, string qubConc,string remark , string labInitial)
+        {
+            var tbgdnaextractupdates = new Dnaextract();
+
+            tbgdnaextractupdates.PatientId = PaId;
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+            tbgdnaextractupdates.Initial = labInitial;
+            tbgdnaextractupdates.Purity = Convert.ToDecimal(purity);
+            tbgdnaextractupdates.NDConc = Convert.ToDecimal(ndConc);
+            tbgdnaextractupdates.QubitConc = Convert.ToDecimal(qubConc);
+
+
+            tbgdnaextractupdates.ExtractDate = Convert.ToDateTime(dater);
+            tbgdnaextractupdates.Remark = remark;
+
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.Dnaextracts.Add(tbgdnaextractupdates);
+
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+            // Success.
+            return true;
+        }
+
+        //Heatkilling
+        public (bool,string) HeatKilling(string PaId, string primaryMedia, string dateHeatKill, string dateTransfer, string initialTransfer, string initialRecieved , string remark)
+        {
+            var tbgheatkillupdates = new HeatKill();
+
+            tbgheatkillupdates.PatientId = PaId;
+            //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
+
+            tbgheatkillupdates.MediaType = primaryMedia;
+            tbgheatkillupdates.InitialRecieved = initialRecieved;
+            tbgheatkillupdates.InitialTransfer = initialTransfer;
+
+            tbgheatkillupdates.DateHeatKill = string.IsNullOrEmpty(dateHeatKill) ? (DateTime?)null : Convert.ToDateTime(dateHeatKill);
+            tbgheatkillupdates.DateTransfer = string.IsNullOrEmpty(dateTransfer) ? (DateTime?)null : Convert.ToDateTime(dateTransfer);
+            tbgheatkillupdates.Remark = remark;
+
+
+            using (SampleContext _db = new SampleContext())
+            {
+
+                try
+                {
+                    // Add sample to DB.
+                    _db.HeatKills.Add(tbgheatkillupdates);
+
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return (false,e.ToString());
+                }
+
+            }
+            // Success.
+            return (true,"Perfecto");
+        }
+
 
 
     }

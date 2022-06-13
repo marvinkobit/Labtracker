@@ -36,7 +36,13 @@ namespace Labtracker.Models
         public string Labinitial { get; set; }
 
         public string PatientId { get; set; }
-       
+
+        public string FinalCultureResult { get; set; }
+
+        public string BHI { get; set; }
+
+        public string Remark { get; set; }
+
         // public virtual ICollection<Sample> Samples { get; set; }
     }
 }

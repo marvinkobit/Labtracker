@@ -167,7 +167,7 @@
                     <script src="Scripts/jquery-3.3.1.js"></script>
                     <script src="Scripts/jquery-3.3.1.min.js"></script>
                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
                         
                    <script src="Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
                      <!-- Page level plugins -->

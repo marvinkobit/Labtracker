@@ -32,6 +32,12 @@ namespace Labtracker.Models
         [Display(Name = "HeatKill_date")]
         public Nullable<DateTime> HeatKill_date { get; set; }
 
+        [Display(Name = "FinalCultureResult_date")]
+        public Nullable<DateTime> FinalCultureResult_date { get; set; }
+
+        [Display(Name = "BHI_date")]
+        public Nullable<DateTime> BHI_date { get; set; }
+
         public string PatientId { get; set; }
        
         //public virtual ICollection<Sample> Samples { get; set; }
