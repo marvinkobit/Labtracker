@@ -21,8 +21,8 @@ namespace Labtracker.Models
         [Display(Name = "AverageSize")]
         public decimal AverageSize { get; set; }
 
-        /*[Display(Name = "AverageSize Percent")]
-        public decimal AverageSizePerc { get; set; }*/
+        [Display(Name = "AverageSize Percent")]
+        public decimal AverageSizePercent { get; set; }
 
         [Display(Name = "IndexI5")]
         public string IndexI5 { get; set; }
@@ -30,6 +30,15 @@ namespace Labtracker.Models
         [Display(Name = "IndexI7")]
         public string IndexI7 { get; set; }
 
-        
+        [Display(Name = "LibPrepDate")]
+        public Nullable<DateTime> LibPrepDate { get; set; }
+
+        [Display(Name = "Remark")]
+        public string Remark { get; set; }
+
+        [Display(Name = "Initial")]
+        public string Initial { get; set; }
+
+
     }
 }

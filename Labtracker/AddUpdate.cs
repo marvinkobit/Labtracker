@@ -104,12 +104,13 @@ namespace Labtracker
                     command.ExecuteNonQuery();
                     SQLConn.Close();
 
+                    
                     SQLConn.Open();
                     SqlCommand commandd = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Smear_date=@Smear_date,PatientId=@patient WHERE PatientId=@patient", SQLConn);
-                    commandd.Parameters.Add("@Smear_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
                     commandd.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd.Parameters.Add("@Smear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;                      
                     commandd.ExecuteNonQuery();
-                    SQLConn.Close();
+                    SQLConn.Close();                  
                     //tbgresupdates.Smear_res = resultant;
                     //tbgprocessupdates.Smear_date = Convert.ToDateTime(dateProcess);
                     break;
@@ -125,7 +126,7 @@ namespace Labtracker
 
                     SQLConn2.Open();
                     SqlCommand commandd2 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_date=@LJ_date,PatientId=@patient WHERE PatientId=@patient", SQLConn2);
-                    commandd2.Parameters.Add("@LJ_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd2.Parameters.Add("@LJ_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd2.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd2.ExecuteNonQuery();
                     SQLConn2.Close();
@@ -145,7 +146,7 @@ namespace Labtracker
 
                     SQLConn3.Open();
                     SqlCommand commandd3 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET MIJT_date=@MIJT_date,PatientId=@patient WHERE PatientId=@patient", SQLConn3);
-                    commandd3.Parameters.Add("@MIJT_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd3.Parameters.Add("@MIJT_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd3.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd3.ExecuteNonQuery();
                     SQLConn3.Close();
@@ -164,7 +165,7 @@ namespace Labtracker
 
                     SQLConn4.Open();
                     SqlCommand commandd4 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET RD9_date=@RD9_date,PatientId=@patient WHERE PatientId=@patient", SQLConn4);
-                    commandd4.Parameters.Add("@RD9_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd4.Parameters.Add("@RD9_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd4.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd4.ExecuteNonQuery();
                     SQLConn4.Close();
@@ -183,7 +184,7 @@ namespace Labtracker
 
                     SQLConn5.Open();
                     SqlCommand commandd5 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET HeatKill_date=@HeatKill_date,PatientId=@patient WHERE PatientId=@patient", SQLConn5);
-                    commandd5.Parameters.Add("@HeatKill_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd5.Parameters.Add("@HeatKill_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd5.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd5.ExecuteNonQuery();
                     SQLConn5.Close();
@@ -202,7 +203,7 @@ namespace Labtracker
 
                     SQLConn6.Open();
                     SqlCommand commandd6 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET CultureSmear_date=@CultureSmear_date,PatientId=@patient WHERE PatientId=@patient", SQLConn6);
-                    commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd6.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd6.ExecuteNonQuery();
                     SQLConn6.Close();
@@ -221,7 +222,7 @@ namespace Labtracker
 
                     SQLConn7.Open();
                     SqlCommand commandd7 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Spoligo_date=@Spoligo_date,PatientId=@patient WHERE PatientId=@patient", SQLConn7);
-                    commandd7.Parameters.Add("@Spoligo_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd7.Parameters.Add("@Spoligo_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd7.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd7.ExecuteNonQuery();
                     SQLConn7.Close();
@@ -240,7 +241,7 @@ namespace Labtracker
 
                     SQLConn8.Open();
                     SqlCommand commandd8 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET FinalCultureResult_date=@FinalCultureResult_date,PatientId=@patient WHERE PatientId=@patient", SQLConn8);
-                    commandd8.Parameters.Add("@FinalCultureResult_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd8.Parameters.Add("@FinalCultureResult_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd8.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd8.ExecuteNonQuery();
                     SQLConn8.Close();
@@ -257,7 +258,7 @@ namespace Labtracker
 
                     SQLConn9.Open();
                     SqlCommand commandd9 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET BHI_date=@BHI_date,PatientId=@patient WHERE PatientId=@patient", SQLConn9);
-                    commandd9.Parameters.Add("@BHI_date", SqlDbType.DateTime).Value = Convert.ToDateTime(dateProcess);
+                    commandd9.Parameters.Add("@BHI_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value; 
                     commandd9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     commandd9.ExecuteNonQuery();
                     SQLConn9.Close();
@@ -289,6 +290,8 @@ namespace Labtracker
             // Success.
             return true;
         }
+
+        
 
 
         //Overload for DST (string, string, string, string, string, DateTime)
@@ -440,6 +443,38 @@ namespace Labtracker
             }
             // Success.
             return (true,"Perfecto");
+        }
+
+        internal (bool , string ) LibraryPreparation(string PaId, string remark, string initial, string libconc, string avgsize, string avgsizepct, string i5, string i7, string date)
+        {
+            var tbglibprep = new LibraryPrep();
+
+            tbglibprep.PatientId = PaId;
+            tbglibprep.LibConc = Convert.ToDecimal(libconc);
+            tbglibprep.AverageSize = Convert.ToDecimal(avgsize);
+            tbglibprep.AverageSizePercent = Convert.ToDecimal(avgsizepct);
+
+            tbglibprep.IndexI5 = i5;
+            tbglibprep.IndexI7 = i7;
+            tbglibprep.LibPrepDate = string.IsNullOrEmpty(date) ? (DateTime?)null : Convert.ToDateTime(date); ;
+            tbglibprep.Remark = remark;
+            tbglibprep.Initial = initial;
+
+            using (SampleContext _db = new SampleContext())
+            {
+                try
+                {
+                    _db.LibraryPreps.Add(tbglibprep);
+                    _db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return (false, e.ToString());
+                }
+            }
+
+            return (true, "Perfecto");
+            
         }
 
 
