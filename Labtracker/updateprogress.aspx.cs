@@ -98,9 +98,17 @@ namespace Labtracker
                         string dateTransfer = txtDateTransfer.Text;
                         (addSuccessres,addSuccessexp) = updates.HeatKilling(txtSampleIdUpdate.Text, selectedvalue, dateshit, dateTransfer, labinitial.ToUpper(), initialRecieved.ToUpper(), remarks);
                         break;
-                    
+                    case "Library Prep":
+                        string libconc= txtLibConc.Text;
+                        string avgsize = txtAvgsize.Text;
+                        string avgsizeperct = txtAvgPerct.Text;
+                        string indexi5 = txtIndexi5.Text;
+                        string indexi7 = txtIndexi7.Text;
+                        (addSuccessres, addSuccessexp) = updates.LibraryPreparation(txtSampleIdUpdate.Text, remarks, labinitial,  libconc, avgsize, avgsizeperct, indexi5, indexi7, dateshit);
+                        break;
+                        
                     default:
-                        addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, Convert.ToDateTime(txtDateProcess.Text), labinitial.ToUpper());
+                        addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, datesh, labinitial.ToUpper());
                         break;
                 }
 

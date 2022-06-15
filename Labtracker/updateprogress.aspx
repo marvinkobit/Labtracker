@@ -64,16 +64,22 @@
                                                         <asp:ListItem Value="2" data-group="2">LJ</asp:ListItem>
                                                         <asp:ListItem Value="3" data-group="3">MGIT</asp:ListItem>
                                                         <asp:ListItem Value="4" data-group="4">RD9</asp:ListItem>
-                                                        <asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
+                                                       
                                                         <asp:ListItem Value="6" data-group="6">Spoligo</asp:ListItem>
                                                         <asp:ListItem Value="7" data-group="7">DST</asp:ListItem>
                                                         <asp:ListItem Value="8" data-group="8">Culture Smear</asp:ListItem>
-                                                        <asp:ListItem Value="9" data-group="9">Heat Killed</asp:ListItem>
+
+                                                        <%--<asp:ListItem Value="9" data-group="9">Heat Killed</asp:ListItem>--%>
+
                                                         <asp:ListItem Value="14" data-group="14">Heat Killing</asp:ListItem>
                                                         <asp:ListItem Value="10" data-group="10">Growth Detection</asp:ListItem>
                                                         <asp:ListItem Value="11" data-group="11">Growth Detection Weekly</asp:ListItem>
                                                         <asp:ListItem Value="12" data-group="12">Final Culture Result</asp:ListItem>
                                                         <asp:ListItem Value="13" data-group="13">BHI</asp:ListItem>
+
+
+                                                         <asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
+                                                          <asp:ListItem Value="15" data-group="15">Library Prep</asp:ListItem>
                                                          
 
                                                     </asp:DropDownList>
@@ -84,7 +90,7 @@
                                                 <div id="DRESVAL" class="col-sm-6 mb-3 mb-sm-0 col-lg-12">
                                                     <asp:DropDownList ID="DDLRESVAL" class="form-control" runat="server" ToolTip="Choose Result" onchange="ToogleDstval(); return false;">
 
-                                                        <asp:ListItem Selected hidden>Choose Result</asp:ListItem>
+                                                        <asp:ListItem Value="0" Selected hidden>Choose Result</asp:ListItem>
                                                         <asp:ListItem Value="1" data-group="1">1+</asp:ListItem>
                                                         <asp:ListItem Value="2" data-group="1">2+</asp:ListItem>
                                                         <asp:ListItem Value="3" data-group="1">3+</asp:ListItem>
@@ -116,8 +122,8 @@
                                                         <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>
                                                         <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
 
-                                                        <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>
-                                                        <asp:ListItem Value="23" data-group="9">No</asp:ListItem>
+                                                      <%--  <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>
+                                                        <asp:ListItem Value="23" data-group="9">No</asp:ListItem>--%>
 
                                                         <asp:ListItem Value="24" data-group="10">Week 1</asp:ListItem>
                                                         <asp:ListItem Value="25" data-group="10">Week 2</asp:ListItem>
@@ -162,6 +168,42 @@
                                             </div>
 
                                             <div id="rescol2" class="col-sm-6 ">
+
+                                                <div id="LibPrepDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">                                                   
+                                                      
+                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Library Concentration</asp:Label>
+                                                         
+                                                       <asp:TextBox ID="txtLibConc" class="form-control " placeholder="" runat="server"></asp:TextBox>  
+                                                     </div>
+                                                     
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Average Size</asp:Label>
+                                                         
+                                                        <asp:TextBox ID="txtAvgsize" class="form-control " placeholder="ng/ml" runat="server"></asp:TextBox>
+                                                    </div>
+                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Average Size Percent</asp:Label>
+                                                       
+                                                       <asp:TextBox ID="txtAvgPerct" class="form-control " placeholder="%" runat="server"></asp:TextBox>  
+
+                                                     </div>
+                                                      
+                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>IndexI5</asp:Label>
+                                                        
+                                                       <asp:TextBox ID="txtIndexi5" class="form-control " placeholder="" runat="server"></asp:TextBox>  
+
+                                                     </div>
+                                                   
+                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>IndexI7</asp:Label>
+                                                        
+                                                       <asp:TextBox ID="txtIndexi7" class="form-control " placeholder="" runat="server"></asp:TextBox>  
+
+                                                     </div>
+                                                     
+                                                </div>
 
                                                  <div id="HeatKillingDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
                                                     
@@ -328,8 +370,6 @@
                                                             <asp:ListItem Value="14" data-group="19">PTH</asp:ListItem>
                                                             <asp:ListItem Value="15" data-group="19">CS</asp:ListItem>
                                                             <asp:ListItem Value="16" data-group="19">PAS</asp:ListItem>
-
-
                                                         </asp:DropDownList>
                                                     </div>
                                                     <asp:Label>Please enter details here</asp:Label>
@@ -391,8 +431,9 @@
 
                                 <div class="row">
                                     <asp:Button ID="btnSaveup" class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Update" OnClick="btnSaveup_Click" />
-                                    <asp:Button ID="btnCancelup" class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Cancel" OnClientClick="ToggleVisible();ToogleResval(); this.form.reset(); return false;" />
+                                    <asp:Button ID="btnCancelup" class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Clear" OnClientClick="ToggleVisible();ToogleResval(); this.form.reset(); return false;" />
                                 </div>
+                                <br/>
                                 <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
                                 <hr>
                             </form>
@@ -470,7 +511,8 @@
                 var comsel = document.getElementById('DRESVAL');
                 var grodiv = document.getElementById('GrowthDetail');
                 var weekgrodiv = document.getElementById('weeklyGrowthDetail');
-                var heatkilldiv = document.getElementById('HeatKillingDetail');
+                var heatkilldiv = document.getElementById('HeatKillingDetail'); 
+                var lipprepdiv = document.getElementById('LibPrepDetail');
                 
 
                 //var ddval2 = $("#").find(":selected").val();
@@ -488,6 +530,7 @@
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                         break;
 
                     case "6":
@@ -498,6 +541,7 @@
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                         break;
                     case "7":
                         dstdiv.style.display = "block";
@@ -507,6 +551,7 @@
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                         break;
                     case "10":
                         grodiv.style.display = "block";
@@ -516,6 +561,7 @@
                         dstdiv.style.display = "none";
                         weekgrodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                         break;
                     case "11":
                         weekgrodiv.style.display = "block";
@@ -525,11 +571,23 @@
                         dstdiv.style.display = "none";
                         grodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                         break;
                     case "14":
                         heatkilldiv.style.display = "block";
                         weekgrodiv.style.display = "none";
                         comsel.style.display = "block";
+                        exdiv.style.display = "none";
+                        spodiv.style.display = "none";
+                        dstdiv.style.display = "none";
+                        grodiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
+                        break;
+                    case "15":
+                        lipprepdiv.style.display = "block";
+                        heatkilldiv.style.display = "none";
+                        weekgrodiv.style.display = "none";
+                        comsel.style.display = "none";
                         exdiv.style.display = "none";
                         spodiv.style.display = "none";
                         dstdiv.style.display = "none";
@@ -545,6 +603,7 @@
                         grodiv.style.display = "none";
                         weekgrodiv.style.display = "none";
                         heatkilldiv.style.display = "none";
+                        lipprepdiv.style.display = "none";
                 }
 
 

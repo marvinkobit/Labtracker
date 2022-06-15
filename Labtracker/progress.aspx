@@ -326,7 +326,7 @@
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
-               <br />
+                    <p>Culture Results</p>
                    <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
@@ -343,6 +343,7 @@
                           <asp:BoundField DataField="FinalCultureResult" HeaderText="FinalCultureResult" SortExpression="FinalCultureResult" />
                             <asp:BoundField DataField="Spoligo_res" HeaderText="Spoligo" SortExpression="Spoligo_res" />
                            <asp:BoundField DataField="LabInitial" HeaderText="Initial" SortExpression="LabInitial" />
+                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
                         
                          
                       </Columns>
@@ -359,7 +360,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial] FROM Results"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
                
               </div>
             </div>
@@ -373,7 +374,8 @@
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
-               <br />
+                        <p>Drug Susceptibility</p>            
+      
                    <asp:GridView ID="gvDstResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
@@ -416,7 +418,7 @@
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
-               <br />
+                        <p>Growth Detection</p>
                    <asp:GridView ID="gvGrowthResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource3" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvGrowthResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
@@ -427,6 +429,7 @@
                           <asp:BoundField DataField="dat2" HeaderText="Detail" SortExpression="Result" />
                           <asp:BoundField DataField="Dater" HeaderText="Date" SortExpression="Dater" />
                           <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
                          
                         
                          
@@ -444,7 +447,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT GrowthID,PatientId,Week,dat1,dat2,Dater,Initial FROM Growths"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT GrowthID,PatientId,Week,dat1,dat2,Dater,Initial,Remark FROM Growths ORDER BY PatientId,Week,dat1 ASC"></asp:SqlDataSource>
                
               </div>
             </div>
