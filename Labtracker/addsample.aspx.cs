@@ -26,7 +26,10 @@ namespace Labtracker
             }
 
         }
-        
+        protected void btnGoback_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/sample-receiving.aspx");
+        }
         protected void btnSaveas_Click(object sender, EventArgs e)
         {
             AddSamples samples = new AddSamples();

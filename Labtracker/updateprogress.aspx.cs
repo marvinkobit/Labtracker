@@ -30,7 +30,10 @@ namespace Labtracker
         //{
 
         //}
-
+        protected void btnGoback_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/progress.aspx");
+        }
         protected void btnSaveup_Click(object sender, EventArgs e)
         {
             
