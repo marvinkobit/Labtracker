@@ -20,6 +20,10 @@ namespace Labtracker.Models
         [Display(Name = "LJRes")]
         public string LJ_res { get; set; }
 
+        [Display(Name = "LJ_P_Res")]
+        public string LJ_P_res { get; set; }
+
+
         [Display(Name = "MIJTRes")]
         public string MIJT_res { get; set; }
 

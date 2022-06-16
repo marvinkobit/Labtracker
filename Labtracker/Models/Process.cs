@@ -20,6 +20,9 @@ namespace Labtracker.Models
         [Display(Name = "LJ_date")]
         public Nullable<DateTime> LJ_date { get; set; }
 
+        [Display(Name = "LJ_P_date")]
+        public Nullable<DateTime> LJ_P_date { get; set; }
+
         [Display(Name = "MIJT_date")]
         public Nullable<DateTime> MIJT_date { get; set; }
 
