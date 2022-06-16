@@ -28,13 +28,16 @@ namespace Labtracker
         }
         protected void btnGoback_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/sample-receiving.aspx");
+            string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+            Response.Redirect("sample-receiving.aspx");
         }
+
         protected void btnSaveas_Click(object sender, EventArgs e)
         {
             AddSamples samples = new AddSamples();
-            
-            bool addSuccess = samples.AddSample(txtSId.Text,txtPId.Text, txtCNo.Text, txtVol.Text, txtQly.Text,ddlCountry.SelectedItem.ToString(), ddlRegion.SelectedItem.ToString(), ddlZone.SelectedItem.ToString(), ddlWoreda.SelectedItem.ToString(), ddlHealthF.SelectedItem.ToString(), Convert.ToDateTime(txtDateColl.Text), Convert.ToDateTime(txtDateRec.Text), txtLabTech.Text.ToUpper(), "addsample.aspx",1,1);
+            int category = RadioSputum.Checked? 1 : 2;
+
+            bool addSuccess = samples.AddSample(txtSId.Text,txtPId.Text, txtCNo.Text, txtVol.Text, txtQly.Text,ddlCountry.SelectedItem.ToString(), ddlRegion.SelectedItem.ToString(), ddlZone.SelectedItem.ToString(), ddlWoreda.SelectedItem.ToString(), ddlHealthF.SelectedItem.ToString(), Convert.ToDateTime(txtDateColl.Text), Convert.ToDateTime(txtDateRec.Text), txtLabTech.Text.ToUpper(), "addsample.aspx",category,1);
 
             if (addSuccess)
             {
