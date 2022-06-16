@@ -31,7 +31,7 @@ namespace Labtracker
             //tbgsamupdates.SampleID = Convert.ToInt32(SaId);
 
             tbgresupdates.ResultID = ResuId;
-            tbgresupdates.LJ_res = ljres;
+            tbgresupdates.LJ_P_res = ljres;
             tbgresupdates.MIJT_res = mijtres;
             tbgresupdates.RD9_res = rd9res;
             tbgresupdates.res1 = res1res;
@@ -114,10 +114,10 @@ namespace Labtracker
                     //tbgresupdates.Smear_res = resultant;
                     //tbgprocessupdates.Smear_date = Convert.ToDateTime(dateProcess);
                     break;
-                case "LJ":
+                case "LJ-G":
                     SqlConnection SQLConn2 = new SqlConnection(connStr);
-                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_res=@LJ_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn2);
-                    command2.Parameters.Add("@LJ_res", SqlDbType.NVarChar).Value = resultant;
+                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn2);
+                    command2.Parameters.Add("@LJ_P_res", SqlDbType.NVarChar).Value = resultant;
                     command2.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     command2.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn2.Open();
@@ -131,7 +131,27 @@ namespace Labtracker
                     commandd2.ExecuteNonQuery();
                     SQLConn2.Close();
 
-                    //tbgresupdates.LJ_res = resultant;
+                    //tbgresupdates.LJ_P_res = resultant;
+                    //tbgprocessupdates.LJ_date = Convert.ToDateTime(dateProcess);
+                    break;
+                case "LJ-P":
+                    SqlConnection SQLConn10 = new SqlConnection(connStr);
+                    SqlCommand command10 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn10);
+                    command10.Parameters.Add("@LJ_P_res", SqlDbType.NVarChar).Value = resultant;
+                    command10.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    command10.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    SQLConn10.Open();
+                    command10.ExecuteNonQuery();
+                    SQLConn10.Close();
+
+                    SQLConn10.Open();
+                    SqlCommand commandd10 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_P_date=@LJ_P_date,PatientId=@patient WHERE PatientId=@patient", SQLConn10);
+                    commandd10.Parameters.Add("@LJ_P_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
+                    commandd10.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd10.ExecuteNonQuery();
+                    SQLConn10.Close();
+
+                    //tbgresupdates.LJ_P_res = resultant;
                     //tbgprocessupdates.LJ_date = Convert.ToDateTime(dateProcess);
                     break;
                 case "MGIT":

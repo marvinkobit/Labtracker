@@ -71,7 +71,8 @@
 
                                                         <asp:ListItem Selected hidden>Choose Result Type</asp:ListItem>
                                                         <asp:ListItem Value="1" data-group="1">Primary Smear</asp:ListItem>
-                                                        <asp:ListItem Value="2" data-group="2">LJ</asp:ListItem>
+                                                        <asp:ListItem Value="2" data-group="2">LJ-G</asp:ListItem>
+                                                          <asp:ListItem Value="16" data-group="16">LJ-P</asp:ListItem>
                                                         <asp:ListItem Value="3" data-group="3">MGIT</asp:ListItem>
                                                         <asp:ListItem Value="4" data-group="4">RD9</asp:ListItem>
 
@@ -112,6 +113,11 @@
                                                         <asp:ListItem Value="6" data-group="2">Neg</asp:ListItem>
                                                         <asp:ListItem Value="7" data-group="2">Contaminated</asp:ListItem>
                                                         <asp:ListItem Value="8" data-group="2">Not Done</asp:ListItem>
+
+                                                         <asp:ListItem Value="38" data-group="16">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="39" data-group="16">Neg</asp:ListItem>
+                                                        <asp:ListItem Value="40" data-group="16">Contaminated</asp:ListItem>
+                                                        <asp:ListItem Value="41" data-group="16">Not Done</asp:ListItem>
 
                                                         <asp:ListItem Value="9" data-group="3">Pos</asp:ListItem>
                                                         <asp:ListItem Value="10" data-group="3">Neg</asp:ListItem>

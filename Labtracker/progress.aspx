@@ -342,7 +342,8 @@
                            <asp:BoundField DataField="Smear_res" HeaderText="Primary Smear" SortExpression="Smear_res" />
                           <asp:BoundField DataField="RD9_res" HeaderText="RD9" SortExpression="RD9_res" />
                     
-                          <asp:BoundField DataField="LJ_res" HeaderText="LJ" SortExpression="LJ_res" />
+                          <asp:BoundField DataField="LJ_res" HeaderText="LJ-G" SortExpression="LJ_res" />
+                          <asp:BoundField DataField="LJ_P_res" HeaderText="LJ-P" SortExpression="LJ_P_res" />
                           <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
                           <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
                           <asp:BoundField DataField="BHI" HeaderText="BHI" SortExpression="BHI" />
@@ -367,7 +368,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
                
               </div>
             </div>
