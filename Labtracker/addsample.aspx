@@ -31,11 +31,16 @@
           <!--<div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
           <div class="col-lg-12">
             <div class="p-5">
+                 <form class="user" runat="server">
+                 <asp:LinkButton class="rounded-circle button-back button-back-hover" id="goBacktosr" runat="server" OnClick="btnGoback_Click">
+                                <i class="arrow-back"></i>
+                 </asp:LinkButton>
+
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">TBGEN Lab Monitor</h1>
                 <h2 class="h4 text-gray-900 mb-4">Add new sample</h2>
               </div>
-              <form class="user" runat="server">
+             
                 <div class="form-group row">
                      <div class="col-sm-6 mb-3 mb-sm-0">
                     <asp:TextBox ID="txtSId" class="form-control " placeholder="Sample Id" runat="server"></asp:TextBox>
@@ -43,8 +48,10 @@
                   </div>
                   <div class="col-sm-6 mb-3 mb-sm-0">
                 
-                      <asp:Label>Project</asp:Label>
-                      <asp:TextBox ID="txtProject" class="form-control"  placeholder="TBGEN" runat="server"></asp:TextBox>
+                      <asp:Label>Sample Type: </asp:Label>
+                      <asp:RadioButton id="RadioSputum" Text=" Sputum " Checked="True" GroupName="RadioGroup1" runat="server" />
+                      <asp:RadioButton id="RadioBlood" Text=" Blood " Checked="False" GroupName="RadioGroup1" runat="server" />
+                     <%-- <asp:TextBox ID="txtProject" class="form-control"  placeholder="TBGEN" runat="server"></asp:TextBox>--%>
                <%--   <asp:RequiredFieldValidator ID="rfvProject" runat="server" Text="* Project name required." ControlToValidate="txtProject" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
 
 

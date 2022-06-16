@@ -18,8 +18,11 @@
 
     <!-- Custom styles for this template-->
     <link href="Content/css/sb-admin-2.min.css" rel="stylesheet">
+  
 </head>
 <body class="bg-gradient-secondary">
+
+
 
     <div class="container">
 
@@ -27,14 +30,21 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
+
                     <!--<div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                     <div class="col-lg-12">
+
                         <div class="p-5">
+                             <form id="form1" runat="server">
+                            <asp:LinkButton class="rounded-circle button-back button-back-hover" id="goBack" runat="server" OnClick="btnGoback_Click">
+                                <i class="arrow-back"></i>
+                            </asp:LinkButton>
+
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">TBGEN Lab Monitor</h1>
                                 <h2 class="h4 text-gray-900 mb-4">Result & Progress</h2>
                             </div>
-                            <form id="form1" runat="server">
+                           
 
                                 <asp:ScriptManager ID="SMUpdateResult" runat="server"></asp:ScriptManager>
 
@@ -64,7 +74,7 @@
                                                         <asp:ListItem Value="2" data-group="2">LJ</asp:ListItem>
                                                         <asp:ListItem Value="3" data-group="3">MGIT</asp:ListItem>
                                                         <asp:ListItem Value="4" data-group="4">RD9</asp:ListItem>
-                                                       
+
                                                         <asp:ListItem Value="6" data-group="6">Spoligo</asp:ListItem>
                                                         <asp:ListItem Value="7" data-group="7">DST</asp:ListItem>
                                                         <asp:ListItem Value="8" data-group="8">Culture Smear</asp:ListItem>
@@ -78,9 +88,9 @@
                                                         <asp:ListItem Value="13" data-group="13">BHI</asp:ListItem>
 
 
-                                                         <asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
-                                                          <asp:ListItem Value="15" data-group="15">Library Prep</asp:ListItem>
-                                                         
+                                                        <asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
+                                                        <asp:ListItem Value="15" data-group="15">Library Prep</asp:ListItem>
+
 
                                                     </asp:DropDownList>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*Result type required." ControlToValidate="DDLResType" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -122,7 +132,7 @@
                                                         <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>
                                                         <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
 
-                                                      <%--  <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>
+                                                        <%--  <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>
                                                         <asp:ListItem Value="23" data-group="9">No</asp:ListItem>--%>
 
                                                         <asp:ListItem Value="24" data-group="10">Week 1</asp:ListItem>
@@ -134,7 +144,7 @@
                                                         <asp:ListItem Value="30" data-group="10">Week 7</asp:ListItem>
                                                         <asp:ListItem Value="31" data-group="10">Week 8</asp:ListItem>
 
-                                                         <asp:ListItem Value="32" data-group="12">Pos</asp:ListItem>
+                                                        <asp:ListItem Value="32" data-group="12">Pos</asp:ListItem>
                                                         <asp:ListItem Value="33" data-group="12">Neg</asp:ListItem>
 
                                                         <asp:ListItem Value="34" data-group="13">Pos</asp:ListItem>
@@ -169,51 +179,54 @@
 
                                             <div id="rescol2" class="col-sm-6 ">
 
-                                                <div id="LibPrepDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">                                                   
-                                                      
-                                                     <div class="col-sm-6 col-lg-12">
+                                                <div id="LibPrepDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
+
+                                                    <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Library Concentration</asp:Label>
-                                                         
-                                                       <asp:TextBox ID="txtLibConc" class="form-control " placeholder="" runat="server"></asp:TextBox>  
-                                                     </div>
-                                                     
+
+                                                        <asp:TextBox ID="txtLibConc" class="form-control " placeholder="" runat="server"></asp:TextBox>
+                                                    </div>
+
                                                     <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Average Size</asp:Label>
-                                                         
+
                                                         <asp:TextBox ID="txtAvgsize" class="form-control " placeholder="ng/ml" runat="server"></asp:TextBox>
                                                     </div>
-                                                     <div class="col-sm-6 col-lg-12">
+                                                    <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Average Size Percent</asp:Label>
-                                                       
-                                                       <asp:TextBox ID="txtAvgPerct" class="form-control " placeholder="%" runat="server"></asp:TextBox>  
 
-                                                     </div>
-                                                      
-                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:TextBox ID="txtAvgPerct" class="form-control " placeholder="%" runat="server"></asp:TextBox>
+
+                                                    </div>
+
+                                                    <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>IndexI5</asp:Label>
-                                                        
-                                                       <asp:TextBox ID="txtIndexi5" class="form-control " placeholder="" runat="server"></asp:TextBox>  
 
-                                                     </div>
-                                                   
-                                                     <div class="col-sm-6 col-lg-12">
+                                                        <asp:TextBox ID="txtIndexi5" class="form-control " placeholder="" runat="server"></asp:TextBox>
+
+                                                    </div>
+
+                                                    <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>IndexI7</asp:Label>
-                                                        
-                                                       <asp:TextBox ID="txtIndexi7" class="form-control " placeholder="" runat="server"></asp:TextBox>  
 
-                                                     </div>
-                                                     
+                                                        <asp:TextBox ID="txtIndexi7" class="form-control " placeholder="" runat="server"></asp:TextBox>
+
+                                                    </div>
+
                                                 </div>
 
-                                                 <div id="HeatKillingDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
-                                                    
-                                                      <br /> <br />  <br />  <br />
-                                                      <div class="col-sm-6 col-lg-12">
+                                                <div id="HeatKillingDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
+
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Date of Transfer</asp:Label>
-                                                           <br />
+                                                        <br />
                                                         <asp:TextBox ID="txtDateTransfer" class="form-control " TextMode="Date" ToolTip="Date sample result was Report" placeholder="Report Date" runat="server"></asp:TextBox>
                                                     </div>
-                                                      <br />
+                                                    <br />
                                                     <div class="col-sm-6 col-lg-12">
                                                         <asp:TextBox ID="txtInitialRecievedBy" class="form-control " placeholder="Initial(Recieved By)" runat="server"></asp:TextBox>
                                                     </div>
@@ -413,14 +426,13 @@
                                                         <asp:RequiredFieldValidator ID="rfvcucon" runat="server" Text="* Qubit concentration required." ControlToValidate="txtQUcon" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                                                     </div>
                                                     <br />
-                                                   <%-- <div class="col-sm-6 col-lg-12">
+                                                    <%-- <div class="col-sm-6 col-lg-12">
                                                         <asp:Label runat="server" ID="Label1" Text="Agaros picture: " />
                                                         <asp:FileUpload ID="FileUploadControl" runat="server" />
                                                         <asp:Button runat="server" ID="agarospic" Text="Upload" />
                                                         <br />
                                                         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
                                                     </div>--%>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -433,7 +445,7 @@
                                     <asp:Button ID="btnSaveup" class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Update" OnClick="btnSaveup_Click" />
                                     <asp:Button ID="btnCancelup" class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Clear" OnClientClick="ToggleVisible();ToogleResval(); this.form.reset(); return false;" />
                                 </div>
-                                <br/>
+                                <br />
                                 <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
                                 <hr>
                             </form>
@@ -511,9 +523,9 @@
                 var comsel = document.getElementById('DRESVAL');
                 var grodiv = document.getElementById('GrowthDetail');
                 var weekgrodiv = document.getElementById('weeklyGrowthDetail');
-                var heatkilldiv = document.getElementById('HeatKillingDetail'); 
+                var heatkilldiv = document.getElementById('HeatKillingDetail');
                 var lipprepdiv = document.getElementById('LibPrepDetail');
-                
+
 
                 //var ddval2 = $("#").find(":selected").val();
 
