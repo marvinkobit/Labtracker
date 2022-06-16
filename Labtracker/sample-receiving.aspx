@@ -129,6 +129,13 @@
           <span>Progress and Result</span></a>
       </li>
 
+        <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="storage.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Isolate Storage</span></a>
+      </li>
+
          <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="report.aspx">
@@ -392,7 +399,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; TBGEN AFRICA 2019</span>
+            <span>Copyright &copy; TBGEN AFRICA 2022</span>
           </div>
         </div>
       </footer>
