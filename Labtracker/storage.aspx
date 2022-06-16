@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UploadSample.aspx.cs" Inherits="Labtracker.UploadSample" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="storage.aspx.cs" Inherits="Labtracker.storage" %>
+
 
 <!DOCTYPE html>
 
@@ -10,18 +11,17 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>TBGEN Lab Monitor - Sample Receiving </title>
+  <title>TBGEN Lab Monitor - Storage</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+ <%-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>--%>
 
   <!-- Custom styles for this template-->
   <link href="Content/css/sb-admin-2.min.css" rel="stylesheet"/>
   <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
 </head>
-
- <body id="page-top">
+<body id="page-top">
 
     <form id="form1" runat="server">
 
@@ -32,7 +32,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
         <!--  <i class="fas fa-laugh-wink"></i> -->
         </div>
@@ -43,7 +43,52 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-    
+      <!-- Nav Item - Receiving 
+      <li class="nav-item active">
+        <a class="nav-link" href="">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Sample Receiving</span></a>
+      </li>-->
+
+         <!-- Divider 
+      <hr class="sidebar-divider">-->
+
+      <!-- Heading 
+      <div class="sidebar-heading">
+        Admin
+      </div>-->
+
+      <!-- Nav Item - Pages Collapse Menu 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Setting</span>
+        </a>-->
+      <!--  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div> -->
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+       <!--<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Utilities</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="utilities-color.html">Colors</a>
+            <a class="collapse-item" href="utilities-border.html">Borders</a>
+            <a class="collapse-item" href="utilities-animation.html">Animations</a>
+            <a class="collapse-item" href="utilities-other.html">Other</a>
+          </div>
+        </div>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -64,7 +109,7 @@
       </li>
           <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="sample-receiving.aspx">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Receiving</span></a>
       </li>
@@ -85,7 +130,14 @@
 
          <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="storage.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Isolate Storage</span></a>
+      </li>
+
+         <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="report.aspx">
           <i class="fas fa-fw fa-table"></i>
           <span>Report</span></a>
       </li>
@@ -117,7 +169,7 @@
 
           <!-- Topbar Search -->
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -136,7 +188,7 @@
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -209,24 +261,23 @@
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="Images/beth.png" alt="" />
+                    <img class="rounded-circle" src="<img src="" alt=""/>
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! would you please update PACS?.</div>
-                    <div class="small text-gray-500">username</div>
+                    <div class="text-truncate">Hi there! would you please update your Browser?.</div>
+                    <div class="small text-gray-500">User</div>
                   </div>
                 </a>
-             </div>
-                </li>
+              
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">username</span>
-                <img class="img-profile rounded-circle" src="Images/beth.png"/>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><asp:Literal runat="server"  id="UsernameText"/></span>
+                <img class="img-profile rounded-circle" src="Images/user-profile.png"/>
                 
               </a>
               <!-- Dropdown - User Information -->
@@ -234,6 +285,10 @@
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
+                </a>
+                  <a class="dropdown-item" href="/register">
+                  <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Register
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -261,8 +316,13 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Upload Sample File</h1>
-           
+            <h1 class="h3 mb-0 text-gray-800">Storage </h1>
+            <a href="updatestorage.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Update Storage</a>
+             <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
+               <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                          </div>
 
        
@@ -274,8 +334,41 @@
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
+                    <p>Isolate Storage</p>
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="Smear_res" HeaderText="Primary Smear" SortExpression="Smear_res" />
+                          <asp:BoundField DataField="RD9_res" HeaderText="RD9" SortExpression="RD9_res" />
+                    
+                          <asp:BoundField DataField="LJ_res" HeaderText="LJ" SortExpression="LJ_res" />
+                          <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
+                          <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
+                          <asp:BoundField DataField="BHI" HeaderText="BHI" SortExpression="BHI" />
+                          <asp:BoundField DataField="CultureSmear_res" HeaderText="Media/Culture Smear" SortExpression="CultureSmear_res" />
+                          <asp:BoundField DataField="FinalCultureResult" HeaderText="FinalCultureResult" SortExpression="FinalCultureResult" />
+                            <asp:BoundField DataField="Spoligo_res" HeaderText="Spoligo" SortExpression="Spoligo_res" />
+                           <asp:BoundField DataField="LabInitial" HeaderText="Initial" SortExpression="LabInitial" />
+                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+                        
+                         
+                      </Columns>
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>
                
-                  
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
                
               </div>
             </div>
@@ -283,19 +376,24 @@
            
           </div>
 
-          <!-- Content Row -->
+         
+
+           
           <div class="row">
-            
+              Filter your search here 
             <!-- Content Column -->
             <div class="col-lg-12 mb-4">
                
             
-                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:DropDownList ID="DropDownList1" runat="server" Height="26px"  Width="150px">
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="26px" Width="155px">
+                </asp:DropDownList>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" />
             
           </div>
 
-
-              <asp:GridView ID="GridView2" runat="server"></asp:GridView>
         </div>
         <!-- /.container-fluid -->
 
@@ -336,7 +434,7 @@
       <!--  <div class="modal-body">Select "Logout" if you are sure to leave the page.</div>-->
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.aspx">Logout</a>
+         <asp:Button ID="btnLogout" class="btn btn-primary" runat="server" Text="Logout" OnClick="SignOut" />
         </div>
       </div>
     </div>
@@ -358,8 +456,8 @@
   <!-- Page level custom scripts -->
   <script src="Content/js/demo/chart-bar-demo.js"></script>
   <script src="Content/js/demo/chart-pie-demo.js"></script>
-      </div>
-  </form>
+
+    </form>
 
 </body>
 </html>

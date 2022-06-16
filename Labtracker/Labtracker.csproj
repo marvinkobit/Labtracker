@@ -2072,8 +2072,10 @@
     </Content>
     <Content Include="setting.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="storage.aspx" />
     <Content Include="updateprogress.aspx" />
     <Content Include="updateresult.aspx" />
+    <Content Include="updatestorage.aspx" />
     <Content Include="UploadSample.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -2364,6 +2366,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="storage.aspx.cs">
+      <DependentUpon>storage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="storage.aspx.designer.cs">
+      <DependentUpon>storage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="updateprogress.aspx.cs">
       <DependentUpon>updateprogress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2377,6 +2386,13 @@
     </Compile>
     <Compile Include="updateresult.aspx.designer.cs">
       <DependentUpon>updateresult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updatestorage.aspx.cs">
+      <DependentUpon>updatestorage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatestorage.aspx.designer.cs">
+      <DependentUpon>updatestorage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UploadSample.aspx.cs">
       <DependentUpon>UploadSample.aspx</DependentUpon>
