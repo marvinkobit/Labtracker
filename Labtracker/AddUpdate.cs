@@ -96,19 +96,20 @@ namespace Labtracker
                 case "Primary Smear":
 
                     SqlConnection SQLConn = new SqlConnection(connStr);
-                    SqlCommand command = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET Smear_res=@Smear_result,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn);
+                    SqlCommand command = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET Smear_res=@Smear_result,PatientId=@patient WHERE PatientId=@patient", SQLConn);
                     command.Parameters.Add("@Smear_result", SqlDbType.NVarChar).Value = resultant;
                     command.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn.Open();
                     command.ExecuteNonQuery();
                     SQLConn.Close();
 
                     
                     SQLConn.Open();
-                    SqlCommand commandd = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Smear_date=@Smear_date,PatientId=@patient WHERE PatientId=@patient", SQLConn);
+                    SqlCommand commandd = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Smear_date=@Smear_date,PatientId=@patient,Smear_Initial=@Smear_Initial WHERE PatientId=@patient", SQLConn);
                     commandd.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    commandd.Parameters.Add("@Smear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;                      
+                    commandd.Parameters.Add("@Smear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
+                    commandd.Parameters.Add("@Smear_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd.ExecuteNonQuery();
                     SQLConn.Close();                  
                     //tbgresupdates.Smear_res = resultant;
@@ -116,18 +117,19 @@ namespace Labtracker
                     break;
                 case "LJ-G":
                     SqlConnection SQLConn2 = new SqlConnection(connStr);
-                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn2);
+                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient WHERE PatientId=@patient", SQLConn2);
                     command2.Parameters.Add("@LJ_P_res", SqlDbType.NVarChar).Value = resultant;
                     command2.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command2.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command2.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn2.Open();
                     command2.ExecuteNonQuery();
                     SQLConn2.Close();
 
                     SQLConn2.Open();
-                    SqlCommand commandd2 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_date=@LJ_date,PatientId=@patient WHERE PatientId=@patient", SQLConn2);
+                    SqlCommand commandd2 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_date=@LJ_date,PatientId=@patient,LJ_Initial=@LJ_Initial WHERE PatientId=@patient", SQLConn2);
                     commandd2.Parameters.Add("@LJ_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd2.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd2.Parameters.Add("@LJ_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd2.ExecuteNonQuery();
                     SQLConn2.Close();
 
@@ -136,18 +138,19 @@ namespace Labtracker
                     break;
                 case "LJ-P":
                     SqlConnection SQLConn10 = new SqlConnection(connStr);
-                    SqlCommand command10 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn10);
+                    SqlCommand command10 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient WHERE PatientId=@patient", SQLConn10);
                     command10.Parameters.Add("@LJ_P_res", SqlDbType.NVarChar).Value = resultant;
                     command10.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command10.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command10.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn10.Open();
                     command10.ExecuteNonQuery();
                     SQLConn10.Close();
 
                     SQLConn10.Open();
-                    SqlCommand commandd10 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_P_date=@LJ_P_date,PatientId=@patient WHERE PatientId=@patient", SQLConn10);
+                    SqlCommand commandd10 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET LJ_P_date=@LJ_P_date,PatientId=@patient,LJ_P_Initial=@LJ_P_Initial WHERE PatientId=@patient", SQLConn10);
                     commandd10.Parameters.Add("@LJ_P_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd10.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd10.Parameters.Add("@LJ_P_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd10.ExecuteNonQuery();
                     SQLConn10.Close();
 
@@ -156,18 +159,19 @@ namespace Labtracker
                     break;
                 case "MGIT":
                     SqlConnection SQLConn3 = new SqlConnection(connStr);
-                    SqlCommand command3 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET MIJT_res=@MIJT_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn3);
+                    SqlCommand command3 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET MIJT_res=@MIJT_res,PatientId=@patient WHERE PatientId=@patient", SQLConn3);
                     command3.Parameters.Add("@MIJT_res", SqlDbType.NVarChar).Value = resultant;
                     command3.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command3.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command3.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn3.Open();
                     command3.ExecuteNonQuery();
                     SQLConn3.Close();
 
                     SQLConn3.Open();
-                    SqlCommand commandd3 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET MIJT_date=@MIJT_date,PatientId=@patient WHERE PatientId=@patient", SQLConn3);
+                    SqlCommand commandd3 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET MIJT_date=@MIJT_date,PatientId=@patient,MGIT_Initial=@MGIT_Initial WHERE PatientId=@patient", SQLConn3);
                     commandd3.Parameters.Add("@MIJT_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd3.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd3.Parameters.Add("@MGIT_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd3.ExecuteNonQuery();
                     SQLConn3.Close();
                     //tbgresupdates.MIJT_res = resultant;
@@ -175,18 +179,19 @@ namespace Labtracker
                     break;
                 case "RD9":
                     SqlConnection SQLConn4 = new SqlConnection(connStr);
-                    SqlCommand command4 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET RD9_res=@RD9_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn4);
+                    SqlCommand command4 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET RD9_res=@RD9_res,PatientId=@patient WHERE PatientId=@patient", SQLConn4);
                     command4.Parameters.Add("@RD9_res", SqlDbType.NVarChar).Value = resultant;
                     command4.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command4.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command4.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn4.Open();
                     command4.ExecuteNonQuery();
                     SQLConn4.Close();
 
                     SQLConn4.Open();
-                    SqlCommand commandd4 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET RD9_date=@RD9_date,PatientId=@patient WHERE PatientId=@patient", SQLConn4);
+                    SqlCommand commandd4 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET RD9_date=@RD9_date,PatientId=@patient,RD9_Initial=@RD9_Initial WHERE PatientId=@patient", SQLConn4);
                     commandd4.Parameters.Add("@RD9_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd4.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd4.Parameters.Add("@RD9_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd4.ExecuteNonQuery();
                     SQLConn4.Close();
                     //tbgresupdates.RD9_res = resultant;
@@ -194,18 +199,19 @@ namespace Labtracker
                     break;
                 case "Heat Killed":
                     SqlConnection SQLConn5 = new SqlConnection(connStr);
-                    SqlCommand command5 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET HeatKilled_res=@HeatKilled_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn5);
+                    SqlCommand command5 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET HeatKilled_res=@HeatKilled_res,PatientId=@patient WHERE PatientId=@patient", SQLConn5);
                     command5.Parameters.Add("@HeatKilled_res", SqlDbType.NVarChar).Value = resultant;
                     command5.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command5.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command5.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn5.Open();
                     command5.ExecuteNonQuery();
                     SQLConn5.Close();
 
                     SQLConn5.Open();
-                    SqlCommand commandd5 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET HeatKill_date=@HeatKill_date,PatientId=@patient WHERE PatientId=@patient", SQLConn5);
+                    SqlCommand commandd5 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET HeatKill_date=@HeatKill_date,PatientId=@patient,HeatKill_Initial=@HeatKill_Initial WHERE PatientId=@patient", SQLConn5);
                     commandd5.Parameters.Add("@HeatKill_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd5.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd5.Parameters.Add("@HeatKill_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd5.ExecuteNonQuery();
                     SQLConn5.Close();
                     //tbgresupdates.HeatKilled_res = resultant;
@@ -213,18 +219,19 @@ namespace Labtracker
                     break;
                 case "Culture Smear":
                     SqlConnection SQLConn6 = new SqlConnection(connStr);
-                    SqlCommand command6 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET CultureSmear_res=@CultureSmear_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn6);
+                    SqlCommand command6 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET CultureSmear_res=@CultureSmear_res,PatientId=@patient WHERE PatientId=@patient", SQLConn6);
                     command6.Parameters.Add("@CultureSmear_res", SqlDbType.NVarChar).Value = resultant;
                     command6.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command6.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command6.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn6.Open();
                     command6.ExecuteNonQuery();
                     SQLConn6.Close();
 
                     SQLConn6.Open();
-                    SqlCommand commandd6 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET CultureSmear_date=@CultureSmear_date,PatientId=@patient WHERE PatientId=@patient", SQLConn6);
+                    SqlCommand commandd6 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET CultureSmear_date=@CultureSmear_date,PatientId=@patient,CultureSmear_date=@CultureSmear_date WHERE PatientId=@patient", SQLConn6);
                     commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd6.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.NVarChar).Value = labinitial;
                     commandd6.ExecuteNonQuery();
                     SQLConn6.Close();
                     //tbgresupdates.CultureSmear_res = resultant;
@@ -232,18 +239,19 @@ namespace Labtracker
                     break;
                 case "Spoligo":
                     SqlConnection SQLConn7 = new SqlConnection(connStr);
-                    SqlCommand command7 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET Spoligo_res=@Spoligo_res,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn7);
+                    SqlCommand command7 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET Spoligo_res=@Spoligo_res,PatientId=@patient WHERE PatientId=@patient", SQLConn7);
                     command7.Parameters.Add("@Spoligo_res", SqlDbType.NVarChar).Value = resultant;
                     command7.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command7.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command7.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn7.Open();
                     command7.ExecuteNonQuery();
                     SQLConn7.Close();
 
                     SQLConn7.Open();
-                    SqlCommand commandd7 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Spoligo_date=@Spoligo_date,PatientId=@patient WHERE PatientId=@patient", SQLConn7);
+                    SqlCommand commandd7 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET Spoligo_date=@Spoligo_date,PatientId=@patient,Spoligo_Initial=@Spoligo_Initial WHERE PatientId=@patient", SQLConn7);
                     commandd7.Parameters.Add("@Spoligo_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd7.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd7.Parameters.Add("@Spoligo_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd7.ExecuteNonQuery();
                     SQLConn7.Close();
                     //tbgresupdates.Spoligo_res = resultant;
@@ -268,18 +276,19 @@ namespace Labtracker
                     break;
                 case "BHI":
                     SqlConnection SQLConn9 = new SqlConnection(connStr);
-                    SqlCommand command9 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET BHI=@BHI,PatientId=@patient,Labinitial=@labinitial WHERE PatientId=@patient", SQLConn9);
+                    SqlCommand command9 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET BHI=@BHI,PatientId=@patient WHERE PatientId=@patient", SQLConn9);
                     command9.Parameters.Add("@BHI", SqlDbType.NVarChar).Value = resultant;
                     command9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    command9.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
+                    //command9.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn9.Open();
                     command9.ExecuteNonQuery();
                     SQLConn9.Close();
 
                     SQLConn9.Open();
-                    SqlCommand commandd9 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET BHI_date=@BHI_date,PatientId=@patient WHERE PatientId=@patient", SQLConn9);
+                    SqlCommand commandd9 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET BHI_date=@BHI_date,PatientId=@patient,BHI_Initial=@BHI_Initial WHERE PatientId=@patient", SQLConn9);
                     commandd9.Parameters.Add("@BHI_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value; 
                     commandd9.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
+                    commandd9.Parameters.Add("@BHI_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd9.ExecuteNonQuery();
                     SQLConn9.Close();
                     break;
@@ -476,7 +485,7 @@ namespace Labtracker
 
             tbglibprep.IndexI5 = i5;
             tbglibprep.IndexI7 = i7;
-            tbglibprep.LibPrepDate = string.IsNullOrEmpty(date) ? (DateTime?)null : Convert.ToDateTime(date); ;
+            tbglibprep.LibPrepDate = string.IsNullOrEmpty(date) ? (DateTime?)null : Convert.ToDateTime(date); 
             tbglibprep.Remark = remark;
             tbglibprep.Initial = initial;
 
@@ -489,7 +498,7 @@ namespace Labtracker
                 }
                 catch (Exception e)
                 {
-                    return (false, e.ToString());
+                    return (false, e.GetType().ToString());
                 }
             }
 

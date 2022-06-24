@@ -25,6 +25,8 @@ namespace Labtracker.Models
         public DbSet<LibraryPrep> LibraryPreps { get; set; }
         public DbSet<HeatKill> HeatKills { get; set; }
 
+        public DbSet<Store> Stores { get; set; }
+
 
     }
 }
