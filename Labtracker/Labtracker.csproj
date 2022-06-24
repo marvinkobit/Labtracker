@@ -2197,6 +2197,7 @@
       <DependentUpon>addsample.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddSamples.cs" />
+    <Compile Include="AddStorage.cs" />
     <Compile Include="AddUpdate.cs" />
     <Compile Include="Admin\adminpage.aspx.cs">
       <DependentUpon>adminpage.aspx</DependentUpon>
@@ -2301,6 +2302,7 @@
     <Compile Include="Models\SampleContext.cs" />
     <Compile Include="Models\SampleDatabaseInitializer.cs" />
     <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\Store.cs" />
     <Compile Include="progress.aspx.cs">
       <DependentUpon>progress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
