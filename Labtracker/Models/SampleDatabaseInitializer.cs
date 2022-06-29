@@ -146,16 +146,29 @@ namespace Labtracker.Models
                 new Category
                 {
                     CategoryID = 1,
-                    CategoryName = "Blood",
+                    CategoryName = "Sputum",
                     Description = ""
                 },
                 new Category
                 {
                     CategoryID = 2,
-                    CategoryName = "Sputum",
+                    CategoryName = "B-PDNA",
                     Description = ""
                 },
-                
+                 new Category
+                {
+                    CategoryID = 2,
+                    CategoryName = "B-PRNA",
+                    Description = ""
+                },
+                  new Category
+                {
+                    CategoryID = 2,
+                    CategoryName = "B-Plasma",
+                    Description = ""
+                },
+
+
             };
 
             return categories;

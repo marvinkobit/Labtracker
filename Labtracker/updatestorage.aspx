@@ -55,10 +55,22 @@
                                             </asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvtxtID" runat="server" Text="** Patient ID required." ControlToValidate="txtSampleIdUpdate" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                                             <%-- <asp:Button ID="btnGo"  class="btn btn-primary btn-user btn-block col-sm-2" runat="server" Text=">"  /> --%>
-                                            <asp:Label>Sample Type: </asp:Label>
-                                            <asp:RadioButton ID="RadioButton7" Text=" Sputum " Checked="True" GroupName="RadioGroup2" runat="server" />
-                                            <asp:RadioButton ID="RadioButton8" Text=" Blood " Checked="False" GroupName="RadioGroup2" runat="server" />
+                                            
+                                            
+                                         
+                                            
+                                            <%--<asp:RadioButton ID="RadioButton7" Text=" Sputum " Checked="True" GroupName="RadioGroup2" runat="server" />
+                                            <asp:RadioButton ID="RadioButton8" Text=" Blood " Checked="False" GroupName="RadioGroup2" runat="server" />--%>
 
+                                        </div>
+                                        <div class=" row col-sm-6 mb-3 mb-sm-0">
+                                         <asp:Label>Sample Type: </asp:Label>
+                                          <asp:DropDownList ID="ddlSampleType" class="form-control" ToolTip="" DataTextField="" runat="server">
+                                            <asp:ListItem Value="1" Selected="True">Sputum</asp:ListItem>
+                                            <asp:ListItem Value="2">B-PRNA</asp:ListItem>
+                                            <asp:ListItem Value="3">B-PDNA</asp:ListItem>
+                                            <asp:ListItem Value="4">B-Plasma</asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
                                         <br />
                                         <!--  
@@ -159,25 +171,25 @@
                                                         <asp:Table Style="border: 1px solid black; border-radius: 10px;">
                                                             <tr>                                                          
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton1" Text="11" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio11" Text="11" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton2" Text="12" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio12" Text="12" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton3" Text="13" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio13" Text="13" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton4" Text="14" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio14" Text="14" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton5" Text="15" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio15" Text="15" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton6" Text="16" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio16" Text="16" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton9" Text="17" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio17" Text="17" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton10" Text="18" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio18" Text="18" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton11" Text="19" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio19" Text="19" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton12" Text="20" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio20" Text="20" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                             </tr>
                                                         </table>
                                                      </div>
@@ -185,25 +197,25 @@
                                                         <asp:Table Style="border: 1px solid black; border-radius: 10px;">
                                                             <tr>                                                          
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton13" Text="21" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio21" Text="21" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton14" Text="22" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio22" Text="22" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton15" Text="23" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio23" Text="23" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton16" Text="24" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio24" Text="24" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton17" Text="25" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio25" Text="25" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton18" Text="26" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio26" Text="26" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton19" Text="27" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio27" Text="27" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton20" Text="28" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio28" Text="28" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton21" Text="29" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio29" Text="29" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton22" Text="30" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio30" Text="30" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -211,25 +223,25 @@
                                                         <asp:Table Style="border: 1px solid black; border-radius: 10px;">
                                                             <tr>                                                          
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton23" Text="31" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio31" Text="31" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton24" Text="32" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio32" Text="32" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton25" Text="33" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio33" Text="33" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton26" Text="34" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio34" Text="34" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                  <td>
-                                                                    <asp:RadioButton ID="RadioButton27" Text="35" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio35" Text="35" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton28" Text="36" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio36" Text="36" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton29" Text="37" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio37" Text="37" Checked="True" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton30" Text="38" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio38" Text="38" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton31" Text="39" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio39" Text="39" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                                 <td>
-                                                                    <asp:RadioButton ID="RadioButton32" Text="40" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
+                                                                    <asp:RadioButton ID="Radio40" Text="40" Checked="False" GroupName="RadioGroup1" runat="server" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>

@@ -21,6 +21,8 @@ namespace Labtracker.Models
 
         public int Matrix { get; set; }
 
+        public int category { get; set; }
+
 
         [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         public Nullable<DateTime> storeDate { get; set; }

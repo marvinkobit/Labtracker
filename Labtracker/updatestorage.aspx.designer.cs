@@ -67,22 +67,13 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtID;
         
         /// <summary>
-        /// RadioButton7 control.
+        /// ddlSampleType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton7;
-        
-        /// <summary>
-        /// RadioButton8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton8;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSampleType;
         
         /// <summary>
         /// DDLRESVAL control.
@@ -274,274 +265,274 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.RadioButton Radio10;
         
         /// <summary>
-        /// RadioButton1 control.
+        /// Radio11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButton Radio11;
         
         /// <summary>
-        /// RadioButton2 control.
+        /// Radio12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton Radio12;
         
         /// <summary>
-        /// RadioButton3 control.
+        /// Radio13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+        protected global::System.Web.UI.WebControls.RadioButton Radio13;
         
         /// <summary>
-        /// RadioButton4 control.
+        /// Radio14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton4;
+        protected global::System.Web.UI.WebControls.RadioButton Radio14;
         
         /// <summary>
-        /// RadioButton5 control.
+        /// Radio15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton5;
+        protected global::System.Web.UI.WebControls.RadioButton Radio15;
         
         /// <summary>
-        /// RadioButton6 control.
+        /// Radio16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton6;
+        protected global::System.Web.UI.WebControls.RadioButton Radio16;
         
         /// <summary>
-        /// RadioButton9 control.
+        /// Radio17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton9;
+        protected global::System.Web.UI.WebControls.RadioButton Radio17;
         
         /// <summary>
-        /// RadioButton10 control.
+        /// Radio18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton10;
+        protected global::System.Web.UI.WebControls.RadioButton Radio18;
         
         /// <summary>
-        /// RadioButton11 control.
+        /// Radio19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton11;
+        protected global::System.Web.UI.WebControls.RadioButton Radio19;
         
         /// <summary>
-        /// RadioButton12 control.
+        /// Radio20 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton12;
+        protected global::System.Web.UI.WebControls.RadioButton Radio20;
         
         /// <summary>
-        /// RadioButton13 control.
+        /// Radio21 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton13;
+        protected global::System.Web.UI.WebControls.RadioButton Radio21;
         
         /// <summary>
-        /// RadioButton14 control.
+        /// Radio22 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton14;
+        protected global::System.Web.UI.WebControls.RadioButton Radio22;
         
         /// <summary>
-        /// RadioButton15 control.
+        /// Radio23 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton15;
+        protected global::System.Web.UI.WebControls.RadioButton Radio23;
         
         /// <summary>
-        /// RadioButton16 control.
+        /// Radio24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton16;
+        protected global::System.Web.UI.WebControls.RadioButton Radio24;
         
         /// <summary>
-        /// RadioButton17 control.
+        /// Radio25 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton17;
+        protected global::System.Web.UI.WebControls.RadioButton Radio25;
         
         /// <summary>
-        /// RadioButton18 control.
+        /// Radio26 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton18;
+        protected global::System.Web.UI.WebControls.RadioButton Radio26;
         
         /// <summary>
-        /// RadioButton19 control.
+        /// Radio27 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton19;
+        protected global::System.Web.UI.WebControls.RadioButton Radio27;
         
         /// <summary>
-        /// RadioButton20 control.
+        /// Radio28 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton20;
+        protected global::System.Web.UI.WebControls.RadioButton Radio28;
         
         /// <summary>
-        /// RadioButton21 control.
+        /// Radio29 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton21;
+        protected global::System.Web.UI.WebControls.RadioButton Radio29;
         
         /// <summary>
-        /// RadioButton22 control.
+        /// Radio30 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton22;
+        protected global::System.Web.UI.WebControls.RadioButton Radio30;
         
         /// <summary>
-        /// RadioButton23 control.
+        /// Radio31 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton23;
+        protected global::System.Web.UI.WebControls.RadioButton Radio31;
         
         /// <summary>
-        /// RadioButton24 control.
+        /// Radio32 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton24;
+        protected global::System.Web.UI.WebControls.RadioButton Radio32;
         
         /// <summary>
-        /// RadioButton25 control.
+        /// Radio33 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton25;
+        protected global::System.Web.UI.WebControls.RadioButton Radio33;
         
         /// <summary>
-        /// RadioButton26 control.
+        /// Radio34 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton26;
+        protected global::System.Web.UI.WebControls.RadioButton Radio34;
         
         /// <summary>
-        /// RadioButton27 control.
+        /// Radio35 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton27;
+        protected global::System.Web.UI.WebControls.RadioButton Radio35;
         
         /// <summary>
-        /// RadioButton28 control.
+        /// Radio36 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton28;
+        protected global::System.Web.UI.WebControls.RadioButton Radio36;
         
         /// <summary>
-        /// RadioButton29 control.
+        /// Radio37 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton29;
+        protected global::System.Web.UI.WebControls.RadioButton Radio37;
         
         /// <summary>
-        /// RadioButton30 control.
+        /// Radio38 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton30;
+        protected global::System.Web.UI.WebControls.RadioButton Radio38;
         
         /// <summary>
-        /// RadioButton31 control.
+        /// Radio39 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton31;
+        protected global::System.Web.UI.WebControls.RadioButton Radio39;
         
         /// <summary>
-        /// RadioButton32 control.
+        /// Radio40 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton32;
+        protected global::System.Web.UI.WebControls.RadioButton Radio40;
         
         /// <summary>
         /// btnSaveup control.
