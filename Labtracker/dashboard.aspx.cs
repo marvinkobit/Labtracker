@@ -72,8 +72,8 @@ namespace Labtracker
                     conn.Open();
 
                     string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'";
-                    string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='NoGrowth'";
-                    string sql2 = "SELECT COUNT(CultureSmear_res) FROM Results WHERE CultureSmear_res='Pos'";
+                    string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Neg'";
+                    string sql2 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Pos'";
 
                     string sql3 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Ethiopia'";
                     string sql4 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Eritrea'";
