@@ -9,7 +9,7 @@ namespace Labtracker
     public class AddStorage
     {
 
-        internal (bool, string) Addstore(string PaId, string freezer, string rack, string box, int matrix, string date)
+        internal (bool, string) Addstore(string PaId, string freezer, string rack, string box, int matrix, string date,int category)
         {
             var tbgstore = new Store();
 
@@ -18,6 +18,7 @@ namespace Labtracker
             tbgstore.Rack = rack;
             tbgstore.Box = box;
             tbgstore.Matrix = matrix;
+            tbgstore.category = category;
             tbgstore.storeDate = string.IsNullOrEmpty(date)? (DateTime?)null : Convert.ToDateTime(date);
 
             using (SampleContext _db= new SampleContext())

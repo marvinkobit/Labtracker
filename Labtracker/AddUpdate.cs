@@ -117,8 +117,8 @@ namespace Labtracker
                     break;
                 case "LJ-G":
                     SqlConnection SQLConn2 = new SqlConnection(connStr);
-                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_P_res=@LJ_P_res,PatientId=@patient WHERE PatientId=@patient", SQLConn2);
-                    command2.Parameters.Add("@LJ_P_res", SqlDbType.NVarChar).Value = resultant;
+                    SqlCommand command2 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET LJ_res=@LJ_res,PatientId=@patient WHERE PatientId=@patient", SQLConn2);
+                    command2.Parameters.Add("@LJ_res", SqlDbType.NVarChar).Value = resultant;
                     command2.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
                     //command2.Parameters.Add("@labinitial", SqlDbType.NVarChar).Value = labinitial;
                     SQLConn2.Open();

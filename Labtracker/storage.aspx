@@ -340,18 +340,13 @@
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
-                           <asp:BoundField DataField="Smear_res" HeaderText="Primary Smear" SortExpression="Smear_res" />
-                          <asp:BoundField DataField="RD9_res" HeaderText="RD9" SortExpression="RD9_res" />
+                           <asp:BoundField DataField="Freezer" HeaderText="Freezer" SortExpression="Freezer" />
+                          <asp:BoundField DataField="Rack" HeaderText="Rack" SortExpression="Rack" />
                     
-                          <asp:BoundField DataField="LJ_res" HeaderText="LJ" SortExpression="LJ_res" />
-                          <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
-                          <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
-                          <asp:BoundField DataField="BHI" HeaderText="BHI" SortExpression="BHI" />
-                          <asp:BoundField DataField="CultureSmear_res" HeaderText="Media/Culture Smear" SortExpression="CultureSmear_res" />
-                          <asp:BoundField DataField="FinalCultureResult" HeaderText="FinalCultureResult" SortExpression="FinalCultureResult" />
-                            <asp:BoundField DataField="Spoligo_res" HeaderText="Spoligo" SortExpression="Spoligo_res" />
-                           <asp:BoundField DataField="LabInitial" HeaderText="Initial" SortExpression="LabInitial" />
-                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+                          <asp:BoundField DataField="Box" HeaderText="Box" SortExpression="Box" />
+                          <asp:BoundField DataField="Matrix" HeaderText="Matrix" SortExpression="Matrix" />
+                          <asp:BoundField DataField="storeDate" HeaderText="storeDate" SortExpression="storeDate" />
+                         
                         
                          
                       </Columns>
@@ -368,7 +363,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Freezer],[Rack],[Box],[Matrix],[storeDate] FROM Stores"></asp:SqlDataSource>
                
               </div>
             </div>

@@ -35,7 +35,7 @@ namespace Labtracker
         protected void btnSaveas_Click(object sender, EventArgs e)
         {
             AddSamples samples = new AddSamples();
-            int category = RadioSputum.Checked? 1 : 2;
+            int category = Convert.ToInt32(ddlSampleType.SelectedValue);
 
             bool addSuccess = samples.AddSample(txtSId.Text,txtPId.Text, txtCNo.Text, txtVol.Text, txtQly.Text,ddlCountry.SelectedItem.ToString(), ddlRegion.SelectedItem.ToString(), ddlZone.SelectedItem.ToString(), ddlWoreda.SelectedItem.ToString(), ddlHealthF.SelectedItem.ToString(), Convert.ToDateTime(txtDateColl.Text), Convert.ToDateTime(txtDateRec.Text), txtLabTech.Text.ToUpper(), "addsample.aspx",category,1);
 
