@@ -225,6 +225,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="addsample.aspx" />
+    <Content Include="addsequencing.aspx" />
     <Content Include="Admin\adminpage.aspx" />
     <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
@@ -2070,6 +2071,7 @@
     <Content Include="SeederExample.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="sequencing.aspx" />
     <Content Include="setting.aspx" />
     <Content Include="Site.Master" />
     <Content Include="storage.aspx" />
@@ -2197,6 +2199,13 @@
       <DependentUpon>addsample.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddSamples.cs" />
+    <Compile Include="addsequencing.aspx.cs">
+      <DependentUpon>addsequencing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addsequencing.aspx.designer.cs">
+      <DependentUpon>addsequencing.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddStorage.cs" />
     <Compile Include="AddUpdate.cs" />
     <Compile Include="Admin\adminpage.aspx.cs">
@@ -2345,6 +2354,13 @@
     </Compile>
     <Compile Include="sample-receiving.aspx.designer.cs">
       <DependentUpon>sample-receiving.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sequencing.aspx.cs">
+      <DependentUpon>sequencing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sequencing.aspx.designer.cs">
+      <DependentUpon>sequencing.aspx</DependentUpon>
     </Compile>
     <Compile Include="setting.aspx.cs">
       <DependentUpon>setting.aspx</DependentUpon>

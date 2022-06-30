@@ -92,7 +92,12 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Isolate Storage</span></a>
       </li>
-
+        <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="sequencing.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Sequencing</span></a>
+      </li>
          <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="">

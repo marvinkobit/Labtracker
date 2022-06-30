@@ -1,35 +1,29 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Labtracker.SiteMaster" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sequencing.aspx.cs" Inherits="Labtracker.sequencing" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
-
-  <meta charset="utf-8"/>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>TBGEN Lab tracking Admin  - Dashboard</title>
+  <title>TBGEN Lab Monitor - Sequencing</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+ <%-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>--%>
 
   <!-- Custom styles for this template-->
   <link href="Content/css/sb-admin-2.min.css" rel="stylesheet"/>
   <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
 </head>
 <body id="page-top">
-    <form runat="server">
+
+    <form id="form1" runat="server">
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -48,28 +42,27 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
+      <!-- Nav Item - Receiving 
       <li class="nav-item active">
-        <a class="nav-link" href="dashboard.aspx">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
+          <span>Sample Receiving</span></a>
+      </li>-->
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+         <!-- Divider 
+      <hr class="sidebar-divider">-->
 
-      <!-- Heading -->
+      <!-- Heading 
       <div class="sidebar-heading">
         Admin
-      </div>
+      </div>-->
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
-       
-          <asp:HyperLink runat="server" class="nav-link collapsed"  href="~/dashboard" Visible="false" id="settinglink" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Setting</span></asp:HyperLink>
-
+          <span>Setting</span>
+        </a>-->
       <!--  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -78,7 +71,8 @@
           </div>
         </div> -->
       </li>
-i      <!-- Nav Item - Utilities Collapse Menu -->
+
+      <!-- Nav Item - Utilities Collapse Menu -->
        <!--<li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -100,32 +94,28 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Tracking
+       <h3> TBGEN Lab Monitor </h3>
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
+
       <li class="nav-item">
-        <a class="nav-link collapsed" href="sample-receiving.aspx">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Receiving</span>
+        <a class="nav-link collapsed" href="dashboard.aspx">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
         </a>
-       <!-- <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div> -->
+   
+      </li>
+          <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="sample-receiving.aspx">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Receiving</span></a>
       </li>
 
       <!-- Nav Item - Charts 
       <li class="nav-item">
-        <a class="nav-link" href="sample-preprocessing.aspx">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Preprocessing</span></a>
       </li> -->
@@ -136,18 +126,21 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
           <i class="fas fa-fw fa-table"></i>
           <span>Progress and Result</span></a>
       </li>
-        <!-- Nav Item - Tables -->
+
+         <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="storage.aspx">
           <i class="fas fa-fw fa-table"></i>
           <span>Isolate Storage</span></a>
       </li>
-         <!-- Nav Item - Tables -->
+
+        <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="sequencing.aspx">
           <i class="fas fa-fw fa-table"></i>
           <span>Sequencing</span></a>
       </li>
+
          <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="report.aspx">
@@ -181,7 +174,6 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
           </button>
 
           <!-- Topbar Search -->
-          <form  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -190,7 +182,6 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                 </button>
               </div>
             </div>
-          </form>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -202,7 +193,6 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
@@ -211,7 +201,6 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                       </button>
                     </div>
                   </div>
-                </form>
               </div>
             </li>
 
@@ -278,47 +267,15 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="" alt="Me"/>
+                    <img class="rounded-circle" src="" alt=""/>
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! would you please update Browser?.</div>
+                    <div class="text-truncate">Hi there! would you please update your Browser?.</div>
                     <div class="small text-gray-500">User</div>
                   </div>
                 </a>
-               <!-- <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li> -->
+              
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -326,7 +283,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><asp:Literal runat="server"  id="UsernameText"/></span>
-                <img class="img-profile rounded-circle" src="Images/user-profile.png" alt="You"/>
+                <img class="img-profile rounded-circle" src="Images/user-profile.png"/>
                 
               </a>
               <!-- Dropdown - User Information -->
@@ -335,7 +292,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="register.aspx">
+                  <a class="dropdown-item" href="/register">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register
                 </a>
@@ -348,7 +305,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -359,33 +316,131 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
 
         </nav>
         <!-- End of Topbar -->
-        <div class="container body-content">
-            
-            <asp:ContentPlaceHolder ID="MainContentDS" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-           
-        </div>
-    
-<div class="col-lg-12 mb-4">
 
-              
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-              <!-- Approach -->
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Sequencing </h1>
+            <a href="addsequencing.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Update Sequencing</a>
+             <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
+               <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                         </div>
+
+       
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary"></h6>
-                </div>
-                <div class="card-body">
-                  <p>This system is developed to tarck and monitor the lab activities of TBGEN project.Its intended to be used by Project members. </p>
-                  
-                </div>
-              </div>
+                    <p>DNA Extraction</p>
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="NDConc" HeaderText="NDConc" SortExpression="NDConc" />
+                          <asp:BoundField DataField="QubitConc" HeaderText="QubitConc" SortExpression="QubitConc" />
+                    
+                          <asp:BoundField DataField="Purity" HeaderText="Purity" SortExpression="Purity" />
+                          <asp:BoundField DataField="ExtractDate" HeaderText="ExtractDate" SortExpression="ExtractDate" />
+                          <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+         
+                      </Columns>
 
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>
+               
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[NDConc],[QubitConc],[Purity],[ExtractDate],[Initial],[Remark] FROM Dnaextracts"></asp:SqlDataSource>
+               
+              </div>
             </div>
+
+           
           </div>
 
-        
+         
+              <!-- Content Row -->
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                    <p>Library Preparation</p>
+                   <asp:GridView ID="GridView1" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                          <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="LibConc" HeaderText="LibConc" SortExpression="LibConc" />
+                          <asp:BoundField DataField="AverageSize" HeaderText="AverageSize" SortExpression="AverageSize" />
+                    
+                          <asp:BoundField DataField="IndexI5" HeaderText="IndexI5" SortExpression="IndexI5" />
+                          <asp:BoundField DataField="IndexI7" HeaderText="IndexI7" SortExpression="IndexI7" />
+                          <asp:BoundField DataField="AverageSizePercent" HeaderText="AverageSizePercent" SortExpression="AverageSizePercent" />
+                           <asp:BoundField DataField="LibPrepDate" HeaderText="LibPrepDate" SortExpression="LibPrepDate" />
+                           <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                           <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+                         
+                        
+                         
+                      </Columns>
+                      <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                      <EditRowStyle BackColor="#999999" />
+                      <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                      <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                      <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                      <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                      <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                      <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                      <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                  </asp:GridView>
+               
+                  <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[LibConc],[AverageSize],[IndexI5],[IndexI7],[AverageSizePercent],[LibPrepDate],[Initial],[Remark] FROM LibraryPreps"></asp:SqlDataSource>
+               
+              </div>
+            </div>
+
+           
+          </div>
+           
+          <div class="row">
+              Filter your search here 
+            <!-- Content Column -->
+            <div class="col-lg-12 mb-4">
+               
+            
+                <asp:DropDownList ID="DropDownList1" runat="server" Height="26px"  Width="150px">
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="26px" Width="155px">
+                </asp:DropDownList>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" />
+            
+          </div>
+
+        </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -404,7 +459,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
     </div>
     <!-- End of Content Wrapper -->
 
-  
+  </div>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
@@ -425,12 +480,12 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
       <!--  <div class="modal-body">Select "Logout" if you are sure to leave the page.</div>-->
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <asp:Button ID="btnLogout" class="btn btn-primary" runat="server" Text="Logout" OnClick="SignOut" />
+         <asp:Button ID="btnLogout" class="btn btn-primary" runat="server" Text="Logout" OnClick="SignOut" />
         </div>
       </div>
     </div>
   </div>
-</form>
+
   <!-- Bootstrap core JavaScript-->
   <script src="Content/vendor/jquery/jquery.min.js"></script>
   <script src="Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -441,14 +496,6 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
   <!-- Custom scripts for all pages-->
   <script src="Content/js/sb-admin-2.min.js"></script>
 
-     <!-- Custom scripts for all pages-->
-  <script src="Content/js/sb-admin-2.min.js"></script>
-    <script src="Scripts/jquery-3.3.1.js"></script>
-    <script src="Scripts/jquery-3.3.1.min.js"></script>
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
   <!-- Page level plugins -->
   <script src="Content/vendor/chart.js/Chart.min.js"></script>
 
@@ -456,5 +503,8 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
   <script src="Content/js/demo/chart-bar-demo.js"></script>
   <script src="Content/js/demo/chart-pie-demo.js"></script>
 
+    </form>
+
 </body>
 </html>
+

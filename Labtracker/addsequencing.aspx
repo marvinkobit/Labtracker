@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="updateprogress.aspx.cs" Inherits="Labtracker.updateprogress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addsequencing.aspx.cs" Inherits="Labtracker.addsequencing" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
 
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">TBGEN Lab Monitor</h1>
-                                <h2 class="h4 text-gray-900 mb-4">Result & Progress</h2>
+                                <h2 class="h4 text-gray-900 mb-4">DNA Extraction & Library Preparation</h2>
                             </div>
                            
 
@@ -70,27 +70,9 @@
                                                     <asp:DropDownList ID="DDLResType" class="form-control" runat="server" ToolTip="Choose Result Type" AutoPostBack="true" onchange="ToggleVisible();ToogleResval(); return false;" on>
 
                                                         <asp:ListItem Selected hidden>Choose Result Type</asp:ListItem>
-                                                        <asp:ListItem Value="1" data-group="1">Primary Smear</asp:ListItem>
-                                                        <asp:ListItem Value="2" data-group="2">LJ-G</asp:ListItem>
-                                                          <asp:ListItem Value="16" data-group="16">LJ-P</asp:ListItem>
-                                                        <asp:ListItem Value="3" data-group="3">MGIT</asp:ListItem>
-                                                        <asp:ListItem Value="4" data-group="4">RD9</asp:ListItem>
-
-                                                        <asp:ListItem Value="6" data-group="6">Spoligo</asp:ListItem>
-                                                        <asp:ListItem Value="7" data-group="7">DST</asp:ListItem>
-                                                        <asp:ListItem Value="8" data-group="8">Culture Smear</asp:ListItem>
-
-                                                        <%--<asp:ListItem Value="9" data-group="9">Heat Killed</asp:ListItem>--%>
-
-                                                        <asp:ListItem Value="14" data-group="14">Heat Killing</asp:ListItem>
-                                                        <asp:ListItem Value="10" data-group="10">Growth Detection</asp:ListItem>
-                                                        <asp:ListItem Value="11" data-group="11">Growth Detection Weekly</asp:ListItem>
-                                                        <asp:ListItem Value="12" data-group="12">Final Culture Result</asp:ListItem>
-                                                        <asp:ListItem Value="13" data-group="13">BHI</asp:ListItem>
-
-
-                                                        <%--<asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
-                                                        <asp:ListItem Value="15" data-group="15">Library Prep</asp:ListItem>--%>
+                                                      
+                                                        <asp:ListItem Value="5" data-group="5">DNA Extraction</asp:ListItem>
+                                                        <asp:ListItem Value="15" data-group="15">Library Prep</asp:ListItem>
 
 
                                                     </asp:DropDownList>
@@ -102,62 +84,12 @@
                                                     <asp:DropDownList ID="DDLRESVAL" class="form-control" runat="server" ToolTip="Choose Result" onchange="ToogleDstval(); return false;">
 
                                                         <asp:ListItem Value="0" Selected hidden>Choose Result</asp:ListItem>
-                                                        <asp:ListItem Value="1" data-group="1">1+</asp:ListItem>
-                                                        <asp:ListItem Value="2" data-group="1">2+</asp:ListItem>
-                                                        <asp:ListItem Value="3" data-group="1">3+</asp:ListItem>
-                                                        <asp:ListItem Value="4" data-group="1">Scanty</asp:ListItem>
-                                                        <asp:ListItem Value="5" data-group="1">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="6" data-group="1">Neg</asp:ListItem>
-
-                                                        <asp:ListItem Value="5" data-group="2">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="6" data-group="2">Neg</asp:ListItem>
-                                                        <asp:ListItem Value="7" data-group="2">Contaminated</asp:ListItem>
-                                                        <asp:ListItem Value="8" data-group="2">Not Done</asp:ListItem>
-
-                                                         <asp:ListItem Value="38" data-group="16">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="39" data-group="16">Neg</asp:ListItem>
-                                                        <asp:ListItem Value="40" data-group="16">Contaminated</asp:ListItem>
-                                                        <asp:ListItem Value="41" data-group="16">Not Done</asp:ListItem>
-
-                                                        <asp:ListItem Value="9" data-group="3">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="10" data-group="3">Neg</asp:ListItem>
-                                                        <asp:ListItem Value="11" data-group="3">Contaminated</asp:ListItem>
-                                                        <asp:ListItem Value="12" data-group="3">Not Done</asp:ListItem>
-
-                                                        <asp:ListItem Value="13" data-group="4">MTBC</asp:ListItem>
-                                                        <asp:ListItem Value="14" data-group="4">NTM</asp:ListItem>
-                                                        <asp:ListItem Value="14" data-group="4">MBOV</asp:ListItem>
-
+                                          
                                                         <asp:ListItem Value="15" data-group="5">Good for library Prep</asp:ListItem>
                                                         <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
                                                         <asp:ListItem Value="17" data-group="5">Failed-Discard</asp:ListItem>
 
-                                                        <asp:ListItem Value="18" data-group="7">First Line</asp:ListItem>
-                                                        <asp:ListItem Value="19" data-group="7">Second Line</asp:ListItem>
-
-                                                        <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
-
-                                                        <%--  <asp:ListItem Value="22" data-group="9">Yes</asp:ListItem>
-                                                        <asp:ListItem Value="23" data-group="9">No</asp:ListItem>--%>
-
-                                                        <asp:ListItem Value="24" data-group="10">Week 1</asp:ListItem>
-                                                        <asp:ListItem Value="25" data-group="10">Week 2</asp:ListItem>
-                                                        <asp:ListItem Value="26" data-group="10">Week 3</asp:ListItem>
-                                                        <asp:ListItem Value="27" data-group="10">Week 4</asp:ListItem>
-                                                        <asp:ListItem Value="28" data-group="10">Week 5</asp:ListItem>
-                                                        <asp:ListItem Value="29" data-group="10">Week 6</asp:ListItem>
-                                                        <asp:ListItem Value="30" data-group="10">Week 7</asp:ListItem>
-                                                        <asp:ListItem Value="31" data-group="10">Week 8</asp:ListItem>
-
-                                                        <asp:ListItem Value="32" data-group="12">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="33" data-group="12">Neg</asp:ListItem>
-
-                                                        <asp:ListItem Value="34" data-group="13">Pos</asp:ListItem>
-                                                        <asp:ListItem Value="35" data-group="13">Neg</asp:ListItem>
-
-                                                        <asp:ListItem Value="36" data-group="14">LJ</asp:ListItem>
-                                                        <asp:ListItem Value="37" data-group="14">7H9</asp:ListItem>
+                                                      
 
 
 
@@ -641,3 +573,4 @@
         </script>
 </body>
 </html>
+
