@@ -343,7 +343,7 @@
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4">
                <br />
-                  <asp:GridView ID="gvSample"  runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+                  <asp:GridView ID="gvSample"  runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                          <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
@@ -371,7 +371,29 @@
                       <SortedDescendingHeaderStyle BackColor="#00547E" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples]"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples]"
+                      UpdateCommand="UPDATE Samples SET [PatientId]=@PatientId,[CardNo]=@CardNo,[Volume]=@Volume,[Quality]=@Quality,[FromCountry]=@FromCountry,[FromRegion]=@FromRegion,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[CollectionDate]=@CollectionDate,[RecivedDate]=@RecivedDate,[LabTech]=@LabTech
+                      WHERE SampleID=@SampleID">
+                      <UpdateParameters>
+                          <asp:Parameter Name="PatientId" Type="String" />
+                          <asp:Parameter Name="CardNo" Type="String" />
+                          <asp:Parameter Name="Volume" Type="Int32" />
+                          <asp:Parameter Name="Quality" Type="Int32" />
+                          <asp:Parameter Name="FromCountry" Type="String" />
+                          <asp:Parameter Name="FromRegion" Type="String" />
+                          <asp:Parameter Name="Zone" Type="String" />
+                          <asp:Parameter Name="Woreda" Type="String" />
+                          <asp:Parameter Name="HealthFacility" Type="String" />
+                          <asp:Parameter Name="LabTech" Type="String" />
+                          <asp:Parameter Name="CollectionDate" Type="DateTime"/>
+                          <asp:Parameter Name="RecivedDate" Type="DateTime" />
+                          
+                          <asp:Parameter Name="SampleID" Type="Int32" />
+
+                          </UpdateParameters>
+
+                  </asp:SqlDataSource>
                   
               </div>
             </div>

@@ -341,7 +341,7 @@
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
                     <p>Culture Results</p>
-                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -375,7 +375,28 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results"
+                      UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[HeatKilled_res]=@HeatKilled_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark
+                      WHERE ResultID=@ResultID">
+                      <UpdateParameters>
+                          <asp:Parameter Name="PatientId" Type="String" />
+                          <asp:Parameter Name="Smear_res" Type="String" />
+                          <asp:Parameter Name="HeatKilled_res" Type="String" />
+                          <asp:Parameter Name="RD9_res" Type="String" />
+                          <asp:Parameter Name="LJ_res" Type="String" />
+                          <asp:Parameter Name="LJ_P_res" Type="String" />
+                          <asp:Parameter Name="MIJT_res" Type="String" />
+                          <asp:Parameter Name="CultureSmear_res" Type="String" />
+                          <asp:Parameter Name="Spoligo_res" Type="String" />
+                          <asp:Parameter Name="BHI" Type="String" />
+                          <asp:Parameter Name="FinalCultureResult" Type="String"/>
+                          <asp:Parameter Name="LabInitial" Type="String" />
+                          <asp:Parameter Name="Remark" Type="String" />
+                          <asp:Parameter Name="ResultID" Type="Int32" />
+
+                          </UpdateParameters>
+                  </asp:SqlDataSource>
                
               </div>
             </div>
