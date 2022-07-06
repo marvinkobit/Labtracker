@@ -341,7 +341,7 @@
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
                     <p>Culture Results</p>
-                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack = "true" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -496,12 +496,16 @@
             <div class="col-lg-12 mb-4">
                
             
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="26px"  Width="150px">
+                <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px"  Width="150px" DataSourceID="SqlDataSource4" DataTextField="column_name" DataValueField="column_name">
                 </asp:DropDownList>
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="26px" Width="155px">
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Results'"></asp:SqlDataSource>
+                
+                <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
+                     <asp:ListItem>equals</asp:ListItem>
+                    <asp:ListItem>starts with</asp:ListItem>
                 </asp:DropDownList>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" />
+                <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
+                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click"  />
             
           </div>
 
