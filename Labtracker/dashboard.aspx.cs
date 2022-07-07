@@ -80,39 +80,39 @@ namespace Labtracker
                     string sql5 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Cameroon'";
                     string sql6 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Sudan'";
 
-                    string sql8 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='oromia'";
-                    string sql9 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='south nation'";
-                    string sql10 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='gambela'";
-                    string sql11 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='addis ababa'";
-                    string sql12 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='amhara'";
-                    string sql13 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='somali'";
-                    string sql34 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='benishangul'";
-                    string sql35 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='tigray'";
-                    string sql36 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='afar'";
-                    string sql37 = "SELECT COUNT(FromRegion) FROM Samples WHERE lower(FromRegion)='harari'";
+                    string sql8 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR%'";
+                    string sql9 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN%'";
+                    string sql10 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-GA%'";
+                    string sql11 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA%'";
+                    string sql12 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AM%'";
+                    string sql13 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SO%'";
+                    string sql34 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-BG%'";
+                    string sql35 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-TG%'";
+                    string sql36 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AF%'";
+                    string sql37 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-HR%'";
 
 
 
-                    string sql14 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='adama hospital'";
-                    string sql15 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='shashamene hospital'";
-                    string sql16 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='wolayita sodo teritery hospital'";
-                    string sql17 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='gambela general hospital'"; 
-                    string sql18 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='yirgalem general hospital'";
-                    string sql19 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='arbaminch general hospital'";
-                    string sql20 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='gode hospital'";
-                    string sql21 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='sodo hospital'";
-                    string sql22 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='hawasa cs hospital'";
-                    string sql23 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='halaba primary hospital'";
-                    string sql24 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='hosaina hospital'";
-                    string sql25 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='dilla hospital'";
-                    string sql26 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='ambo hospital'";
-                    string sql27 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='tulubolo hospital'";
-                    string sql28 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='addis alem hospital'";
-                    string sql29 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='yekatit 12 hospital'";
-                    string sql30 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='addis ketema health center'";
-                    string sql31 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='woreda 3 health center'";
-                    string sql32 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='mikiland health center'";
-                    string sql33 = "SELECT COUNT(HealthFacility) FROM Samples WHERE lower(HealthFacility)='keraniyo health center'";
+                    string sql14 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR-ES-AD-AH%'";
+                    string sql15 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR-AR-SH-SH%'";
+                    string sql16 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-WO-SO-SH%'";
+                    string sql17 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-GA-AN-GA-GH%'"; 
+                    string sql18 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-SI-YE-YH%'";
+                    string sql19 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-GG-AM-AH%'";
+                    string sql20 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SO-GO-GH%'";
+                    string sql21 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'sodo hospital'";
+                    string sql22 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-SI-HA-HH%'";
+                    string sql23 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-HA-HA-HH%'";
+                    string sql24 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-HA-HO-HH%'";
+                    string sql25 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN-GE-DL-DH%'";
+                    string sql26 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR-WS-AM-AH%'";
+                    string sql27 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR-SWS-BE-TBH%'";
+                    string sql28 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AM-BD-BD-AAH%'";
+                    string sql29 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA-YE-Y12H%'";
+                    string sql30 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA-AK-AK-HC%'";
+                    string sql31 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA-KK-W3-HC%'";
+                    string sql32 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA-KK-MK-HC%'";
+                    string sql33 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-AA-KK-KE-HC'";
 
 
 
