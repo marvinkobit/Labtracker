@@ -24,8 +24,6 @@ namespace Labtracker
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
-
-
             }
             if (!IsPostBack)
             {
@@ -56,7 +54,7 @@ namespace Labtracker
             string searchQuery="";
             if (comp.Equals("equals"))
             {
-              searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0}='{1}'", valueTocomp, val);
+              searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0}='{1}'", valueTocomp, val);
             }
             else
             {
@@ -75,8 +73,6 @@ namespace Labtracker
             gvSample.DataBind();
             
             Session["isFilter"] = true;
-          
-
 
             /*if (valueTocomp.Equals("PatientId"))
                 {
@@ -114,8 +110,7 @@ namespace Labtracker
                 var data = (SqlDataSource)Session["ds"];
                 data.SortParameterName = e.SortExpression;
                 gvSample.DataSource = dataSource;
-            }
-            
+            }           
             gvSample.DataBind();
         }
 
