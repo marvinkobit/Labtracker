@@ -66,10 +66,11 @@
                                         <div class=" row col-sm-6 mb-3 mb-sm-0">
                                          <asp:Label>Sample Type: </asp:Label>
                                           <asp:DropDownList ID="ddlSampleType" class="form-control" ToolTip="" DataTextField="" runat="server">
-                                            <asp:ListItem Value="1" Selected="True">Sputum</asp:ListItem>
+                                            <asp:ListItem Value="1" Selected="True">Culture</asp:ListItem>
                                             <asp:ListItem Value="2">B-PRNA</asp:ListItem>
                                             <asp:ListItem Value="3">B-PDNA</asp:ListItem>
                                             <asp:ListItem Value="4">B-Plasma</asp:ListItem>
+                                              <asp:ListItem Value="2">HeatKilled</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <br />
