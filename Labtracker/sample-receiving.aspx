@@ -372,7 +372,7 @@
                   </asp:GridView>
                
                   <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples]"
+                      SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] ORDER BY SampleID DESC"
                       UpdateCommand="UPDATE Samples SET [PatientId]=@PatientId,[CardNo]=@CardNo,[Volume]=@Volume,[Quality]=@Quality,[FromCountry]=@FromCountry,[FromRegion]=@FromRegion,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[CollectionDate]=@CollectionDate,[RecivedDate]=@RecivedDate,[LabTech]=@LabTech
                       WHERE SampleID=@SampleID">
                       <UpdateParameters>
@@ -406,7 +406,20 @@
               Filter your search here 
             <!-- Content Column -->
             <div class="col-lg-12 mb-4">
-                <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="155px" DataSourceID="SqlDataSource2" DataTextField="column_name" DataValueField="column_name">
+                <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="155px" DataTextField="column_name" DataValueField="column_name">
+                    <asp:ListItem>PatientId</asp:ListItem>
+                    <asp:ListItem>CardNo</asp:ListItem>
+                    <asp:ListItem>Volume</asp:ListItem>
+                    <asp:ListItem>Quality</asp:ListItem>
+                    <asp:ListItem>FromCountry</asp:ListItem>
+                    <asp:ListItem>FromRegion</asp:ListItem>
+                    <asp:ListItem>Zone</asp:ListItem>
+                    <asp:ListItem>Woreda</asp:ListItem>
+                    <asp:ListItem>HealthFacility</asp:ListItem>
+                    <asp:ListItem>CollectionDate</asp:ListItem>
+                    <asp:ListItem>RecivedDate</asp:ListItem>
+                    <asp:ListItem>LabTech</asp:ListItem>
+                    <asp:ListItem>CategoryID</asp:ListItem>                 
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Samples'"></asp:SqlDataSource>
                 <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
