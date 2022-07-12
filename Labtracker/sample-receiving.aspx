@@ -494,6 +494,9 @@
   <script src="Content/js/demo/chart-bar-demo.js"></script>
   <script src="Content/js/demo/chart-pie-demo.js"></script>
 
+     
+
+
     </form>
 
 </body>
