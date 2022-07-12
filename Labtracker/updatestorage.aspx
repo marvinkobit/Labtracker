@@ -70,7 +70,7 @@
                                             <asp:ListItem Value="2">B-PRNA</asp:ListItem>
                                             <asp:ListItem Value="3">B-PDNA</asp:ListItem>
                                             <asp:ListItem Value="4">B-Plasma</asp:ListItem>
-                                              <asp:ListItem Value="2">HeatKilled</asp:ListItem>
+                                              <asp:ListItem Value="5">HeatKilled</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <br />
