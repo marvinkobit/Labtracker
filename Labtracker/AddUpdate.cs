@@ -197,7 +197,7 @@ namespace Labtracker
                     //tbgresupdates.RD9_res = resultant;
                     //tbgprocessupdates.RD9_date = Convert.ToDateTime(dateProcess);
                     break;
-                case "Heat Killed":
+                case "Heat Killing":
                     SqlConnection SQLConn5 = new SqlConnection(connStr);
                     SqlCommand command5 = new SqlCommand("INSERT INTO Results (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Results WHERE PatientId =@patient) UPDATE Results SET HeatKilled_res=@HeatKilled_res,PatientId=@patient WHERE PatientId=@patient", SQLConn5);
                     command5.Parameters.Add("@HeatKilled_res", SqlDbType.NVarChar).Value = resultant;

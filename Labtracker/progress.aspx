@@ -352,7 +352,7 @@
                                             <asp:BoundField DataField="LJ_res" HeaderText="LJ-G" SortExpression="LJ_res" />
                                             <asp:BoundField DataField="LJ_P_res" HeaderText="LJ-P" SortExpression="LJ_P_res" />
                                             <asp:BoundField DataField="MIJT_res" HeaderText="MGIT" SortExpression="MIJT_res" />
-                                            <asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />
+                                            <%--<asp:BoundField DataField="HeatKilled_res" HeaderText="Heat Killed" SortExpression="HeatKilled_res" />--%>
                                             <asp:BoundField DataField="BHI" HeaderText="BHI" SortExpression="BHI" />
                                             <asp:BoundField DataField="CultureSmear_res" HeaderText="Media/Culture Smear" SortExpression="CultureSmear_res" />
                                             <asp:BoundField DataField="FinalCultureResult" HeaderText="FinalCultureResult" SortExpression="FinalCultureResult" />
@@ -376,13 +376,13 @@
                                     </asp:GridView>
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
-                                        SelectCommand="SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results GROUP BY ResultsID DESC"
-                                        UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[HeatKilled_res]=@HeatKilled_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark
+                                        SelectCommand="SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results ORDER BY ResultID DESC"
+                                        UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark
                       WHERE ResultID=@ResultID">
                                         <UpdateParameters>
                                             <asp:Parameter Name="PatientId" Type="String" />
                                             <asp:Parameter Name="Smear_res" Type="String" />
-                                            <asp:Parameter Name="HeatKilled_res" Type="String" />
+                                            <%--<asp:Parameter Name="HeatKilled_res" Type="String" />--%>
                                             <asp:Parameter Name="RD9_res" Type="String" />
                                             <asp:Parameter Name="LJ_res" Type="String" />
                                             <asp:Parameter Name="LJ_P_res" Type="String" />
@@ -419,7 +419,7 @@
                                      <asp:ListItem>MIJT_res</asp:ListItem>
                                      <asp:ListItem>RD9_res</asp:ListItem>
                                      <asp:ListItem>Spoligo_res</asp:ListItem>
-                                     <asp:ListItem>HeatKilled_res</asp:ListItem>
+                                   <%--  <asp:ListItem>HeatKilled_res</asp:ListItem>--%>
                                      <asp:ListItem>BHI</asp:ListItem>
                                     <asp:ListItem>FinalCultureResult</asp:ListItem>
                                      <asp:ListItem>Labinitial</asp:ListItem>                                   
@@ -434,6 +434,54 @@
                                 <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
 
                             </div>
+
+                        </div>
+
+                        <!-- Content Row HeatKilling -->
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <p>Heat Killing</p>
+
+                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound">
+                                        <Columns>
+                                            <asp:CommandField ShowSelectButton="True" />
+                                            <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
+                                            <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                                            <asp:BoundField DataField="MediaType" HeaderText="MediaType" SortExpression="MediaType" />
+                                            <asp:BoundField DataField="InitialTransfer" HeaderText="InitialTransfer" SortExpression="InitialTransfer" />
+
+                                            <asp:BoundField DataField="InitialRecieved" HeaderText="InitialRecieved" SortExpression="InitialRecieved" />
+                                            <asp:BoundField DataField="DateHeatkill" HeaderText="DateHeatkill" SortExpression="DateHeatkill" />
+                                            <asp:BoundField DataField="DateTransfer" HeaderText="DateTransfer" SortExpression="DateTransfer" />
+                                         
+                                            <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+                                            
+                                          
+
+
+
+                                        </Columns>
+                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <EditRowStyle BackColor="#999999" />
+                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                    </asp:GridView>
+
+                                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT HeatKillId,PatientId,MediaType,InitialTransfer,InitialRecieved,DateHeatkill,DateTransfer,Remark FROM HeatKills ORDER BY HeatKillId DESC"></asp:SqlDataSource>
+
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -473,7 +521,7 @@
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,Initial FROM Dsts"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,Initial FROM Dsts ORDER BY DstID DESC"></asp:SqlDataSource>
 
                                 </div>
                             </div>
@@ -516,7 +564,7 @@
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT GrowthID,PatientId,Week,dat1,dat2,Dater,Initial,Remark FROM Growths ORDER BY PatientId,Week,dat1 ASC"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT GrowthID,PatientId,Week,dat1,dat2,Dater,Initial,Remark FROM Growths ORDER BY PatientId,Week,dat1 ASC, GrowthID DESC"></asp:SqlDataSource>
 
                                 </div>
                             </div>

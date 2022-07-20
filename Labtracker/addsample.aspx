@@ -379,7 +379,7 @@ input[type=submit] {
                 </div> -->
                <div class="row">
                <asp:Button ID="btnSaveas"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Save" OnClick="btnSaveas_Click" /> 
-               <asp:Button ID="btnCancelas"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Cancel" OnClientClick="this.form.reset();return false;"  /> 
+               <asp:Button ID="btnCancelas"  class="btn btn-primary btn-user btn-block col-sm-6" runat="server" Text="Clear" OnClientClick="this.form.reset();return false;"  /> 
                </div>
                    <asp:Label ID="asSavelbl" runat="server" Text=""></asp:Label>
                   <hr/>

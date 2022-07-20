@@ -11,7 +11,13 @@ namespace Labtracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //UsernameText.Text = User.Identity.GetUserName();
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/login.aspx");
 
+
+            }
         }
 
         protected void btnGoback_Click(object sender, EventArgs e)
