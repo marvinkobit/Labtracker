@@ -377,8 +377,8 @@
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
                                         SelectCommand="SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results ORDER BY ResultID DESC"
-                                        UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark
-                      WHERE ResultID=@ResultID">
+
+                                        UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark WHERE ResultID=@ResultID">
                                         <UpdateParameters>
                                             <asp:Parameter Name="PatientId" Type="String" />
                                             <asp:Parameter Name="Smear_res" Type="String" />
