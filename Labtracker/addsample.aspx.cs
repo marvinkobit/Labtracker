@@ -8,6 +8,7 @@ using Labtracker.Models;
 using Labtracker.Logic;
 using System.Activities;
 using System.Windows;
+using Microsoft.AspNet.Identity;
 
 namespace Labtracker
 {
@@ -18,6 +19,13 @@ namespace Labtracker
         {
             //var sampleId = (from s in _db.Samples select s.sID );
             //txtSId.Text = Convert.ToString(samplecount);
+            //UsernameText.Text = User.Identity.GetUserName();
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/login.aspx");
+
+
+            }
             using (SampleContext _db = new SampleContext())
             {
                 txtSId.Text = (Convert.ToInt32(_db.Samples.Count())+1).ToString();
