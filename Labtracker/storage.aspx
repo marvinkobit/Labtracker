@@ -339,8 +339,8 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
+            <div class="col-xl-12 col-lg-8">
+              <div class="card shadow mb-4 table-responsive">
                     <p>Isolate Storage</p>
                    <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
