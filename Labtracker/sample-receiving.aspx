@@ -341,9 +341,9 @@
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-8">
-              <div class="card shadow mb-4">
+              <div class="card shadow mb-4 table-responsive">
                <br />
-                  <asp:GridView ID="gvSample"  runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+                  <asp:GridView ID="gvSample"  runat="server" style="font-size: 12px" width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                          <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>

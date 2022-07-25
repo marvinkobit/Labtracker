@@ -10,6 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+
     <title>TBGEN Lab Monitor - Sample Receiving </title>
 
     <!-- Custom fonts for this template-->
@@ -19,8 +20,153 @@
     <!-- Custom styles for this template-->
     <link href="Content/css/sb-admin-2.min.css" rel="stylesheet" />
     <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
+    <style type="text/css">
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: auto
+        }
+
+        @media screen and (max-width:767px) {
+            .table-responsive {
+                width: 100%;
+                margin-bottom: 15px;
+                overflow-y: hidden;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+                border: 1px solid #ddd
+            }
+        }
+
+        fieldset {
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            border: 0
+        }
+
+        legend {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: inherit;
+            color: #333;
+            border: 0;
+            border-bottom: 1px solid #e5e5e5
+        }
+
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700
+        }
+
+        input[type=search] {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        input[type=checkbox], input[type=radio] {
+            margin: 4px 0 0;
+            margin-top: 1px\9;
+            line-height: normal
+        }
+
+        input[type=file] {
+            display: block
+        }
+
+        input[type=range] {
+            display: block;
+            width: 100%
+        }
+
+        select[multiple], select[size] {
+            height: auto
+        }
+
+        input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+
+        output {
+            display: block;
+            padding-top: 7px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd
+        }
+
+            .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+                border: 1px solid #ddd
+            }
+
+            .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+                border-bottom-width: 2px
+            }
+
+        .table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+            padding: 5px
+        }
+
+        .rows {
+            background-color: #fff;
+            font-family: Arial;
+            font-size: 14px;
+            color: #000;
+            min-height: 25px;
+            text-align: left;
+            border: none 0px transparent;
+        }
+
+            .rows:hover
+
+            .table-hover > tbody > tr:hover {
+                background-color: #f5f5f5
+            }
+
+        table col[class*=col-] {
+            position: static;
+            display: table-column;
+            float: none
+        }
+
+        table td[class*=col-], table th[class*=col-] {
+            position: static;
+            display: table-cell;
+            float: none
+        }
+    </style>
+    <script src="scripts/jquery.responsivetable.min.js"></script>
 </head>
 <body id="page-top">
+
 
     <form id="form1" runat="server">
 
@@ -338,12 +484,15 @@
                         <div class="row">
 
                             <!-- Area Chart -->
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="card shadow mb-4">
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="card shadow mb-4 table-responsive">
                                     <p>Culture Results</p>
-                                    <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound">
+
+                                    <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" CssClass="table table-bordered table-condensed">
+
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
+
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                                             <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
                                             <asp:BoundField DataField="Smear_res" HeaderText="Primary Smear" SortExpression="Smear_res" />
@@ -377,7 +526,6 @@
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
                                         SelectCommand="SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results ORDER BY ResultID DESC"
-
                                         UpdateCommand="UPDATE Results SET [PatientId]=@PatientId,[Smear_res]=@Smear_res,[RD9_res]=@RD9_res,[LJ_res]=@LJ_res,[LJ_P_res]=@LJ_P_res,[MIJT_res]=@MIJT_res,[CultureSmear_res]=@CultureSmear_res,[Spoligo_res]=@Spoligo_res,[BHI]=@BHI,[FinalCultureResult]=@FinalCultureResult,[LabInitial]=@LabInitial,[Remark]=@Remark WHERE ResultID=@ResultID">
                                         <UpdateParameters>
                                             <asp:Parameter Name="PatientId" Type="String" />
@@ -404,25 +552,25 @@
 
                         </div>
 
-                         <div class="row">
+                        <div class="row">
                             Filter your search here 
                              <!-- Content Column -->
                             <div class="col-lg-12 mb-4">
 
 
                                 <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
-                                     <asp:ListItem>PatientId</asp:ListItem>
-                                     <asp:ListItem>Smear_res</asp:ListItem>
-                                     <asp:ListItem>CultureSmear_res</asp:ListItem>
-                                     <asp:ListItem>LJ_res</asp:ListItem>
-                                     <asp:ListItem>LJ_P_res</asp:ListItem>
-                                     <asp:ListItem>MIJT_res</asp:ListItem>
-                                     <asp:ListItem>RD9_res</asp:ListItem>
-                                     <asp:ListItem>Spoligo_res</asp:ListItem>
-                                   <%--  <asp:ListItem>HeatKilled_res</asp:ListItem>--%>
-                                     <asp:ListItem>BHI</asp:ListItem>
+                                    <asp:ListItem>PatientId</asp:ListItem>
+                                    <asp:ListItem>Smear_res</asp:ListItem>
+                                    <asp:ListItem>CultureSmear_res</asp:ListItem>
+                                    <asp:ListItem>LJ_res</asp:ListItem>
+                                    <asp:ListItem>LJ_P_res</asp:ListItem>
+                                    <asp:ListItem>MIJT_res</asp:ListItem>
+                                    <asp:ListItem>RD9_res</asp:ListItem>
+                                    <asp:ListItem>Spoligo_res</asp:ListItem>
+                                    <%--  <asp:ListItem>HeatKilled_res</asp:ListItem>--%>
+                                    <asp:ListItem>BHI</asp:ListItem>
                                     <asp:ListItem>FinalCultureResult</asp:ListItem>
-                                     <asp:ListItem>Labinitial</asp:ListItem>                                   
+                                    <asp:ListItem>Labinitial</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Results'"></asp:SqlDataSource>
 
@@ -441,11 +589,11 @@
                         <div class="row">
 
                             <!-- Area Chart -->
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="card shadow mb-4">
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="card shadow mb-4 table-responsive">
                                     <p>Heat Killing</p>
 
-                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound">
+                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -456,10 +604,10 @@
                                             <asp:BoundField DataField="InitialRecieved" HeaderText="InitialRecieved" SortExpression="InitialRecieved" />
                                             <asp:BoundField DataField="DateHeatkill" HeaderText="DateHeatkill" SortExpression="DateHeatkill" />
                                             <asp:BoundField DataField="DateTransfer" HeaderText="DateTransfer" SortExpression="DateTransfer" />
-                                         
+
                                             <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
-                                            
-                                          
+
+
 
 
 
@@ -489,11 +637,11 @@
                         <div class="row">
 
                             <!-- Area Chart -->
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="card shadow mb-4">
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="card shadow mb-4 table-responsive">
                                     <p>Drug Susceptibility</p>
 
-                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound">
+                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -533,10 +681,10 @@
                         <div class="row">
 
                             <!-- Area Chart -->
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="card shadow mb-4">
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="card shadow mb-4  table-responsive">
                                     <p>Growth Detection</p>
-                                    <asp:GridView ID="gvGrowthResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource3" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvGrowthResult_DataBound">
+                                    <asp:GridView ID="gvGrowthResult" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource3" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvGrowthResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="GrowthID" HeaderText="GrowthID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -571,7 +719,7 @@
 
 
                         </div>
-                       
+
 
 
 
@@ -638,6 +786,9 @@
             <script src="Content/js/demo/chart-bar-demo.js"></script>
             <script src="Content/js/demo/chart-pie-demo.js"></script>
     </form>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
