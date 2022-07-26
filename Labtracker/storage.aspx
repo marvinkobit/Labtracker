@@ -342,10 +342,9 @@
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4 table-responsive">
                     <p>Isolate Storage</p>
-                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
+                   <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="StoreId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
-                          <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
                            <asp:BoundField DataField="category" HeaderText="IsolateCategory" SortExpression="category" />
                            <asp:BoundField DataField="MediaType" HeaderText="MediaType" SortExpression="MediaType" />
@@ -373,7 +372,23 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],category,MediaType,[Freezer],Drawer,[Rack],Shelf,[Box],[Matrix],[storeDate] FROM Stores"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT [StoreId],[PatientId],category,MediaType,[Freezer],Drawer,[Rack],Shelf,[Box],[Matrix],[storeDate] FROM Stores ORDER BY StoreId DESC"
+                      UpdateCommand="UPDATE Stores SET [PatientId]=@PatientId,[category]=@category,[MediaType]=@MediaType,[Freezer]=@Freezer,[Drawer]=@Drawer,[Rack]=@Rack,[Shelf]=@Shelf,[Box]=@Box,[Matrix]=@Matrix,[storeDate]=@storeDate WHERE StoreId=@StoreId">
+                      <UpdateParameters>
+                                            <asp:Parameter Name="PatientId" Type="String" />
+                                            <asp:Parameter Name="category" Type="String" />
+                                            <asp:Parameter Name="MediaType" Type="String" />
+                                            <asp:Parameter Name="Freezer" Type="String" />
+                                            <asp:Parameter Name="Drawer" Type="String" />
+                                            <asp:Parameter Name="Rack" Type="String" />
+                                            <asp:Parameter Name="Shelf" Type="String" />
+                                            <asp:Parameter Name="Box" Type="String" />
+                                            <asp:Parameter Name="Matrix" Type="String" />
+                                            <asp:Parameter Name="storeDate" Type="DateTime" />                                       
+                                            <asp:Parameter Name="StoreId" Type="Int32" />
+                       </UpdateParameters>
+                  </asp:SqlDataSource>
                
               </div>
             </div>

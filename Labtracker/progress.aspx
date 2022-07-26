@@ -593,7 +593,7 @@
                                 <div class="card shadow mb-4 table-responsive">
                                     <p>Heat Killing</p>
 
-                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>

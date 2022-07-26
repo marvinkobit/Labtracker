@@ -24,6 +24,12 @@ namespace Labtracker
 
 
             }
+            if (!IsPostBack)
+            {
+
+                Session["isFilter_gvResult"] = false;
+                gvResult.DataSourceID = "SqlDataSource1";
+            }
 
         }
         protected void gvGrowthResult_DataBound(object sender, EventArgs e)
