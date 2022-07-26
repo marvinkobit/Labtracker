@@ -8,20 +8,24 @@ namespace Labtracker.Models
 {
     public class Store
     {
-        [Key]
-        public string StoreId { get; set; }
+      
+        public int StoreId { get; set; }
 
         public string PatientId { get; set; }
 
         public string Freezer { get; set; }
 
+        public string Drawer { get; set; }
         public string Rack { get; set; }
 
+        public string Shelf { get; set; }
         public string Box { get; set; }
 
-        public int Matrix { get; set; }
+        public string Matrix { get; set; }
 
-        public int category { get; set; }
+        public string MediaType { get; set; }
+
+        public string category { get; set; }
 
 
         [DisplayFormat(DataFormatString = "dd/mm/yyyy")]

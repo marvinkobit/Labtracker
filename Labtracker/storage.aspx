@@ -347,9 +347,12 @@
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                           <asp:BoundField DataField="category" HeaderText="IsolateCategory" SortExpression="category" />
+                           <asp:BoundField DataField="MediaType" HeaderText="MediaType" SortExpression="MediaType" />
                            <asp:BoundField DataField="Freezer" HeaderText="Freezer" SortExpression="Freezer" />
+                           <asp:BoundField DataField="Drawer" HeaderText="Drawer" SortExpression="Drawer" />
                           <asp:BoundField DataField="Rack" HeaderText="Rack" SortExpression="Rack" />
-                    
+                           <asp:BoundField DataField="Shelf" HeaderText="Shelf" SortExpression="Shelf" />
                           <asp:BoundField DataField="Box" HeaderText="Box" SortExpression="Box" />
                           <asp:BoundField DataField="Matrix" HeaderText="Matrix" SortExpression="Matrix" />
                           <asp:BoundField DataField="storeDate" HeaderText="storeDate" SortExpression="storeDate" />
@@ -370,7 +373,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[Freezer],[Rack],[Box],[Matrix],[storeDate] FROM Stores"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],category,MediaType,[Freezer],Drawer,[Rack],Shelf,[Box],[Matrix],[storeDate] FROM Stores"></asp:SqlDataSource>
                
               </div>
             </div>
