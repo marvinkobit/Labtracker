@@ -2297,6 +2297,7 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDbInitializer.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Freezer.cs" />
     <Compile Include="Models\Dnaextract.cs" />
     <Compile Include="Models\Dst.cs" />
     <Compile Include="Models\Growth.cs" />

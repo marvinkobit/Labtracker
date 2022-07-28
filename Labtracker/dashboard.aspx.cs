@@ -56,6 +56,7 @@ namespace Labtracker
                 using (SampleContext _db = new SampleContext())
                 {
                     lblTotalSample.Text = _db.Samples.Count().ToString();
+                    lblIsolateStored.Text = _db.Stores.Count().ToString();
                     string sampleColTarget = Convert.ToString( Math.Round( Convert.ToDecimal(_db.Samples.Count().ToString()) / 9, 1));  //target of sample collecton 900 eth 2000 total
                     lblsamplecoltar.Text = sampleColTarget; 
                     lblisolatetar.Text = sampleColTarget;
