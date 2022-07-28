@@ -26,6 +26,7 @@ namespace Labtracker.Models
         public DbSet<HeatKill> HeatKills { get; set; }
 
         public DbSet<Store> Stores { get; set; }
+        public DbSet<Freezer> Freezers { get; set; }
 
 
     }
