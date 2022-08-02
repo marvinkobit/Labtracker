@@ -2080,6 +2080,7 @@
     </Content>
     <Content Include="sequencing.aspx" />
     <Content Include="setting.aspx" />
+    <Content Include="shp.js" />
     <Content Include="Site.Master" />
     <Content Include="storage.aspx" />
     <Content Include="updateprogress.aspx" />

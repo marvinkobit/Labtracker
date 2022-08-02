@@ -50,7 +50,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Culture Positive</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblCulturePositive" Text=""></asp:Label></div>
+                                    <asp:Label runat="server" ID="lblCulturePositive" Text=""></asp:Label>
+                                </div>
 
                             </div>
                             <div class="col-auto">
@@ -71,7 +72,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Contaminated</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblContaminated" Text=""></asp:Label></div>
+                                    <asp:Label runat="server" ID="lblContaminated" Text=""></asp:Label>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-contamination fa-2x text-gray-300"></i>
@@ -90,7 +92,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Isolate Stored</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblIsolateStored" Text=""></asp:Label></div>
+                                    <asp:Label runat="server" ID="lblIsolateStored" Text=""></asp:Label>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-isolate fa-2x text-gray-300"></i>
@@ -108,7 +111,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No growth</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblNoGrowth" Text=""></asp:Label></div>
+                                    <asp:Label runat="server" ID="lblNoGrowth" Text=""></asp:Label>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-isolate fa-2x text-gray-300"></i>
@@ -438,9 +442,9 @@
 
 
 
-    </script>
+        </script>
     </div>
-    
+
     <!-- Map Content Row -->
     <div class="row">
         <div class="col-lg-7 mb-5">
@@ -552,7 +556,8 @@
 
 
                 </script>
-            </div></div>
+            </div>
+        </div>
         <div class="col-lg-7 mb-5">
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
@@ -563,6 +568,7 @@
                 <div id="mapid2"></div>
                 <script src="Content/js/catiline.js"></script>
                 <script src="Content/js/leaflet.shpfile.js"></script>
+                <script src="Content/js/shp.js"></script>
                 <script type="text/javascript">
 
                     var adama = "Adama Hospital";
@@ -579,21 +585,16 @@
                                 return { color: "black", fillColor: "red", fillOpacity: .25 }
                             },
                             onEachFeature: function (feature, layer) {
-                                if (feature.properties) {
+                               /* if (feature.properties) {
                                     layer.bindPopup(Object.keys(feature.properties).map(function (k) {
                                         return k + ": " + feature.properties[k];
                                     }).join("<br />"), {
                                             maxHeight: 200
                                         });
+                                }*/
+                                if (feature.properties) {
+                                    layer.bindPopup(feature.properties["REGIONNAME"]+"</br>"+"Samples: _");
                                 }
-                                // if (feature.properties) {
-                                //layer.bindPopup(feature.properties["REGIONNAME"]);
-                                // if (feature.properties["REGIONNAME"] == "Oromia") {
-                                //     layer.setStyle({
-                                //         color: "yellow", fillColor: "yellow", fillOpacity: .25
-                                //     });
-                                // }
-                                // }
                             }
                         });
                     shpfile.addTo(mymap);
@@ -606,11 +607,7 @@
                         onEachFeature: function (feature, layer) {
 
                             if (feature.properties) {
-                                layer.bindPopup(Object.keys(feature.properties).map(function (k) {
-                                    return k + ": " + feature.properties[k];
-                                }).join("<br />"), {
-                                        maxHeight: 200
-                                    });
+                                layer.bindPopup("Region: "+feature.properties["ID"] + "</br>" + "Samples: _");
                             }
 
                         }
@@ -647,11 +644,7 @@
                     var shpfile4 = new L.Shapefile('Content/spatial/sudanlevel1.zip', {
                         onEachFeature: function (feature, layer) {
                             if (feature.properties) {
-                                layer.bindPopup(Object.keys(feature.properties).map(function (k) {
-                                    return k + ": " + feature.properties[k];
-                                }).join("<br />"), {
-                                        maxHeight: 200
-                                    });
+                                layer.bindPopup("Region: "+feature.properties["State_En"] + "</br>" + "Samples: _");
                             }
 
                         }
@@ -666,7 +659,7 @@
                 </script>
 
             </div>
-            </div>
+        </div>
     </div>
 
     <!-- Content Row -->
