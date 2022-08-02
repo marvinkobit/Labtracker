@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,7 +8,9 @@ namespace Labtracker.Models
 {
     public class Freezer
     {
-        public int FreezerID { get; set; }
+        [Key]
+        [ScaffoldColumn(false)]
+        public int? FreezerID { get; set; }
         public string Freezer_AHRIUniqueId { get; set; }
 
         public string EquipName { get; set; }

@@ -468,7 +468,7 @@
       ,[ServiceDate]
       ,[NextServiceDate]
   FROM [Labtracker].[dbo].[Freezers] ORDER BY FreezerID DESC"
-                                        UpdateCommand="UPDATE Stores SET [Freezer_AHRIUniqueId]=@Freezer_AHRIUniqueId,[ManufacturerName]=@ManufacturerName,[Model]=@Model,[SerialNumber]=@SerialNumber,[CurrentLocation]=@CurrentLocation,[EquipCondition]=@EquipCondition,[CalibrationDate]=@CalibrationDate,[NextCalibrationDate]=@NextCalibrationDate,[ServiceDate]=@ServiceDate,[NextServiceDate]=@NextServiceDate WHERE FreezerID=@FreezerID">
+                                        UpdateCommand="UPDATE Freezers SET [Freezer_AHRIUniqueId]=@Freezer_AHRIUniqueId,[ManufacturerName]=@ManufacturerName,[Model]=@Model,[SerialNumber]=@SerialNumber,[CurrentLocation]=@CurrentLocation,[EquipCondition]=@EquipCondition,[CalibrationDate]=@CalibrationDate,[NextCalibrationDate]=@NextCalibrationDate,[ServiceDate]=@ServiceDate,[NextServiceDate]=@NextServiceDate WHERE FreezerID=@FreezerID">
                                         <UpdateParameters>
                                             <asp:Parameter Name="Freezer_AHRIUniqueId" Type="String" />
                                             <asp:Parameter Name="ManufacturerName" Type="String" />
@@ -476,9 +476,9 @@
                                             <asp:Parameter Name="SerialNumber" Type="String" />
                                             <asp:Parameter Name="CurrentLocation" Type="String" />
                                             <asp:Parameter Name="EquipCondition" Type="String" />
-                                            <asp:Parameter Name="CalibrationDate" Type="String" />
-                                            <asp:Parameter Name="NextCalibrationDate" Type="String" />
-                                            <asp:Parameter Name="ServiceDate" Type="String" />
+                                            <asp:Parameter Name="CalibrationDate" Type="DateTime" />
+                                            <asp:Parameter Name="NextCalibrationDate" Type="DateTime" />
+                                            <asp:Parameter Name="ServiceDate" Type="DateTime" />
                                             <asp:Parameter Name="NextServiceDate" Type="DateTime" />
                                             <asp:Parameter Name="FreezerID" Type="Int32" />
                                         </UpdateParameters>
