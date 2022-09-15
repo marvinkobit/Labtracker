@@ -11,7 +11,7 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>TBGEN Lab Monitor - Sample Receiving </title>
+  <title>TBGEN Lab Monitor - Sample Receiving</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
@@ -378,8 +378,8 @@
                       <UpdateParameters>
                           <asp:Parameter Name="PatientId" Type="String" />
                           <asp:Parameter Name="CardNo" Type="String" />
-                          <asp:Parameter Name="Volume" Type="Int32" />
-                          <asp:Parameter Name="Quality" Type="Int32" />
+                          <asp:Parameter Name="Volume" Type="String" />
+                          <asp:Parameter Name="Quality" Type="String" />
                           <asp:Parameter Name="FromCountry" Type="String" />
                           <asp:Parameter Name="FromRegion" Type="String" />
                           <asp:Parameter Name="Zone" Type="String" />

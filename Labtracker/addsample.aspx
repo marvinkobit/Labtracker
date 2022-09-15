@@ -223,7 +223,7 @@ input[type=submit] {
                             <asp:ListItem Value="28" data-group="3">West Gojjam</asp:ListItem>
 
 
-                            <asp:ListItem Value="29" data-group="4">Asossa</asp:ListItem>
+                            <asp:ListItem Value="29" data-group="4">Assosa</asp:ListItem>
                             <asp:ListItem Value="30" data-group="4">Kemashi</asp:ListItem>
                             <asp:ListItem Value="31" data-group="4">Mao Komo Special Wereda</asp:ListItem>
                             <asp:ListItem Value="32" data-group="4">Metekel</asp:ListItem>
@@ -254,7 +254,7 @@ input[type=submit] {
                             <asp:ListItem Value="52" data-group="8">North Shewa</asp:ListItem>
                             <asp:ListItem Value="53" data-group="8">Southwest Shewa</asp:ListItem>
                             <asp:ListItem Value="54" data-group="8">West Arsi</asp:ListItem>
-                            <asp:ListItem Value="55" data-group="8">West Guji</asp:ListItem>
+                            <asp:ListItem Value="55" data-group="8">Guji</asp:ListItem>
                             <asp:ListItem Value="56" data-group="8">West Haraghe</asp:ListItem>
                             <asp:ListItem Value="57" data-group="8">West Shewa</asp:ListItem>
                             <asp:ListItem Value="58" data-group="8">West Welega</asp:ListItem>
@@ -270,7 +270,7 @@ input[type=submit] {
                               <asp:ListItem Value="66" data-group="9">Kembata Tembaro</asp:ListItem>
                              <asp:ListItem Value="67" data-group="9">Konso</asp:ListItem>
                              <asp:ListItem Value="68" data-group="9">Konta Special Woreda</asp:ListItem>
-                             <asp:ListItem Value="69" data-group="9">Sheka</asp:ListItem>
+                             <asp:ListItem Value="69" data-group="9">Bench Sheko</asp:ListItem>
                              <asp:ListItem Value="70" data-group="9">Sidama</asp:ListItem>
                              <asp:ListItem Value="71" data-group="9">Silte</asp:ListItem>
                              <asp:ListItem Value="72" data-group="9">South Omo</asp:ListItem>
@@ -301,7 +301,7 @@ input[type=submit] {
                             <asp:ListItem  value="3" data-group="3">Arba Minch</asp:ListItem>
                             <asp:ListItem  value="4" data-group="4">Bahir Dar</asp:ListItem>
                             <asp:ListItem value="5" data-group="5" >Becho</asp:ListItem>
-                            <asp:ListItem Value="6" data-group="6">Dale</asp:ListItem>
+                            <asp:ListItem Value="6" data-group="6">Yirgalem</asp:ListItem>
                             <asp:ListItem Value="7" data-group="7" >Dilla</asp:ListItem>
                             <asp:ListItem Value="8" data-group="8">Gambela</asp:ListItem>
                             <asp:ListItem Value="9" data-group="9">Gode</asp:ListItem>
@@ -315,6 +315,16 @@ input[type=submit] {
                              <asp:ListItem Value="17" data-group="17">Woreda 8</asp:ListItem>
                              <asp:ListItem Value="18" data-group="18">Woreda 6</asp:ListItem>
                              <asp:ListItem Value="19" data-group="19">Addis Ketema</asp:ListItem>
+                            <asp:ListItem Value="20" data-group="20">Shewa Robit</asp:ListItem>
+                            <asp:ListItem Value="21" data-group="21">Mizan Aman</asp:ListItem>
+                            <asp:ListItem Value="22" data-group="22">Debre berhan</asp:ListItem>
+                            <asp:ListItem Value="23" data-group="23">Weldia</asp:ListItem>
+                            <asp:ListItem Value="24" data-group="24">Dessie</asp:ListItem>
+                            <asp:ListItem Value="25" data-group="25">Assosa</asp:ListItem>
+                            <asp:ListItem Value="26" data-group="26">Jimma</asp:ListItem>
+                            <asp:ListItem Value="27" data-group="27">Adolla</asp:ListItem>
+                            <asp:ListItem Value="28" data-group="28">Kebridehar</asp:ListItem>
+                          <asp:ListItem Value="29" data-group="29">Chiro</asp:ListItem>
 
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -346,6 +356,20 @@ input[type=submit] {
 
                            <asp:ListItem Value="18" data-group="18">Yekatit 12 Hospital</asp:ListItem>
                            <asp:ListItem Value="6" data-group="6">Yirgalem General Hospital</asp:ListItem>
+
+                          <asp:ListItem Value="20" data-group="20">Shewa Robit Health Center</asp:ListItem>
+
+                          <asp:ListItem Value="21" data-group="21">Mizan Aman Teaching Hospital</asp:ListItem>
+                          <asp:ListItem Value="22" data-group="22">Debre Berhan Hospital</asp:ListItem>
+                          <asp:ListItem Value="23" data-group="23">Weldia General Hospital</asp:ListItem>
+                          <asp:ListItem Value="24" data-group="24">Dessie Referal Hospital</asp:ListItem>
+                          <asp:ListItem Value="25" data-group="25">Assosa Hospital</asp:ListItem>
+                          <asp:ListItem Value="26" data-group="26">Shenen Gibe Hospital</asp:ListItem>
+                          <asp:ListItem Value="27" data-group="27">Adolla Weyu Hospital</asp:ListItem>
+                          <asp:ListItem Value="28" data-group="28">Kebridehar Hospital</asp:ListItem>
+                          <asp:ListItem Value="29" data-group="29">Chiro Hospital</asp:ListItem>
+
+
                         </asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rfvHF" runat="server" Text="* Health Facility required." ControlToValidate="ddlHealthF" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
@@ -527,7 +551,7 @@ input[type=submit] {
         }
 
         /*An array containing all the country names in the world:*/
-        var countries = ["ET-AA-AK-AK-HC-", "ET-AA-YE-Y12H-", "ET-AA-KK-W3-HC-", "ET-AA-KK-MK-HC-", "ET-AA-KK-KE-HC-", "ET-AM-BD-BD-AAH-", "ET-AM-NS-DB-DBH-", "ET-AM-NS-SR-SRHC-", "ET-AM-NW-WO-WOH-", "ET-AM-SW-DE-DEH-", "ET-BG-AS-AS-AH-", "ET-GA-AN-GA-GH-", "ET-OR-AR-SH-SH-", "ET-OR-ES-AD-AH-", "ET-OR-GU-AD-AH-", "ET-OR-JI-SGH-", "ET-OR-SWS-BE-TBH-", "ET-OR-WH-CH-CHH-", "ET-OR-WS-AM-AH-", "ET-SN-GG-AM-AH-", "ET-SN-GE-DL-DH-", "ET-SN-HA-HO-HH-", "ET-SN-HA-HA-HH-", "ET-SN-SI-HA-HH-", "ET-SN-SI-YE-YH-", "ET-SN-WO-SO-SH-", "ET-SN-WO-SO-SH-", "ET-SO-KD-KDH-", "ET-SO-GO-GH-", "ER-AN-HA-HHC-", "ER-AN-KE-KRH-", "ER-DE-AK-AKH-", "ER-DE-AQ-AQH-", "ER-DE-DK-DHO-", "ER-DE-ME-MZH-", "ER-DK-AS-ARH-", "ER-GB-BA-BMH-", "ER-GB-BA-BRH-", "ER-GB-MO-MHC-", "ER-GB-TE-THO-", "ER-GN-AG-AHO-", "ER-MA-AK-AHC-", "ER-MA-GO-GCH-", "ER-MA-HA-ZRH-", "ER-MA-HAZ-ZRH-", "ER-MA-KE-HRH-", "ER-MA-SE-SHC-", "ER-MA-TS-ORH-", "ER-SK-AF-AFH-", "ER-SK-GH-GHO-", "ER-SK-MA-MRH-"];
+        var countries = ["ET-AA-AK-AK-HC-", "ET-AA-YE-Y12H-", "ET-AA-KK-W3-HC-", "ET-AA-KK-MK-HC-", "ET-AA-KK-KE-HC-", "ET-AM-BD-BD-AAH-", "ET-AM-NS-DB-DBH-", "ET-AM-NS-SR-SRHC-", "ET-AM-NW-WO-WOH-", "ET-AM-SW-DE-DEH-", "ET-BG-AS-AS-AH-", "ET-GA-AN-GA-GH-", "ET-OR-AR-SH-SH-", "ET-OR-ES-AD-AH-", "ET-OR-GU-AT-ADH-", "ET-OR-JI-SGH-", "ET-OR-SWS-BE-TBH-", "ET-OR-WH-CH-CHH-", "ET-OR-WS-AM-AH-", "ET-SN-GG-AM-AH-", "ET-SN-GE-DL-DH-", "ET-SN-HA-HO-HH-", "ET-SN-HA-HA-HH-", "ET-SN-SI-HA-HH-", "ET-SN-SI-YE-YH-", "ET-SN-WO-SO-SH-", "ET-SN-BSH-MATH-", "ET-SO-KD-KDH-", "ET-SO-GO-GH-", "ER-AN-HA-HHC-", "ER-AN-KE-KRH-", "ER-DE-AK-AKH-", "ER-DE-AQ-AQH-", "ER-DE-DK-DHO-", "ER-DE-ME-MZH-", "ER-DK-AS-ARH-", "ER-GB-BA-BMH-", "ER-GB-BA-BRH-", "ER-GB-MO-MHC-", "ER-GB-TE-THO-", "ER-GN-AG-AHO-", "ER-MA-AK-AHC-", "ER-MA-GO-GCH-", "ER-MA-HA-ZRH-", "ER-MA-HAZ-ZRH-", "ER-MA-KE-HRH-", "ER-MA-SE-SHC-", "ER-MA-TS-ORH-", "ER-SK-AF-AFH-", "ER-SK-GH-GHO-", "ER-SK-MA-MRH-"];
         /*initiate the autocomplete function on the "txtPId" element, and pass along the countries array as possible autocomplete values:*/
         autocomplete(document.getElementById("txtPId"), countries);
 

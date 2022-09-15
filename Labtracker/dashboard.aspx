@@ -572,7 +572,7 @@
                 <script type="text/javascript">
 
                     var adama = "Adama Hospital";
-                    var mymap = L.map('mapid2').setView([9.058702156392139, 3.359765625
+                    var mymap = L.map('mapid2').setView([9.058702156392139, 35.359765625
                     ], 3.5);
 
                     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
