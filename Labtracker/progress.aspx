@@ -641,16 +641,17 @@
                                 <div class="card shadow mb-4 table-responsive">
                                     <p>Drug Susceptibility</p>
 
-                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="DstID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                                             <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
-                                            <asp:BoundField DataField="DrugLine" HeaderText="Line" SortExpression="DrugLine" />
+                                            <asp:BoundField DataField="DrugLine" HeaderText="MediaType" SortExpression="DrugLine" />
                                             <asp:BoundField DataField="Drug" HeaderText="Drug" SortExpression="Drug" />
 
                                             <asp:BoundField DataField="Sensitivity" HeaderText="Susceptbility" SortExpression="Sensitivity" />
-                                            <asp:BoundField DataField="Dater" HeaderText="Date" SortExpression="Dater" />
+                                            <asp:BoundField DataField="Dater" HeaderText="DateSetup" SortExpression="Dater" />
+                                             <asp:BoundField DataField="DateResult" HeaderText="DateResult" SortExpression="DateResult" />
                                             <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
 
 
@@ -669,7 +670,23 @@
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,Initial FROM Dsts ORDER BY DstID DESC"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                                        SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,DateResult,Initial FROM Dsts ORDER BY DstID DESC"
+                                        UpdateCommand="UPDATE Dsts SET [PatientId]=@PatientId,[DrugLine]=@DrugLine,[Drug]=@Drug,[Sensitivity]=@Sensitivity,[Dater]=@Dater,[DateResult]=@DateResult,[Initial]=@Initial WHERE DstID=@DstID">
+                                        <UpdateParameters>
+                                            <asp:Parameter Name="PatientId" Type="String" />
+                                            <asp:Parameter Name="DrugLine" Type="String" />
+                                          
+                                            <asp:Parameter Name="Drug" Type="String" />
+                                            <asp:Parameter Name="Sensitivity" Type="String" />
+                                            <asp:Parameter Name="Dater" Type="DateTime" />
+                                            <asp:Parameter Name="DateResult" Type="DateTime" />
+                                            <asp:Parameter Name="Initial" Type="String" />                                    
+                                            <asp:Parameter Name="DstID" Type="Int32" />
+
+                                        </UpdateParameters>
+
+                                    </asp:SqlDataSource>
 
                                 </div>
                             </div>

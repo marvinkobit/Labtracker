@@ -55,10 +55,34 @@ namespace Labtracker
                         break;
 
                     case "DST":
-                        string drug = ddlDSTdetail1.SelectedItem.ToString();
-                        string drugline = selectedvalue;
-                        string sens = ddlDSTdetail2.SelectedItem.ToString();
-                        addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, sens, drug, drugline, labinitial.ToUpper(), datesh);
+                        //string drug = ddlDSTdetail1.SelectedItem.ToString();
+                        string drugmediatype = selectedvalue;
+                        //string sens = ddlDSTdetail2.SelectedItem.ToString();
+                        string dateResrec = dateResultRecord.Text;
+                    //DateTime dateReport = Convert.ToDateTime(daterip);
+                    string[] dstdrug = new String[5];
+                    dstdrug[0] = ddlDSTdrug1.SelectedItem.ToString();
+                    dstdrug[1] = ddlDSTdrug2.SelectedItem.ToString();
+                    dstdrug[2] = ddlDSTdrug3.SelectedItem.ToString();
+                    dstdrug[3] = ddlDSTdrug4.SelectedItem.ToString();
+                    dstdrug[4] = ddlDSTdrug5.SelectedItem.ToString();
+
+                    string[] dstres = new String[5];
+                         dstres[0] = ddlDSTdetail1.SelectedItem.ToString();
+                         dstres[1] = ddlDSTdetail2.SelectedItem.ToString();
+                         dstres[2] = ddlDSTdetail3.SelectedItem.ToString();
+                         dstres[3] = ddlDSTdetail4.SelectedItem.ToString();
+                         dstres[4] = ddlDSTdetail5.SelectedItem.ToString();
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if(dstres[i].Equals("Select DST result") || dstdrug[i].Equals("Select DST drug"))
+                            {
+                                continue;
+                            }
+                            addSuccessres = updates.AddDSTUpdate(txtSampleIdUpdate.Text, dstres[i].Equals("Select DST result") ? null : dstres[i], dstdrug[i].Equals("Select DST drug") ? null : dstdrug[i], drugmediatype, labinitial.ToUpper(), datesh, dateResrec);
+                       
+                        }
                         break;
 
                     case "Growth Detection":

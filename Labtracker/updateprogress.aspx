@@ -195,8 +195,8 @@ input[type=submit] {
                                                         <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
                                                         <asp:ListItem Value="17" data-group="5">Failed-Discard</asp:ListItem>
 
-                                                        <asp:ListItem Value="18" data-group="7">First Line</asp:ListItem>
-                                                        <asp:ListItem Value="19" data-group="7">Second Line</asp:ListItem>
+                                                        <asp:ListItem Value="18" data-group="7">MGIT</asp:ListItem>
+                                                        <asp:ListItem Value="19" data-group="7">LJ</asp:ListItem>
 
                                                         <asp:ListItem Value="20" data-group="8">Pos</asp:ListItem>
                                                         <asp:ListItem Value="21" data-group="8">Neg</asp:ListItem>
@@ -431,30 +431,44 @@ input[type=submit] {
                                                 </div>
 
                                                 <div id="DSTDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
-                                                    <asp:Label>Please enter details here</asp:Label>
+                                                    <asp:Label>Drug 1</asp:Label>
 
                                                     <div class="col-sm-6 col-lg-12">
-                                                        <asp:DropDownList ID="ddlDSTdetail1" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                        <asp:DropDownList ID="ddlDSTdrug1" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
                                                             <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
-                                                            <asp:ListItem Value="1" data-group="18">STM</asp:ListItem>
+                                                            <asp:ListItem Value="1" data-group="18">STR</asp:ListItem>
                                                             <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
                                                             <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
                                                             <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
                                                             <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
-                                                            <asp:ListItem Value="6" data-group="19">OFX</asp:ListItem>
-                                                            <asp:ListItem Value="7" data-group="19">LEV</asp:ListItem>
-                                                            <asp:ListItem Value="8" data-group="19">MOX</asp:ListItem>
-                                                            <asp:ListItem Value="9" data-group="19">CIP</asp:ListItem>
-                                                            <asp:ListItem Value="10" data-group="19">KAN</asp:ListItem>
-                                                            <asp:ListItem Value="11" data-group="19">AMK</asp:ListItem>
-                                                            <asp:ListItem Value="12" data-group="19">CAP</asp:ListItem>
-                                                            <asp:ListItem Value="13" data-group="19">ETH</asp:ListItem>
-                                                            <asp:ListItem Value="14" data-group="19">PTH</asp:ListItem>
-                                                            <asp:ListItem Value="15" data-group="19">CS</asp:ListItem>
-                                                            <asp:ListItem Value="16" data-group="19">PAS</asp:ListItem>
+                                                           
                                                         </asp:DropDownList>
                                                     </div>
-                                                    <asp:Label>Please enter details here</asp:Label>
+                                                    <asp:Label>Sensitivity 1</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdetail1" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST result</asp:ListItem>
+                                                            <asp:ListItem Value="1">R</asp:ListItem>
+                                                            <asp:ListItem Value="2">S</asp:ListItem>
+
+                                                        </asp:DropDownList>
+                                                    </div>
+
+                                                     <asp:Label>Drug 2</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdrug2" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
+                                                            <asp:ListItem Value="1" data-group="18">STR</asp:ListItem>
+                                                            <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
+                                                            <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
+                                                            <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
+                                                            <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
+                                                           
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <asp:Label>Sensitivity 2</asp:Label>
 
                                                     <div class="col-sm-6 col-lg-12">
                                                         <asp:DropDownList ID="ddlDSTdetail2" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
@@ -463,6 +477,83 @@ input[type=submit] {
                                                             <asp:ListItem Value="2">S</asp:ListItem>
 
                                                         </asp:DropDownList>
+                                                    </div>
+
+                                                     <asp:Label>Drug 3</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdrug3" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
+                                                            <asp:ListItem Value="1" data-group="18">STR</asp:ListItem>
+                                                            <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
+                                                            <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
+                                                            <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
+                                                            <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
+                                                           
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <asp:Label>Sensitivity 3</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdetail3" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST result</asp:ListItem>
+                                                            <asp:ListItem Value="1">R</asp:ListItem>
+                                                            <asp:ListItem Value="2">S</asp:ListItem>
+
+                                                        </asp:DropDownList>
+                                                    </div>
+
+                                                     <asp:Label>Drug 4</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdrug4" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST type</asp:ListItem>
+                                                            <asp:ListItem Value="1" data-group="18">STR</asp:ListItem>
+                                                            <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
+                                                            <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
+                                                            <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
+                                                            <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
+                                                           
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <asp:Label>Sensitivity 4</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdetail4" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST result</asp:ListItem>
+                                                            <asp:ListItem Value="1">R</asp:ListItem>
+                                                            <asp:ListItem Value="2">S</asp:ListItem>
+
+                                                        </asp:DropDownList>
+                                                    </div>
+
+                                                     <asp:Label>Drug 5</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdrug5" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST drug</asp:ListItem>
+                                                            <asp:ListItem Value="1" data-group="18">STR</asp:ListItem>
+                                                            <asp:ListItem Value="2" data-group="18">INH</asp:ListItem>
+                                                            <asp:ListItem Value="3" data-group="18">RIF</asp:ListItem>
+                                                            <asp:ListItem Value="4" data-group="18">EMB</asp:ListItem>
+                                                            <asp:ListItem Value="5" data-group="18">PZA</asp:ListItem>
+                                                           
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <asp:Label>Sensitivity 5</asp:Label>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:DropDownList ID="ddlDSTdetail5" class="form-control col-sm-6 mb-3 mb-sm-0 col-lg-12" ToolTip="d" DataTextField="" runat="server">
+                                                            <asp:ListItem Selected hidden>Select DST result</asp:ListItem>
+                                                            <asp:ListItem Value="1">R</asp:ListItem>
+                                                            <asp:ListItem Value="2">S</asp:ListItem>
+
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Date result recorded</asp:Label>
+                                                        <br />
+                                                        <asp:TextBox ID="dateResultRecord" class="form-control " TextMode="Date" ToolTip="Date sample result was Report" placeholder="Report Date" runat="server"></asp:TextBox>
                                                     </div>
                                                     <!--<asp:TextBox ID="txtCountry" class="form-control form-control-user" placeholder="Country" runat="server"></asp:TextBox> -->
                                                 </div>
@@ -566,11 +657,11 @@ input[type=submit] {
             function ToogleDstval() {
                 // var divResval = document.getElementById('#DRESVAL');
                 // divResval.style.display = "block";
-                $variable = $("#ddlDSTdetail1").html();
+                /*$variable = $("#ddlDSTdetail1").html();
                 $("#ddlDSTdetail1").html($variable);
                 var val = $("#DDLRESVAL").find(":selected").val();
                 $("#ddlDSTdetail1 option").show();
-                $("#ddlDSTdetail1 option[data-group!=" + val + "]").hide();
+                $("#ddlDSTdetail1 option[data-group!=" + val + "]").hide();*/
 
             }
             function ToogleResval() {

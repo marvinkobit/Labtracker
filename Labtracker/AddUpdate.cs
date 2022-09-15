@@ -324,7 +324,7 @@ namespace Labtracker
 
 
         //Overload for DST (string, string, string, string, string, DateTime)
-        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater)
+        public bool AddDSTUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater,string dateresult)
         {
            
             var tbgdstupdates = new Dst();
@@ -337,7 +337,8 @@ namespace Labtracker
             tbgdstupdates.Drug = drug;
             tbgdstupdates.Sensitivity = sensetive;
             tbgdstupdates.Dater = Convert.ToDateTime(dater);
-              
+            tbgdstupdates.DateResult = string.IsNullOrEmpty(dateresult) ? (DateTime?)null : Convert.ToDateTime(dateresult);
+
 
             using (SampleContext _db = new SampleContext())
             {

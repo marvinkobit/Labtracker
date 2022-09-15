@@ -337,6 +337,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtReportDate;
         
         /// <summary>
+        /// ddlDSTdrug1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdrug1;
+        
+        /// <summary>
         /// ddlDSTdetail1 control.
         /// </summary>
         /// <remarks>
@@ -346,6 +355,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.DropDownList ddlDSTdetail1;
         
         /// <summary>
+        /// ddlDSTdrug2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdrug2;
+        
+        /// <summary>
         /// ddlDSTdetail2 control.
         /// </summary>
         /// <remarks>
@@ -353,6 +371,69 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDSTdetail2;
+        
+        /// <summary>
+        /// ddlDSTdrug3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdrug3;
+        
+        /// <summary>
+        /// ddlDSTdetail3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdetail3;
+        
+        /// <summary>
+        /// ddlDSTdrug4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdrug4;
+        
+        /// <summary>
+        /// ddlDSTdetail4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdetail4;
+        
+        /// <summary>
+        /// ddlDSTdrug5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdrug5;
+        
+        /// <summary>
+        /// ddlDSTdetail5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSTdetail5;
+        
+        /// <summary>
+        /// dateResultRecord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateResultRecord;
         
         /// <summary>
         /// txtCountry control.
