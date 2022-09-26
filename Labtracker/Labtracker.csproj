@@ -2083,6 +2083,7 @@
     <Content Include="shp.js" />
     <Content Include="Site.Master" />
     <Content Include="storage.aspx" />
+    <Content Include="UpdateFreezer.aspx" />
     <Content Include="updateprogress.aspx" />
     <Content Include="updateresult.aspx" />
     <Content Include="updatestorage.aspx" />
@@ -2399,6 +2400,13 @@
     </Compile>
     <Compile Include="storage.aspx.designer.cs">
       <DependentUpon>storage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateFreezer.aspx.cs">
+      <DependentUpon>UpdateFreezer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateFreezer.aspx.designer.cs">
+      <DependentUpon>UpdateFreezer.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateprogress.aspx.cs">
       <DependentUpon>updateprogress.aspx</DependentUpon>

@@ -326,6 +326,10 @@
                             <h1 class="h3 mb-0 text-gray-800">Isolate Storage </h1>
                             <a href="updatestorage.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i>Update Storage</a>
+
+                             <a href="UpdateFreezer.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                <i class="fas fa-download fa-sm text-white-50"></i>Update Freezer</a>
+
                             <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
                 <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
                             <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
