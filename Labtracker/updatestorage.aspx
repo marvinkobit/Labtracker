@@ -192,8 +192,10 @@ input[type=submit] {
 
                                                 <div id="IsolateStorageDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12">
                                                     <div class="col-sm-6 col-lg-12">
-                                                        <asp:TextBox ID="txtFreezer" class="form-control " placeholder="Freezer" runat="server"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="* Freezer required." ControlToValidate="txtStorageRack" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                         <asp:Label>Freezer ID:</asp:Label>
+                                                        <asp:DropDownList ID="ddlFreezer" DataSourceID="SqlDataSource4" class="form-control" runat="server" ToolTip="Choose Freezer"  DataTextField="Freezer_AHRIUniqueId" DataValueField="Freezer_AHRIUniqueId" >                               
+                                                        </asp:DropDownList>
+                                                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT * FROM [Labtracker].[dbo].[Freezers]"></asp:SqlDataSource>
                                                     </div>
                                                     <br />
                                                     <div class="col-sm-6 col-lg-12">

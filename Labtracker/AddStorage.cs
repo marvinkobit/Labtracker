@@ -52,5 +52,44 @@ namespace Labtracker
             return (true, "Perfecto");
 
         }
+
+        public (bool, string) AddFreezer(string ahriUID, string manuname, string model, string serialnum, string currentloc, string equipcond, string calibdate, string calibdatenext)
+        {
+            var tbgfreezer = new Freezer
+            {
+                Freezer_AHRIUniqueId = ahriUID,
+                ManufacturerName = manuname,
+
+                Model = model,
+                SerialNumber = serialnum,
+                CurrentLocation = currentloc,
+                EquipCondition = equipcond,
+                CalibrationDate = string.IsNullOrEmpty(calibdate) ? (DateTime?)null : Convert.ToDateTime(calibdate),
+                NextCalibrationDate = string.IsNullOrEmpty(calibdatenext) ? (DateTime?)null : Convert.ToDateTime(calibdatenext)
+            };
+
+            using (SampleContext _db = new SampleContext())
+            {
+                try
+                {
+                    _db.Freezers.Add(tbgfreezer);
+                    _db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    return (false, e.ToString());
+                }
+            }
+            return (true, "Perfecto");
+
+        }
     }
 }
