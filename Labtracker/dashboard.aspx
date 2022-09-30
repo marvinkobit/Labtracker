@@ -579,6 +579,34 @@
                         attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> | <a href="https://tbgen.ahri.gov.et" target="_blank">TBGEN, AHRI</a> mapdata'
                     }).addTo(mymap);
 
+                    
+
+                    var oromia = '<%=Regions[0]%>';
+                    var snnp = '<%=Regions[1]%>';
+                    var gambela = '<%=Regions[2]%>';
+                    var addis = '<%=Regions[3]%>';
+                    var amhara = '<%=Regions[4]%>';
+                    var somali = '<%=Regions[5]%>';
+                    var benshangul = '<%=Regions[6]%>';
+                    var tigray = '<%=Regions[7]%>';
+                    var afar = '<%=Regions[8]%>';
+                    var harar = '<%=Regions[9]%>';
+
+
+                    var regional = {
+                        'Amhara': amhara,
+                        'Oromia': oromia,
+                        'SNNPR': snnp,
+                        'Gambela': gambela,
+                        'Addis Ababa': addis,
+                        'Somali': somali,
+                        'Benshangul Gumu': benshangul,
+                        'Tigray': tigray,
+                        'Afar': afar,
+                        'Hareri': harar,
+                        'Dire Dawa': '0'
+                    }
+
                     var shpfile = new L.Shapefile('Content/spatial/ethiopiaregion.zip',
                         {
                             style: function (feature) {
@@ -593,7 +621,7 @@
                                         });
                                 }*/
                                 if (feature.properties) {
-                                    layer.bindPopup(feature.properties["REGIONNAME"]+"</br>"+"Samples: _");
+                                    layer.bindPopup(feature.properties["REGIONNAME"] + "</br>" + "Samples: " + regional[feature.properties["REGIONNAME"]]);
                                 }
                             }
                         });
