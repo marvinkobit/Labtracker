@@ -1,7 +1,10 @@
 ﻿using Labtracker.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -13,6 +16,8 @@ namespace Labtracker
 
         public (bool, string) Addstore(string PaId, string freezer, string rack, string box, string matrix, string date,string category, string mediatype, string drawer, string shelf)
         {
+            string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
+
             var tbgstore = new Store
             {
                 PatientId = PaId,
@@ -31,6 +36,36 @@ namespace Labtracker
 
             using (SampleContext _db= new SampleContext())
             {
+                try
+                {
+                    //check if boxmatrix is taken
+                    SqlConnection SQLConn = new SqlConnection(connStr);
+                    SqlCommand command = new SqlCommand("SELECT COUNT([StoreId]) FROM[Labtracker].[dbo].[Stores] WHERE [Freezer]=@freezer and [Rack]=@rack and Box=@box and Matrix=@matrix", SQLConn);
+                    command.Parameters.Add("@Freezer", SqlDbType.NVarChar).Value = tbgstore.Freezer;
+                    command.Parameters.Add("@Rack", SqlDbType.NVarChar).Value = tbgstore.Rack;
+                    command.Parameters.Add("@Box", SqlDbType.NVarChar).Value = tbgstore.Box;
+                    command.Parameters.Add("@Matrix", SqlDbType.NVarChar).Value = tbgstore.Matrix;
+                    SQLConn.Open();
+                    int count;               
+                    using (SqlDataReader reader = command.ExecuteReader())
+                     {
+                            reader.Read();
+                            count = Convert.ToInt32(reader[0]);
+                     }
+                    SQLConn.Close();
+                    if (count==0){
+                        
+                    }
+                    else
+                    {
+                        return (false, "Error... Another Isolate is stored at this position.");
+                    }
+
+                }
+                catch
+                {
+
+                }
                 try
                 {
                     _db.Stores.Add(tbgstore);

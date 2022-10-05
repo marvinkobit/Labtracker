@@ -77,9 +77,9 @@ namespace Labtracker
                     string sql2 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Pos'";
 
                     string sql3 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Ethiopia'";
-                    string sql4 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Eritrea'";
-                    string sql5 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Cameroon'";
-                    string sql6 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Sudan'";
+                    string sql4 = "SELECT COUNT(DISTINCT PatientId) FROM Stores WHERE PatientId LIKE 'ER%'";
+                    string sql5 = "SELECT COUNT(DISTINCT PatientId) FROM Stores WHERE PatientId LIKE 'CM%'";
+                    string sql6 = "SELECT COUNT(DISTINCT PatientId) FROM Stores WHERE PatientId LIKE 'SD%'";
 
                     string sql8 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-OR%'";
                     string sql9 = "SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE 'ET-SN%'";

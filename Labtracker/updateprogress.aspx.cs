@@ -60,14 +60,14 @@ namespace Labtracker
                         //string sens = ddlDSTdetail2.SelectedItem.ToString();
                         string dateResrec = dateResultRecord.Text;
                     //DateTime dateReport = Convert.ToDateTime(daterip);
-                    string[] dstdrug = new String[5];
-                    dstdrug[0] = ddlDSTdrug1.SelectedItem.ToString();
-                    dstdrug[1] = ddlDSTdrug2.SelectedItem.ToString();
-                    dstdrug[2] = ddlDSTdrug3.SelectedItem.ToString();
-                    dstdrug[3] = ddlDSTdrug4.SelectedItem.ToString();
-                    dstdrug[4] = ddlDSTdrug5.SelectedItem.ToString();
+                        string[] dstdrug = new String[5];
+                        dstdrug[0] = ddlDSTdrug1.SelectedItem.ToString();
+                        dstdrug[1] = ddlDSTdrug2.SelectedItem.ToString();
+                        dstdrug[2] = ddlDSTdrug3.SelectedItem.ToString();
+                        dstdrug[3] = ddlDSTdrug4.SelectedItem.ToString();
+                        dstdrug[4] = ddlDSTdrug5.SelectedItem.ToString();
 
-                    string[] dstres = new String[5];
+                         string[] dstres = new String[5];
                          dstres[0] = ddlDSTdetail1.SelectedItem.ToString();
                          dstres[1] = ddlDSTdetail2.SelectedItem.ToString();
                          dstres[2] = ddlDSTdetail3.SelectedItem.ToString();
@@ -154,9 +154,7 @@ namespace Labtracker
                 else
                 {
                     asSavelbl.Text = String.Format("Unable to add new Update to database. {0}{1}{2}", selectedvalue,dateshit, addSuccessexp);
-                }
-          
-
+                }         
         }
 
       
