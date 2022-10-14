@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="progress.aspx.cs" Inherits="Labtracker.progress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="progress.aspx.cs" Inherits="Labtracker.progress"  EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -580,6 +580,9 @@
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
+
+                                <asp:Button ID="Button2" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
+
 
                             </div>
 
