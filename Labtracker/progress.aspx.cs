@@ -7,6 +7,17 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 
+
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Drawing;
+using System.Data.SqlClient;
+using System.Configuration;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+
 namespace Labtracker
 {
     public partial class progress : System.Web.UI.Page
@@ -136,5 +147,42 @@ namespace Labtracker
             authenticationManager.SignOut();
             Response.Redirect("~/login.aspx");
         }
+
+        protected void ExportToPDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+            Response.Charset = "";
+            Response.ContentType = "application/pdf";
+
+            //To Export all pages.
+            //gvResult.AllowPaging = false;
+            //this.BindGrid();
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    gvResult.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+         }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
+        }
+
+
     }
 }
