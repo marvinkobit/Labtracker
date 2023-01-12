@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,9 +28,31 @@ namespace Labtracker
             }
             if (!IsPostBack)
             {
-              
                 Session["isFilter"] = false;
                 gvSample.DataSourceID = "SqlDataSource1";
+
+
+                string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Samples";
+
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            lblSamplesRecieved.Text = reader[0].ToString();
+                        }
+
+                    }
+
+
+                }
+
             }
         }
 

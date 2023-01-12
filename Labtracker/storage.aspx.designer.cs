@@ -31,6 +31,24 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Literal UsernameText;
         
         /// <summary>
+        /// lblIsolatesAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIsolatesAll;
+        
+        /// <summary>
+        /// lblIsolatesDistinct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIsolatesDistinct;
+        
+        /// <summary>
         /// gvResult control.
         /// </summary>
         /// <remarks>

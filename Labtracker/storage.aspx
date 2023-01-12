@@ -345,7 +345,7 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Isolate Stored</p>
+                                    <p>Isolate Stored: <asp:Label runat="server" ID="lblIsolatesAll" Text=""></asp:Label> isolates of <asp:Label runat="server" ID="lblIsolatesDistinct" Text=""> </asp:Label> samples </p>
                                     <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="StoreId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
