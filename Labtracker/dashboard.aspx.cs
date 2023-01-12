@@ -58,8 +58,9 @@ namespace Labtracker
                     lblTotalSample.Text = _db.Samples.Count().ToString();
                     lblIsolateStored.Text = _db.Stores.Count().ToString();
                     string sampleColTarget = Convert.ToString( Math.Round( Convert.ToDecimal(_db.Samples.Count().ToString()) / 9, 1));  //target of sample collecton 900 eth 2000 total
+                    string sampleResultTarget = Convert.ToString(Math.Round(Convert.ToDecimal(_db.Results.Count().ToString()) / 9, 1));
                     lblsamplecoltar.Text = sampleColTarget; 
-                    lblisolatetar.Text = sampleColTarget;
+                    lblisolatetar.Text = sampleResultTarget;
                     progressBar1.Attributes.Add("Style", String.Format("width: {0}%", sampleColTarget));
                     progressBar2.Attributes.Add("Style", String.Format("width: {0}%", sampleColTarget));
 
@@ -74,7 +75,7 @@ namespace Labtracker
 
                     string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'";
                     string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Neg'";
-                    string sql2 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Pos'";
+                    string sql2 = "SELECT COUNT(DISTINCT PatientId) FROM Results";
 
                     string sql3 = "SELECT COUNT(FromCountry) FROM Samples WHERE FromCountry='Ethiopia'";
                     string sql4 = "SELECT COUNT(DISTINCT PatientId) FROM Stores WHERE PatientId LIKE 'ER%'";
