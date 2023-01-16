@@ -423,12 +423,14 @@
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Samples'"></asp:SqlDataSource>
                 <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
-                    <asp:ListItem>equals</asp:ListItem>
                     <asp:ListItem>starts with</asp:ListItem>
+                    <asp:ListItem>equals</asp:ListItem>                   
                 </asp:DropDownList>
                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                 <asp:Button ID="btnFilter" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
                 <asp:Button ID="btnExport" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
+
+                <asp:Button ID="btnFilterExport" CssClass="btn-primary" runat="server" Text="Generate PDF Report for Filter" OnClick="GeneratePDF" />
             
           </div>
 
