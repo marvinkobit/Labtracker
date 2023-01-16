@@ -40,7 +40,69 @@ namespace Labtracker
 
                 Session["isFilter_gvResult"] = false;
                 gvResult.DataSourceID = "SqlDataSource1";
-            }
+
+
+                string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Results";
+                    string sql2 = "SELECT COUNT(DISTINCT PatientId) FROM HeatKills";
+                    string sql3 = "SELECT COUNT(PatientId) FROM Dsts";
+                    string sql4 = "SELECT COUNT(DISTINCT PatientId) FROM Dsts";
+
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+
+                            lblCultureResults.Text = reader[0].ToString();
+                        }
+
+                    }
+                    using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                    {
+                        using (SqlDataReader reader = cmd2.ExecuteReader())
+                        {
+                            reader.Read();
+
+                            lblHeatkilled.Text = reader[0].ToString();
+                        }
+
+                    }
+                    using (SqlCommand cmd3 = new SqlCommand(sql3, conn))
+                    {
+                        using (SqlDataReader reader = cmd3.ExecuteReader())
+                        {
+                            reader.Read();
+
+                            lblDSTtests.Text = reader[0].ToString();
+                        }
+
+                    }
+                    using (SqlCommand cmd4 = new SqlCommand(sql4, conn))
+                    {
+                        using (SqlDataReader reader = cmd4.ExecuteReader())
+                        {
+                            reader.Read();
+
+                            lblDST.Text = reader[0].ToString();
+                        }
+
+                    }
+
+
+
+
+                }
+
+
+
+                }
+
 
         }
         protected void gvGrowthResult_DataBound(object sender, EventArgs e)
@@ -152,7 +214,7 @@ namespace Labtracker
         {
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultRecent.pdf");
             Response.Charset = "";
             Response.ContentType = "application/pdf";
 

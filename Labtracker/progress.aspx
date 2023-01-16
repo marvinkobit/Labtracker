@@ -486,7 +486,7 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Culture Results</p>
+                                    <p>Culture Results: <asp:Label runat="server" ID="lblCultureResults" Text=""></asp:Label> </p>
 
                                     <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" CssClass="table table-bordered table-condensed">
 
@@ -594,7 +594,7 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Heat Killing</p>
+                                    <p>Heat Killed: <asp:Label runat="server" ID="lblHeatkilled" Text=""></asp:Label></p>
 
                                     <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
@@ -642,7 +642,7 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Drug Susceptibility</p>
+                                    <p>Drug Susceptibility: <asp:Label runat="server" ID="lblDSTtests" Text=""></asp:Label> tests for <asp:Label runat="server" ID="lblDST" Text=""></asp:Label> samples</p>
 
                                     <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="DstID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>

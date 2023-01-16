@@ -2,10 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Microsoft.AspNet.Identity;
 
 namespace Labtracker
@@ -27,9 +32,31 @@ namespace Labtracker
             }
             if (!IsPostBack)
             {
-              
                 Session["isFilter"] = false;
                 gvSample.DataSourceID = "SqlDataSource1";
+
+
+                string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+
+                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Samples";
+
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            lblSamplesRecieved.Text = reader[0].ToString();
+                        }
+
+                    }
+
+
+                }
+
             }
         }
 
@@ -86,6 +113,36 @@ namespace Labtracker
             }*/
         }
 
+        protected void ExportToPDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SamplesRecievedRecent.pdf");
+            Response.Charset = "";
+            Response.ContentType = "application/pdf";
+
+            //To Export all pages.
+            //gvResult.AllowPaging = false;
+            //this.BindGrid();
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    gvSample.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+        }
+
         protected void gvSample_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvSample.AllowSorting = true;
@@ -119,6 +176,11 @@ namespace Labtracker
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
             Response.Redirect("~/login.aspx");
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
         }
     }
 }

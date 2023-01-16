@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sample-receiving.aspx.cs" Inherits="Labtracker.sample_receiving" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sample-receiving.aspx.cs" Inherits="Labtracker.sample_receiving" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -342,8 +342,8 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4 table-responsive">
-               <br />
-                  <asp:GridView ID="gvSample"  runat="server" style="font-size: 12px" width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+                  <p>Samples Recieived: <asp:Label runat="server" ID="lblSamplesRecieved" Text=""></asp:Label></p>
+                  <asp:GridView ID="gvSample" runat="server" style="font-size: 12px" width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                          <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
@@ -428,6 +428,7 @@
                 </asp:DropDownList>
                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                 <asp:Button ID="btnFilter" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
+                <asp:Button ID="btnExport" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
             
           </div>
 

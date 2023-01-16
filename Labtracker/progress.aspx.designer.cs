@@ -31,6 +31,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Literal UsernameText;
         
         /// <summary>
+        /// lblCultureResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCultureResults;
+        
+        /// <summary>
         /// gvResult control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
+        /// lblHeatkilled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeatkilled;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,24 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
+        
+        /// <summary>
+        /// lblDSTtests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSTtests;
+        
+        /// <summary>
+        /// lblDST control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDST;
         
         /// <summary>
         /// gvDstResult control.
