@@ -240,6 +240,67 @@ namespace Labtracker
             }
          }
 
+
+        protected void Binder()
+        {
+            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
+            var comp = ddlCompare.SelectedItem.ToString();
+            var val = txtCompVal.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0}='{1}' ", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
+
+            dataSource_gvResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds"] = dataSource_gvResult;
+
+
+            gvResult.DataSourceID = null;
+            //gvResult.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvResult.DataSource = dataSource_gvResult;
+            gvResult.AllowSorting = true;
+            //sgvResult.AllowPaging = true;
+            gvResult.DataBind();
+
+            Session["isFilter_gvResult"] = true;
+        }
+
+        protected void GeneratePDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultRecent.pdf");
+            Response.Charset = "";
+            Response.ContentType = "application/pdf";
+
+            //To Export all pages.
+            gvResult.AllowPaging = false;
+            this.Binder();
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    gvResult.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+        }
+
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
