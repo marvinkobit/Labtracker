@@ -31,6 +31,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Literal UsernameText;
         
         /// <summary>
+        /// lbldnaprocessed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbldnaprocessed;
+        
+        /// <summary>
         /// gvResult control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// lblLibraryprep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibraryprep;
         
         /// <summary>
         /// GridView1 control.

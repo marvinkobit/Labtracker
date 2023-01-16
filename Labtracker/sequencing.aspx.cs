@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,7 +18,39 @@ namespace Labtracker
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
+            }
+            if (!IsPostBack)
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Dnaextracts";
+                    string sql2 = "SELECT COUNT(DISTINCT PatientId) FROM LibraryPreps";
 
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            lbldnaprocessed.Text = reader[0].ToString();
+                        }
+
+                    }
+
+                    using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                    {
+                        using (SqlDataReader reader = cmd2.ExecuteReader())
+                        {
+                            reader.Read();
+                            lblLibraryprep.Text = reader[0].ToString();
+                        }
+
+                    }
+
+
+                }
 
             }
 

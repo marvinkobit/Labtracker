@@ -214,7 +214,7 @@ namespace Labtracker
         {
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultRecent.pdf");
             Response.Charset = "";
             Response.ContentType = "application/pdf";
 
