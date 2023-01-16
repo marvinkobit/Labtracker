@@ -327,7 +327,7 @@
                             <a href="updatestorage.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i>Update Storage</a>
 
-                             <a href="UpdateFreezer.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <a href="UpdateFreezer.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i>Update Freezer</a>
 
                             <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
@@ -345,8 +345,12 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Isolate Stored: <asp:Label runat="server" ID="lblIsolatesAll" Text=""></asp:Label> isolates of <asp:Label runat="server" ID="lblIsolatesDistinct" Text=""> </asp:Label> samples </p>
-                                    <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="StoreId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound">
+                                    <p>Isolate Stored:
+                                        <asp:Label runat="server" ID="lblIsolatesAll" Text=""></asp:Label>
+                                        isolates of
+                                        <asp:Label runat="server" ID="lblIsolatesDistinct" Text=""> </asp:Label>
+                                        samples </p>
+                                    <asp:GridView ID="gvStorage" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="StoreId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvStorage_DataBound">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
@@ -409,12 +413,19 @@
                             <div class="col-lg-12 mb-4">
 
 
-                                <asp:DropDownList ID="DropDownList1" runat="server" Height="26px" Width="150px">
+                                <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
+                                    <asp:ListItem>PatientId</asp:ListItem>
+                                    <asp:ListItem>Mediatype</asp:ListItem>
+                                    <asp:ListItem>Freezer</asp:ListItem>
+                                    <asp:ListItem>category</asp:ListItem>
+                                    <asp:ListItem>Box</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="DropDownList2" runat="server" Height="26px" Width="155px">
+                                <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
+                                    <asp:ListItem>equals</asp:ListItem>
+                                    <asp:ListItem>starts with</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" />
+                                <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
+                                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
 
                             </div>
 
@@ -429,7 +440,7 @@
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
                                     <p>Freezers</p>
-                                    <asp:GridView ID="gvFreezer" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="FreezerID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound">
+                                    <asp:GridView ID="gvFreezer" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="FreezerID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnSorting="gvStorage_Sorting" OnPageIndexChanging="gvStorage_PageIndexChanging" OnDataBound="gvStorage_DataBound">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <asp:BoundField DataField="Freezer_AHRIUniqueId" HeaderText="AHRIUniqueId" SortExpression="Freezer_AHRIUniqueId" />

@@ -12,6 +12,8 @@ namespace Labtracker
 {
     public partial class storage : System.Web.UI.Page
     {
+        SqlDataSource dataSource_gvStorage = null;
+        bool isFilter = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             UsernameText.Text = User.Identity.GetUserName();
@@ -25,6 +27,11 @@ namespace Labtracker
 
             if (!Page.IsPostBack)
             {
+
+                Session["isFilter_gvStorage"] = false;
+                gvStorage.DataSourceID = "SqlDataSource1";
+
+
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
@@ -57,18 +64,18 @@ namespace Labtracker
             }
 
         }
-        protected void gvResult_DataBound(object sender, EventArgs e)
+        protected void gvStorage_DataBound(object sender, EventArgs e)
         {
-            if (gvResult.Rows.Count > 0)
+            if (gvStorage.Rows.Count > 0)
             {
-                string totsample = gvResult.Rows[gvResult.Rows.Count - 1].Cells[1].Text.ToString();
-                Session["Tsample"] = totsample;
+                //string totsample = gvStorage.Rows[gvStorage.Rows.Count - 1].Cells[1].Text.ToString();
+                //Session["Tsample"] = totsample;
 
             }
         }
         protected void gvDstResult_DataBound(object sender, EventArgs e)
         {
-            if (gvResult.Rows.Count > 0)
+            if (gvStorage.Rows.Count > 0)
             {
                 //string totsample2 = gvDstResult.Rows[gvDstResult.Rows.Count - 1].Cells[1].Text.ToString();
                 //Session["Tsample2"] = totsample2;
@@ -83,5 +90,78 @@ namespace Labtracker
             authenticationManager.SignOut();
             Response.Redirect("~/login.aspx");
         }
+
+        protected void btnFilter_Click(object sender, EventArgs e)
+        {
+
+            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
+            var comp = ddlCompare.SelectedItem.ToString();
+            var val = txtCompVal.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0}='{1}' ", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
+
+            dataSource_gvStorage = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds"] = dataSource_gvStorage;
+
+
+            gvStorage.DataSourceID = null;
+            //gvStorage.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvStorage.DataSource = dataSource_gvStorage;
+            gvStorage.AllowSorting = true;
+            gvStorage.AllowPaging = true;
+            gvStorage.DataBind();
+
+            Session["isFilter_gvStorage"] = true;
+
+            /*if (valueTocomp.Equals("PatientId"))
+                {
+                //var valueTocompi = Convert.ToInt32( ddlCOlVal.SelectedValue);
+                
+               // var vali = Convert.ToInt32(txtCompVal.Text);
+                if(comp.Equals("equals"))
+                {
+                    
+                }
+            }*/
+        }
+
+
+        protected void gvStorage_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvStorage.AllowSorting = true;
+            gvStorage.AllowPaging = true;
+            gvStorage.PageIndex = e.NewPageIndex;
+            isFilter = (bool)Session["isFilter_gvStorage"];
+            if (isFilter)
+            {
+                gvStorage.DataSourceID = null;
+                gvStorage.DataSource = (SqlDataSource)Session["ds"];
+            }
+
+            gvStorage.DataBind();
+        }
+
+        protected void gvStorage_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            isFilter = (bool)Session["isFilter_gvStorage"];
+            if (isFilter)
+            {
+                gvStorage.DataSourceID = null;
+                var data = (SqlDataSource)Session["ds"];
+                data.SortParameterName = e.SortExpression;
+                gvStorage.DataSource = dataSource_gvStorage;
+            }
+            gvStorage.DataBind();
+        }
+
+
+
     }
 }

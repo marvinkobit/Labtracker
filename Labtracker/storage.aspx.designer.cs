@@ -49,13 +49,13 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.Label lblIsolatesDistinct;
         
         /// <summary>
-        /// gvResult control.
+        /// gvStorage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvResult;
+        protected global::System.Web.UI.WebControls.GridView gvStorage;
         
         /// <summary>
         /// SqlDataSource1 control.
@@ -67,31 +67,31 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlCOlVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCOlVal;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlCompare control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompare;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtCompVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCompVal;
         
         /// <summary>
         /// Button1 control.
