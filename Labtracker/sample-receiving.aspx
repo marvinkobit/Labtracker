@@ -431,6 +431,8 @@
                 <asp:Button ID="btnExport" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
 
                 <asp:Button ID="btnFilterExport" CssClass="btn-primary" runat="server" Text="Generate PDF Report for Filter" OnClick="GeneratePDF" />
+
+                <asp:Button ID="btnFilterExportCSV" CssClass="btn-primary" runat="server" Text="Generate CSV Report for Filter" OnClick="GenerateCSV" />
             
           </div>
 

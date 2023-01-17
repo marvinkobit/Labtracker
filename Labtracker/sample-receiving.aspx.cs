@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -203,6 +204,36 @@ namespace Labtracker
                 }
             }
         }
+
+        protected void GenerateCSV(object sender, EventArgs e)
+        {
+            this.Binder();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleReceivedExport.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+            gvSample.AllowPaging = false;
+            gvSample.DataBind();
+            StringBuilder columnbind = new StringBuilder();
+            for (int k = 0; k < gvSample.Columns.Count; k++)
+            {
+                columnbind.Append(gvSample.Columns[k].HeaderText + ',');
+            }
+            columnbind.Append("\r\n");
+            for (int i = 0; i < gvSample.Rows.Count; i++)
+            {
+                for (int k = 0; k < gvSample.Columns.Count; k++)
+                {
+                    columnbind.Append(gvSample.Rows[i].Cells[k].Text + ',');
+                }
+                columnbind.Append("\r\n");
+            }
+            Response.Output.Write(columnbind.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
 
         protected void gvSample_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
