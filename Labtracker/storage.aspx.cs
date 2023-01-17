@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -159,6 +164,126 @@ namespace Labtracker
                 gvStorage.DataSource = dataSource_gvStorage;
             }
             gvStorage.DataBind();
+        }
+
+
+        protected void ExportToPDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultRecent.pdf");
+            Response.Charset = "";
+            Response.ContentType = "application/pdf";
+
+            //To Export all pages.
+            //gvStorage.AllowPaging = false;
+            //this.BindGrid();
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    gvStorage.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+        }
+
+
+        protected void Binder()
+        {
+            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
+            var comp = ddlCompare.SelectedItem.ToString();
+            var val = txtCompVal.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0}='{1}' ", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
+
+            dataSource_gvStorage = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds"] = dataSource_gvStorage;
+
+
+            gvStorage.DataSourceID = null;
+            //gvStorage.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvStorage.DataSource = dataSource_gvStorage;
+            gvStorage.AllowSorting = true;
+            //sgvStorage.AllowPaging = true;
+            gvStorage.DataBind();
+
+            Session["isFilter_gvStorage"] = true;
+        }
+
+        protected void GeneratePDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultRecent.pdf");
+            Response.Charset = "";
+            Response.ContentType = "application/pdf";
+
+            //To Export all pages.
+            gvStorage.AllowPaging = false;
+            this.Binder();
+
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                {
+                    gvStorage.RenderControl(hw);
+                    StringReader sr = new StringReader(sw.ToString());
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                    pdfDoc.Open();
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    pdfDoc.Close();
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Write(pdfDoc);
+                    Response.End();
+                }
+            }
+        }
+
+        protected void GenerateCSV(object sender, EventArgs e)
+        {
+            this.Binder();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultExport.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+            gvStorage.AllowPaging = false;
+            gvStorage.DataBind();
+            StringBuilder columnbind = new StringBuilder();
+            for (int k = 0; k < gvStorage.Columns.Count; k++)
+            {
+                columnbind.Append(gvStorage.Columns[k].HeaderText + ',');
+            }
+            columnbind.Append("\r\n");
+            for (int i = 0; i < gvStorage.Rows.Count; i++)
+            {
+                for (int k = 0; k < gvStorage.Columns.Count; k++)
+                {
+                    columnbind.Append(gvStorage.Rows[i].Cells[k].Text + ',');
+                }
+                columnbind.Append("\r\n");
+            }
+            Response.Output.Write(columnbind.ToString());
+            Response.Flush();
+            Response.End();
         }
 
 

@@ -24,7 +24,9 @@ namespace Labtracker
     {
 
         SqlDataSource dataSource_gvResult = null;
+        SqlDataSource dataSource_gvHeatkill = null;
         bool isFilter = false;
+        bool isFilter_Heatkill = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +41,9 @@ namespace Labtracker
             {
 
                 Session["isFilter_gvResult"] = false;
+                Session["isFilter_gvHeatkill"] = false;
                 gvResult.DataSourceID = "SqlDataSource1";
+                gvHeatkill.DataSourceID = "SqlDataSource5";
 
 
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
@@ -134,6 +138,16 @@ namespace Labtracker
             }
         }
 
+        protected void gvHeatkill_DataBound(object sender, EventArgs e)
+        {
+            if (gvHeatkill.Rows.Count > 0)
+            {
+                //string totsample3 = gvResult.Rows[gvResult.Rows.Count - 1].Cells[1].Text.ToString();
+                //Session["Tsample3"] = totsample3;
+
+            }
+        }
+
         protected void btnFilter_Click(object sender, EventArgs e)
         {
 
@@ -203,6 +217,62 @@ namespace Labtracker
             gvResult.DataBind();
         }
 
+
+        protected void btnFilter_Click_Heatkill(object sender, EventArgs e)
+        {
+            var valueTocomp = ddlCOlVal_Heatkill.SelectedItem.ToString();
+            var comp = ddlCompare_Heatkill.SelectedItem.ToString();
+            var val = txtCompVal_Heatkill.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0}='{1}' ", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
+
+            dataSource_gvHeatkill = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds_Heatkill"] = dataSource_gvHeatkill;
+
+
+            gvHeatkill.DataSourceID = null;
+            //gvHeatkill.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvHeatkill.DataSource = dataSource_gvHeatkill;
+            gvHeatkill.AllowSorting = true;
+            gvHeatkill.AllowPaging = true;
+            gvHeatkill.DataBind();
+
+            Session["isFilter_gvHeatkill"] = true;
+        }
+        protected void gvHeatkill_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvHeatkill.AllowSorting = true;
+            gvHeatkill.AllowPaging = true;
+            gvHeatkill.PageIndex = e.NewPageIndex;
+            isFilter_Heatkill = (bool)Session["isFilter_gvHeatkill"];
+            if (isFilter_Heatkill)
+            {
+                gvHeatkill.DataSourceID = null;
+                gvHeatkill.DataSource = (SqlDataSource)Session["ds_Heatkill"];
+            }
+
+            gvHeatkill.DataBind();
+        }
+
+        protected void gvHeatkill_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            isFilter_Heatkill = (bool)Session["isFilter_gvHeatkill"];
+            if (isFilter_Heatkill)
+            {
+                gvHeatkill.DataSourceID = null;
+                var data = (SqlDataSource)Session["ds_Heatkill"];
+                data.SortParameterName = e.SortExpression;
+                gvHeatkill.DataSource = dataSource_gvHeatkill;
+            }
+            gvHeatkill.DataBind();
+        }
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

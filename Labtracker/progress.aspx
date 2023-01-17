@@ -598,7 +598,7 @@
                                 <div class="card shadow mb-4 table-responsive">
                                     <p>Heat Killed: <asp:Label runat="server" ID="lblHeatkilled" Text=""></asp:Label></p>
 
-                                    <asp:GridView ID="GridView1" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="gvHeatkill" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" OnSorting="gvHeatkill_Sorting" OnPageIndexChanging="gvHeatkill_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvHeatkill_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -611,10 +611,6 @@
                                             <asp:BoundField DataField="DateTransfer" HeaderText="DateTransfer" SortExpression="DateTransfer" />
 
                                             <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
-
-
-
-
 
                                         </Columns>
                                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -638,7 +634,32 @@
 
                         </div>
 
-                        <!-- Content Row -->
+                         <div class="row">
+                            Filter your search here 
+                             <!-- Heatkill Filter Column -->
+                            <div class="col-lg-12 mb-4">
+
+
+                                <asp:DropDownList ID="ddlCOlVal_Heatkill" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
+                                    <asp:ListItem>PatientId</asp:ListItem>
+                                    <asp:ListItem>MediaType</asp:ListItem>
+                                    <asp:ListItem>InitialTransfer</asp:ListItem>
+                                    <asp:ListItem>InitalRecieved</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Results'"></asp:SqlDataSource>
+
+                                <asp:DropDownList ID="ddlCompare_Heatkill" runat="server" Height="26px" Width="155px">
+                                    <asp:ListItem>starts with</asp:ListItem>
+                                    <asp:ListItem>equals</asp:ListItem>     
+                                </asp:DropDownList>
+                                <asp:TextBox ID="txtCompVal_Heatkill" runat="server"></asp:TextBox>
+                                <asp:Button ID="Button5" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Heatkill" />
+
+                            </div>
+
+                        </div>
+
+                        <!-- Content Row DST-->
                         <div class="row">
 
                             <!-- Area Chart -->
@@ -741,10 +762,6 @@
 
 
                         </div>
-
-
-
-
 
                         <!-- /.container-fluid -->
 
