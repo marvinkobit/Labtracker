@@ -583,6 +583,7 @@
 
                                 <asp:Button ID="Button2" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
                                 <asp:Button ID="Button3" CssClass="btn-primary" runat="server" Text="Generate PDF Report for Filter" OnClick="GeneratePDF" />
+                                 <asp:Button ID="Button4" CssClass="btn-primary" runat="server" Text="Generate CSV Report for Filter" OnClick="GenerateCSV" />
 
 
                             </div>

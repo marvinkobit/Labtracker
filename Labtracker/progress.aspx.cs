@@ -300,6 +300,34 @@ namespace Labtracker
             }
         }
 
+        protected void GenerateCSV(object sender, EventArgs e)
+        {
+            this.Binder();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleResultExport.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+            gvResult.AllowPaging = false;
+            gvResult.DataBind();
+            StringBuilder columnbind = new StringBuilder();
+            for (int k = 0; k < gvResult.Columns.Count; k++)
+            {
+                columnbind.Append(gvResult.Columns[k].HeaderText + ',');
+            }
+            columnbind.Append("\r\n");
+            for (int i = 0; i < gvResult.Rows.Count; i++)
+            {
+                for (int k = 0; k < gvResult.Columns.Count; k++)
+                {
+                    columnbind.Append(gvResult.Rows[i].Cells[k].Text + ',');
+                }
+                columnbind.Append("\r\n");
+            }
+            Response.Output.Write(columnbind.ToString());
+            Response.Flush();
+            Response.End();
+        }
 
         public override void VerifyRenderingInServerForm(Control control)
         {
