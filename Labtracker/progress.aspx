@@ -654,6 +654,7 @@
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal_Heatkill" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button5" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Heatkill" />
+                                 <asp:Button ID="Button8" CssClass="btn-primary" runat="server" Text="Generate CSV Report" OnClick="GenerateCSV_Heatkill" />
 
                             </div>
 
@@ -740,6 +741,8 @@
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal_Dst" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button6" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Dst" />
+                                <asp:Button ID="Button7" CssClass="btn-primary" runat="server" Text="Generate CSV Report" OnClick="GenerateCSV_Dst" />
+
                             </div>
 
                         </div>
