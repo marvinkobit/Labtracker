@@ -644,7 +644,7 @@
                                     <asp:ListItem>PatientId</asp:ListItem>
                                     <asp:ListItem>MediaType</asp:ListItem>
                                     <asp:ListItem>InitialTransfer</asp:ListItem>
-                                    <asp:ListItem>InitalRecieved</asp:ListItem>
+                                    <asp:ListItem>InitialRecieved</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Results'"></asp:SqlDataSource>
 
@@ -667,7 +667,7 @@
                                 <div class="card shadow mb-4 table-responsive">
                                     <p>Drug Susceptibility: <asp:Label runat="server" ID="lblDSTtests" Text=""></asp:Label> tests for <asp:Label runat="server" ID="lblDST" Text=""></asp:Label> samples</p>
 
-                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="DstID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="DstID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnSorting="gvDst_Sorting" OnPageIndexChanging="gvDst_PageIndexChanging" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -719,6 +719,31 @@
 
 
                         </div>
+
+
+                        <!-- DST Filter Row -->
+                        <div class="row">
+                            Filter your search here 
+                             <!-- Content Column -->
+                            <div class="col-lg-12 mb-4">
+
+
+                                <asp:DropDownList ID="ddlCOlVal_Dst" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
+                                    <asp:ListItem>PatientId</asp:ListItem>
+                               
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Dsts'"></asp:SqlDataSource>
+
+                                <asp:DropDownList ID="ddlCompare_Dst" runat="server" Height="26px" Width="155px">
+                                    <asp:ListItem>starts with</asp:ListItem>
+                                    <asp:ListItem>equals</asp:ListItem>     
+                                </asp:DropDownList>
+                                <asp:TextBox ID="txtCompVal_Dst" runat="server"></asp:TextBox>
+                                <asp:Button ID="Button6" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Dst" />
+                            </div>
+
+                        </div>
+
 
                         <!-- Content Row -->
                         <div class="row">
@@ -779,7 +804,7 @@
                     <!-- End of Footer -->
 
                 </div>
-                <!-- End of Content Wrapper -->
+                <!--End of Content Wrapper -->
 
             </div>
             <!-- End of Page Wrapper -->
