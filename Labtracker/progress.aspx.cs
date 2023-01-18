@@ -25,8 +25,10 @@ namespace Labtracker
 
         SqlDataSource dataSource_gvResult = null;
         SqlDataSource dataSource_gvHeatkill = null;
+        SqlDataSource dataSource_gvDstResult = null;
         bool isFilter = false;
         bool isFilter_Heatkill = false;
+        bool isFilter_DstResult = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,8 +44,10 @@ namespace Labtracker
 
                 Session["isFilter_gvResult"] = false;
                 Session["isFilter_gvHeatkill"] = false;
+                Session["isFilter_gvDstResult"] = false;
                 gvResult.DataSourceID = "SqlDataSource1";
                 gvHeatkill.DataSourceID = "SqlDataSource5";
+                gvDstResult.DataSourceID = "SqlDataSource2";
 
 
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
@@ -273,6 +277,64 @@ namespace Labtracker
             }
             gvHeatkill.DataBind();
         }
+
+        protected void btnFilter_Click_Dst(object sender, EventArgs e)
+        {
+            var valueTocomp = ddlCOlVal_Dst.SelectedItem.ToString();
+            var comp = ddlCompare_Dst.SelectedItem.ToString();
+            var val = txtCompVal_Dst.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0}='{1}' ", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+            }
+
+            dataSource_gvDstResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds_DstResult"] = dataSource_gvDstResult;
+
+
+            gvDstResult.DataSourceID = null;
+            //gvDstResult.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvDstResult.DataSource = dataSource_gvDstResult;
+            gvDstResult.AllowSorting = true;
+            gvDstResult.AllowPaging = true;
+            gvDstResult.DataBind();
+
+            Session["isFilter_gvDstResult"] = true;
+        }
+
+        protected void gvDst_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvDstResult.AllowSorting = true;
+            gvDstResult.AllowPaging = true;
+            gvDstResult.PageIndex = e.NewPageIndex;
+            isFilter_DstResult = (bool)Session["isFilter_gvDstResult"];
+            if (isFilter_DstResult)
+            {
+                gvDstResult.DataSourceID = null;
+                gvDstResult.DataSource = (SqlDataSource)Session["ds_DstResult"];
+            }
+
+            gvDstResult.DataBind();
+        }
+
+        protected void gvDst_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            isFilter_DstResult = (bool)Session["isFilter_gvDstResult"];
+            if (isFilter_DstResult)
+            {
+                gvDstResult.DataSourceID = null;
+                var data = (SqlDataSource)Session["ds_DstResult"];
+                data.SortParameterName = e.SortExpression;
+                gvDstResult.DataSource = dataSource_gvDstResult;
+            }
+            gvDstResult.DataBind();
+        }
+
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
