@@ -206,11 +206,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0}='{1}' ", valueTocomp, val);
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             else
             {
-                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0} LIKE '{1}%'", valueTocomp, val);
+                searchQuery = String.Format("SELECT [StoreId],[PatientId],category,Mediatype,Matrix,Freezer,Drawer,Rack,Shelf,Box,Matrix,storeDate FROM Stores WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
 
             dataSource_gvStorage = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);

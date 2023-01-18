@@ -161,11 +161,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0}='{1}' ", valueTocomp, val);
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             else
             {
-                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0} LIKE '{1}%'", valueTocomp, val);
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
 
             dataSource_gvResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
@@ -230,11 +230,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0}='{1}' ", valueTocomp, val);
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             else
             {
-                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
 
             dataSource_gvHeatkill = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
@@ -286,11 +286,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0}='{1}' ", valueTocomp, val);
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             else
             {
-                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
 
             dataSource_gvDstResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
@@ -342,6 +342,35 @@ namespace Labtracker
             Response.Redirect("~/login.aspx");
         }
 
+        protected void Binder()
+        {
+            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
+            var comp = ddlCompare.SelectedItem.ToString();
+            var val = txtCompVal.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+
+            dataSource_gvResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds"] = dataSource_gvResult;
+
+
+            gvResult.DataSourceID = null;
+            //gvResult.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvResult.DataSource = dataSource_gvResult;
+            gvResult.AllowSorting = true;
+            //sgvResult.AllowPaging = true;
+            gvResult.DataBind();
+
+            Session["isFilter_gvResult"] = true;
+        }
+
         protected void ExportToPDF(object sender, EventArgs e)
         {
             Response.Clear();
@@ -370,36 +399,6 @@ namespace Labtracker
                     Response.End();
                 }
             }
-         }
-
-
-        protected void Binder()
-        {
-            var valueTocomp = ddlCOlVal.SelectedItem.ToString();
-            var comp = ddlCompare.SelectedItem.ToString();
-            var val = txtCompVal.Text;
-            string searchQuery = "";
-            if (comp.Equals("equals"))
-            {
-                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0}='{1}' ", valueTocomp, val);
-            }
-            else
-            {
-                searchQuery = String.Format("SELECT [ResultID],[PatientId],[Smear_res],[HeatKilled_res],[RD9_res],[LJ_res],[LJ_P_res],[MIJT_res],[CultureSmear_res],[Spoligo_res],[BHI],[FinalCultureResult],[LabInitial],[Remark] FROM Results WHERE {0} LIKE '{1}%'", valueTocomp, val);
-            }
-
-            dataSource_gvResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
-            Session["ds"] = dataSource_gvResult;
-
-
-            gvResult.DataSourceID = null;
-            //gvResult.PageIndex = GridViewPageEventArgs.NewPageIndex;
-            gvResult.DataSource = dataSource_gvResult;
-            gvResult.AllowSorting = true;
-            //sgvResult.AllowPaging = true;
-            gvResult.DataBind();
-
-            Session["isFilter_gvResult"] = true;
         }
 
         protected void GeneratePDF(object sender, EventArgs e)
@@ -461,6 +460,121 @@ namespace Labtracker
             Response.End();
         }
 
+        protected void Binder_Heatkill()
+        {
+            var valueTocomp = ddlCOlVal_Heatkill.SelectedItem.ToString();
+            var comp = ddlCompare_Heatkill.SelectedItem.ToString();
+            var val = txtCompVal_Heatkill.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [PatientId],[HeatKillId],[MediaType],[InitialTransfer],[InitialRecieved],[DateHeatKill],[DateTransfer],[Remark] FROM [HeatKills] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+
+            dataSource_gvHeatkill = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds_Heatkill"] = dataSource_gvHeatkill;
+
+
+            gvHeatkill.DataSourceID = null;
+            //gvHeatkill.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvHeatkill.DataSource = dataSource_gvHeatkill;
+            gvHeatkill.AllowSorting = true;
+            //gvHeatkill.AllowPaging = true;
+            gvHeatkill.DataBind();
+
+            Session["isFilter_gvHeatkill"] = true;
+        }
+
+        protected void GenerateCSV_Heatkill(object sender, EventArgs e)
+        {
+            this.Binder_Heatkill();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleHeatKillExport.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+            gvHeatkill.AllowPaging = false;
+            gvHeatkill.DataBind();
+            StringBuilder columnbind = new StringBuilder();
+            for (int k = 0; k < gvHeatkill.Columns.Count; k++)
+            {
+                columnbind.Append(gvHeatkill.Columns[k].HeaderText + ',');
+            }
+            columnbind.Append("\r\n");
+            for (int i = 0; i < gvHeatkill.Rows.Count; i++)
+            {
+                for (int k = 0; k < gvHeatkill.Columns.Count; k++)
+                {
+                    columnbind.Append(gvHeatkill.Rows[i].Cells[k].Text + ',');
+                }
+                columnbind.Append("\r\n");
+            }
+            Response.Output.Write(columnbind.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
+        protected void Binder_Dst()
+        {
+            var valueTocomp = ddlCOlVal_Dst.SelectedItem.ToString();
+            var comp = ddlCompare_Dst.SelectedItem.ToString();
+            var val = txtCompVal_Dst.Text;
+            string searchQuery = "";
+            if (comp.Equals("equals"))
+            {
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+            else
+            {
+                searchQuery = String.Format("SELECT [DstID],[DrugLine],[Drug],[Sensitivity],[Dater],[Initial],[PatientId],[DateResult] FROM [Dsts] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
+            }
+
+            dataSource_gvDstResult = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
+            Session["ds_DstResult"] = dataSource_gvDstResult;
+
+
+            gvDstResult.DataSourceID = null;
+            //gvDstResult.PageIndex = GridViewPageEventArgs.NewPageIndex;
+            gvDstResult.DataSource = dataSource_gvDstResult;
+            gvDstResult.AllowSorting = true;
+            //gvDstResult.AllowPaging = true;
+            gvDstResult.DataBind();
+
+            Session["isFilter_gvDstResult"] = true;
+        }
+
+        protected void GenerateCSV_Dst(object sender, EventArgs e)
+        {
+            this.Binder_Dst();
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=SampleDSTExport.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+            gvDstResult.AllowPaging = false;
+            gvDstResult.DataBind();
+            StringBuilder columnbind = new StringBuilder();
+            for (int k = 0; k < gvDstResult.Columns.Count; k++)
+            {
+                columnbind.Append(gvDstResult.Columns[k].HeaderText + ',');
+            }
+            columnbind.Append("\r\n");
+            for (int i = 0; i < gvDstResult.Rows.Count; i++)
+            {
+                for (int k = 0; k < gvDstResult.Columns.Count; k++)
+                {
+                    columnbind.Append(gvDstResult.Rows[i].Cells[k].Text + ',');
+                }
+                columnbind.Append("\r\n");
+            }
+            Response.Output.Write(columnbind.ToString());
+            Response.Flush();
+            Response.End();
+        }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */

@@ -28,10 +28,7 @@
 
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <asp:Label runat="server" ID="lblTotalSample" Text=""></asp:Label>
-
                                 </div>
-
-
                             </div>
 
                             <div class="col-auto">
@@ -674,9 +671,7 @@
                             if (feature.properties) {
                                 layer.bindPopup("Region: "+feature.properties["State_En"] + "</br>" + "Samples: _");
                             }
-
                         }
-
                     });
                     shpfile4.addTo(mymap);
 
@@ -695,7 +690,6 @@
 
         <!-- Content Column -->
         <div class="col-lg-12 mb-4">
-
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -710,16 +704,8 @@
                     <div class="progress mb-4">
                         <div runat="server" id="progressBar2" class="progress-bar bg-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-
                 </div>
             </div>
-
-
-
-
-
-
-
         </div>
     </div>
 </asp:Content>
