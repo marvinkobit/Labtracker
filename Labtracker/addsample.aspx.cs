@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Labtracker.Models;
+using System;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Labtracker.Models;
-using Labtracker.Logic;
-using System.Activities;
-using System.Windows;
-using Microsoft.AspNet.Identity;
 
 namespace Labtracker
 {
@@ -60,7 +54,7 @@ namespace Labtracker
                 asSavelbl.Text = "Unable to add new sample to database.";
             }
         }
-            public IQueryable GetCategories()
+        public IQueryable GetCategories()
             {
                 var _db = new Labtracker.Models.SampleContext();
                 IQueryable query = _db.Categories;

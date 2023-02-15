@@ -234,6 +234,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="addsample.aspx" />
+    <Content Include="addsampledynamic.aspx" />
     <Content Include="addsequencing.aspx" />
     <Content Include="Admin\adminpage.aspx" />
     <Content Include="Collection.aspx" />
@@ -2216,6 +2217,13 @@
     </Compile>
     <Compile Include="addsample.aspx.designer.cs">
       <DependentUpon>addsample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addsampledynamic.aspx.cs">
+      <DependentUpon>addsampledynamic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addsampledynamic.aspx.designer.cs">
+      <DependentUpon>addsampledynamic.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddSamples.cs" />
     <Compile Include="addsequencing.aspx.cs">
