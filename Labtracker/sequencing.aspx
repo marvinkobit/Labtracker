@@ -292,11 +292,11 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="/register">
+                  <a class="dropdown-item" href="register.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register User
                 </a>
-                  <a class="dropdown-item" href="/registerSite">
+                  <a class="dropdown-item" href="registerSite.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register Site
                 </a>
