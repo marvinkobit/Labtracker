@@ -2052,6 +2052,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="progress.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="registerSite.aspx" />
     <Content Include="report.aspx" />
     <Content Include="result.aspx" />
     <Content Include="sample-preprocessing.aspx" />
@@ -2224,6 +2225,7 @@
     <Compile Include="addsequencing.aspx.designer.cs">
       <DependentUpon>addsequencing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddSites.cs" />
     <Compile Include="AddStorage.cs" />
     <Compile Include="AddUpdate.cs" />
     <Compile Include="Admin\adminpage.aspx.cs">
@@ -2329,6 +2331,7 @@
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\SampleContext.cs" />
     <Compile Include="Models\SampleDatabaseInitializer.cs" />
+    <Compile Include="Models\Site.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="progress.aspx.cs">
@@ -2345,6 +2348,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registerSite.aspx.cs">
+      <DependentUpon>registerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerSite.aspx.designer.cs">
+      <DependentUpon>registerSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="report.aspx.cs">
       <DependentUpon>report.aspx</DependentUpon>

@@ -296,7 +296,11 @@
                 </a>
                   <a class="dropdown-item" href="/register">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Register
+                  Register User
+                </a>
+                  <a class="dropdown-item" href="/registerSite">
+                  <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Register Site
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -437,6 +441,92 @@
           </div>
 
         </div>
+
+          
+          <!-- Sites Content Row -->
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-8">
+              <div class="card shadow mb-4 table-responsive">
+                  <p>Sites: <asp:Label runat="server" ID="lblSites" Text=""></asp:Label></p>
+                  <asp:GridView ID="gvSite" runat="server" style="font-size: 12px" width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SiteId" DataSourceID="SqlDataSource3" AutoPostBack = "true" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+                      <Columns>
+                          <asp:CommandField ShowSelectButton="True" />
+                         <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
+                          <asp:BoundField DataField="HealthFacility" HeaderText="HealthFacility" SortExpression="HealthFacility" />
+                          <asp:BoundField DataField="SitePatientId" HeaderText="SitePatientId" SortExpression="SitePatientId" />
+                          <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+                          <asp:BoundField DataField="Region" HeaderText="Region" SortExpression="Region" />
+                          <asp:BoundField DataField="Zone" HeaderText="Zone" SortExpression="Zone" />
+                          <asp:BoundField DataField="Woreda" HeaderText="Woreda" SortExpression="Woreda" />
+                          <asp:BoundField DataField="LocationLatitude" HeaderText="GPS_lat" SortExpression="LocationLatitude" />
+                          <asp:BoundField DataField="LocationLongitude" HeaderText="GPS_long" SortExpression="LocationLongitude" />
+                         
+                          <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />                  
+                          <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
+                  
+                      </Columns>
+                      <FooterStyle BackColor="White" ForeColor="#000066" />
+                      <HeaderStyle BackColor="#17A2B8" Font-Bold="True" ForeColor="White" />
+                      <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                      <RowStyle ForeColor="#000066" />
+                      <SelectedRowStyle BackColor="#A9C8E7" Font-Bold="True" ForeColor="White" />
+                      <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                      <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                      <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                      <SortedDescendingHeaderStyle BackColor="#00547E" />
+                  </asp:GridView>
+               
+                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT TOP 1000 [SiteId]
+      ,[SitePatientId]
+      ,[Country]
+      ,[Region]
+      ,[Zone]
+      ,[Woreda]
+      ,[HealthFacility]
+      ,[StartDate]
+      ,LocationLatitude,LocationLongitude
+      ,[Status]
+      ,[Remark]
+  FROM [Labtracker].[dbo].[Sites]"
+                      UpdateCommand="UPDATE Samples SET [SitePatientId]=@SitePatientId,[Country]=@Country,[Region]=@Region,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[StartDate]=@StartDate,[Status]=@Status,[Remark]=@Remark,LocationLatitude=@LocationLatitude,LocationLongitude=@LocationLongitude
+                      WHERE SiteId=@SiteId">
+                      <UpdateParameters>
+                          <asp:Parameter Name="SitePatientId" Type="String" />
+                          <asp:Parameter Name="Country" Type="String" />
+                          <asp:Parameter Name="Region" Type="String" />
+                          <asp:Parameter Name="Zone" Type="String" />
+                          <asp:Parameter Name="Woreda" Type="String" />
+                          <asp:Parameter Name="FromRegion" Type="String" />
+                          <asp:Parameter Name="Zone" Type="String" />
+                          <asp:Parameter Name="Woreda" Type="String" />
+                          <asp:Parameter Name="HealthFacility" Type="String" />
+                          <asp:Parameter Name="StartDate" Type="DateTime" />
+                          <asp:Parameter Name="Status" Type="String"/>
+                          <asp:Parameter Name="Remark" Type="String" />
+                           <asp:Parameter Name="LocationLatitude" Type="String"/>
+                          <asp:Parameter Name="LocationLongitude" Type="String" />
+                          
+                          <asp:Parameter Name="SiteId" Type="Int32" />
+
+                          </UpdateParameters>
+
+                  </asp:SqlDataSource>
+                  
+              </div>
+            </div>
+
+           
+          </div>
+
+       
+
+
+
+        <!-- /.container-fluid -->
         <!-- /.container-fluid -->
 
       </div>
