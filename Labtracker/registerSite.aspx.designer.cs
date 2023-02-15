@@ -10,7 +10,7 @@
 namespace Labtracker {
     
     
-    public partial class sample_receiving {
+    public partial class registerSite {
         
         /// <summary>
         /// form1 control.
@@ -22,147 +22,147 @@ namespace Labtracker {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// UsernameText control.
+        /// goBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal UsernameText;
+        protected global::System.Web.UI.WebControls.LinkButton goBack;
         
         /// <summary>
-        /// lblSamplesRecieved control.
+        /// txtHealthFacility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSamplesRecieved;
+        protected global::System.Web.UI.WebControls.TextBox txtHealthFacility;
         
         /// <summary>
-        /// gvSample control.
+        /// rfvHFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSample;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHFN;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// txtSitePId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.TextBox txtSitePId;
         
         /// <summary>
-        /// ddlCOlVal control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCOlVal;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// SqlDataSource2 control.
+        /// ddlCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
         
         /// <summary>
-        /// ddlCompare control.
+        /// txtRegion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompare;
+        protected global::System.Web.UI.WebControls.TextBox txtRegion;
         
         /// <summary>
-        /// txtCompVal control.
+        /// txtZone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompVal;
+        protected global::System.Web.UI.WebControls.TextBox txtZone;
         
         /// <summary>
-        /// btnFilter control.
+        /// txtWoreda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilter;
+        protected global::System.Web.UI.WebControls.TextBox txtWoreda;
         
         /// <summary>
-        /// btnExport control.
+        /// txtLocationLat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExport;
+        protected global::System.Web.UI.WebControls.TextBox txtLocationLat;
         
         /// <summary>
-        /// btnFilterExport control.
+        /// txtLocationLong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilterExport;
+        protected global::System.Web.UI.WebControls.TextBox txtLocationLong;
         
         /// <summary>
-        /// btnFilterExportCSV control.
+        /// txtDateStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilterExportCSV;
+        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
         
         /// <summary>
-        /// lblSites control.
+        /// txtRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSites;
+        protected global::System.Web.UI.WebControls.TextBox txtRemark;
         
         /// <summary>
-        /// gvSite control.
+        /// btnSaveas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSite;
+        protected global::System.Web.UI.WebControls.Button btnSaveas;
         
         /// <summary>
-        /// SqlDataSource3 control.
+        /// btnCancelas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.WebControls.Button btnCancelas;
         
         /// <summary>
-        /// btnLogout control.
+        /// asSavelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Label asSavelbl;
     }
 }

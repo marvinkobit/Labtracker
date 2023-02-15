@@ -28,6 +28,7 @@ namespace Labtracker.Models
         public DbSet<Store> Stores { get; set; }
         public DbSet<Freezer> Freezers { get; set; }
 
+        public DbSet<Site> Sites { get; set; }
 
     }
 }

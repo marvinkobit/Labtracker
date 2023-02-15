@@ -251,7 +251,11 @@
                 </a>
                   <a class="dropdown-item" href="/register">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Register
+                  Register User
+                </a>
+                  <a class="dropdown-item" href="/registerSite">
+                  <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Register Site
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
