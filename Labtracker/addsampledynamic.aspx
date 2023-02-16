@@ -74,7 +74,7 @@ input[type=submit] {
 }
 </style>
 
-  <title>TBGE Lab Monitor  - Register</title>
+  <title>TBGEN Lab Monitor  - Add Sample</title>
 
   <!-- Custom fonts for this template-->
   <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
@@ -118,10 +118,7 @@ input[type=submit] {
                         <asp:ListItem Value="3">B-PDNA</asp:ListItem>
                         <asp:ListItem Value="4">B-Plasma</asp:ListItem>
                         </asp:DropDownList>
-                     <%-- <asp:RadioButton id="RadioSputum" Text=" Sputum " Checked="True" GroupName="RadioGroup1" runat="server" />
-                      <asp:RadioButton id="RadioBlood" Text=" Blood " Checked="False" GroupName="RadioGroup1" runat="server" />--%>
-                     <%-- <asp:TextBox ID="txtProject" class="form-control"  placeholder="TBGEN" runat="server"></asp:TextBox>--%>
-               <%--   <asp:RequiredFieldValidator ID="rfvProject" runat="server" Text="* Project name required." ControlToValidate="txtProject" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
+                   
 
 
 
@@ -170,7 +167,7 @@ input[type=submit] {
                         </asp:DropDownList>
 
                        <asp:SqlDataSource ID="SqlDataSourceRegion" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT Region FROM Sites"></asp:SqlDataSource>
+                      SelectCommand="SELECT DISTINCT Region FROM Sites ORDER BY Region ASC"></asp:SqlDataSource>
 
                   <asp:RequiredFieldValidator ID="rfvRegion" runat="server" Text="* Region required." ControlToValidate="ddlRegion" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
@@ -180,7 +177,7 @@ input[type=submit] {
                         <asp:DropDownList ID="ddlZone" DataSourceID="SqlDataSourceZone" DataTextField="Zone" class="form-control" runat="server" ToolTip="Choose ZONE"   >   
                         </asp:DropDownList>
                          <asp:SqlDataSource ID="SqlDataSourceZone" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT Zone FROM Sites"></asp:SqlDataSource>
+                      SelectCommand="SELECT DISTINCT Zone FROM Sites ORDER BY Zone ASC"></asp:SqlDataSource>
                     <asp:RequiredFieldValidator ID="rfvZone" runat="server" Text="* Zone required." ControlToValidate="ddlZone" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                    </div>
 
@@ -191,7 +188,7 @@ input[type=submit] {
                             <asp:ListItem selected hidden>Choose Woreda</asp:ListItem>                         
                         </asp:DropDownList>
                          <asp:SqlDataSource ID="SqlDataSourceWoreda" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT Woreda FROM Sites"></asp:SqlDataSource>
+                      SelectCommand="SELECT DISTINCT Woreda FROM Sites ORDER BY Woreda ASC"></asp:SqlDataSource>
                   <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
                   <div class="col-sm-6">
@@ -200,7 +197,7 @@ input[type=submit] {
                       <asp:DropDownList ID="ddlHealthF" class="form-control" ToolTip="Health Facility" DataSourceID="SqlDataSourceHealthFacility" DataTextField="HealthFacility"  AutoPostBack = "true" runat="server">                             
                         </asp:DropDownList>
                       <asp:SqlDataSource ID="SqlDataSourceHealthFacility" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT HealthFacility FROM Sites"></asp:SqlDataSource>
+                      SelectCommand="SELECT DISTINCT HealthFacility FROM Sites ORDER BY HealthFacility ASC"></asp:SqlDataSource>
                   <asp:RequiredFieldValidator ID="rfvHF" runat="server" Text="* Health Facility required." ControlToValidate="ddlHealthF" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                     <div class="col-sm-6">
@@ -256,31 +253,6 @@ input[type=submit] {
   <script src="Content/js/sb-admin-2.min.js"></script>
 
     <script type="text/javascript">
-        
-        function ToogleZoneval() {
-            // var divResval = document.getElementById('#DRESVAL');
-            // divResval.style.display = "block";
-            $variable = $("#ddlZone").html();
-            $("#ddlZone").html($variable);
-            var val = $("#ddlRegion").find(":selected").val();
-            $("#ddlZone option").show();
-            $("#ddlZone option[data-group!=" + val + "]").hide();
-
-        }
-
-        function ToogleHealthFval() {
-            // var divResval = document.getElementById('#DRESVAL');
-            // divResval.style.display = "block";
-            $variable = $("#ddlHealthF").html();
-            $("#ddlHealthF").html($variable);
-            var val = $("#ddlWoreda").find(":selected").val();
-            $("#ddlHealthF option").show();
-            $("#ddlHealthF option[data-group!=" + val + "]").hide();
-
-        }
-
-
-
 
 
         function autocomplete(inp, arr) {

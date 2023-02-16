@@ -358,7 +358,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register User
                 </a>
-                  <a class="dropdown-item" href="/registerSite">
+                  <a class="dropdown-item" href="registerSite.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register Site
                 </a>

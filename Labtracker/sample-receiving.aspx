@@ -294,11 +294,11 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="/register">
+                  <a class="dropdown-item" href="register.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register User
                 </a>
-                  <a class="dropdown-item" href="/registerSite">
+                  <a class="dropdown-item" href="registerSite.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Register Site
                 </a>
@@ -391,11 +391,9 @@
                           <asp:Parameter Name="HealthFacility" Type="String" />
                           <asp:Parameter Name="LabTech" Type="String" />
                           <asp:Parameter Name="CollectionDate" Type="DateTime"/>
-                          <asp:Parameter Name="RecivedDate" Type="DateTime" />
-                          
+                          <asp:Parameter Name="RecivedDate" Type="DateTime" />                          
                           <asp:Parameter Name="SampleID" Type="Int32" />
-
-                          </UpdateParameters>
+                       </UpdateParameters>
 
                   </asp:SqlDataSource>
                   
@@ -480,8 +478,8 @@
                   </asp:GridView>
                
                   <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT TOP 1000 [SiteId]
-      ,[SitePatientId]
+                      SelectCommand="SELECT TOP 1000 
+      SiteId,[SitePatientId]
       ,[Country]
       ,[Region]
       ,[Zone]
@@ -492,27 +490,21 @@
       ,[Status]
       ,[Remark]
   FROM [Labtracker].[dbo].[Sites]"
-                      UpdateCommand="UPDATE Samples SET [SitePatientId]=@SitePatientId,[Country]=@Country,[Region]=@Region,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[StartDate]=@StartDate,[Status]=@Status,[Remark]=@Remark,LocationLatitude=@LocationLatitude,LocationLongitude=@LocationLongitude
-                      WHERE SiteId=@SiteId">
+                      UpdateCommand="UPDATE Sites SET [SitePatientId]=@SitePatientId,[Country]=@Country,[Region]=@Region,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[StartDate]=@StartDate,[Status]=@Status,[Remark]=@Remark,LocationLatitude=@LocationLatitude,LocationLongitude=@LocationLongitude WHERE SiteId=@SiteId">
                       <UpdateParameters>
                           <asp:Parameter Name="SitePatientId" Type="String" />
                           <asp:Parameter Name="Country" Type="String" />
                           <asp:Parameter Name="Region" Type="String" />
                           <asp:Parameter Name="Zone" Type="String" />
-                          <asp:Parameter Name="Woreda" Type="String" />
-                          <asp:Parameter Name="FromRegion" Type="String" />
-                          <asp:Parameter Name="Zone" Type="String" />
-                          <asp:Parameter Name="Woreda" Type="String" />
+                          <asp:Parameter Name="Woreda" Type="String" />                  
                           <asp:Parameter Name="HealthFacility" Type="String" />
                           <asp:Parameter Name="StartDate" Type="DateTime" />
                           <asp:Parameter Name="Status" Type="String"/>
                           <asp:Parameter Name="Remark" Type="String" />
                            <asp:Parameter Name="LocationLatitude" Type="String"/>
-                          <asp:Parameter Name="LocationLongitude" Type="String" />
-                          
+                          <asp:Parameter Name="LocationLongitude" Type="String" />                         
                           <asp:Parameter Name="SiteId" Type="Int32" />
-
-                          </UpdateParameters>
+                         </UpdateParameters>
 
                   </asp:SqlDataSource>
                   
