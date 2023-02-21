@@ -462,7 +462,8 @@
                           <asp:BoundField DataField="LocationLatitude" HeaderText="GPS_lat" SortExpression="LocationLatitude" />
                           <asp:BoundField DataField="LocationLongitude" HeaderText="GPS_long" SortExpression="LocationLongitude" />
                          
-                          <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />                  
+                          <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />    
+                           <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" /> 
                           <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
                   
                       </Columns>

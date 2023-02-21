@@ -41,10 +41,7 @@ namespace Labtracker
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-
                     string sql = "SELECT COUNT(DISTINCT PatientId) FROM Samples";
-
-
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -52,11 +49,21 @@ namespace Labtracker
                             reader.Read();
                             lblSamplesRecieved.Text = reader[0].ToString();
                         }
+                    }
+
+                    string sql2 = "SELECT COUNT(DISTINCT HealthFacility) FROM Sites";
+                    using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
+                    {
+                        using (SqlDataReader reader = cmd2.ExecuteReader())
+                        {
+                            reader.Read();
+                            lblSites.Text = reader[0].ToString();
+                        }
 
                     }
 
-
                 }
+
 
             }
         }
@@ -89,27 +96,14 @@ namespace Labtracker
 
             dataSource = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
             Session["ds"] = dataSource;
-
-             
+            
             gvSample.DataSourceID = null;
             //gvSample.PageIndex = GridViewPageEventArgs.NewPageIndex;
             gvSample.DataSource = dataSource;
             gvSample.AllowSorting = true;
             gvSample.AllowPaging= true;
-            gvSample.DataBind();
-            
-            Session["isFilter"] = true;
-
-            /*if (valueTocomp.Equals("PatientId"))
-                {
-                //var valueTocompi = Convert.ToInt32( ddlCOlVal.SelectedValue);
-                
-               // var vali = Convert.ToInt32(txtCompVal.Text);
-                if(comp.Equals("equals"))
-                {
-                    
-                }
-            }*/
+            gvSample.DataBind();            
+            Session["isFilter"] = true;            
         }
 
         protected void ExportToPDF(object sender, EventArgs e)

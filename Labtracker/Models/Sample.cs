@@ -35,7 +35,7 @@ namespace Labtracker.Models
         [StringLength(100), Display(Name = "Zone")]
 
         public string Zone { get; set; }
-        [Required, StringLength(100), Display(Name = "Woreda")]
+        [StringLength(100), Display(Name = "Woreda")]
 
         public string Woreda { get; set; }
         [StringLength(100), Display(Name = "Health Facility")]
