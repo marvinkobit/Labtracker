@@ -145,19 +145,19 @@ input[type=submit] {
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <asp:Label>Card Number</asp:Label>
                     <asp:TextBox ID="txtCNo" class="form-control " placeholder="Card No" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Text="* Card no required." ControlToValidate="txtCNo" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                  <%--<asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Text="* Card no required." ControlToValidate="txtCNo" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
 
                    <div class="col-sm-6 mb-3 mb-sm-0">
                        <asp:Label>Sample Volume</asp:Label>
                     <asp:TextBox ID="txtVol" class="form-control " placeholder="Volume" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvVol" runat="server" Text="* Volume required." ControlToValidate="txtVol" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                 <%-- <asp:RequiredFieldValidator ID="rfvVol" runat="server" Text="* Volume required." ControlToValidate="txtVol" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
 
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <asp:Label>Sample Quality</asp:Label>
                     <asp:TextBox ID="txtQly" class="form-control " placeholder="Quality Number" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvQly" runat="server" Text="* Quality required." ControlToValidate="txtQly" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                 <%-- <asp:RequiredFieldValidator ID="rfvQly" runat="server" Text="* Quality required." ControlToValidate="txtQly" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
 
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -169,7 +169,7 @@ input[type=submit] {
                        <asp:SqlDataSource ID="SqlDataSourceRegion" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
                       SelectCommand="SELECT DISTINCT Region FROM Sites ORDER BY Region ASC"></asp:SqlDataSource>
 
-                  <asp:RequiredFieldValidator ID="rfvRegion" runat="server" Text="* Region required." ControlToValidate="ddlRegion" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                  <%--<asp:RequiredFieldValidator ID="rfvRegion" runat="server" Text="* Region required." ControlToValidate="ddlRegion" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
                     <div class="col-sm-6">
                     <%--<asp:TextBox ID="txtZone" class="form-control " placeholder="Zone" runat="server"></asp:TextBox>--%>
@@ -178,7 +178,7 @@ input[type=submit] {
                         </asp:DropDownList>
                          <asp:SqlDataSource ID="SqlDataSourceZone" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
                       SelectCommand="SELECT DISTINCT Zone FROM Sites ORDER BY Zone ASC"></asp:SqlDataSource>
-                    <asp:RequiredFieldValidator ID="rfvZone" runat="server" Text="* Zone required." ControlToValidate="ddlZone" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <%--<asp:RequiredFieldValidator ID="rfvZone" runat="server" Text="* Zone required." ControlToValidate="ddlZone" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                    </div>
 
                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -189,7 +189,7 @@ input[type=submit] {
                         </asp:DropDownList>
                          <asp:SqlDataSource ID="SqlDataSourceWoreda" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
                       SelectCommand="SELECT DISTINCT Woreda FROM Sites ORDER BY Woreda ASC"></asp:SqlDataSource>
-                  <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                 <%-- <asp:RequiredFieldValidator ID="rfvWoreda" runat="server" Text="* Woreda required." ControlToValidate="ddlWoreda" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                     </div>
                   <div class="col-sm-6">
                     <%--<asp:TextBox ID="txtHealthF" class="form-control " placeholder="Health Facility" runat="server"></asp:TextBox>--%>
@@ -198,23 +198,23 @@ input[type=submit] {
                         </asp:DropDownList>
                       <asp:SqlDataSource ID="SqlDataSourceHealthFacility" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
                       SelectCommand="SELECT DISTINCT HealthFacility FROM Sites ORDER BY HealthFacility ASC"></asp:SqlDataSource>
-                  <asp:RequiredFieldValidator ID="rfvHF" runat="server" Text="* Health Facility required." ControlToValidate="ddlHealthF" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                  <%--<asp:RequiredFieldValidator ID="rfvHF" runat="server" Text="* Health Facility required." ControlToValidate="ddlHealthF" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
                     <div class="col-sm-6">
                         <asp:Label>Collection Date</asp:Label>
                     <asp:TextBox ID="txtDateColl" class="form-control " TextMode="Date" ToolTip="Date sample was collected" placeholder="Date Collected" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDC" runat="server" Text="* Collection date required." ControlToValidate="txtDateColl" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <%--<asp:RequiredFieldValidator ID="rfvDC" runat="server" Text="* Collection date required." ControlToValidate="txtDateColl" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                    </div>
                     <div class="col-sm-6">
                         <asp:Label>Recived Date</asp:Label>
                     <asp:TextBox ID="txtDateRec" class="form-control " TextMode="Date" ToolTip="Date sample was recived" placeholder="Date Recieved" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvDR" runat="server" Text="* Reciving date required." ControlToValidate="txtDateRec" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                 <%-- <asp:RequiredFieldValidator ID="rfvDR" runat="server" Text="* Reciving date required." ControlToValidate="txtDateRec" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                     </div>
 
                      <div class="col-sm-6">
                          <asp:Label>Performed By</asp:Label>
                     <asp:TextBox ID="txtLabTech" class="form-control " placeholder="Initial" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvLabTech" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTech" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                  <%--<asp:RequiredFieldValidator ID="rfvLabTech" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTech" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                   </div>
                     <div class="col-sm-6">
 <%--                   <asp:TextBox ID="txtFilepath" class="form-control " placeholder="File Path" runat="server"></asp:TextBox>--%>
