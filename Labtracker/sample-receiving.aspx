@@ -363,6 +363,7 @@
                           <asp:BoundField DataField="LabTech" HeaderText="LabTech" SortExpression="LabTech" />
                           <asp:BoundField DataField="CollectionDate" HeaderText="CollectionDate" SortExpression="CollectionDate" />
                           <asp:BoundField DataField="RecivedDate" HeaderText="RecivedDate" SortExpression="RecivedDate" />
+                            <asp:BoundField DataField="Remark" HeaderText="Remark" SortExpression="Remark" />
                       </Columns>
                       <FooterStyle BackColor="White" ForeColor="#000066" />
                       <HeaderStyle BackColor="#17A2B8" Font-Bold="True" ForeColor="White" />
@@ -376,8 +377,8 @@
                   </asp:GridView>
                
                   <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
-                      SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] ORDER BY SampleID DESC"
-                      UpdateCommand="UPDATE Samples SET [PatientId]=@PatientId,[CardNo]=@CardNo,[Volume]=@Volume,[Quality]=@Quality,[FromCountry]=@FromCountry,[FromRegion]=@FromRegion,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[CollectionDate]=@CollectionDate,[RecivedDate]=@RecivedDate,[LabTech]=@LabTech
+                      SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] ORDER BY SampleID DESC"
+                      UpdateCommand="UPDATE Samples SET [PatientId]=@PatientId,[CardNo]=@CardNo,[Volume]=@Volume,[Quality]=@Quality,[FromCountry]=@FromCountry,[FromRegion]=@FromRegion,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[CollectionDate]=@CollectionDate,[RecivedDate]=@RecivedDate,[LabTech]=@LabTech,[Remark]=@Remark
                       WHERE SampleID=@SampleID">
                       <UpdateParameters>
                           <asp:Parameter Name="PatientId" Type="String" />
@@ -391,7 +392,8 @@
                           <asp:Parameter Name="HealthFacility" Type="String" />
                           <asp:Parameter Name="LabTech" Type="String" />
                           <asp:Parameter Name="CollectionDate" Type="DateTime"/>
-                          <asp:Parameter Name="RecivedDate" Type="DateTime" />                          
+                          <asp:Parameter Name="RecivedDate" Type="DateTime" /> 
+                           <asp:Parameter Name="Remark" Type="String" /> 
                           <asp:Parameter Name="SampleID" Type="Int32" />
                        </UpdateParameters>
 
