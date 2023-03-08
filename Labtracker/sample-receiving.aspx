@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -454,7 +454,7 @@
                                         Sites:
                                         <asp:Label runat="server" ID="lblSites" Text=""></asp:Label>
                                     </p>
-                                    <asp:GridView ID="gvSite" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SiteId" DataSourceID="SqlDataSource3" AutoPostBack="true" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="gvSite" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="SiteId" DataSourceID="SqlDataSource3" AutoPostBack="true" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>

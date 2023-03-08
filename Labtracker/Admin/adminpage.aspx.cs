@@ -15,10 +15,11 @@ namespace Labtracker.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             UsernameText.Text = User.Identity.GetUserName();
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated | !User.IsInRole("canAdmin"))
             {
                 Response.Redirect("~/login.aspx");
             }
+
             if (!IsPostBack)
             {
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;

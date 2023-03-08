@@ -68,8 +68,7 @@ head>
                     <asp:DropDownList ID="ddlRole" class="form-control" ToolTip="Roles" DataTextField="Role" runat="server">
                         <asp:ListItem Selected="True">LabUser</asp:ListItem>
                         <asp:ListItem>Admin</asp:ListItem>
-                       
-
+                        <asp:ListItem>Reviewer</asp:ListItem>
                         </asp:DropDownList>
                   </div>
                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn  btn-primary btn-user btn-block" />
