@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="progress.aspx.cs" Inherits="Labtracker.progress"  EnableEventValidation="false"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="progress.aspx.cs" Inherits="Labtracker.progress" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -439,14 +439,18 @@
                                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Profile
                                             </a>
+                                            <a class="dropdown-item" href="Admin/adminpage.aspx">
+                                                <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Admin Panel
+                                            </a>
                                             <a class="dropdown-item" href="register.aspx">
                                                 <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Register User
                                             </a>
                                             <a class="dropdown-item" href="registerSite.aspx">
-                  <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Register Site
-                </a>
+                                                <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Register Site
+                                            </a>
                                             <a class="dropdown-item" href="#">
                                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Settings
@@ -490,7 +494,9 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Culture Results: <asp:Label runat="server" ID="lblCultureResults" Text=""></asp:Label> </p>
+                                    <p>Culture Results:
+                                        <asp:Label runat="server" ID="lblCultureResults" Text=""></asp:Label>
+                                    </p>
 
                                     <asp:GridView ID="gvResult" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="ResultID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true" OnSorting="gvResult_Sorting" OnPageIndexChanging="gvResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" CssClass="table table-bordered table-condensed">
 
@@ -580,14 +586,14 @@
 
                                 <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
                                     <asp:ListItem>starts with</asp:ListItem>
-                                    <asp:ListItem>equals</asp:ListItem>     
+                                    <asp:ListItem>equals</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
 
                                 <asp:Button ID="Button2" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
                                 <asp:Button ID="Button3" CssClass="btn-primary" runat="server" Text="Generate PDF Report for Filter" OnClick="GeneratePDF" />
-                                 <asp:Button ID="Button4" CssClass="btn-primary" runat="server" Text="Generate CSV Report for Filter" OnClick="GenerateCSV" />
+                                <asp:Button ID="Button4" CssClass="btn-primary" runat="server" Text="Generate CSV Report for Filter" OnClick="GenerateCSV" />
 
 
                             </div>
@@ -600,7 +606,8 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Heat Killed: <asp:Label runat="server" ID="lblHeatkilled" Text=""></asp:Label></p>
+                                    <p>Heat Killed:
+                                        <asp:Label runat="server" ID="lblHeatkilled" Text=""></asp:Label></p>
 
                                     <asp:GridView ID="gvHeatkill" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource5" AllowPaging="True" AllowSorting="True" OnSorting="gvHeatkill_Sorting" OnPageIndexChanging="gvHeatkill_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvHeatkill_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
@@ -638,7 +645,7 @@
 
                         </div>
 
-                         <div class="row">
+                        <div class="row">
                             Filter your search here 
                              <!-- Heatkill Filter Column -->
                             <div class="col-lg-12 mb-4">
@@ -654,11 +661,11 @@
 
                                 <asp:DropDownList ID="ddlCompare_Heatkill" runat="server" Height="26px" Width="155px">
                                     <asp:ListItem>starts with</asp:ListItem>
-                                    <asp:ListItem>equals</asp:ListItem>     
+                                    <asp:ListItem>equals</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal_Heatkill" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button5" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Heatkill" />
-                                 <asp:Button ID="Button8" CssClass="btn-primary" runat="server" Text="Generate CSV Report" OnClick="GenerateCSV_Heatkill" />
+                                <asp:Button ID="Button8" CssClass="btn-primary" runat="server" Text="Generate CSV Report" OnClick="GenerateCSV_Heatkill" />
 
                             </div>
 
@@ -670,7 +677,11 @@
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Drug Susceptibility: <asp:Label runat="server" ID="lblDSTtests" Text=""></asp:Label> tests for <asp:Label runat="server" ID="lblDST" Text=""></asp:Label> samples</p>
+                                    <p>Drug Susceptibility:
+                                        <asp:Label runat="server" ID="lblDSTtests" Text=""></asp:Label>
+                                        tests for
+                                        <asp:Label runat="server" ID="lblDST" Text=""></asp:Label>
+                                        samples</p>
 
                                     <asp:GridView ID="gvDstResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="DstID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnSorting="gvDst_Sorting" OnPageIndexChanging="gvDst_PageIndexChanging" OnDataBound="gvDstResult_DataBound" CssClass="table table-bordered table-condensed">
                                         <Columns>
@@ -682,7 +693,7 @@
 
                                             <asp:BoundField DataField="Sensitivity" HeaderText="Susceptbility" SortExpression="Sensitivity" />
                                             <asp:BoundField DataField="Dater" HeaderText="DateSetup" SortExpression="Dater" />
-                                             <asp:BoundField DataField="DateResult" HeaderText="DateResult" SortExpression="DateResult" />
+                                            <asp:BoundField DataField="DateResult" HeaderText="DateResult" SortExpression="DateResult" />
                                             <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
 
 
@@ -701,18 +712,18 @@
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
                                         SelectCommand="SELECT DstID,PatientId,DrugLine,Drug,Sensitivity,Dater,DateResult,Initial FROM Dsts ORDER BY DstID DESC"
                                         UpdateCommand="UPDATE Dsts SET [PatientId]=@PatientId,[DrugLine]=@DrugLine,[Drug]=@Drug,[Sensitivity]=@Sensitivity,[Dater]=@Dater,[DateResult]=@DateResult,[Initial]=@Initial WHERE DstID=@DstID">
                                         <UpdateParameters>
                                             <asp:Parameter Name="PatientId" Type="String" />
                                             <asp:Parameter Name="DrugLine" Type="String" />
-                                          
+
                                             <asp:Parameter Name="Drug" Type="String" />
                                             <asp:Parameter Name="Sensitivity" Type="String" />
                                             <asp:Parameter Name="Dater" Type="DateTime" />
                                             <asp:Parameter Name="DateResult" Type="DateTime" />
-                                            <asp:Parameter Name="Initial" Type="String" />                                    
+                                            <asp:Parameter Name="Initial" Type="String" />
                                             <asp:Parameter Name="DstID" Type="Int32" />
 
                                         </UpdateParameters>
@@ -735,13 +746,13 @@
 
                                 <asp:DropDownList ID="ddlCOlVal_Dst" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
                                     <asp:ListItem>PatientId</asp:ListItem>
-                               
+
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="select column_name from information_schema.columns where table_name = 'Dsts'"></asp:SqlDataSource>
 
                                 <asp:DropDownList ID="ddlCompare_Dst" runat="server" Height="26px" Width="155px">
                                     <asp:ListItem>starts with</asp:ListItem>
-                                    <asp:ListItem>equals</asp:ListItem>     
+                                    <asp:ListItem>equals</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal_Dst" runat="server"></asp:TextBox>
                                 <asp:Button ID="Button6" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click_Dst" />
