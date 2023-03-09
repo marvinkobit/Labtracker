@@ -45,7 +45,7 @@ namespace Labtracker.Account
                 if (message != null)
                 {
                     // Strip the query string from action
-                    Form.Action = ResolveUrl("~/Account/Manage");
+                    Form.Action = ResolveUrl("Manage");
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace Labtracker.Account
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
                     signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-                    Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
+                    Response.Redirect("Manage?m=ChangePwdSuccess");
                 }
                 else
                 {
@@ -79,7 +79,7 @@ namespace Labtracker.Account
                 IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
                 if (result.Succeeded)
                 {
-                    Response.Redirect("~/Account/Manage?m=SetPwdSuccess");
+                    Response.Redirect("Manage?m=SetPwdSuccess");
                 }
                 else
                 {
