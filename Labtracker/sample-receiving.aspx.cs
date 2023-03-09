@@ -145,11 +145,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
+                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             else
             {
-                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech] FROM [Samples] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
+                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
             }
             dataSource = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
             Session["ds"] = dataSource;

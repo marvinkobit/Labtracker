@@ -39,7 +39,12 @@ namespace Labtracker.Logic
                 IdRoleResult = roleMgr.Create(new IdentityRole { Name = "LabUser" });
 
             }
-            
+
+            if (!roleMgr.RoleExists("Reviewer"))
+            {
+                IdRoleResult = roleMgr.Create(new IdentityRole { Name = "Reviewer" });
+
+            }
             // Create a UserManager object based on the UserStore object and the ApplicationDbContext  
             // object. Note that you can create new objects and use them as parameters in
             // a single line of code, rather than using multiple lines of code, as you did

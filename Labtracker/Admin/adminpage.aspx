@@ -500,6 +500,7 @@
                                              <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
                                              <asp:BoundField DataField="LockoutEnabled" HeaderText="LockoutEnabled" SortExpression="LockoutEnabled" />
                                             <asp:BoundField DataField="AccessFailedCount" HeaderText="AccessFailedCount" SortExpression="AccessFailedCount" />
+                                            <asp:BoundField DataField="RoleName" HeaderText="RoleName" SortExpression="RoleName" />
                                            
 
                                         </Columns>
@@ -517,7 +518,12 @@
                                     </asp:GridView>
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
-                                        SelectCommand="SELECT [Id],[Email],[UserName],PhoneNumber,LockoutEnabled,AccessFailedCount FROM [AspNetUsers]">                                       
+                                        SelectCommand="SELECT  U.[Id],U.PhoneNumber,U.LockoutEnabled,U.AccessFailedCount,U.[Email],U.[UserName],UR.UserId,UR.RoleId,R.Name as RoleName
+FROM [AspNetUsers] AS U
+JOIN AspNetUserRoles AS UR
+ON U.Id = UR.[UserId]
+JOIN AspNetRoles AS R
+ON UR.RoleId = R.Id">                                       
                                     </asp:SqlDataSource>
 
                                 </div>

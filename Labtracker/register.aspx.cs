@@ -40,6 +40,10 @@ namespace Labtracker
                     case "LabUser":
                         manager.AddToRole(user.Id, "LabUser");
                         break;
+                    case "Reviewer":
+                        manager.AddToRole(user.Id, "Reviewer");
+                       
+                        break;
 
                 }
                 
