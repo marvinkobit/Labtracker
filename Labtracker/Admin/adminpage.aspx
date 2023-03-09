@@ -11,7 +11,7 @@
     <meta name="author" content="" />
 
 
-    <title>TBGEN Lab Monitor - Sample Receiving </title>
+    <title>TBGEN Lab Monitor - Admin Panel</title>
 
     <!-- Custom fonts for this template-->
     <link href="../Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -443,7 +443,7 @@
                                                 <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Admin Panel
                                             </a>                                            
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="../Account/Manage.aspx">
                                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Settings
                                             </a>

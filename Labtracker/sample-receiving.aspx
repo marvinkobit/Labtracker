@@ -300,7 +300,7 @@
                                                 Admin Panel
                                             </a>
 
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="Account/Manage.aspx">
                                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Settings
                                             </a>

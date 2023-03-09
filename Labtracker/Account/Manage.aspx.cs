@@ -9,11 +9,13 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Labtracker.Models;
+using System.Web.Providers.Entities;
 
 namespace Labtracker.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
+        
         protected string SuccessMessage
         {
             get;
@@ -36,7 +38,7 @@ namespace Labtracker.Account
         protected void Page_Load()
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
+            UsernameText.Text = User.Identity.GetUserName();
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
             // Enable this after setting up two-factor authentientication
@@ -123,6 +125,13 @@ namespace Labtracker.Account
             manager.SetTwoFactorEnabled(User.Identity.GetUserId(), true);
 
             Response.Redirect("/Account/Manage");
+        }
+
+        protected void SignOut(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/login.aspx");
         }
     }
 }

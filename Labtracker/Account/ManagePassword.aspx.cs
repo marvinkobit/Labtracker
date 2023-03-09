@@ -11,6 +11,7 @@ namespace Labtracker.Account
 {
     public partial class ManagePassword : System.Web.UI.Page
     {
+        
         protected string SuccessMessage
         {
             get;
@@ -25,7 +26,7 @@ namespace Labtracker.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
+            UsernameText.Text = User.Identity.GetUserName();
             if (!IsPostBack)
             {
                 // Determine the sections to render
@@ -93,6 +94,12 @@ namespace Labtracker.Account
             {
                 ModelState.AddModelError("", error);
             }
+        }
+        protected void SignOut(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/login.aspx");
         }
     }
 }
