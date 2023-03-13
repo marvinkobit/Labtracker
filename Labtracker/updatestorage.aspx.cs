@@ -15,8 +15,6 @@ namespace Labtracker
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
-
-
             }
         }
 
@@ -148,7 +146,7 @@ namespace Labtracker
                     media = mediaY + mediaX.ToString();
                     break;
             }
-            (addSuccess, errors) = addstorage.Addstore(txtSampleIdUpdate.Text,  txtFreezer.Text, txtStorageRack.Text, txtStorageBox.Text, media, txtDateProcess.Text, category, mediatype.Equals("Choose Media")? null:mediatype, txtDrawer.Text, txtShelf.Text);
+            (addSuccess, errors) = addstorage.Addstore(txtSampleIdUpdate.Text, ddlFreezer.SelectedItem.ToString() , txtStorageRack.Text, txtStorageBox.Text, media, txtDateProcess.Text, category, mediatype.Equals("Choose Media")? null:mediatype, txtDrawer.Text, txtShelf.Text);
             if (addSuccess)
             {
                 Response.Redirect("~/Storage.aspx");
