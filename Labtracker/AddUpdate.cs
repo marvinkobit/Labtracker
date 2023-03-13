@@ -228,10 +228,10 @@ namespace Labtracker
                     SQLConn6.Close();
 
                     SQLConn6.Open();
-                    SqlCommand commandd6 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET CultureSmear_date=@CultureSmear_date,PatientId=@patient,CultureSmear_date=@CultureSmear_date WHERE PatientId=@patient", SQLConn6);
+                    SqlCommand commandd6 = new SqlCommand("INSERT INTO Processes (PatientId) SELECT PatientId=@patient WHERE NOT EXISTS (SELECT PatientId FROM Processes WHERE PatientId =@patient) UPDATE Processes SET CultureSmear_date=@CultureSmear_date,PatientId=@patient,CultureSmear_Initial=@CultureSmear_Initial WHERE PatientId=@patient", SQLConn6);
                     commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.DateTime).Value = (object)dateProcess ?? DBNull.Value;
                     commandd6.Parameters.Add("@patient", SqlDbType.NVarChar).Value = SaId;
-                    commandd6.Parameters.Add("@CultureSmear_date", SqlDbType.NVarChar).Value = labinitial;
+                    commandd6.Parameters.Add("@CultureSmear_Initial", SqlDbType.NVarChar).Value = labinitial;
                     commandd6.ExecuteNonQuery();
                     SQLConn6.Close();
                     //tbgresupdates.CultureSmear_res = resultant;
@@ -324,7 +324,7 @@ namespace Labtracker
 
 
         //Overload for DST (string, string, string, string, string, DateTime)
-        public bool AddUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater)
+        public bool AddDSTUpdate(string SaId, string sensetive , string drug, string drugline, string labinitial, DateTime? dater,string dateresult)
         {
            
             var tbgdstupdates = new Dst();
@@ -337,7 +337,8 @@ namespace Labtracker
             tbgdstupdates.Drug = drug;
             tbgdstupdates.Sensitivity = sensetive;
             tbgdstupdates.Dater = Convert.ToDateTime(dater);
-              
+            tbgdstupdates.DateResult = string.IsNullOrEmpty(dateresult) ? (DateTime?)null : Convert.ToDateTime(dateresult);
+
 
             using (SampleContext _db = new SampleContext())
             {

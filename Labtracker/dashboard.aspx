@@ -10,7 +10,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">TBGEN LAB activity tracking </h1>
+            <h1 class="h3 mb-0 text-gray-800">TBGEN Lab Activity Tracking Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i>Generate Report</a>
         </div>
@@ -28,10 +28,7 @@
 
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <asp:Label runat="server" ID="lblTotalSample" Text=""></asp:Label>
-
                                 </div>
-
-
                             </div>
 
                             <div class="col-auto">
@@ -48,7 +45,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Culture Positive</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sample Result in Progress</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <asp:Label runat="server" ID="lblCulturePositive" Text=""></asp:Label>
                                 </div>
@@ -572,12 +569,40 @@
                 <script type="text/javascript">
 
                     var adama = "Adama Hospital";
-                    var mymap = L.map('mapid2').setView([9.058702156392139, 3.359765625
+                    var mymap = L.map('mapid2').setView([9.058702156392139, 35.359765625
                     ], 3.5);
 
                     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> | <a href="https://tbgen.ahri.gov.et" target="_blank">TBGEN, AHRI</a> mapdata'
                     }).addTo(mymap);
+
+                    
+
+                    var oromia = '<%=Regions[0]%>';
+                    var snnp = '<%=Regions[1]%>';
+                    var gambela = '<%=Regions[2]%>';
+                    var addis = '<%=Regions[3]%>';
+                    var amhara = '<%=Regions[4]%>';
+                    var somali = '<%=Regions[5]%>';
+                    var benshangul = '<%=Regions[6]%>';
+                    var tigray = '<%=Regions[7]%>';
+                    var afar = '<%=Regions[8]%>';
+                    var harar = '<%=Regions[9]%>';
+
+
+                    var regional = {
+                        'Amhara': amhara,
+                        'Oromia': oromia,
+                        'SNNPR': snnp,
+                        'Gambela': gambela,
+                        'Addis Ababa': addis,
+                        'Somali': somali,
+                        'Benshangul Gumu': benshangul,
+                        'Tigray': tigray,
+                        'Afar': afar,
+                        'Hareri': harar,
+                        'Dire Dawa': '0'
+                    }
 
                     var shpfile = new L.Shapefile('Content/spatial/ethiopiaregion.zip',
                         {
@@ -593,7 +618,7 @@
                                         });
                                 }*/
                                 if (feature.properties) {
-                                    layer.bindPopup(feature.properties["REGIONNAME"]+"</br>"+"Samples: _");
+                                    layer.bindPopup(feature.properties["REGIONNAME"] + "</br>" + "Samples: " + regional[feature.properties["REGIONNAME"]]);
                                 }
                             }
                         });
@@ -646,9 +671,7 @@
                             if (feature.properties) {
                                 layer.bindPopup("Region: "+feature.properties["State_En"] + "</br>" + "Samples: _");
                             }
-
                         }
-
                     });
                     shpfile4.addTo(mymap);
 
@@ -667,7 +690,6 @@
 
         <!-- Content Column -->
         <div class="col-lg-12 mb-4">
-
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -678,20 +700,12 @@
                     <div class="progress mb-4">
                         <div runat="server" id="progressBar1" class="progress-bar bg-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">Isolate Storage<span class="float-right"><asp:Label runat="server" ID="lblisolatetar" Text="" />%</span></h4>
+                    <h4 class="small font-weight-bold">Lab Result<span class="float-right"><asp:Label runat="server" ID="lblisolatetar" Text="" />%</span></h4>
                     <div class="progress mb-4">
                         <div runat="server" id="progressBar2" class="progress-bar bg-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-
                 </div>
             </div>
-
-
-
-
-
-
-
         </div>
     </div>
 </asp:Content>

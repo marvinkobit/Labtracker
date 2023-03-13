@@ -292,11 +292,12 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="/register">
+                  <a class="dropdown-item" href="Admin/adminpage.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Register
+                 Admin Panel
                 </a>
-                <a class="dropdown-item" href="#">
+                  
+                <a class="dropdown-item" href="Account/Manage.aspx">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
@@ -340,7 +341,7 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4 table-responsive">
-                    <p>DNA Extraction</p>
+                    <p>DNA Extraction: <asp:Label runat="server" ID="lbldnaprocessed" Text=""></asp:Label></p>
                    <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
@@ -385,7 +386,7 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4 table-responsive">
-                    <p>Library Preparation</p>
+                    <p>Library Preparation <asp:Label runat="server" ID="lblLibraryprep" Text=""></asp:Label></p>
                    <asp:GridView ID="GridView1" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />

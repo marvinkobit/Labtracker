@@ -8,7 +8,7 @@ namespace Labtracker
 {
     public class AddSamples
     {
-        public bool AddSample(string SaId, string PaId,string CNo, string Vol,string Qly,string countr, string Region, string Zon, string Wored, string HealthF, DateTime datecoll, DateTime daterec,string labtech, string filep,int SampleCat, int ProjId)
+        public bool AddSample(string SaId, string PaId,string CNo, string Vol,string Qly,string countr, string Region, string Zon, string Wored, string HealthF, string datecoll, string daterec,string labtech, string filep,int SampleCat, int ProjId)
         {
             var tbgsamples = new Sample();
             tbgsamples.SampleID = Convert.ToInt32(SaId);
@@ -21,8 +21,8 @@ namespace Labtracker
             tbgsamples.Zone = Zon;
             tbgsamples.Woreda = Wored;
             tbgsamples.HealthFacility=HealthF;
-            tbgsamples.CollectionDate = Convert.ToDateTime(datecoll);
-            tbgsamples.RecivedDate= Convert.ToDateTime(daterec);
+            tbgsamples.CollectionDate = string.IsNullOrEmpty(datecoll) ? (DateTime?)null : Convert.ToDateTime(datecoll);
+            tbgsamples.RecivedDate= string.IsNullOrEmpty(daterec) ? (DateTime?)null : Convert.ToDateTime(daterec);
             tbgsamples.LabTech = labtech;
             tbgsamples.FilePath = filep;
             tbgsamples.CategoryID = SampleCat;

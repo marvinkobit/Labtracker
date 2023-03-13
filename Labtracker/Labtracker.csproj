@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CodeFirstSeeder, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CodeFirstSeeder.1.0.3\lib\net45\CodeFirstSeeder.dll</HintPath>
     </Reference>
@@ -58,6 +61,12 @@
     </Reference>
     <Reference Include="Hangfire.Core, Version=1.7.27.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hangfire.Core.1.7.27\lib\net46\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -225,6 +234,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="addsample.aspx" />
+    <Content Include="addsampledynamic.aspx" />
     <Content Include="addsequencing.aspx" />
     <Content Include="Admin\adminpage.aspx" />
     <Content Include="Collection.aspx" />
@@ -2043,6 +2053,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="progress.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="registerSite.aspx" />
     <Content Include="report.aspx" />
     <Content Include="result.aspx" />
     <Content Include="sample-preprocessing.aspx" />
@@ -2083,6 +2094,7 @@
     <Content Include="shp.js" />
     <Content Include="Site.Master" />
     <Content Include="storage.aspx" />
+    <Content Include="UpdateFreezer.aspx" />
     <Content Include="updateprogress.aspx" />
     <Content Include="updateresult.aspx" />
     <Content Include="updatestorage.aspx" />
@@ -2206,6 +2218,13 @@
     <Compile Include="addsample.aspx.designer.cs">
       <DependentUpon>addsample.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addsampledynamic.aspx.cs">
+      <DependentUpon>addsampledynamic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addsampledynamic.aspx.designer.cs">
+      <DependentUpon>addsampledynamic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddSamples.cs" />
     <Compile Include="addsequencing.aspx.cs">
       <DependentUpon>addsequencing.aspx</DependentUpon>
@@ -2214,6 +2233,7 @@
     <Compile Include="addsequencing.aspx.designer.cs">
       <DependentUpon>addsequencing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddSites.cs" />
     <Compile Include="AddStorage.cs" />
     <Compile Include="AddUpdate.cs" />
     <Compile Include="Admin\adminpage.aspx.cs">
@@ -2319,6 +2339,7 @@
     <Compile Include="Models\Sample.cs" />
     <Compile Include="Models\SampleContext.cs" />
     <Compile Include="Models\SampleDatabaseInitializer.cs" />
+    <Compile Include="Models\Site.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="progress.aspx.cs">
@@ -2335,6 +2356,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registerSite.aspx.cs">
+      <DependentUpon>registerSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerSite.aspx.designer.cs">
+      <DependentUpon>registerSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="report.aspx.cs">
       <DependentUpon>report.aspx</DependentUpon>
@@ -2399,6 +2427,13 @@
     </Compile>
     <Compile Include="storage.aspx.designer.cs">
       <DependentUpon>storage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateFreezer.aspx.cs">
+      <DependentUpon>UpdateFreezer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateFreezer.aspx.designer.cs">
+      <DependentUpon>UpdateFreezer.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateprogress.aspx.cs">
       <DependentUpon>updateprogress.aspx</DependentUpon>

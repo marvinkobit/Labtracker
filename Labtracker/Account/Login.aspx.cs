@@ -50,6 +50,7 @@ namespace Labtracker.Account
                                           true);
                         break;
                     case SignInStatus.Failure:
+                        break;
                     default:
                         FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
