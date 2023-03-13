@@ -439,7 +439,7 @@
                                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Profile
                                             </a>
-                                            <a class="dropdown-item" href=../Admin/adminpage.aspx">
+                                            <a class="dropdown-item" href="../Admin/adminpage.aspx">
                                                 <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Admin Panel
                                             </a>                                            
