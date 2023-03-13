@@ -20,7 +20,7 @@
   <!-- Custom styles for this template-->
   <link href="Content/css/sb-admin-2.min.css" rel="stylesheet"/>
   <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
  <!-- Make sure you put this AFTER Leaflet's CSS -->
@@ -354,11 +354,12 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                  <a class="dropdown-item" href="register.aspx">
+                  <a class="dropdown-item" href="Admin/adminpage.aspx">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Register
+                  Admin Panel
                 </a>
-                <a class="dropdown-item" href="#">
+                  
+                <a class="dropdown-item" href="Account/Manage.aspx">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
@@ -396,7 +397,7 @@ i      <!-- Nav Item - Utilities Collapse Menu -->
                   <h6 class="m-0 font-weight-bold text-primary"></h6>
                 </div>
                 <div class="card-body">
-                  <p>This system is developed to tarck and monitor the lab activities of TBGEN project.Its intended to be used by Project members. </p>
+                  <p>This system is developed to track and monitor the lab activities of TBGEN project.Its intended to be used by Project members. </p>
                   
                 </div>
               </div>

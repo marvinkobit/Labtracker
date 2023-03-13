@@ -15,8 +15,6 @@ namespace Labtracker
             if (!User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/login.aspx");
-
-
             }
         }
 
