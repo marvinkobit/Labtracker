@@ -31,11 +31,11 @@
         "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "5.10.2",
+        "@fortawesome/fontawesome-free": "5.15.4",
         "bootstrap": "4.3.1",
-        "chart.js": "2.8.0",
         "datatables.net-bs4": "1.12.1",
-        "jquery": "3.4.1",
+        "chart.js": "2.9.4",
+        "jquery": "3.6.0",
         "jquery.easing": "^1.4.1"
     },
     "devDependencies": {

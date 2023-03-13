@@ -27,7 +27,9 @@ namespace Labtracker.Models
         public string Initial { get; set; }
 
         public string PatientId { get; set; }
-        
+
+        public Nullable<DateTime> DateResult { get; set; }
+
         // public virtual ICollection<Sample> Samples { get; set; }
     }
 }
