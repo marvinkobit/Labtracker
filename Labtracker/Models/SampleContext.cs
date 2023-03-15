@@ -30,5 +30,7 @@ namespace Labtracker.Models
 
         public DbSet<Site> Sites { get; set; }
 
+        public DbSet<AccessLog> AccessLogs { get; set; }
+
     }
 }

@@ -236,6 +236,7 @@
     <Content Include="addsample.aspx" />
     <Content Include="addsampledynamic.aspx" />
     <Content Include="addsequencing.aspx" />
+    <Content Include="Admin\activitylog.aspx" />
     <Content Include="Admin\adminpage.aspx" />
     <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
@@ -2211,6 +2212,7 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddAccessLogs.cs" />
     <Compile Include="addsample.aspx.cs">
       <DependentUpon>addsample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2236,6 +2238,13 @@
     <Compile Include="AddSites.cs" />
     <Compile Include="AddStorage.cs" />
     <Compile Include="AddUpdate.cs" />
+    <Compile Include="Admin\activitylog.aspx.cs">
+      <DependentUpon>activitylog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\activitylog.aspx.designer.cs">
+      <DependentUpon>activitylog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\adminpage.aspx.cs">
       <DependentUpon>adminpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2324,6 +2333,7 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationDbInitializer.cs" />
+    <Compile Include="Models\AccessLog.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Freezer.cs" />
     <Compile Include="Models\Dnaextract.cs" />
