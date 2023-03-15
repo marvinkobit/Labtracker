@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="storage.aspx.cs" Inherits="Labtracker.storage" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="activitylog.aspx.cs" Inherits="Labtracker.Admin.activitylog" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -11,17 +10,163 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>TBGEN Lab Monitor - Storage</title>
+
+    <title>TBGEN Lab Monitor - Admin Panel</title>
 
     <!-- Custom fonts for this template-->
-    <link href="Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
     <%-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>--%>
 
     <!-- Custom styles for this template-->
-    <link href="Content/css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="Content/css/sb-admin-2.css" rel="stylesheet" />
+    <link href="../Content/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../Content/css/sb-admin-2.css" rel="stylesheet" />
+    <style type="text/css">
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: auto
+        }
+
+        @media screen and (max-width:767px) {
+            .table-responsive {
+                width: 100%;
+                margin-bottom: 15px;
+                overflow-y: hidden;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+                border: 1px solid #ddd
+            }
+        }
+
+        fieldset {
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            border: 0
+        }
+
+        legend {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: inherit;
+            color: #333;
+            border: 0;
+            border-bottom: 1px solid #e5e5e5
+        }
+
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700
+        }
+
+        input[type=search] {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        input[type=checkbox], input[type=radio] {
+            margin: 4px 0 0;
+            margin-top: 1px\9;
+            line-height: normal
+        }
+
+        input[type=file] {
+            display: block
+        }
+
+        input[type=range] {
+            display: block;
+            width: 100%
+        }
+
+        select[multiple], select[size] {
+            height: auto
+        }
+
+        input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+
+        output {
+            display: block;
+            padding-top: 7px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd
+        }
+
+            .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+                border: 1px solid #ddd
+            }
+
+            .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+                border-bottom-width: 2px
+            }
+
+        .table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+            padding: 5px
+        }
+
+        .rows {
+            background-color: #fff;
+            font-family: Arial;
+            font-size: 14px;
+            color: #000;
+            min-height: 25px;
+            text-align: left;
+            border: none 0px transparent;
+        }
+
+            .rows:hover
+
+            .table-hover > tbody > tr:hover {
+                background-color: #f5f5f5
+            }
+
+        table col[class*=col-] {
+            position: static;
+            display: table-column;
+            float: none
+        }
+
+        table td[class*=col-], table th[class*=col-] {
+            position: static;
+            display: table-cell;
+            float: none
+        }
+    </style>
+    <script src="scripts/jquery.responsivetable.min.js"></script>
 </head>
 <body id="page-top">
+
 
     <form id="form1" runat="server">
 
@@ -37,7 +182,7 @@
                         <!--  <i class="fas fa-laugh-wink"></i> -->
                     </div>
                     <div class="sidebar-brand-text mx-3">
-                        <img width="120%" height="120%" src="Images/logo.png" />
+                        <img width="120%" height="120%" src="../Images/logo.png" />
                         <sup></sup>
                     </div>
                 </a>
@@ -103,7 +248,7 @@
                 <!-- Nav Item - Pages Collapse Menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="dashboard.aspx">
+                    <a class="nav-link collapsed" href="../dashboard.aspx">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -111,7 +256,7 @@
                 </li>
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="sample-receiving.aspx">
+                    <a class="nav-link" href="../sample-receiving.aspx">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Receiving</span></a>
                 </li>
@@ -125,28 +270,28 @@
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="progress.aspx">
+                    <a class="nav-link" href="../progress.aspx">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Progress and Result</span></a>
                 </li>
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="storage.aspx">
+                    <a class="nav-link" href="../storage.aspx">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Isolate Storage</span></a>
                 </li>
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="sequencing.aspx">
+                    <a class="nav-link" href="../sequencing.aspx">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Sequencing</span></a>
                 </li>
 
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="report.aspx">
+                    <a class="nav-link" href="../report.aspx">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Report</span></a>
                 </li>
@@ -162,10 +307,10 @@
             </ul>
             <!-- End of Sidebar -->
 
-            <!-- Content Wrapper -->
+            <!-- ../Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Main Content -->
+                <!-- Main ../Content -->
                 <div id="content">
 
                     <!-- Topbar -->
@@ -285,7 +430,7 @@
                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                                 <asp:Literal runat="server" ID="UsernameText" /></span>
-                                            <img class="img-profile rounded-circle" src="Images/user-profile.png" />
+                                            <img class="img-profile rounded-circle" src="../Images/user-profile.png" />
 
                                         </a>
                                         <!-- Dropdown - User Information -->
@@ -294,16 +439,15 @@
                                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Profile
                                             </a>
-                                            <a class="dropdown-item" href="Admin/adminpage.aspx">
+                                            <a class="dropdown-item" href="adminpage.aspx">
                                                 <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-                                               Admin Panel
-                                            </a>
-                                            
-                                            <a class="dropdown-item" href="Account/Manage.aspx">
+                                                Admin Panel
+                                            </a>                                            
+                                            <a class="dropdown-item" href="../Account/Manage.aspx">
                                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Settings
                                             </a>
-                                            <a class="dropdown-item" href="Admin/activitylog.aspx">
+                                            <a class="dropdown-item" href="activitylog.aspx">
                                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Activity Log
                                             </a>
@@ -319,54 +463,37 @@
                     </nav>
                     <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
+                    <!-- Begin Page ../Content -->
                     <div class="container-fluid">
 
-                        <!-- Page Heading -->
+
+                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Isolate Storage </h1>
-                            <a href="updatestorage.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fas fa-download fa-sm text-white-50"></i>Update Storage</a>
-
-                            <a href="UpdateFreezer.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fas fa-download fa-sm text-white-50"></i>Update Freezer</a>
-
-                            <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
-                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
-                            <a href="report.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fas fa-download fa-sm text-white-50"></i>Generate Report</a>
+                            <h1 class="h3 mb-0 text-gray-800">Activity Log</h1>                           
                         </div>
-
-
-
-                        <!-- Content Row -->
-
-                        <div class="row">
+   
+                        <!-- ../Content Row -->
+                         <div class="row">
 
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-8">
                                 <div class="card shadow mb-4 table-responsive">
-                                    <p>Isolate Stored:
-                                        <asp:Label runat="server" ID="lblIsolatesAll" Text=""></asp:Label>
-                                        isolates of
-                                        <asp:Label runat="server" ID="lblIsolatesDistinct" Text=""> </asp:Label>
-                                        samples </p>
-                                    <asp:GridView ID="gvStorage" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="StoreId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvStorage_DataBound">
+                                    <p>Log:
+                                        <asp:Label runat="server" ID="lblLog" Text=""></asp:Label>
+                                    </p>
+
+                                    <asp:GridView ID="gvLogActivity" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
-                                            <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
-                                            <asp:BoundField DataField="category" HeaderText="IsolateCategory" SortExpression="category" />
-                                            <asp:BoundField DataField="MediaType" HeaderText="MediaType" SortExpression="MediaType" />
-                                            <asp:BoundField DataField="Freezer" HeaderText="Freezer" SortExpression="Freezer" />
-                                            <asp:BoundField DataField="Drawer" HeaderText="Drawer" SortExpression="Drawer" />
-                                            <asp:BoundField DataField="Rack" HeaderText="Rack" SortExpression="Rack" />
-                                            <asp:BoundField DataField="Shelf" HeaderText="Shelf" SortExpression="Shelf" />
-                                            <asp:BoundField DataField="Box" HeaderText="Box" SortExpression="Box" />
-                                            <asp:BoundField DataField="Matrix" HeaderText="Matrix" SortExpression="Matrix" />
-                                            <asp:BoundField DataField="storeDate" HeaderText="storeDate" SortExpression="storeDate" />
-
-
-
+                                                
+                                            <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                                            <asp:BoundField DataField="Browser" HeaderText="Browser" SortExpression="Browser" />
+                                             <asp:BoundField DataField="Ipaddress" HeaderText="Ipaddress" SortExpression="Ipaddress" />
+                                             <asp:BoundField DataField="AccessTime" HeaderText="AccessTimeUTC" SortExpression="AccessTime" />
+                                            <asp:BoundField DataField="Action" HeaderText="Action" SortExpression="Action" />
+                                            <asp:BoundField DataField="Mobile" HeaderText="Mobile" SortExpression="Mobile" />
+                                            <asp:BoundField DataField="UserAgent" HeaderText="UserAgent" SortExpression="UserAgent" />
                                         </Columns>
                                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                         <EditRowStyle BackColor="#999999" />
@@ -382,136 +509,28 @@
                                     </asp:GridView>
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
-                                        SelectCommand="SELECT [StoreId],[PatientId],category,MediaType,[Freezer],Drawer,[Rack],Shelf,[Box],[Matrix],[storeDate] FROM Stores ORDER BY StoreId DESC"
-                                        UpdateCommand="UPDATE Stores SET [PatientId]=@PatientId,[category]=@category,[MediaType]=@MediaType,[Freezer]=@Freezer,[Drawer]=@Drawer,[Rack]=@Rack,[Shelf]=@Shelf,[Box]=@Box,[Matrix]=@Matrix,[storeDate]=@storeDate WHERE StoreId=@StoreId">
-                                        <UpdateParameters>
-                                            <asp:Parameter Name="PatientId" Type="String" />
-                                            <asp:Parameter Name="category" Type="String" />
-                                            <asp:Parameter Name="MediaType" Type="String" />
-                                            <asp:Parameter Name="Freezer" Type="String" />
-                                            <asp:Parameter Name="Drawer" Type="String" />
-                                            <asp:Parameter Name="Rack" Type="String" />
-                                            <asp:Parameter Name="Shelf" Type="String" />
-                                            <asp:Parameter Name="Box" Type="String" />
-                                            <asp:Parameter Name="Matrix" Type="String" />
-                                            <asp:Parameter Name="storeDate" Type="DateTime" />
-                                            <asp:Parameter Name="StoreId" Type="Int32" />
-                                        </UpdateParameters>
+                                        SelectCommand="SELECT 
+        Id
+      ,AU.UserName
+      ,[Browser]
+      ,[Ipaddress]
+      ,[AccessTime]
+      ,[Mobile]
+      ,[UserAgent]
+      ,[Action]
+ FROM [Labtracker].[dbo].[AccessLogs] as AL
+ JOIN [Labtracker].[dbo].AspNetUsers as AU 
+ ON AL.UserId = AU.Id">                                       
                                     </asp:SqlDataSource>
 
                                 </div>
                             </div>
-
-
                         </div>
 
-
-
-
-                        <div class="row">
-                            Filter your search here 
-            <!-- Content Column -->
-                            <div class="col-lg-12 mb-4">
-
-
-                                <asp:DropDownList ID="ddlCOlVal" runat="server" Height="26px" Width="150px" DataTextField="column_name" DataValueField="column_name">
-                                    <asp:ListItem>PatientId</asp:ListItem>
-                                    <asp:ListItem>Mediatype</asp:ListItem>
-                                    <asp:ListItem>Freezer</asp:ListItem>
-                                    <asp:ListItem>category</asp:ListItem>
-                                    <asp:ListItem>Box</asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:DropDownList ID="ddlCompare" runat="server" Height="26px" Width="155px">
-                                    <asp:ListItem>starts with</asp:ListItem>
-                                    <asp:ListItem>equals</asp:ListItem>                                   
-                                </asp:DropDownList>
-                                <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
-                                <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
-                                 <asp:Button ID="Button2" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
-                                 <asp:Button ID="Button3" CssClass="btn-primary" runat="server" Text="Generate PDF Report for filter" OnClick="GeneratePDF" />
-                                 <asp:Button ID="Button4" CssClass="btn-primary" runat="server" Text="Generate CSV Report for filter" OnClick="GenerateCSV" />
-
-                            </div>
-
-                        </div>
                         <!-- /.container-fluid -->
 
-                        <!-- Content Row -->
-
-                        <div class="row">
-
-                            <!-- Area Chart -->
-                            <div class="col-xl-12 col-lg-8">
-                                <div class="card shadow mb-4 table-responsive">
-                                    <p>Freezers</p>
-                                    <asp:GridView ID="gvFreezer" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="FreezerID" DataSourceID="SqlDataSource2" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnSorting="gvStorage_Sorting" OnPageIndexChanging="gvStorage_PageIndexChanging" OnDataBound="gvStorage_DataBound">
-                                        <Columns>
-                                            <asp:CommandField ShowSelectButton="True" />
-                                            <asp:BoundField DataField="Freezer_AHRIUniqueId" HeaderText="AHRIUniqueId" SortExpression="Freezer_AHRIUniqueId" />
-                                            <asp:BoundField DataField="ManufacturerName" HeaderText="ManufacturerName" SortExpression="ManufacturerName" />
-                                            <asp:BoundField DataField="Model" HeaderText="Model" SortExpression="Model" />
-                                            <asp:BoundField DataField="SerialNumber" HeaderText="SerialNumber" SortExpression="SerialNumber" />
-                                            <asp:BoundField DataField="CurrentLocation" HeaderText="CurrentLocation" SortExpression="CurrentLocation" />
-                                            <asp:BoundField DataField="EquipCondition" HeaderText="EquipCondition" SortExpression="EquipCondition" />
-                                            <asp:BoundField DataField="CalibrationDate" HeaderText="CalibrationDate" SortExpression="CalibrationDate" />
-                                            <asp:BoundField DataField="NextCalibrationDate" HeaderText="NextCalibrationDate" SortExpression="NextCalibrationDate" />
-                                            <asp:BoundField DataField="ServiceDate" HeaderText="ServiceDate" SortExpression="ServiceDate" />
-                                            <asp:BoundField DataField="NextServiceDate" HeaderText="NextServiceDate" SortExpression="NextServiceDate" />
-
-
-
-                                        </Columns>
-                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                        <EditRowStyle BackColor="#999999" />
-                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                                    </asp:GridView>
-
-                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
-                                        SelectCommand="SELECT [FreezerID]
-      ,[Freezer_AHRIUniqueId]
-      ,[ManufacturerName]
-      ,[Model]
-      ,[SerialNumber]
-      ,[CurrentLocation]
-      ,[EquipCondition]
-      ,[CalibrationDate]
-      ,[NextCalibrationDate]
-      ,[ServiceDate]
-      ,[NextServiceDate]
-  FROM [Labtracker].[dbo].[Freezers] ORDER BY FreezerID DESC"
-                                        UpdateCommand="UPDATE Freezers SET [Freezer_AHRIUniqueId]=@Freezer_AHRIUniqueId,[ManufacturerName]=@ManufacturerName,[Model]=@Model,[SerialNumber]=@SerialNumber,[CurrentLocation]=@CurrentLocation,[EquipCondition]=@EquipCondition,[CalibrationDate]=@CalibrationDate,[NextCalibrationDate]=@NextCalibrationDate,[ServiceDate]=@ServiceDate,[NextServiceDate]=@NextServiceDate WHERE FreezerID=@FreezerID">
-                                        <UpdateParameters>
-                                            <asp:Parameter Name="Freezer_AHRIUniqueId" Type="String" />
-                                            <asp:Parameter Name="ManufacturerName" Type="String" />
-                                            <asp:Parameter Name="Model" Type="String" />
-                                            <asp:Parameter Name="SerialNumber" Type="String" />
-                                            <asp:Parameter Name="CurrentLocation" Type="String" />
-                                            <asp:Parameter Name="EquipCondition" Type="String" />
-                                            <asp:Parameter Name="CalibrationDate" Type="DateTime" />
-                                            <asp:Parameter Name="NextCalibrationDate" Type="DateTime" />
-                                            <asp:Parameter Name="ServiceDate" Type="DateTime" />
-                                            <asp:Parameter Name="NextServiceDate" Type="DateTime" />
-                                            <asp:Parameter Name="FreezerID" Type="Int32" />
-                                        </UpdateParameters>
-                                    </asp:SqlDataSource>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
                     </div>
-                    <!-- End of Main Content -->
+                    <!-- End of Main ../Content -->
 
                     <!-- Footer -->
                     <footer class="sticky-footer bg-white">
@@ -524,7 +543,7 @@
                     <!-- End of Footer -->
 
                 </div>
-                <!-- End of Content Wrapper -->
+                <!--End of ../Content Wrapper -->
 
             </div>
             <!-- End of Page Wrapper -->
@@ -554,22 +573,27 @@
             </div>
 
             <!-- Bootstrap core JavaScript-->
-            <script src="Content/vendor/jquery/jquery.min.js"></script>
-            <script src="Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../Content/vendor/jquery/jquery.min.js"></script>
+            <script src="../Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
             <!-- Core plugin JavaScript-->
-            <script src="Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="../Content/vendor/jquery-easing/jquery.easing.min.js"></script>
 
             <!-- Custom scripts for all pages-->
-            <script src="Content/js/sb-admin-2.min.js"></script>
+            <script src="../Content/js/sb-admin-2.min.js"></script>
 
             <!-- Page level plugins -->
-            <script src="Content/vendor/chart.js/Chart.min.js"></script>
+            <script src="../Content/vendor/chart.js/Chart.min.js"></script>
 
             <!-- Page level custom scripts -->
-            <script src="Content/js/demo/chart-bar-demo.js"></script>
-            <script src="Content/js/demo/chart-pie-demo.js"></script>
+            <script src="../Content/js/demo/chart-bar-demo.js"></script>
+            <script src="../Content/js/demo/chart-pie-demo.js"></script>
     </form>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
