@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Labtracker {
-    
-    
-    public partial class dashboard {
-        
+namespace Labtracker
+{
+
+
+    public partial class dashboard
+    {
+
         /// <summary>
         /// lblTotalSample control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalSample;
-        
+
         /// <summary>
         /// lblCulturePositive control.
         /// </summary>
@@ -29,16 +31,16 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCulturePositive;
-        
+
         /// <summary>
-        /// lblContaminated control.
+        /// lblHeatkill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContaminated;
-        
+        protected global::System.Web.UI.WebControls.Label lblHeatkill;
+
         /// <summary>
         /// lblIsolateStored control.
         /// </summary>
@@ -47,16 +49,16 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIsolateStored;
-        
+
         /// <summary>
-        /// lblNoGrowth control.
+        /// lblDst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoGrowth;
-        
+        protected global::System.Web.UI.WebControls.Label lblDst;
+
         /// <summary>
         /// lblethiopiasam control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblethiopiasam;
-        
+
         /// <summary>
         /// lblEritreasam control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEritreasam;
-        
+
         /// <summary>
         /// lblCameroonsam control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCameroonsam;
-        
+
         /// <summary>
         /// lblSudansam control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSudansam;
-        
+
         /// <summary>
         /// lblsamplecoltar control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblsamplecoltar;
-        
+
         /// <summary>
         /// progressBar1 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressBar1;
-        
+
         /// <summary>
         /// lblisolatetar control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblisolatetar;
-        
+
         /// <summary>
         /// progressBar2 control.
         /// </summary>

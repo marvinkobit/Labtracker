@@ -67,9 +67,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Contaminated</div>
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Heat Killed</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblContaminated" Text=""></asp:Label>
+                                    <asp:Label runat="server" ID="lblHeatkill" Text=""></asp:Label>
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -106,9 +106,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No growth</div>
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">DST</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <asp:Label runat="server" ID="lblNoGrowth" Text=""></asp:Label>
+                                    <asp:Label runat="server" ID="lblDst" Text=""></asp:Label>
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -453,33 +453,6 @@
                 <div id="mapid" style="width: 600px; height: 400px;"></div>
                 <script type="text/javascript">
 
-
-                    var adama = '<%=Sites[0]%>';
-                    var shashe = '<%=Sites[1]%>';
-                    var wolay = '<%=Sites[2]%>';
-                    var gambe = '<%=Sites[3]%>';
-                    var yirga = '<%=Sites[4]%>';
-                    var arba = '<%=Sites[5]%>';
-                    var gode = '<%=Sites[6]%>';
-                    var sodo = '<%=Sites[7]%>';
-                    var hawas = '<%=Sites[8]%>';
-                    var halab = '<%=Sites[9]%>';
-                    var hosain = '<%=Sites[10]%>';
-                    var dilla = '<%=Sites[11]%>';
-                    var ambo = '<%=Sites[12]%>';
-                    var tulu = '<%=Sites[13]%>';
-                    var addisalem = '<%=Sites[14]%>';
-                    var yekatit = '<%=Sites[15]%>';
-                    var addisketema = '<%=Sites[16]%>';
-                    var woreda3 = '<%=Sites[17]%>';
-                    var miki = '<%=Sites[18]%>';
-                    var keraniy = '<%=Sites[19]%>';
-
-
-                    
-
-
-
                     var mymap = L.map('mapid').setView([9.058702156392139, 38.759765625
                     ], 5);
 
@@ -487,19 +460,24 @@
                         attribution: '&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> | <a href="https://tbgen.ahri.gov.et" target="_blank">TBGEN, AHRI</a> mapdata'
                     }).addTo(mymap);
 
+                    var sequencedNum = '<%=SequencedNum%>'
                     var marker = L.marker([8.98556789946321, 38.71186137199402]).addTo(mymap);
-                    marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)</b><br>Sequenced 0 samples").openPopup();
+                    marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)</b><br>Sequenced "+ sequencedNum +" samples").openPopup();
 
-
+                    var sitesNum = <%=SitesNum%>;
                     <% var serializer = new System.Web.Script.Serialization.JavaScriptSerializer(); %>
-                    for (let i = 0; i < 2; i++) {
-                        var kert = <%= serializer.Serialize(Sites_Name)%>;
-                        var kert2 =<%= serializer.Serialize(Sites_PID)%>;
-                        var kert3 = <%= serializer.Serialize(Sites_Samples)%>;
+                    var kert = <%= serializer.Serialize(Sites_Name)%>;
+                    var kert2 =<%= serializer.Serialize(Sites_PID)%>;
+                    var kert3 = <%= serializer.Serialize(Sites_Samples)%>; 
+                    var kert_lat = <%=serializer.Serialize(Sites_latit)%>;
+                    var kert_long = <%=serializer.Serialize(Sites_long)%>;
 
-                        var kert_lat = <%=serializer.Serialize(Sites_latit)%>;
-                        var kert_long = <%=serializer.Serialize(Sites_long)%>;
+                    for (let i = 0; i < sitesNum; i++) {
+                        
 
+                        if (kert_lat[i] === "null" || kert_long[i] === "null") {
+                            continue;
+                        }
                         var marker = L.marker([parseFloat(kert_lat[i]), parseFloat(kert_long[i])]).addTo(mymap);
                         marker.bindPopup("<b>" + kert[i] + "</b><br>Samples: " + kert3[i]).openPopup();
                     }
@@ -645,7 +623,7 @@
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Progress Target: 900</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Progress Target: 1000</h6>
                 </div>
                 <div class="card-body">
                     <h4 class="small font-weight-bold">Sample Collection<span class="float-right"><asp:Label runat="server" ID="lblsamplecoltar" Text="" />%</span></h4>
