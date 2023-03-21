@@ -22,6 +22,13 @@ namespace Labtracker
         public string[] Regions = new string[10];
         public string[] Sites = new string[20];
 
+        public string[] Sites_PID = new string[20];
+        public string[] Sites_Name = new string[20];
+        public string[] Sites_Samples = new string[20];
+        public string[] Sites_latit = new string[20];
+        public string[] Sites_long = new string[20];
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.Identity.IsAuthenticated)
@@ -30,21 +37,7 @@ namespace Labtracker
 
 
             }
-            /* SqlConnection con = new SqlConnection(strConnString);
-             con.Open();
-             str = "select SampleID from Samples";
-             com = new SqlCommand(str, con);
-             SqlDataReader reader = com.ExecuteReader();
-
-             reader.Read();
-             lblTotalSample.Text = reader["SampleID"].ToString();
-             reader.Close();
-             con.Close();*/
-
-            //BindSample(GetSample());
-            // Sample tsam = new Sample();
-
-            //lblTotalSample.Text = tsam.SampleID.ToString();
+            
 
            
            
@@ -72,6 +65,88 @@ namespace Labtracker
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
+
+                    string sqlsite_PIDs = "SELECT SitePatientId FROM Sites";
+                    using (SqlCommand cmd = new SqlCommand(sqlsite_PIDs, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<string> values = new List<string>();
+                            while (reader.Read())
+                            {
+                                values.Add(reader.GetString(0));
+                            }
+                            reader.Close();
+                            Sites_PID = values.ToArray();
+                        }
+
+                    }
+
+                    string sqlsite_Name = "SELECT HealthFacility FROM Sites";
+                    using (SqlCommand cmd = new SqlCommand(sqlsite_Name, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<string> values = new List<string>();
+                            while (reader.Read())
+                            {
+                                values.Add(reader.GetString(0));
+                            }
+                            reader.Close();
+                            Sites_Name = values.ToArray();
+                        }
+
+                    }
+
+                    string sqlsite_latit = "SELECT LocationLatitude FROM Sites";
+                    using (SqlCommand cmd = new SqlCommand(sqlsite_latit, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<string> values = new List<string>();
+                            while (reader.Read())
+                            {
+                                values.Add(reader.GetString(0));
+                            }
+                            reader.Close();
+                            Sites_latit = values.ToArray();
+                        }
+
+                    }
+
+                    string sqlsite_long = "SELECT LocationLongitude FROM Sites";
+                    using (SqlCommand cmd = new SqlCommand(sqlsite_long, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<string> values = new List<string>();
+                            while (reader.Read())
+                            {
+                                values.Add(reader.GetString(0));
+                            }
+                            reader.Close();
+                            Sites_long = values.ToArray();
+                        }
+
+                    }
+
+                    for (int i=0; i < Sites_PID.Length; i++)
+                    {
+                        string pid = Sites_PID[i];
+                        string sqlsite_samples = String.Format("SELECT COUNT(PatientId) FROM Samples WHERE PatientId LIKE '{0}%'", pid);
+                        using (SqlCommand cmd = new SqlCommand(sqlsite_samples, conn))
+                        {
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                reader.Read();
+                                Sites_Samples[i] = reader[0].ToString();
+                            }
+
+                        }
+                    }
+
+
+
 
                     string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'";
                     string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Neg'";

@@ -476,6 +476,9 @@
                     var keraniy = '<%=Sites[19]%>';
 
 
+                    
+
+
 
                     var mymap = L.map('mapid').setView([9.058702156392139, 38.759765625
                     ], 5);
@@ -488,69 +491,18 @@
                     marker.bindPopup("<b>Armaeur Hansen Research Institute(AHRI)</b><br>Sequenced 0 samples").openPopup();
 
 
-                    var marker = L.marker([8.54385, 39.27445]).addTo(mymap);
-                    marker.bindPopup("<b>Adama Hospital</b><br>Samples: " + adama).openPopup();
+                    <% var serializer = new System.Web.Script.Serialization.JavaScriptSerializer(); %>
+                    for (let i = 0; i < 2; i++) {
+                        var kert = <%= serializer.Serialize(Sites_Name)%>;
+                        var kert2 =<%= serializer.Serialize(Sites_PID)%>;
+                        var kert3 = <%= serializer.Serialize(Sites_Samples)%>;
 
-                    var marker = L.marker([7.20721, 38.61220]).addTo(mymap);
-                    marker.bindPopup("<b>Shashemene Hospital</b><br>Samples: " + shashe).openPopup();
+                        var kert_lat = <%=serializer.Serialize(Sites_latit)%>;
+                        var kert_long = <%=serializer.Serialize(Sites_long)%>;
 
-                    var marker = L.marker([6.85448, 37.76073]).addTo(mymap);
-                    marker.bindPopup("<b>Wolaita Sodo Hospital</b><br>Samples: " + wolay).openPopup();
-
-
-                    var marker = L.marker([8.24229, 34.58165]).addTo(mymap);
-                    marker.bindPopup("<b>Gambella General Hospital</b><br>Samples: " + gambe).openPopup();
-
-                    var marker = L.marker([6.02797, 37.55298]).addTo(mymap);
-                    marker.bindPopup("<b>ArbaMinch Hospital</b><br>Samples: " + arba).openPopup();
-
-                    var marker = L.marker([6.75001, 38.39411]).addTo(mymap);
-                    marker.bindPopup("<b>Yirgalem General Hospital</b><br>Samples: " + yirga).openPopup();
-
-
-
-                    var marker = L.marker([5.9595411, 43.5512884]).addTo(mymap);
-                    marker.bindPopup("<b>Gode Hospital</b><br>Samples: " + gode).openPopup();
-
-                    var marker = L.marker([6.857281, 37.7733635]).addTo(mymap);
-                    marker.bindPopup("<b>Sodo Hospital</b><br>Samples: " + sodo).openPopup();
-
-                    var marker = L.marker([7.0273564, 38.4305888]).addTo(mymap);
-                    marker.bindPopup("<b>Hawassa CS Hospital</b><br>Samples: " + hawas).openPopup();
-
-                    var marker = L.marker([7.3178819, 38.0930245]).addTo(mymap);
-                    marker.bindPopup("<b>Halaba Primary Hospital</b><br>Samples: " + halab).openPopup();
-
-                    var marker = L.marker([7.5511255, 37.8319107]).addTo(mymap);
-                    marker.bindPopup("<b>Hosaina Hospital</b><br>Samples: " + hosain).openPopup();
-
-                    var marker = L.marker([6.4000662, 38.3099362]).addTo(mymap);
-                    marker.bindPopup("<b>Dilla Hospital</b><br>Samples: " + dilla).openPopup();
-
-                    var marker = L.marker([8.9840787, 37.8477461]).addTo(mymap);
-                    marker.bindPopup("<b>Ambo Hospital</b><br>Samples: " + ambo).openPopup();
-
-                    var marker = L.marker([8.6645898, 38.2180664]).addTo(mymap);
-                    marker.bindPopup("<b>Tulubolo Hospital</b><br>Samples: " + tulu).openPopup();
-
-                    var marker = L.marker([11.5959828, 37.4121578]).addTo(mymap);
-                    marker.bindPopup("<b>Addis Alem Hospital</b><br>Samples: " + addisalem).openPopup();
-
-                    var marker = L.marker([9.0436391, 38.7589657]).addTo(mymap);
-                    marker.bindPopup("<b>Yekatit 12 Hospital</b><br>Samples: " + yekatit).openPopup();
-
-                    var marker = L.marker([9.0332229, 38.7087812]).addTo(mymap);
-                    marker.bindPopup("<b>Addis Ketema Health Center</b><br>Samples: " + addisketema).openPopup();
-
-                    var marker = L.marker([9.049408, 38.7366835]).addTo(mymap);
-                    marker.bindPopup("<b>Woreda 3 Health Center</b><br>Samples: " + woreda3).openPopup();
-
-                    var marker = L.marker([9.0518675, 38.6948024]).addTo(mymap);
-                    marker.bindPopup("<b>Mikiland Health Center</b><br>Samples: " + miki).openPopup();
-
-                    var marker = L.marker([9.0441326, 38.6973718]).addTo(mymap);
-                    marker.bindPopup("<b>Keraniyo Health Center</b><br>Samples: " + keraniy).openPopup();
-
+                        var marker = L.marker([parseFloat(kert_lat[i]), parseFloat(kert_long[i])]).addTo(mymap);
+                        marker.bindPopup("<b>" + kert[i] + "</b><br>Samples: " + kert3[i]).openPopup();
+                    }
 
                 </script>
             </div>
