@@ -51,7 +51,10 @@ namespace Labtracker
                     string qubit = txtQUcon.Text;
                     string nd = txtNDcon.Text;
                     string purity = txtPurity.Text;
-                    addSuccessres = updates.AddUpdater(datesh, txtSampleIdUpdate.Text, purity, nd, qubit, remarks, labinitial.ToUpper());
+                    string tubelabel = txtTubelabel.Text;
+                    string sampletype = txtSampleType.Text;
+                    string assayreagent = txtassay.Text;
+                    addSuccessres = updates.AddDnaExtract(txtDateProcess.Text, txtSampleIdUpdate.Text, purity, nd, qubit, remarks, labinitial.ToUpper(),tubelabel, selectedvalue, sampletype,assayreagent);
                     break;
                
                 case "Library Prep":
@@ -64,7 +67,8 @@ namespace Labtracker
                     break;
 
                 default:
-                    addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, datesh, labinitial.ToUpper());
+                 
+                    //addSuccessres = updates.AddUpdate(txtSampleIdUpdate.Text, txtSampleIdUpdate.Text, selectedvalue, selectedres, datesh, labinitial.ToUpper());
                     break;
             }
 
@@ -77,7 +81,7 @@ namespace Labtracker
                 // Reload the page.
                 //Session["totalcount"] = Convert.ToInt32(txtSId.Text)+1;
                 //string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                Response.Redirect("progress.aspx");
+                Response.Redirect("sequencing.aspx");
 
             }
             else

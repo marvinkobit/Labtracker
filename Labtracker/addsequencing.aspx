@@ -81,13 +81,15 @@
                                                 <br />
 
                                                 <div id="DRESVAL" class="col-sm-6 mb-3 mb-sm-0 col-lg-12">
+
+                                                    <asp:Label>Good Quality & Quantity:</asp:Label>
                                                     <asp:DropDownList ID="DDLRESVAL" class="form-control" runat="server" ToolTip="Choose Result" onchange="ToogleDstval(); return false;">
 
                                                         <asp:ListItem Value="0" Selected hidden>Choose Result</asp:ListItem>
                                           
-                                                        <asp:ListItem Value="15" data-group="5">Good for library Prep</asp:ListItem>
-                                                        <asp:ListItem Value="16" data-group="5">Failed-Repeat Extraction</asp:ListItem>
-                                                        <asp:ListItem Value="17" data-group="5">Failed-Discard</asp:ListItem>
+                                                        <asp:ListItem Value="15" data-group="5">Yes</asp:ListItem>
+                                                        <asp:ListItem Value="16" data-group="5">No</asp:ListItem>
+                                                     
 
                                                       
 
@@ -99,12 +101,12 @@
                                                 <br />
                                                 <div class="col-sm-6 col-lg-12">
                                                     <asp:TextBox ID="txtDateProcess" class="form-control " TextMode="Date" ToolTip="Date sample was processed" placeholder="Date Processed" runat="server"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="rfvDP" runat="server" Text="* Processing date required." ControlToValidate="txtDateProcess" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                   
                                                 </div>
                                                 <br />
                                                 <div class="col-sm-6 col-lg-12">
                                                     <asp:TextBox ID="txtLabTechPr" class="form-control " placeholder="Initial(Performed By)" runat="server"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="rfvLabTechPr" runat="server" Text="* Lab technician required." ControlToValidate="txtLabTechPr" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                  
                                                 </div>
 
                                                 <br />
@@ -128,7 +130,7 @@
                                                     <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Average Size</asp:Label>
 
-                                                        <asp:TextBox ID="txtAvgsize" class="form-control " placeholder="ng/ml" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAvgsize" class="form-control " placeholder="ng/μl" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-6 col-lg-12">
                                                         <asp:Label>Average Size Percent</asp:Label>
@@ -347,23 +349,42 @@
 
 
                                                 <div id="EXDetail" class="col-sm-6 mb-3 mb-sm-0 col-lg-12" style="display: none">
-                                                    <asp:Label>Please enter extraction details here</asp:Label>
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Tube Label</asp:Label>
+                                                        <asp:TextBox ID="txtTubelabel" class="form-control " placeholder="" runat="server"></asp:TextBox>
+                                                        
+                                                    </div>
 
                                                     <div class="col-sm-6 col-lg-12">
-                                                        <asp:TextBox ID="txtNDcon" class="form-control " placeholder="ND Concentration(ng/ml)" runat="server"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="rfvndcon" runat="server" Text="* ND concentration required." ControlToValidate="txtNDcon" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                        <asp:Label>Nucleic Acid</asp:Label>
+                                                        <asp:TextBox ID="txtNDcon" class="form-control " placeholder="ND Concentration(ng/μl)" runat="server"></asp:TextBox>
+                                                        
                                                     </div>
-                                                    <br />
+                                             
                                                     <div class="col-sm-6 col-lg-12">
-                                                        <asp:TextBox ID="txtPurity" class="form-control " placeholder="Purity" runat="server"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="rfvpurity" runat="server" Text="* Purity amount required." ControlToValidate="txtPurity" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                         <asp:Label>Purity</asp:Label>
+                                                        <asp:TextBox ID="txtPurity" class="form-control " placeholder="Purity(260/280)" runat="server"></asp:TextBox>
+                                                       
                                                     </div>
-                                                    <br />
+                                               
                                                     <div class="col-sm-6 col-lg-12">
-                                                        <asp:TextBox ID="txtQUcon" class="form-control " placeholder="Qubit Concentration" runat="server"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="rfvcucon" runat="server" Text="* Qubit concentration required." ControlToValidate="txtQUcon" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                        <asp:Label>Qubit Result</asp:Label>
+                                                        <asp:TextBox ID="txtQUcon" class="form-control " placeholder="Qubit Result(ng/μl)" runat="server"></asp:TextBox>
+                                                        
                                                     </div>
-                                                    <br />
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Sample Type</asp:Label>
+                                                        <asp:TextBox ID="txtSampleType" class="form-control " placeholder="" runat="server"></asp:TextBox>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <asp:Label>Assay/Reagent</asp:Label>
+                                                        <asp:TextBox ID="txtassay" class="form-control " placeholder="" runat="server"></asp:TextBox>
+                                                        
+                                                    </div>
+                                               
                                                     <%-- <div class="col-sm-6 col-lg-12">
                                                         <asp:Label runat="server" ID="Label1" Text="Agaros picture: " />
                                                         <asp:FileUpload ID="FileUploadControl" runat="server" />

@@ -341,12 +341,14 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-8">
               <div class="card shadow mb-4 table-responsive">
-                    <p>DNA Extraction: <asp:Label runat="server" ID="lbldnaprocessed" Text=""></asp:Label></p>
+                    <p>DNA Extraction: <asp:Label runat="server" ID="lbldnasall"></asp:Label> extracts, <asp:Label runat="server" ID="lbldnaprocessed" Text=""></asp:Label> unique IDs</p>
                    <asp:GridView ID="gvResult" runat="server" style="font-size:12px" width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvResult_DataBound" >
                       <Columns>
                           <asp:CommandField ShowSelectButton="True" />
                           <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
                           <asp:BoundField DataField="PatientId" HeaderText="PatientId" SortExpression="PatientId" />
+                          <asp:BoundField DataField="TubeLabel" HeaderText="TubeLabel" SortExpression="TubeLabel" />
+                          <asp:BoundField DataField="GoodQQ" HeaderText="GoodQQ" SortExpression="GoodQQ" />
                            <asp:BoundField DataField="NDConc" HeaderText="NDConc" SortExpression="NDConc" />
                           <asp:BoundField DataField="QubitConc" HeaderText="QubitConc" SortExpression="QubitConc" />
                     
@@ -370,7 +372,7 @@
                       <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                   </asp:GridView>
                
-                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId],[NDConc],[QubitConc],[Purity],[ExtractDate],[Initial],[Remark] FROM Dnaextracts"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId], [TubeLabel],[GoodQQ],[NDConc],[QubitConc],[Purity],[ExtractDate],[Initial],[Remark] FROM Dnaextracts"></asp:SqlDataSource>
                
               </div>
             </div>

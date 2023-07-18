@@ -2278,6 +2278,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DnaExtractExcelController.cs" />
     <Compile Include="Controllers\SampleExcelController.cs" />
     <Compile Include="Controllers\ProgressExcelController.cs" />
     <Compile Include="CrystalReport1.cs">
@@ -2493,6 +2494,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SampleExcel\Index.cshtml" />
     <Content Include="Views\ProgressExcel\Index.cshtml" />
+    <Content Include="Views\DnaExtractExcel\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

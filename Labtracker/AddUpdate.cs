@@ -402,20 +402,23 @@ namespace Labtracker
 
 
         //Overload for DnaExtraction
-        public bool AddUpdater(DateTime? dater, string PaId, string purity, string ndConc, string qubConc,string remark , string labInitial)
+        public bool AddDnaExtract(string dater, string PaId, string purity, string ndConc, string qubConc,string remark , string labInitial, string tubeLabel, string goodQQ,string sampleType, string assayReagent)
         {
             var tbgdnaextractupdates = new Dnaextract();
 
             tbgdnaextractupdates.PatientId = PaId;
             //tbgdstupdates.DstID = Convert.ToInt32(ResuId);
             tbgdnaextractupdates.Initial = labInitial;
-            tbgdnaextractupdates.Purity = Convert.ToDecimal(purity);
-            tbgdnaextractupdates.NDConc = Convert.ToDecimal(ndConc);
-            tbgdnaextractupdates.QubitConc = Convert.ToDecimal(qubConc);
-
-
-            tbgdnaextractupdates.ExtractDate = Convert.ToDateTime(dater);
+            tbgdnaextractupdates.Purity = string.IsNullOrWhiteSpace(purity)? (decimal?)null : Convert.ToDecimal(purity);
+            tbgdnaextractupdates.NDConc = string.IsNullOrWhiteSpace(ndConc)? (decimal?)null : Convert.ToDecimal(ndConc);
+            tbgdnaextractupdates.QubitConc = qubConc;
+            tbgdnaextractupdates.ExtractDate = string.IsNullOrEmpty(dater)? (DateTime?)null : Convert.ToDateTime(dater);
             tbgdnaextractupdates.Remark = remark;
+
+            tbgdnaextractupdates.GoodQQ = goodQQ;
+            tbgdnaextractupdates.TubeLabel = tubeLabel;
+            tbgdnaextractupdates.SampleType = sampleType;
+            tbgdnaextractupdates.AssayReagent = assayReagent;
 
 
             using (SampleContext _db = new SampleContext())
