@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Labtracker.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,12 +22,18 @@ namespace Labtracker
             }
             if (!IsPostBack)
             {
+                using (SampleContext _db= new SampleContext())
+                {
+                    lbldnasall.Text = _db.Dnaextracts.Count().ToString();
+                }
+
                 string connStr = ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
                     string sql = "SELECT COUNT(DISTINCT PatientId) FROM Dnaextracts";
                     string sql2 = "SELECT COUNT(DISTINCT PatientId) FROM LibraryPreps";
+                   
 
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
