@@ -112,14 +112,6 @@ namespace Labtracker
                             addSuccessres = updates.AddUpdate(dateshit, daterip, txtSampleIdUpdate.Text, (i+1).ToString(), primaryMedia, weekly[i].Equals("details")? null:weekly[i], labinitial.ToUpper(), remarks);
                         }
                         break;
-
-                    case "DNA Extraction":
-                        string qubit = txtQUcon.Text;
-                        string nd = txtNDcon.Text;
-                        string purity = txtPurity.Text;
-                        addSuccessres = updates.AddUpdater(datesh, txtSampleIdUpdate.Text, purity, nd, qubit, remarks, labinitial.ToUpper());
-                        break;
-
                     case "Heat Killing":
                         string initialRecieved = txtInitialRecievedBy.Text;
                         string dateTransfer = txtDateTransfer.Text;

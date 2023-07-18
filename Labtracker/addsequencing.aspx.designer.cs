@@ -112,15 +112,6 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtDateProcess;
         
         /// <summary>
-        /// rfvDP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDP;
-        
-        /// <summary>
         /// txtLabTechPr control.
         /// </summary>
         /// <remarks>
@@ -128,15 +119,6 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLabTechPr;
-        
-        /// <summary>
-        /// rfvLabTechPr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLabTechPr;
         
         /// <summary>
         /// txtRemarks control.
@@ -382,6 +364,15 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvspold;
         
         /// <summary>
+        /// txtTubelabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTubelabel;
+        
+        /// <summary>
         /// txtNDcon control.
         /// </summary>
         /// <remarks>
@@ -389,15 +380,6 @@ namespace Labtracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNDcon;
-        
-        /// <summary>
-        /// rfvndcon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvndcon;
         
         /// <summary>
         /// txtPurity control.
@@ -409,15 +391,6 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtPurity;
         
         /// <summary>
-        /// rfvpurity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvpurity;
-        
-        /// <summary>
         /// txtQUcon control.
         /// </summary>
         /// <remarks>
@@ -427,13 +400,22 @@ namespace Labtracker {
         protected global::System.Web.UI.WebControls.TextBox txtQUcon;
         
         /// <summary>
-        /// rfvcucon control.
+        /// txtSampleType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcucon;
+        protected global::System.Web.UI.WebControls.TextBox txtSampleType;
+        
+        /// <summary>
+        /// txtassay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtassay;
         
         /// <summary>
         /// btnSaveup control.

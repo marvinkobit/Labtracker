@@ -16,13 +16,13 @@ namespace Labtracker.Models
         public string PatientId { get; set; }
 
         [Display(Name = "ND Conc")]
-        public decimal NDConc { get; set; }
+        public Nullable<decimal> NDConc { get; set; }
 
         [Display(Name = "Qubit Conc")]
-        public decimal QubitConc { get; set; }
+        public string QubitConc { get; set; }
 
         [Display(Name = "Purity")]
-        public decimal Purity { get; set; }
+        public Nullable<decimal> Purity { get; set; }
 
         [Display(Name = "Extract Date")]
         public Nullable<DateTime> ExtractDate { get; set; }
@@ -32,6 +32,11 @@ namespace Labtracker.Models
 
         [Display(Name = "Initial")]
         public string Initial { get; set; }
+        public string TubeLabel { get; set; }
+
+        public string GoodQQ { get; set; }
+        public string SampleType { get; set; }
+        public string AssayReagent { get; set; }
 
     }
 }
