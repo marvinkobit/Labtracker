@@ -128,7 +128,7 @@ namespace Labtracker.Controllers
                                     context.Dnaextracts.Add(tbgdnaextractupdates);
                                     context.SaveChanges();
 
-
+                                     
                                 }
                             }
                             catch (Exception ex1)
