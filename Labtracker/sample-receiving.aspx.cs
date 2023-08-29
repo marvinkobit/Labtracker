@@ -210,16 +210,16 @@ namespace Labtracker
             gvSample.AllowPaging = false;
             gvSample.DataBind();
             StringBuilder columnbind = new StringBuilder();
-            for (int k = 0; k < gvSample.Columns.Count; k++)
+            for (int k = 1; k < gvSample.Columns.Count; k++)
             {
                 columnbind.Append(gvSample.Columns[k].HeaderText + ',');
             }
             columnbind.Append("\r\n");
             for (int i = 0; i < gvSample.Rows.Count; i++)
             {
-                for (int k = 0; k < gvSample.Columns.Count; k++)
+                for (int k = 2; k < gvSample.Columns.Count; k++)
                 {
-                    columnbind.Append(gvSample.Rows[i].Cells[k].Text + ',');
+                    columnbind.Append(gvSample.Rows[i].Cells[k].Text.Replace("&nbsp;","") + ',');
                 }
                 columnbind.Append("\r\n");
             }

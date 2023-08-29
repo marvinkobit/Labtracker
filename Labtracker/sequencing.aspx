@@ -347,7 +347,7 @@
                                         extracts,
                                         <asp:Label runat="server" ID="lbldnaprocessed" Text=""></asp:Label>
                                         unique IDs</p>
-                                    <asp:GridView ID="gvDnaResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="PatientId" DataSourceID="SqlDataSource1" AutoPostBack="true" AllowPaging="True" AllowSorting="True" OnSorting="gvDnaResult_Sorting" OnPageIndexChanging="gvDnaResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDnaResult_DataBound">
+                                    <asp:GridView ID="gvDnaResult" runat="server" Style="font-size: 12px" Width="1200px" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true"  DataKeyNames="DnaextractionId" DataSourceID="SqlDataSource1" AutoPostBack="true" AllowPaging="True" AllowSorting="True" OnSorting="gvDnaResult_Sorting" OnPageIndexChanging="gvDnaResult_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" OnDataBound="gvDnaResult_DataBound">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%--<asp:BoundField DataField="ResultID" HeaderText="ResultID" InsertVisible="False" ReadOnly="True" SortExpression="ResultID" />--%>
@@ -377,7 +377,21 @@
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
 
-                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [PatientId], [TubeLabel],[GoodQQ],[NDConc],[QubitConc],[Purity],[ExtractDate],[Initial],[Remark] FROM Dnaextracts"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" SelectCommand="SELECT [DnaextractionId],[PatientId], [TubeLabel],[GoodQQ],[NDConc],[QubitConc],[Purity],[ExtractDate],[Initial],[Remark] FROM Dnaextracts"
+                                        UpdateCommand="UPDATE Dnaextracts SET [PatientId]=@PatientId,[TubeLabel]=@TubeLabel,[GoodQQ]=@GoodQQ,[NDConc]=@NDConc,[QubitConc]=@QubitConc,[Purity]=@Purity,[ExtractDate]=@ExtractDate,[Initial]=@Initial,[Remark]=@Remark WHERE DnaextractionId=@DnaextractionId">
+                                        <UpdateParameters>
+                                            <asp:Parameter Name="PatientId" Type="String" />
+                                            <asp:Parameter Name="TubeLabel" Type="String" />
+                                            <asp:Parameter Name="GoodQQ" Type="String" />
+                                            <asp:Parameter Name="NDConc" Type="String" />
+                                            <asp:Parameter Name="QubitConc" Type="String" />
+                                            <asp:Parameter Name="Purity" Type="String" />
+                                            <asp:Parameter Name="ExtractDate" Type="DateTime" />
+                                            <asp:Parameter Name="Initial" Type="String" />
+                                            <asp:Parameter Name="Remark" Type="String" />
+                                            
+                                        </UpdateParameters>
+                                    </asp:SqlDataSource>
 
                                 </div>
                             </div>
@@ -411,6 +425,9 @@
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtCompVal" runat="server"></asp:TextBox>
                                 <asp:Button ID="btnFilter" CssClass="btn-primary" runat="server" Text="Filter" OnClick="btnFilter_Click" />
+                                <%-- <asp:Button ID="Button2" CssClass="btn-primary" runat="server" Text="Print to PDF" OnClick="ExportToPDF" />
+                                 <asp:Button ID="Button3" CssClass="btn-primary" runat="server" Text="Generate PDF Report for filter" OnClick="GeneratePDF" />--%>
+                                 <asp:Button ID="Button4" CssClass="btn-primary" runat="server" Text="Generate CSV Report for filter" OnClick="GenerateCSV" />
 
                                
 

@@ -442,16 +442,16 @@ namespace Labtracker
             gvResult.AllowPaging = false;
             gvResult.DataBind();
             StringBuilder columnbind = new StringBuilder();
-            for (int k = 0; k < gvResult.Columns.Count; k++)
+            for (int k = 1; k < gvResult.Columns.Count; k++)
             {
                 columnbind.Append(gvResult.Columns[k].HeaderText + ',');
             }
             columnbind.Append("\r\n");
             for (int i = 0; i < gvResult.Rows.Count; i++)
             {
-                for (int k = 0; k < gvResult.Columns.Count; k++)
+                for (int k = 2; k < gvResult.Columns.Count; k++)
                 {
-                    columnbind.Append(gvResult.Rows[i].Cells[k].Text + ',');
+                    columnbind.Append(gvResult.Rows[i].Cells[k].Text.Replace("&nbsp;","") + ',');
                 }
                 columnbind.Append("\r\n");
             }
@@ -500,14 +500,14 @@ namespace Labtracker
             gvHeatkill.AllowPaging = false;
             gvHeatkill.DataBind();
             StringBuilder columnbind = new StringBuilder();
-            for (int k = 0; k < gvHeatkill.Columns.Count; k++)
+            for (int k = 1; k < gvHeatkill.Columns.Count; k++)
             {
                 columnbind.Append(gvHeatkill.Columns[k].HeaderText + ',');
             }
             columnbind.Append("\r\n");
             for (int i = 0; i < gvHeatkill.Rows.Count; i++)
             {
-                for (int k = 0; k < gvHeatkill.Columns.Count; k++)
+                for (int k = 1; k < gvHeatkill.Columns.Count; k++)
                 {
                     columnbind.Append(gvHeatkill.Rows[i].Cells[k].Text + ',');
                 }
@@ -558,14 +558,14 @@ namespace Labtracker
             gvDstResult.AllowPaging = false;
             gvDstResult.DataBind();
             StringBuilder columnbind = new StringBuilder();
-            for (int k = 0; k < gvDstResult.Columns.Count; k++)
+            for (int k = 1; k < gvDstResult.Columns.Count; k++)
             {
                 columnbind.Append(gvDstResult.Columns[k].HeaderText + ',');
             }
             columnbind.Append("\r\n");
             for (int i = 0; i < gvDstResult.Rows.Count; i++)
             {
-                for (int k = 0; k < gvDstResult.Columns.Count; k++)
+                for (int k = 2; k < gvDstResult.Columns.Count; k++)
                 {
                     columnbind.Append(gvDstResult.Rows[i].Cells[k].Text + ',');
                 }
