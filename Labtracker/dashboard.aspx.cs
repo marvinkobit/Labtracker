@@ -22,11 +22,13 @@ namespace Labtracker
         public string[] Regions = new string[10];
         public string[] Sites = new string[20];
 
-        public string[] Sites_PID = new string[20];
-        public string[] Sites_Name = new string[20];
-        public string[] Sites_Samples = new string[20];
-        public string[] Sites_latit = new string[20];
-        public string[] Sites_long = new string[20];
+        public string[] Sites_PID = new string[1000];
+        public string[] Sites_Name = new string[1000];
+        public string[] Sites_Samples = new string[1000];
+        public string[] Sites_latit = new string[1000];
+        public string[] Sites_long = new string[1000];
+        public int SitesNum=0;
+        public string SequencedNum;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,9 +40,7 @@ namespace Labtracker
 
             }
             
-
-           
-           
+ 
             if (!Page.IsPostBack)
             {
                 /* Sample s = new Sample();
@@ -50,8 +50,10 @@ namespace Labtracker
                 {
                     lblTotalSample.Text = _db.Samples.Count().ToString();
                     lblIsolateStored.Text = _db.Stores.Count().ToString();
-                    string sampleColTarget = Convert.ToString( Math.Round( Convert.ToDecimal(_db.Samples.Count().ToString()) / 9, 1));  //target of sample collecton 900 eth 2000 total
-                    string sampleResultTarget = Convert.ToString(Math.Round(Convert.ToDecimal(_db.Results.Count().ToString()) / 9, 1));
+                    lblHeatkill.Text = _db.HeatKills.Count().ToString();
+                    
+                    string sampleColTarget = Convert.ToString( Math.Round( Convert.ToDecimal(_db.Samples.Count().ToString()) / 10, 1));  //target of sample collecton 1000 eth
+                    string sampleResultTarget = Convert.ToString(Math.Round(Convert.ToDecimal(_db.Results.Count().ToString()) / 10, 1));
                     lblsamplecoltar.Text = sampleColTarget; 
                     lblisolatetar.Text = sampleResultTarget;
                     progressBar1.Attributes.Add("Style", String.Format("width: {0}%", sampleColTarget));
@@ -78,6 +80,7 @@ namespace Labtracker
                             }
                             reader.Close();
                             Sites_PID = values.ToArray();
+                            SitesNum = Sites_PID.Length;
                         }
 
                     }
@@ -90,7 +93,7 @@ namespace Labtracker
                             List<string> values = new List<string>();
                             while (reader.Read())
                             {
-                                values.Add(reader.GetString(0));
+                                values.Add(reader.IsDBNull(0) ? "null" : reader.GetString(0));
                             }
                             reader.Close();
                             Sites_Name = values.ToArray();
@@ -106,7 +109,7 @@ namespace Labtracker
                             List<string> values = new List<string>();
                             while (reader.Read())
                             {
-                                values.Add(reader.GetString(0));
+                                values.Add(reader.IsDBNull(0)? "null" : reader.GetString(0));
                             }
                             reader.Close();
                             Sites_latit = values.ToArray();
@@ -122,7 +125,7 @@ namespace Labtracker
                             List<string> values = new List<string>();
                             while (reader.Read())
                             {
-                                values.Add(reader.GetString(0));
+                                values.Add(reader.IsDBNull(0) ? "null" : reader.GetString(0));
                             }
                             reader.Close();
                             Sites_long = values.ToArray();
@@ -148,7 +151,7 @@ namespace Labtracker
 
 
 
-                    string sql = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Contaminated'";
+                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Dsts";
                     string sql7 = "SELECT COUNT(LJ_res) FROM Results WHERE LJ_res='Neg'";
                     string sql2 = "SELECT COUNT(DISTINCT PatientId) FROM Results";
 
@@ -198,7 +201,7 @@ namespace Labtracker
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             reader.Read();
-                            lblContaminated.Text = reader[0].ToString();
+                            lblDst.Text = reader[0].ToString();
                         }
                            
                     }
@@ -266,15 +269,7 @@ namespace Labtracker
                  
                   
 
-                    using (SqlCommand cmd = new SqlCommand(sql7, conn))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            reader.Read();
-                            lblNoGrowth.Text = reader[0].ToString();
-                        }
-
-                    }
+                 
 
     
 
