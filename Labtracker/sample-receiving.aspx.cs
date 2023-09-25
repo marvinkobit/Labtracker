@@ -21,11 +21,19 @@ namespace Labtracker
 
         SqlDataSource dataSource= null;
         bool isFilter = false;
+        public string SelectedProject = "x";
 
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //selectedProjectCookkie
+            string myusername = User.Identity.GetUserName();
+            if (Request.Cookies[myusername] != null)
+            {
+                SelectedProject = Request.Cookies[myusername].Value;
+            }
+            SqlDataSource1.SelectParameters["ProjectStr"].DefaultValue = SelectedProject;
+            SqlDataSource1.UpdateParameters["ProjectStr"].DefaultValue = SelectedProject;
+
             UsernameText.Text = User.Identity.GetUserName();
             if (!User.Identity.IsAuthenticated)
             {
@@ -33,6 +41,9 @@ namespace Labtracker
             }
             if (!IsPostBack)
             {
+
+
+            
                 Session["isFilter"] = false;
                 gvSample.DataSourceID = "SqlDataSource1";
 
@@ -41,7 +52,7 @@ namespace Labtracker
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
-                    string sql = "SELECT COUNT(DISTINCT PatientId) FROM Samples";
+                    string sql = String.Format("SELECT COUNT(DISTINCT PatientId) FROM Samples Where ProjectStr='{0}'", SelectedProject);
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -51,7 +62,7 @@ namespace Labtracker
                         }
                     }
 
-                    string sql2 = "SELECT COUNT(DISTINCT HealthFacility) FROM Sites";
+                    string sql2 = String.Format("SELECT COUNT(DISTINCT HealthFacility) FROM Sites Where ProjectStr='{0}'", SelectedProject);
                     using (SqlCommand cmd2 = new SqlCommand(sql2, conn))
                     {
                         using (SqlDataReader reader = cmd2.ExecuteReader())
@@ -87,11 +98,11 @@ namespace Labtracker
             string searchQuery="";
             if (comp.Equals("equals"))
             {
-              searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0}='{1}'", valueTocomp, val);
+              searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0}='{1}' AND ProjectStr='{2}'", valueTocomp, val, SelectedProject);
             }
             else
             {
-               searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0} LIKE '{1}%'", valueTocomp, val);
+               searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0} LIKE '{1}%' AND ProjectStr='{2}'", valueTocomp, val, SelectedProject);
             }
 
             dataSource = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
@@ -145,11 +156,11 @@ namespace Labtracker
             string searchQuery = "";
             if (comp.Equals("equals"))
             {
-                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0}='{1}' ORDER BY [PatientId] ASC", valueTocomp, val);
+                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry],[FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0}='{1}' AND ProjectStr='{2}' ORDER BY [PatientId] ASC", valueTocomp, val, SelectedProject);
             }
             else
             {
-                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0} LIKE '{1}%' ORDER BY [PatientId] ASC", valueTocomp, val);
+                searchQuery = String.Format("SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE {0} LIKE '{1}%'  AND ProjectStr='{2}' ORDER BY [PatientId] ASC", valueTocomp, val, SelectedProject);
             }
             dataSource = new SqlDataSource(ConfigurationManager.ConnectionStrings["Labtracker"].ConnectionString, searchQuery);
             Session["ds"] = dataSource;

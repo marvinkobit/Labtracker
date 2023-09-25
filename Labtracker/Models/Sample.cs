@@ -55,6 +55,10 @@ namespace Labtracker.Models
         public string FilePath { get; set; }
 
         public int? CategoryID { get; set; }
+
+        [Display(Name = "ProjectStr")]
+        public string ProjectStr { get; set; }
+
         public virtual Category Category
         {
             get; set;

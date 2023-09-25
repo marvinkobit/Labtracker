@@ -45,5 +45,8 @@ namespace Labtracker.Models
         [Display(Name = "LocationLongitude")]
         public string LocationLongitude { get; set; }
 
+        [Display(Name = "ProjectStr")]
+        public string ProjectStr { get; set; }
+
     }
 }

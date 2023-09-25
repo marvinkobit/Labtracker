@@ -54,6 +54,15 @@
                          <asp:TextBox  class="form-control form-control-user" runat="server" ID="Password" TextMode="Password" placeholder="Password"/>
                       <%--<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">--%>
                     </div>
+
+                       <div class="form-group">
+                                     <asp:Label>Project:</asp:Label>
+                       <asp:DropDownList ID="ddlProject" class="form-control" DataSourceID="SqlDataSourceProject" ToolTip="ProjectStr" DataTextField="ProjectStr"  AutoPostBack = "true" runat="server">
+                        </asp:DropDownList>
+
+                       <asp:SqlDataSource ID="SqlDataSourceProject" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT ProjectStr FROM Projects ORDER BY ProjectID ASC"></asp:SqlDataSource>
+                    </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck" checked>

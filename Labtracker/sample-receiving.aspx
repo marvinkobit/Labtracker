@@ -285,7 +285,11 @@
                                     <li class="nav-item dropdown no-arrow">
                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                                <asp:Literal runat="server" ID="UsernameText" /></span>
+                                                <asp:Literal runat="server" ID="UsernameText" />
+                                                <br>
+                                                 <asp:Literal runat="server" ID="Literal1" Text="Test"/>
+                                            </span>
+                                           
                                             <img class="img-profile rounded-circle" src="Images/user-profile.png" />
 
                                         </a>
@@ -347,7 +351,7 @@
                                         Samples Recieived:
                                         <asp:Label runat="server" ID="lblSamplesRecieved" Text=""></asp:Label>
                                     </p>
-                                    <asp:GridView ID="gvSample" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack="true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+                                    <asp:GridView ID="gvSample" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="True" AutoGenerateEditButton="true" DataKeyNames="SampleID" DataSourceID="SqlDataSource1" AutoPostBack="true" AllowPaging="True" AllowSorting="True" OnSorting="gvSample_Sorting" OnPageIndexChanging="gvSample_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" />
                                             <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
@@ -377,9 +381,12 @@
                                     </asp:GridView>
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
-                                        SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] ORDER BY SampleID DESC"
+                                        SelectCommand="SELECT [SampleID], [PatientId],[CardNo],[Volume],[Quality],[FromCountry], [FromRegion], [Zone], [Woreda], [HealthFacility], [CollectionDate], [RecivedDate],[LabTech],Remark FROM [Samples] WHERE [ProjectStr]=@ProjectStr ORDER BY SampleID DESC"
                                         UpdateCommand="UPDATE Samples SET [PatientId]=@PatientId,[CardNo]=@CardNo,[Volume]=@Volume,[Quality]=@Quality,[FromCountry]=@FromCountry,[FromRegion]=@FromRegion,[Zone]=@Zone,[Woreda]=@Woreda,[HealthFacility]=@HealthFacility,[CollectionDate]=@CollectionDate,[RecivedDate]=@RecivedDate,[LabTech]=@LabTech,[Remark]=@Remark
-                      WHERE SampleID=@SampleID">
+                      WHERE SampleID=@SampleID AND [ProjectStr]=@ProjectStr">
+                                        <SelectParameters>
+                                            <asp:Parameter Name="ProjectStr" Type="String"/>
+                                        </SelectParameters>
                                         <UpdateParameters>
                                             <asp:Parameter Name="PatientId" Type="String" />
                                             <asp:Parameter Name="CardNo" Type="String" />
@@ -395,6 +402,8 @@
                                             <asp:Parameter Name="RecivedDate" Type="DateTime" />
                                             <asp:Parameter Name="Remark" Type="String" />
                                             <asp:Parameter Name="SampleID" Type="Int32" />
+                                            <asp:Parameter Name="ProjectStr" Type="String" />
+
                                         </UpdateParameters>
 
                                     </asp:SqlDataSource>
