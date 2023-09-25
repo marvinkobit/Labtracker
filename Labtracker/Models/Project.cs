@@ -27,6 +27,9 @@ namespace Labtracker.Models
         [Display(Name = "ProjectStatus")]
         public string Project_Status { get; set; }
 
+        [Display(Name = "ProjectStr")]
+        public string ProjectStr { get; set; }
+
         public virtual ICollection<Sample> Samples { get; set; }
     }
 }

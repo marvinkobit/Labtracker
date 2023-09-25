@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Labtracker
 {
@@ -30,6 +32,8 @@ namespace Labtracker
         public int SitesNum=0;
         public string SequencedNum;
 
+        public string SelectedProject="x";
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +49,13 @@ namespace Labtracker
             {
                 /* Sample s = new Sample();
                  lblTotalSample.Text=s.SampleID.ToString();*/
+                //selectedProjectCookkie
+                string myusername = User.Identity.GetUserName();
+                if (Request.Cookies[myusername] != null)
+                {
+                    SelectedProject = Request.Cookies[myusername].Value;
+                }
+
 
                 using (SampleContext _db = new SampleContext())
                 {
@@ -68,7 +79,7 @@ namespace Labtracker
                 {
                     conn.Open();
 
-                    string sqlsite_PIDs = "SELECT SitePatientId FROM Sites";
+                    string sqlsite_PIDs = String.Format("SELECT SitePatientId FROM Sites Where ProjectStr='{0}'", SelectedProject);
                     using (SqlCommand cmd = new SqlCommand(sqlsite_PIDs, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -85,7 +96,7 @@ namespace Labtracker
 
                     }
 
-                    string sqlsite_Name = "SELECT HealthFacility FROM Sites";
+                    string sqlsite_Name = String.Format("SELECT HealthFacility FROM Sites Where ProjectStr ='{0}'", SelectedProject);
                     using (SqlCommand cmd = new SqlCommand(sqlsite_Name, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -101,7 +112,7 @@ namespace Labtracker
 
                     }
 
-                    string sqlsite_latit = "SELECT LocationLatitude FROM Sites";
+                    string sqlsite_latit = String.Format("SELECT LocationLatitude FROM Sites Where ProjectStr='{0}'", SelectedProject);
                     using (SqlCommand cmd = new SqlCommand(sqlsite_latit, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())

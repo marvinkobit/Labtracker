@@ -55,6 +55,12 @@ namespace Labtracker
                 bool addSuccess = false;
                 string action = "login";
                 addSuccess = addAccessLog.AddAccessLog(user.Id,browser,visitorIP, mobile, useragent ,action);
+
+                //selected project cookie
+                HttpCookie projcookie = new HttpCookie(user.UserName);
+                projcookie.Value = ddlProject.SelectedValue.ToString();
+                Response.SetCookie(projcookie);
+
                 Response.Redirect("~/dashboard.aspx");
             }
             else
