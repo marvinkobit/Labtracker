@@ -241,6 +241,7 @@
     <Content Include="Admin\addproject.aspx" />
     <Content Include="Admin\adminpage.aspx" />
     <Content Include="Admin\manageproject.aspx" />
+    <Content Include="Admin\manageuser.aspx" />
     <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -2269,6 +2270,13 @@
     </Compile>
     <Compile Include="Admin\manageproject.aspx.designer.cs">
       <DependentUpon>manageproject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\manageuser.aspx.cs">
+      <DependentUpon>manageuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\manageuser.aspx.designer.cs">
+      <DependentUpon>manageuser.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

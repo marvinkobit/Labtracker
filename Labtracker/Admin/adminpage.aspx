@@ -492,8 +492,12 @@
                                     <asp:GridView ID="gvUsers" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" AutoPostBack="true"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
 
                                         <Columns>
-                                            <asp:CommandField ShowSelectButton="True" />
-                             
+                                          
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnManage_User" runat="server" Text="Manage" OnClick="btnManage_User" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                             
                                             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                                             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />

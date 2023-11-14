@@ -50,6 +50,16 @@ namespace Labtracker.Admin
                 }
             }
         }
+
+        protected void btnManage_User(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            string userID = gvUsers.DataKeys[row.RowIndex].Value.ToString();
+            Response.Redirect($"/Admin/manageuser.aspx?userID={userID}");
+
+
+        }
         protected void btnManage_Project(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
