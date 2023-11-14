@@ -11,9 +11,18 @@ namespace Labtracker
 {
     public partial class SiteMaster : MasterPage
     {
+        public string SelectedProject = "x";
         protected void Page_Load(object sender, EventArgs e)
         {
-            UsernameText.Text = HttpContext.Current.User.Identity.GetUserName();
+            string myusername = HttpContext.Current.User.Identity.GetUserName();
+            UsernameText.Text = myusername;
+
+            if (Request.Cookies[myusername] != null)
+            {
+                SelectedProject = Request.Cookies[myusername].Value;
+            }
+            lblProjectStr.Text = SelectedProject;
+
         }
         protected void SignOut(object sender, EventArgs e)
         {

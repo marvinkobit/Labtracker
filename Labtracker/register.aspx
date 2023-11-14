@@ -69,8 +69,19 @@ head>
                         <asp:ListItem Selected="True">LabUser</asp:ListItem>
                         <asp:ListItem>Admin</asp:ListItem>
                         <asp:ListItem>Reviewer</asp:ListItem>
-                        </asp:DropDownList>
+                     </asp:DropDownList>
                   </div>
+
+                       <div class="col-sm-6 mb-3 mb-sm-0">
+                        Project:
+                    <asp:DropDownList ID="ddlProjectStr" DataSourceID="SqlDataSourceProjectStr" class="form-control" ToolTip="Projects" DataTextField="ProjectStr" runat="server">
+                      
+                     </asp:DropDownList>
+                           <asp:SqlDataSource ID="SqlDataSourceProjectStr" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>" 
+                      SelectCommand="SELECT DISTINCT ProjectStr FROM Projects"></asp:SqlDataSource>
+                          <br>
+                  </div>
+                      </br>
                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn  btn-primary btn-user btn-block" />
                 <%--<a href="login.aspx" class="btn btn-primary btn-user btn-block">
                    

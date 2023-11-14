@@ -56,7 +56,7 @@ namespace Labtracker
                     SelectedProject = Request.Cookies[myusername].Value;
                 }
 
-
+                
                 using (SampleContext _db = new SampleContext())
                 {
                     lblTotalSample.Text = _db.Samples.Count().ToString();
@@ -630,7 +630,9 @@ namespace Labtracker
             else
             {
                 //lblTotalSample.Text = Session["totalcount"].ToString();
-                try { lblTotalSample.Text = Session["Tsample"].ToString(); } catch { }
+                try {
+                    //lblTotalSample.Text = Session["Tsample"].ToString();                     
+                      } catch { }
                 
 
             }

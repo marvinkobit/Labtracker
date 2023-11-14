@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Linq;
 using System.Web;
+using System.Security.Claims;
 
 namespace Labtracker
 {
@@ -24,13 +25,14 @@ namespace Labtracker
 
             //var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             //var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+
             var user = new IdentityUser() { UserName = UserName.Text, Email = UserName.Text };
             IdentityResult result = manager.Create(user, Password.Text);
             
             if (result.Succeeded)
             {
 
-                String srole = ddlRole.SelectedValue;
+                string srole = ddlRole.SelectedValue;
                 switch (srole)
                 {
                     case "Admin":
@@ -44,9 +46,12 @@ namespace Labtracker
                         manager.AddToRole(user.Id, "Reviewer");
                        
                         break;
-
                 }
-                
+
+                string projectclaimed = ddlProjectStr.SelectedItem.ToString();
+                var claim = new Claim("Project", projectclaimed);
+                manager.AddClaim(user.Id , claim);
+
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
@@ -66,6 +71,9 @@ namespace Labtracker
             {
                 StatusMessage.Text = string.Format("Error in creating a User. \n {0}",result.Errors.FirstOrDefault());
             }
+
         }
+
+
     }
 }

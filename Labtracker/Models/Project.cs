@@ -19,10 +19,10 @@ namespace Labtracker.Models
         public string Proj_Desc { get; set; }
 
         [Display(Name = "StartDate")]
-        public DateTime Proj_Start_Date { get; set; }
+        public Nullable<DateTime> Proj_Start_Date { get; set; }
 
         [Display(Name = "EndDate")]
-        public DateTime Proj_End_Date { get; set; }
+        public Nullable<DateTime> Proj_End_Date { get; set; }
 
         [Display(Name = "ProjectStatus")]
         public string Project_Status { get; set; }

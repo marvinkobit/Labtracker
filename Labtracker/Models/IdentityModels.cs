@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Labtracker.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Labtracker.Models
 {
@@ -26,7 +27,7 @@ namespace Labtracker.Models
             return Task.FromResult(GenerateUserIdentity(manager));
         }
     }
-
+   
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -39,6 +40,9 @@ namespace Labtracker.Models
             return new ApplicationDbContext();
         }
     }
+
+    
+
 }
 
 #region Helpers

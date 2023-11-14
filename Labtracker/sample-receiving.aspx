@@ -287,7 +287,7 @@
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                                 <asp:Literal runat="server" ID="UsernameText" />
                                                 <br>
-                                                 <asp:Literal runat="server" ID="Literal1" Text="Test"/>
+                                                 <asp:Literal runat="server" ID="lblProjectStr" Text="Project"/>
                                             </span>
                                            
                                             <img class="img-profile rounded-circle" src="Images/user-profile.png" />

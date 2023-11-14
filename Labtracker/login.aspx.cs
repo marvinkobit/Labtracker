@@ -36,32 +36,52 @@ namespace Labtracker
             var user = userManager.Find(UserName.Text, Password.Text);
 
             if (user != null)
-            {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = true }, userIdentity);
+            {          
+                //project access claim check
+                var claims = userManager.GetClaims(user.Id);
+                string projectRequested = ddlProject.SelectedValue.ToString();
 
-                //activity log
-                var browser = (HttpContext.Current.Request.UserAgent.ToString().Contains("Chrome")) ? "Chrome" : HttpContext.Current.Request.Browser.Browser.ToString();
-                browser = ((browser == "Chrome") || ( browser == "AppleMAC-Safari" )) ? browser : browser + "-" + HttpContext.Current.Request.Browser.Version.ToString();
-                var useragent = HttpContext.Current.Request.UserAgent.ToString();
-                var visitorIP = HttpContext.Current.Request.UserHostAddress.ToString();
-                var mobile = "false";
-                if (HttpContext.Current.Request.Browser.IsMobileDevice)
+                if (claims.Any(c => c.Type == "Project" && c.Value == projectRequested))
                 {
-                    mobile = HttpContext.Current.Request.Browser.MobileDeviceManufacturer + "-" + HttpContext.Current.Request.Browser.MobileDeviceModel;
+                    // The user has the claim
+
+                    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                    var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+
+                    authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() { IsPersistent = true }, userIdentity);
+
+
+                    //activity log
+                    var browser = (HttpContext.Current.Request.UserAgent.ToString().Contains("Chrome")) ? "Chrome" : HttpContext.Current.Request.Browser.Browser.ToString();
+                    browser = ((browser == "Chrome") || (browser == "AppleMAC-Safari")) ? browser : browser + "-" + HttpContext.Current.Request.Browser.Version.ToString();
+                    var useragent = HttpContext.Current.Request.UserAgent.ToString();
+                    var visitorIP = HttpContext.Current.Request.UserHostAddress.ToString();
+                    var mobile = "false";
+                    if (HttpContext.Current.Request.Browser.IsMobileDevice)
+                    {
+                        mobile = HttpContext.Current.Request.Browser.MobileDeviceManufacturer + "-" + HttpContext.Current.Request.Browser.MobileDeviceModel;
+                    }
+                    AddAccessLogs addAccessLog = new AddAccessLogs();
+                    bool addSuccess = false;
+                    string action = "login";
+                    addSuccess = addAccessLog.AddAccessLog(user.Id, browser, visitorIP, mobile, useragent, action);
+
+                    //selected project cookie
+                    HttpCookie projcookie = new HttpCookie(user.UserName);
+                    projcookie.Value = ddlProject.SelectedValue.ToString();
+                    Response.SetCookie(projcookie);
+
+                    Response.Redirect("~/dashboard.aspx");
                 }
-                AddAccessLogs addAccessLog = new AddAccessLogs();
-                bool addSuccess = false;
-                string action = "login";
-                addSuccess = addAccessLog.AddAccessLog(user.Id,browser,visitorIP, mobile, useragent ,action);
+                else
+                {
+                    // The user does not have the claim
 
-                //selected project cookie
-                HttpCookie projcookie = new HttpCookie(user.UserName);
-                projcookie.Value = ddlProject.SelectedValue.ToString();
-                Response.SetCookie(projcookie);
-
-                Response.Redirect("~/dashboard.aspx");
+                    StatusText.Text = "Access to Project Denied";
+                   
+                }
+              
             }
             else
             {

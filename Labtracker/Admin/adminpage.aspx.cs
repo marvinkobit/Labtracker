@@ -50,6 +50,16 @@ namespace Labtracker.Admin
                 }
             }
         }
+        protected void btnManage_Project(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int projectID = Convert.ToInt32(gvProjects.DataKeys[row.RowIndex].Value);
+            Response.Redirect($"/Admin/manageproject.aspx?projectID={projectID}");
+
+
+        }
+
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

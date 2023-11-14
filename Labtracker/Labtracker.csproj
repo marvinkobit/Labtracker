@@ -238,7 +238,9 @@
     <Content Include="addsampledynamic.aspx" />
     <Content Include="addsequencing.aspx" />
     <Content Include="Admin\activitylog.aspx" />
+    <Content Include="Admin\addproject.aspx" />
     <Content Include="Admin\adminpage.aspx" />
+    <Content Include="Admin\manageproject.aspx" />
     <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -2214,6 +2216,7 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddAccessLogs.cs" />
+    <Compile Include="AddProjects.cs" />
     <Compile Include="addsample.aspx.cs">
       <DependentUpon>addsample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2246,12 +2249,26 @@
     <Compile Include="Admin\activitylog.aspx.designer.cs">
       <DependentUpon>activitylog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\addproject.aspx.cs">
+      <DependentUpon>addproject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addproject.aspx.designer.cs">
+      <DependentUpon>addproject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\adminpage.aspx.cs">
       <DependentUpon>adminpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\adminpage.aspx.designer.cs">
       <DependentUpon>adminpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\manageproject.aspx.cs">
+      <DependentUpon>manageproject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\manageproject.aspx.designer.cs">
+      <DependentUpon>manageproject.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

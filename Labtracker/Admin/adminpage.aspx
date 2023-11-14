@@ -471,8 +471,8 @@
                             <h1 class="h3 mb-0 text-gray-800">Admin Panel</h1>
                             <a href="../register.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i>Register User</a>
-                            <%-- <a href="ProgressExcel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
-                <i class="fas fa-download fa-sm text-white-50"></i> Upload from file</a>--%>
+                             <a href="/Admin/addproject.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                <i class="fas fa-download fa-sm text-white-50"></i>Add Project</a>
                             <a href="../registerSite.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i>Register Site</a>
                         </div>
@@ -531,6 +531,64 @@ ON UR.RoleId = R.Id">
                         </div>
 
 
+                          <!-- ../Content Row -->
+                         <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="card shadow mb-4 table-responsive">
+                                    <p>Projects:
+                                        <asp:Label runat="server" ID="Label1" Text=""></asp:Label>
+                                    </p>
+
+                                    <asp:GridView ID="gvProjects" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="ProjectID" DataSourceID="SqlDataSourceProjects" AllowPaging="True" AllowSorting="True" AutoPostBack="true"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
+
+                                        <Columns>
+                                            
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnManage_Project" runat="server" Text="Manage" OnClick="btnManage_Project" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            
+                                            <asp:BoundField DataField="Project_Name" HeaderText="Name" SortExpression="Project_Name" />
+                                            <asp:BoundField DataField="ProjectStr" HeaderText="Unique Identifier String" SortExpression="ProjectStr" />
+                                             <asp:BoundField DataField="Proj_Desc" HeaderText="Proj_Desc" SortExpression="Proj_Desc" />
+                                             <asp:BoundField DataField="Proj_Start_Date" HeaderText="Proj_Start_Date" SortExpression="Proj_Start_Date" />
+                                            <asp:BoundField DataField="Proj_End_Date" HeaderText="Proj_End_Date" SortExpression="Proj_End_Date" />
+                                            <asp:BoundField DataField="Project_Status" HeaderText="Project_Status" SortExpression="Project_Status" />
+                                           
+
+                                        </Columns>
+                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <EditRowStyle BackColor="#999999" />
+                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                    </asp:GridView>
+
+                                    <asp:SqlDataSource ID="SqlDataSourceProjects" runat="server" ConnectionString="<%$ ConnectionStrings:Labtracker %>"
+                                        SelectCommand="SELECT [ProjectID]
+      ,[Project_Name]
+      ,[Proj_Desc]
+      ,[Proj_Start_Date]
+      ,[Proj_End_Date]
+      ,[Project_Status]
+      ,[ProjectStr]
+  FROM [Projects]">                                       
+                                    </asp:SqlDataSource>
+
+                                </div>
+                            </div>
+                        </div>
+
+
                         <!-- Sites Content Row -->
 
                         <div class="row">
@@ -544,7 +602,7 @@ ON UR.RoleId = R.Id">
                                     </p>
                                     <asp:GridView ID="gvSite" runat="server" Style="font-size: 12px" Width="100%" CellPadding="3" AutoGenerateColumns="False" AutoGenerateEditButton="true" DataKeyNames="SiteId" DataSourceID="SqlDataSource3" AutoPostBack="true" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CssClass="table table-bordered table-condensed">
                                         <Columns>
-                                            <asp:CommandField ShowSelectButton="True" />
+                                            
                                             <%-- <asp:BoundField DataField="SampleID" HeaderText="SampleID" InsertVisible="False" ReadOnly="True" SortExpression="SampleID" />--%>
                                             <asp:BoundField DataField="HealthFacility" HeaderText="HealthFacility" SortExpression="HealthFacility" />
                                             <asp:BoundField DataField="SitePatientId" HeaderText="SitePatientId" SortExpression="SitePatientId" />

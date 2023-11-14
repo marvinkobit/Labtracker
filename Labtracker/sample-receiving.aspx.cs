@@ -34,6 +34,7 @@ namespace Labtracker
             SqlDataSource1.SelectParameters["ProjectStr"].DefaultValue = SelectedProject;
             SqlDataSource1.UpdateParameters["ProjectStr"].DefaultValue = SelectedProject;
 
+            lblProjectStr.Text = SelectedProject;
             UsernameText.Text = User.Identity.GetUserName();
             if (!User.Identity.IsAuthenticated)
             {

@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Labtracker
+namespace Labtracker.Admin
 {
 
 
-    public partial class regster
+    public partial class manageproject
     {
+
+        /// <summary>
+        /// txtProjectSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtProjectSelected;
 
         /// <summary>
         /// StatusMessage control.
@@ -24,57 +33,75 @@ namespace Labtracker
         protected global::System.Web.UI.WebControls.Literal StatusMessage;
 
         /// <summary>
-        /// UserName control.
+        /// txtProjectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectName;
 
         /// <summary>
-        /// Password control.
+        /// txtProjectStr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectStr;
 
         /// <summary>
-        /// Password2 control.
+        /// txtProjectDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password2;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectDesc;
 
         /// <summary>
-        /// ddlRole control.
+        /// dtStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
+        protected global::System.Web.UI.WebControls.TextBox dtStartDate;
 
         /// <summary>
-        /// ddlProjectStr control.
+        /// dtEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProjectStr;
+        protected global::System.Web.UI.WebControls.TextBox dtEndDate;
 
         /// <summary>
-        /// SqlDataSourceProjectStr control.
+        /// lblUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProjectStr;
+        protected global::System.Web.UI.WebControls.Label lblUsers;
+
+        /// <summary>
+        /// gvProjectUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvProjectUsers;
+
+        /// <summary>
+        /// SqlDataSourceP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceP;
     }
 }

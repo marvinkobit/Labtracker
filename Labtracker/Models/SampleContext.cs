@@ -32,5 +32,6 @@ namespace Labtracker.Models
 
         public DbSet<AccessLog> AccessLogs { get; set; }
 
+        
     }
 }
